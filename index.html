@@ -19,7 +19,7 @@
     <nav class="nav shell">
       <a class="brand" href="#top"><img src="assets/logo.webp" alt="QUQN"><span>QUQN</span></a>
       <div class="navlinks">
-        <a href="#story" data-t="navStory">Story</a><a href="#fair" data-t="navFair">Fair Mint</a><a href="#hatch" data-t="navMint">How to Mint</a><a href="#ranks" data-t="navRanks">The Coop</a><a href="#gallery" data-t="navGallery">Gallery</a><a href="#faq">FAQ</a>
+        <a href="#story" data-t="navStory">Story</a><a href="#fair" data-t="navFair">Fair Mint</a><a href="#start" data-t="navStart">Start Here</a><a href="#hatch" data-t="navMint">How to Mint</a><a href="#ranks" data-t="navRanks">The Coop</a><a href="#gallery" data-t="navGallery">Gallery</a><a href="#faq">FAQ</a>
       </div>
       <div class="navtools"><button id="lang" class="chip">FR</button><a id="topUniscan" class="btn gold small" target="_blank" rel="noopener">View on UniScan ↗</a></div>
     </nav>
@@ -33,7 +33,7 @@
           <div class="eyebrow">🐓 BRC-20 · BITCOIN MAINNET · FAIR MINT</div>
           <h1 id="heroTitle">SMALL COQ.<br><em>BIG DREAMS.</em></h1>
           <p id="heroSubtitle" class="hero-subtitle"></p>
-          <div class="hero-actions"><a id="heroMint" class="btn gold" target="_blank" rel="noopener">🐣 Hatch QUQN</a><a href="#story" class="btn outline" data-t="meet">Meet QUQN</a></div>
+          <div class="hero-actions"><a href="#start" class="btn gold" data-t="newHere">👋 I’m new — guide me</a><a id="heroMint" class="btn outline" target="_blank" rel="noopener" data-t="knowCrypto">I know crypto — open QUQN ↗</a></div><a href="#story" class="hero-story-link" data-t="meet">Meet QUQN ↓</a>
           <p class="hero-warning" data-t="heroRisk">Experimental meme token. No promise of profit, value or liquidity.</p>
         </div>
         <aside class="stats-card glass">
@@ -54,6 +54,55 @@
       </div>
     </section>
 
+
+    <section id="start" class="section beginner">
+      <div class="shell">
+        <div class="beginner-intro">
+          <div>
+            <span class="kicker dark" data-t="startKicker">NEW TO CRYPTO?</span>
+            <h2 data-t="startTitle">Start here. Six small steps.</h2>
+            <p id="beginnerLead" class="beginner-lead"></p>
+          </div>
+          <blockquote class="coq-tip"><b>“</b><p id="beginnerQuote"></p><footer>— QUQN</footer></blockquote>
+        </div>
+
+        <div class="path-choice">
+          <article class="path-card new-path">
+            <span>01</span><div><h3 data-t="pathNewTitle">I have never done this before</h3><p data-t="pathNewBody">Perfect. Stay on this page and follow the guide from top to bottom.</p></div><a href="#beginnerSteps" class="btn dark" data-t="pathNewBtn">Show me how ↓</a>
+          </article>
+          <article class="path-card crypto-path">
+            <span>⚡</span><div><h3 data-t="pathProTitle">I already use Bitcoin / BRC-20</h3><p data-t="pathProBody">Skip the tutorial and verify the exact QUQN ticker before minting.</p></div><a id="proUniscan" class="btn outline-dark" target="_blank" rel="noopener" data-t="pathProBtn">Open QUQN on UniScan ↗</a>
+          </article>
+        </div>
+
+        <div id="beginnerSteps" class="beginner-steps">
+          <article class="beginner-step"><div class="step-num">1</div><div><small data-t="b1Label">GET A WALLET</small><h3 data-t="b1Title">Install an official compatible Bitcoin wallet</h3><p data-t="b1Body">UniSat Wallet is one option. Download it only from the official UniSat website. You can also use another wallet supported by the minting service.</p><a id="walletDownload" class="mini-link" target="_blank" rel="noopener" data-t="walletDownload">Official UniSat Wallet download ↗</a></div></article>
+          <article class="beginner-step security-step"><div class="step-num">2</div><div><small data-t="b2Label">PROTECT THE KEYS</small><h3 data-t="b2Title">Create the wallet and secure the recovery phrase</h3><p data-t="b2Body">Your recovery phrase controls the wallet. Write it down offline. Never send it to QUQN, UniSat support, a friend, a website or anyone in a private message.</p><div class="danger-line" data-t="seedWarning">⚠ Never screenshot, photograph, email or cloud-save your recovery phrase.</div></div></article>
+          <article class="beginner-step"><div class="step-num">3</div><div><small data-t="b3Label">ADD BTC FOR FEES</small><h3 data-t="b3Title">Put a small amount of BTC in your wallet</h3><p data-t="b3Body">Minting uses the Bitcoin network and a third-party inscription service, so fees apply. These fees do not go to QUQN. Check the total shown before confirming anything.</p></div></article>
+          <article class="beginner-step verify-step"><div class="step-num">4</div><div><small data-t="b4Label">VERIFY BEFORE YOU CLICK</small><h3 data-t="b4Title">Open the exact QUQN page on UniScan</h3><p data-t="b4Body">Do not trust a ticker sent in a random DM. Use the official link from this site and check the public token facts below.</p><div class="token-fingerprint"><span><small>TICKER</small><strong>QUQN</strong></span><span><small>NETWORK</small><strong>Bitcoin</strong></span><span><small>MAX</small><strong>21,000,000</strong></span><span><small>PER MINT</small><strong>1,000</strong></span><span><small>INSCRIPTION #</small><strong>127329518</strong></span></div><a id="beginnerUniscan" class="mini-link" target="_blank" rel="noopener" data-t="openExact">Open exact QUQN page ↗</a></div></article>
+          <article class="beginner-step"><div class="step-num">5</div><div><small data-t="b5Label">HATCH QUQN</small><h3 data-t="b5Title">Choose how many mints you want</h3><p data-t="b5Body">On the mint screen, verify “4-byte”, ticker QUQN and 1,000 QUQN per mint. UniSat can batch several mints. Review the receiving address and all fees before submitting.</p><div class="mint-calc"><label for="mintCount" data-t="calcLabel">Number of mints</label><input id="mintCount" type="number" min="1" max="21000" value="1" inputmode="numeric"><div><span data-t="calcGets">That corresponds to</span><strong id="mintCalcResult">1,000 QUQN</strong></div></div><a id="officialMintGuide" class="mini-link" target="_blank" rel="noopener" data-t="officialGuide">Read UniSat’s official mint guide ↗</a></div></article>
+          <article class="beginner-step"><div class="step-num">6</div><div><small data-t="b6Label">WAIT & CHECK</small><h3 data-t="b6Title">Wait for Bitcoin confirmation, then check your wallet</h3><p data-t="b6Body">Bitcoin transactions are not instant. Once the inscription is confirmed, check your wallet or a public explorer. Never pay somebody in a private message to “unlock” or “release” your QUQN.</p></div></article>
+        </div>
+
+        <div class="beginner-safety">
+          <div><span class="safety-icon">🔐</span><div><small data-t="safetyKicker">THE ONE RULE TO REMEMBER</small><h3 data-t="safetyTitle">Your recovery phrase is never needed to mint QUQN.</h3><p data-t="safetyBody">If anyone asks for it, stop. This website never connects a wallet and has no support agent who needs your seed phrase.</p></div></div>
+          <a id="walletGuide" class="btn dark" target="_blank" rel="noopener" data-t="walletGuide">Official wallet safety guide ↗</a>
+        </div>
+
+        <div class="glossary">
+          <div class="section-head"><span class="kicker dark" data-t="glossKicker">MINI GLOSSARY</span><h2 data-t="glossTitle">The words QUQN pretends to understand.</h2></div>
+          <div class="glossary-grid">
+            <details><summary data-t="gWallet">Wallet</summary><p data-t="gWalletBody">An app or extension that lets you control a Bitcoin address and sign transactions.</p></details>
+            <details><summary data-t="gSeed">Recovery phrase</summary><p data-t="gSeedBody">The secret words that can restore and control your wallet. Whoever has them can take the assets.</p></details>
+            <details><summary data-t="gMint">Mint</summary><p data-t="gMintBody">For QUQN, creating your allocation according to the public BRC-20 mint rules. One QUQN mint creates 1,000 QUQN.</p></details>
+            <details><summary data-t="gBrc">BRC-20</summary><p data-t="gBrcBody">A token standard built using inscriptions and indexing on Bitcoin. QUQN is a 4-character BRC-20 ticker.</p></details>
+            <details><summary data-t="gBatch">Batch mint</summary><p data-t="gBatchBody">Several mint inscriptions submitted in one order. Example: 10 mints correspond to 10,000 QUQN.</p></details>
+            <details><summary data-t="gFee">Network / service fees</summary><p data-t="gFeeBody">Costs paid to use Bitcoin and/or the independent inscription service. They vary and are not received by QUQN.</p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="story" class="section black">
       <div class="shell split">
         <div class="copy"><span class="kicker" data-t="storyKicker">MEET QUQN</span><h2 data-t="storyTitle">He started small.<br>His ego did not.</h2><p id="storyLead" class="lead"></p><p id="storyBody"></p><blockquote><b>“</b><p id="voiceQuote"></p><footer data-t="voiceNote">— QUQN, in aggressively French English, seconds before doing something he barely understands.</footer></blockquote></div>
@@ -64,7 +113,7 @@
     <section class="ticker"><div>21,000,000 DREAMS ✦ BORN ON BITCOIN ✦ STRONG FRENCH ACCENT ✦ SMALL WALLET, MASSIVE CONFIDENCE ✦ ROOSTERS CAN'T FLY. QUQN DOESN'T CARE. ✦</div></section>
 
     <section id="hatch" class="section champagne">
-      <div class="shell"><div class="section-head center"><span class="kicker dark" data-t="mintKicker">HOW TO HATCH</span><h2 data-t="mintTitle">Three steps. No money comes to us.</h2><p data-t="mintIntro">Minting takes place through independent Bitcoin/Ordinals infrastructure. This website never connects to your wallet, takes custody, processes payment or receives mint fees.</p></div>
+      <div class="shell"><div class="section-head center"><span class="kicker dark" data-t="mintKicker">QUICK RECAP</span><h2 data-t="mintTitle">Already set up? Three checks before minting.</h2><p data-t="mintIntro">For experienced users: verify your wallet, verify the exact QUQN ticker, then review the inscription amount and fees before you submit.</p></div>
         <div class="steps"><article><b>01</b><h3 data-t="step1">Use a compatible Bitcoin wallet</h3><p data-t="step1b">Choose a wallet that supports Ordinals/BRC-20 and keep enough BTC for network and third-party fees.</p></article><article><b>02</b><h3 data-t="step2">Verify QUQN</h3><p data-t="step2b">Open the exact QUQN ticker on UniScan. Check max supply, mint limit, progress and inscription details.</p></article><article><b>03</b><h3 data-t="step3">Mint only if you choose</h3><p data-t="step3b">The deployed limit is 1,000 QUQN per mint. Fees vary with Bitcoin conditions and the service you use.</p></article></div>
         <div class="cta-pair"><a id="uniscanCta" class="btn dark" target="_blank" rel="noopener">Open QUQN on UniScan ↗</a><a id="unisatCta" class="btn outline-dark" target="_blank" rel="noopener">Open UniSat BRC-20 mint ↗</a></div>
       </div>

@@ -1,9 +1,17 @@
-# QUQN website — v2
+# QUQN website — v3
 
 Static, bilingual, GitHub-Pages-ready site for **QUQN — Small Coq. Big Dreams.**
 
-## What changed in v2
+## What changed in v3
 
+
+- Added a complete **New to crypto? Start here** onboarding path for friends/contacts who have never used Bitcoin, wallets or BRC-20.
+- Beginner guide covers: official wallet install, recovery-phrase security, adding BTC for fees, verifying the exact QUQN ticker, batch minting, confirmation and checking holdings.
+- Added a live mini-calculator: number of mints × 1,000 QUQN.
+- Added an anti-scam token fingerprint and a prominent recovery-phrase warning.
+- Added a mini glossary for Wallet / Recovery phrase / Mint / BRC-20 / Batch mint / Fees.
+- Hero now offers two routes: **I’m new — guide me** or **I know crypto — open QUQN**.
+- Manager can edit the beginner-guide introduction and QUQN’s beginner quote.
 - QUQN name used consistently everywhere.
 - Fair-mint facts are now central to the homepage: **no presale, no ICO, no fundraising, no creator mint fee, no personal data in exchange for tokens, no promised listing**.
 - The legal page now explains the relevance of MiCA Article 4(3)(a) and Article 4(4) without claiming a guaranteed exemption.
@@ -128,3 +136,14 @@ Recommended next steps:
 4. Test every external mint/verification link on mobile.
 5. Keep the factual fair-mint statements accurate over time.
 6. If you later add creator fees, paid allocations, rewards, NFTs, a requested exchange listing, wallet collection or personal-data collection, pause and reassess the legal/technical setup first.
+
+
+## Beginner guide sources / assumptions
+
+The beginner workflow is based on UniSat's official current documentation. UniSat notes that its UI may change, so the site deliberately tells users to follow the on-screen interface and verify the exact ticker/amount before submitting. Official links are configured in `assets/config.json`:
+
+- Wallet download: `https://unisat.io/download`
+- Wallet setup: `https://docs.unisat.io/products/unisat-wallet/how-to-create-unisat-wallet`
+- BRC-20 inscription guide: `https://docs.unisat.io/products/unisat-inscribe/how-to-inscribe-on-unisat`
+
+The public QUQN website itself never asks for a recovery phrase, connects a wallet, receives a mint payment or handles BTC.
