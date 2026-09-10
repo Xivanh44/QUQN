@@ -1,0 +1,80 @@
+{
+  "version": "2.0",
+  "ticker": "QUQN",
+  "network": "Bitcoin mainnet",
+  "protocol": "BRC-20",
+  "maxSupply": 21000000,
+  "mintLimit": 1000,
+  "fallbackMinted": 90000,
+  "fallbackHolders": 1,
+  "fallbackTransactions": 91,
+  "deployment": "2026-09-07 17:37:46",
+  "inscriptionNumber": 127329518,
+  "uniscanUrl": "https://uniscan.cc/brc20/QUQN",
+  "unisatMintUrl": "https://unisat.io/inscribe/brc20",
+  "apiBase": "",
+  "autoSync": true,
+  "announcement": {
+    "en": "🐣 QUQN is live: fair mint on Bitcoin. No presale. No ICO. No fundraising.",
+    "fr": "🐣 QUQN est lancé : fair mint sur Bitcoin. Pas de prévente, pas d’ICO, pas de levée de fonds."
+  },
+  "social": {
+    "x": "",
+    "telegram": ""
+  },
+  "heroImage": "assets/hero.webp",
+  "homeCopy": {
+    "en": {
+      "heroTitle": "SMALL COQ. BIG DREAMS.",
+      "heroSubtitle": "Meet QUQN — the tiny French coq who represents every crypto dreamer with a small wallet and completely unreasonable ambition.",
+      "storyLead": "QUQN was born small. His dreams were not.",
+      "storyBody": "He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn. He speaks English with a very strong French accent, often jumps into things before understanding them, and gets a suspiciously deep voice whenever he starts imagining himself as a billionaire.",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably."
+    },
+    "fr": {
+      "heroTitle": "PETIT COQ. GRANDS RÊVES.",
+      "heroSubtitle": "Voici QUQN — le petit coq français qui représente tous les rêveurs crypto au petit portefeuille et aux ambitions totalement déraisonnables.",
+      "storyLead": "QUQN est né petit. Pas ses rêves.",
+      "storyBody": "Il regarde les baleines, les tokens de célébrités et les memecoins devenus légendaires depuis le bord de la ferme et se pose une seule question : « Pourquoi pas moi ? » QUQN est trop sûr de lui, impulsif, maladroit mais attachant, et persuadé qu’un jour le petit investisseur aura son tour. Il parle anglais avec un très fort accent français, fonce parfois avant d’avoir compris, et prend soudain une voix grave dès qu’il s’imagine milliardaire.",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably."
+    }
+  },
+  "ranks": [
+    {"threshold":1000,"name":"Hatchling","tag":"The first crack in the shell.","image":"assets/gallery/piece-dor-royale-au-coq-quqn.webp"},
+    {"threshold":10000,"name":"Dreamer","tag":"Small wallet. Large imagination.","image":"assets/gallery/le-coq-reveur-sous-la-lune-doree.webp"},
+    {"threshold":50000,"name":"Golden Coq","tag":"He has started spending imaginary profits.","image":"assets/gallery/le-roi-coq-des-pieces-d-or.webp"},
+    {"threshold":100000,"name":"Boss Coq","tag":"Confidence is now a financial asset.","image":"assets/gallery/le-roi-dore-de-wall-street.webp"},
+    {"threshold":500000,"name":"King Coq","tag":"The farm is getting too small.","image":"assets/gallery/coq-roi-dans-un-royaume-dore.webp"},
+    {"threshold":1000000,"name":"Moon Coq","tag":"Beyond reason. Beyond the farm.","image":"assets/gallery/le-debarquement-lunaire-dore-de-quqn.webp"}
+  ],
+  "gallery": [
+    {"src":"assets/gallery/le-roi-coq-et-la-supercar-doree.webp","title":"Wen Lambo?","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-royal-dore-devale-les-pistes.webp","title":"Sun Valley Millionaire","category":"world","visible":true},
+    {"src":"assets/gallery/coq-quqn-fete-paris-en-or.webp","title":"Paris, obviously","category":"world","visible":true},
+    {"src":"assets/gallery/roi-coq-dore-sur-la-baie-d-halong.webp","title":"King of Hạ Long","category":"history","visible":true},
+    {"src":"assets/gallery/le-roi-poulet-a-angkor-wat.webp","title":"Angkor King Coq","category":"history","visible":true},
+    {"src":"assets/gallery/coq-quqn-roi-de-geneve-riches.webp","title":"Swiss Banker Coq","category":"world","visible":true},
+    {"src":"assets/gallery/le-roi-dore-de-wall-street.webp","title":"Wall Street Coq","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-royal-sur-les-quais-de-nantes.webp","title":"Nantes Royalty","category":"world","visible":true},
+    {"src":"assets/gallery/coq-royal-quqn-a-dubai.webp","title":"Dubai Mode","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-royal-glissant-sur-la-glace-de-noel.webp","title":"Winter Coq","category":"seasons","visible":true},
+    {"src":"assets/gallery/vacances-tropicales-dorees-de-quqn.webp","title":"Summer Coq","category":"seasons","visible":true},
+    {"src":"assets/gallery/coq-royal-a-castle-cornet.webp","title":"Guernsey Coq","category":"world","visible":true},
+    {"src":"assets/gallery/coq-quqn-shogun-a-himeji.webp","title":"Himeji Shogun","category":"history","visible":true},
+    {"src":"assets/gallery/rooster-royal-a-londres-sous-l-or.webp","title":"London Royal Coq","category":"world","visible":true},
+    {"src":"assets/gallery/coq-dore-au-port-de-bristol.webp","title":"Bristol Coq","category":"world","visible":true},
+    {"src":"assets/gallery/le-roi-coq-du-crypto-empire-europeen.webp","title":"Frankfurt Euro Coq","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-quqn-dans-un-automne-dore.webp","title":"Autumn Coq","category":"seasons","visible":true},
+    {"src":"assets/gallery/le-coq-quqn-au-jardin-dore.webp","title":"Spring Coq","category":"seasons","visible":true},
+    {"src":"assets/gallery/poulet-royal-dans-un-yacht-spatial-dore.webp","title":"First Class to Space","category":"future","visible":true},
+    {"src":"assets/gallery/le-debarquement-lunaire-dore-de-quqn.webp","title":"Moon Coq","category":"future","visible":true},
+    {"src":"assets/gallery/coq-royal-en-jet-prive.webp","title":"Private Jet Logic","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-royal-quqn-a-marrakech.webp","title":"Marrakech Coq","category":"world","visible":true},
+    {"src":"assets/gallery/le-roi-coq-d-egypte-doree.webp","title":"Cairo Pharaoh Coq","category":"history","visible":true},
+    {"src":"assets/gallery/coq-royal-quqn-face-au-coucher-de-soleil.webp","title":"Abidjan Sunset","category":"world","visible":true},
+    {"src":"assets/gallery/le-coq-quqn-dans-la-ruee-doree.webp","title":"Gold Rush","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-royal-dans-un-royaume-de-tresors-crypto.webp","title":"Crypto Treasure Kingdom","category":"dreams","visible":true},
+    {"src":"assets/gallery/coq-roi-dans-un-royaume-dore.webp","title":"King of Imaginary Profits","category":"dreams","visible":true},
+    {"src":"assets/gallery/le-coq-dore-quqn-roi-des-reves.webp","title":"Original Dreamer","category":"brand","visible":true}
+  ]
+}
