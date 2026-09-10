@@ -72,15 +72,30 @@ function applyLang(){
   $('#lang').textContent=lang==='en'?'FR':'EN';
   $$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t]; if(v!==undefined) el.innerHTML=v;});
   if(cfg){
-    const c=cfg.homeCopy[lang];
+    const c=(cfg.homeCopy && (cfg.homeCopy[lang] || cfg.homeCopy.en)) || {};
+    const fallback=lang==='fr' ? {
+      heroSubtitle:'Voici QUQN — le petit coq français qui représente tous les rêveurs crypto au petit portefeuille et aux ambitions totalement déraisonnables.',
+      storyLead:'QUQN est né petit. Pas ses rêves.',
+      storyBody:'Il regarde les baleines, les tokens de célébrités et les memecoins devenus légendaires depuis le bord de la ferme et se pose une seule question : « Pourquoi pas moi ? » QUQN est trop sûr de lui, impulsif, maladroit mais attachant, et persuadé qu’un jour le petit investisseur aura son tour. Il parle anglais avec un très fort accent français, fonce parfois avant d’avoir compris, et prend soudain une voix grave dès qu’il s’imagine milliardaire.',
+      voiceQuote:'Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.',
+      beginnerLead:'Vous n’avez jamais utilisé de wallet Bitcoin ? Pas de problème. Suivez tranquillement les étapes ci-dessous. Vous n’envoyez jamais d’argent à QUQN et QUQN ne vous demandera jamais votre phrase de récupération.',
+      beginnerQuote:'Première fois ? Euh… parfait. On va doucement. Même ze coq a réussi.'
+    } : {
+      heroSubtitle:'Meet QUQN — the tiny French coq who represents every crypto dreamer with a small wallet and completely unreasonable ambition.',
+      storyLead:'QUQN was born small. His dreams were not.',
+      storyBody:'He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn. He speaks English with a very strong French accent, often jumps into things before understanding them, and gets a suspiciously deep voice whenever he starts imagining himself as a billionaire.',
+      voiceQuote:'Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.',
+      beginnerLead:'Never used a Bitcoin wallet? No problem. Follow the steps below slowly. You do not send money to QUQN, and QUQN will never ask for your recovery phrase.',
+      beginnerQuote:'First time? Euh… perfect. We go slowly. Even ze coq managed it.'
+    };
     $('#heroTitle').innerHTML=lang==='en'?'SMALL COQ.<br><em>BIG DREAMS.</em>':'PETIT COQ.<br><em>GRANDS RÊVES.</em>';
-    $('#heroSubtitle').textContent=c.heroSubtitle;
-    $('#storyLead').textContent=c.storyLead;
-    $('#storyBody').textContent=c.storyBody;
-    $('#voiceQuote').textContent=c.voiceQuote;
-    $('#beginnerLead').textContent=c.beginnerLead || translations[lang].startTitle;
-    $('#beginnerQuote').textContent=c.beginnerQuote || '';
-    $('#announcement').textContent=cfg.announcement[lang]||cfg.announcement.en;
+    $('#heroSubtitle').textContent=c.heroSubtitle || fallback.heroSubtitle;
+    $('#storyLead').textContent=c.storyLead || fallback.storyLead;
+    $('#storyBody').textContent=c.storyBody || fallback.storyBody;
+    $('#voiceQuote').textContent=c.voiceQuote || fallback.voiceQuote;
+    $('#beginnerLead').textContent=c.beginnerLead || fallback.beginnerLead;
+    $('#beginnerQuote').textContent=c.beginnerQuote || fallback.beginnerQuote;
+    $('#announcement').textContent=(cfg.announcement && (cfg.announcement[lang]||cfg.announcement.en)) || '';
   }
   updateMintCalc(); renderRanks(); renderGallery();
 }
