@@ -21,7 +21,6 @@
       <a class="brand" href="#top"><img src="assets/logo.webp" alt="QUQN"><span>QUQN</span></a>
       <div class="navlinks">
         <a href="#story" data-t="navStory">Story</a>
-        <a href="#season" data-t="navSeason">This season</a>
         <a href="#billionaire" data-t="navGame">Billionaire game</a>
         <a href="#ranks" data-t="navRanks">The Coop</a>
         <button class="nav-guide" type="button" data-open-guide data-t="navGuide">How it works</button>
@@ -46,61 +45,43 @@
     <!-- The hero automatically changes with the Northern Hemisphere season. -->
     <section class="hero v4-hero">
       <div id="seasonHeroImage" class="hero-image"></div><div class="hero-overlay"></div>
-      <div class="shell hero-layout v4-hero-layout">
-        <div class="hero-copy">
-          <div id="seasonPill" class="season-pill">AUTUMN QUQN</div>
+      <div class="shell hero-layout v4-hero-layout attraction-layout">
+        <div class="hero-copy attraction-intro">
           <div class="eyebrow">🐓 BRC-20 · BITCOIN MAINNET · FAIR MINT</div>
           <h1 id="heroTitle">SMALL COQ.<br><em>BIG DREAMS.</em></h1>
-          <p id="heroSubtitle" class="hero-subtitle">Meet QUQN — the tiny French coq who represents every crypto dreamer with a small wallet and completely unreasonable ambition.</p>
+          <p id="heroSubtitle" class="hero-subtitle">Meet QUQN — the tiny French coq with a small wallet, a strong accent and completely unreasonable billionaire ambitions.</p>
           <div class="hero-actions">
             <button class="btn gold" type="button" data-open-guide data-t="howBtn">HOW QUQN WORKS</button>
-            <a id="heroUniscan" class="btn outline" target="_blank" rel="noopener" data-t="viewBtn">VIEW QUQN ON UNISCAN ↗</a>
+            <a id="heroUniscan" class="btn outline" target="_blank" rel="noopener" data-t="viewBtn">VIEW QUQN ↗</a>
           </div>
           <div class="micro-facts"><span>NO PRESALE</span><span>NO ICO</span><span>NO FUNDRAISING</span><span>FAIR MINT</span></div>
-          <p class="hero-warning" data-t="heroRisk">Experimental meme token. No promise of profit, value or liquidity.</p>
         </div>
-      </div>
-    </section>
 
-    <section id="story" class="section black">
-      <div class="shell split">
-        <div class="copy"><span class="kicker" data-t="storyKicker">MEET QUQN</span><h2 data-t="storyTitle">He started small.<br>His ego did not.</h2><p id="storyLead" class="lead">QUQN was born small. His dreams were not.</p><p id="storyBody">He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn.</p><blockquote><b>“</b><p id="voiceQuote">Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.</p><footer data-t="voiceNote">— QUQN, in aggressively French English.</footer></blockquote></div>
-        <figure class="feature-img"><img src="assets/mascot.webp" alt="QUQN mascot"><figcaption data-t="netWorth">Current net worth: <strong>emotionally billionaire.</strong></figcaption></figure>
+        <aside id="billionaire" class="hero-game" aria-label="QUQN billionaire roulette">
+          <div class="hero-game-head">
+            <span class="kicker" data-t="gameKicker">THE COMPLETELY SCIENTIFIC QUQN TEST</span>
+            <h2 data-t="gameTitle">What kind of billionaire will you be?</h2>
+            <p data-t="gameIntro">One click. Zero science. QUQN decides your imaginary billionaire future.</p>
+            <button id="spinFuture" class="btn gold game-button" type="button"><span data-t="gameButton">SPIN MY FUTURE</span> ↻</button>
+          </div>
+          <div id="futureCard" class="future-card hero-future-card" aria-live="polite">
+            <div class="future-stage hero-future-stage">
+              <img id="futureImage" src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN billionaire future">
+              <div id="spinFX" class="spin-fx" aria-hidden="true"><span>🪙</span><span>👑</span><span>🐓</span><span>💰</span></div>
+            </div>
+            <div class="future-result"><small data-t="yourFuture">YOUR QUQN FUTURE</small><h3 id="futureTitle">Wen Lambo?</h3><button id="spinAgain" class="text-button" type="button" data-t="spinAgain">Try another destiny ↻</button></div>
+          </div>
+          <p class="game-disclaimer" data-t="gameDisclaimer">Just a random meme game. Not a prediction, promise or financial advice. Obviously.</p>
+        </aside>
       </div>
     </section>
 
     <section class="ticker"><div>21,000,000 DREAMS ✦ BORN ON BITCOIN ✦ STRONG FRENCH ACCENT ✦ SMALL WALLET, MASSIVE CONFIDENCE ✦ ROOSTERS CAN'T FLY. QUQN DOESN'T CARE. ✦</div></section>
 
-    <!-- Seasonal editorial card -->
-    <section id="season" class="section seasonal-section">
-      <div class="shell seasonal-grid">
-        <div class="seasonal-copy">
-          <span class="kicker dark" data-t="seasonKicker">QUQN THIS SEASON</span>
-          <h2 id="seasonTitle">Autumn Coq.</h2>
-          <p id="seasonText">The leaves are falling. QUQN is calling them unrealised profits.</p>
-          <span id="seasonDates" class="season-dates">SEPTEMBER · OCTOBER · NOVEMBER</span>
-        </div>
-        <figure class="season-frame"><img id="seasonImage" alt="QUQN seasonal edition"><figcaption id="seasonCaption">AUTUMN EDITION</figcaption></figure>
-      </div>
-    </section>
-
-    <!-- Roulette: every visible gallery image can become a result. -->
-    <section id="billionaire" class="section billionaire-game">
-      <div class="shell game-layout">
-        <div class="game-copy">
-          <span class="kicker" data-t="gameKicker">THE COMPLETELY SCIENTIFIC QUQN TEST</span>
-          <h2 data-t="gameTitle">What kind of billionaire will you be?</h2>
-          <p data-t="gameIntro">One click. Zero science. QUQN decides your imaginary billionaire future.</p>
-          <button id="spinFuture" class="btn gold game-button" type="button"><span data-t="gameButton">SPIN MY FUTURE</span> ↻</button>
-          <p class="game-disclaimer" data-t="gameDisclaimer">Just a random meme game. Not a prediction, promise or financial advice. Obviously.</p>
-        </div>
-        <div id="futureCard" class="future-card" aria-live="polite">
-          <div class="future-stage">
-            <img id="futureImage" src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN billionaire future">
-            <div id="spinFX" class="spin-fx" aria-hidden="true"><span>🪙</span><span>👑</span><span>🐓</span><span>💰</span></div>
-          </div>
-          <div class="future-result"><small data-t="yourFuture">YOUR QUQN FUTURE</small><h3 id="futureTitle">Wen Lambo?</h3><button id="spinAgain" class="text-button" type="button" data-t="spinAgain">Try another destiny ↻</button></div>
-        </div>
+    <section id="story" class="section black">
+      <div class="shell split">
+        <div class="copy"><span class="kicker" data-t="storyKicker">OK, NOW MEET QUQN</span><h2 data-t="storyTitle">He started small.<br>His ego did not.</h2><p id="storyLead" class="lead">QUQN was born small. His dreams were not.</p><p id="storyBody">He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn.</p><blockquote><b>“</b><p id="voiceQuote">Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.</p><footer data-t="voiceNote">— QUQN, in aggressively French English.</footer></blockquote></div>
+        <figure class="feature-img"><img src="assets/mascot.webp" alt="QUQN mascot"><figcaption data-t="netWorth">Current net worth: <strong>emotionally billionaire.</strong></figcaption></figure>
       </div>
     </section>
 
