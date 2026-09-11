@@ -45,10 +45,10 @@ const translations = {
 };
 
 const seasons = {
-  spring:{img:'assets/gallery/le-coq-quqn-au-jardin-dore.webp', en:{pill:'SPRING QUQN',title:'Spring Coq.',text:'Flowers are blooming. QUQN assumes this is bullish.',dates:'MARCH · APRIL · MAY',caption:'SPRING EDITION'}, fr:{pill:'QUQN PRINTEMPS',title:'Coq de printemps.',text:'Les fleurs poussent. QUQN en conclut évidemment que c’est bullish.',dates:'MARS · AVRIL · MAI',caption:'ÉDITION PRINTEMPS'}},
-  summer:{img:'assets/gallery/vacances-tropicales-dorees-de-quqn.webp', en:{pill:'SUMMER QUQN',title:'Summer Coq.',text:'Sun, yachts and imaginary profits. QUQN has already booked the villa.',dates:'JUNE · JULY · AUGUST',caption:'SUMMER EDITION'}, fr:{pill:'QUQN ÉTÉ',title:'Coq d’été.',text:'Soleil, yachts et profits imaginaires. QUQN a déjà réservé la villa.',dates:'JUIN · JUILLET · AOÛT',caption:'ÉDITION ÉTÉ'}},
-  autumn:{img:'assets/gallery/coq-quqn-dans-un-automne-dore.webp', en:{pill:'AUTUMN QUQN',title:'Autumn Coq.',text:'The leaves are falling. QUQN is calling them unrealised profits.',dates:'SEPTEMBER · OCTOBER · NOVEMBER',caption:'AUTUMN EDITION'}, fr:{pill:'QUQN AUTOMNE',title:'Coq d’automne.',text:'Les feuilles tombent. QUQN appelle ça des profits non réalisés.',dates:'SEPTEMBRE · OCTOBRE · NOVEMBRE',caption:'ÉDITION AUTOMNE'}},
-  winter:{img:'assets/gallery/coq-royal-glissant-sur-la-glace-de-noel.webp', en:{pill:'WINTER QUQN',title:'Winter Coq.',text:'Cold outside. Confidence still irresponsibly hot.',dates:'DECEMBER · JANUARY · FEBRUARY',caption:'WINTER EDITION'}, fr:{pill:'QUQN HIVER',title:'Coq d’hiver.',text:'Il fait froid dehors. Sa confiance reste irresponsablement brûlante.',dates:'DÉCEMBRE · JANVIER · FÉVRIER',caption:'ÉDITION HIVER'}}
+  spring:{img:'assets/gallery/le-coq-quqn-au-jardin-dore.webp',themeColor:'#1b2013'},
+  summer:{img:'assets/gallery/vacances-tropicales-dorees-de-quqn.webp',themeColor:'#092127'},
+  autumn:{img:'assets/gallery/coq-quqn-dans-un-automne-dore.webp',themeColor:'#211008'},
+  winter:{img:'assets/gallery/coq-royal-glissant-sur-la-glace-de-noel.webp',themeColor:'#0b1720'}
 };
 
 let cfg, lang=localStorage.getItem('quqnLang')||'en', currentFutureIndex=-1;
@@ -56,7 +56,13 @@ const fmt=n=>Number(n).toLocaleString(lang==='fr'?'fr-FR':'en-US');
 const safe=(sel,fn)=>{const el=$(sel); if(el)fn(el); return el};
 
 function currentSeason(){const m=new Date().getMonth()+1; if(m>=3&&m<=5)return 'spring'; if(m>=6&&m<=8)return 'summer'; if(m>=9&&m<=11)return 'autumn'; return 'winter'}
-function renderSeason(){const s=seasons[currentSeason()], t=s[lang]||s.en; safe('#seasonHeroImage',e=>e.style.backgroundImage=`url('${s.img}')`); safe('#seasonImage',e=>{e.src=s.img;e.alt=t.title}); safe('#seasonPill',e=>e.textContent=t.pill); safe('#seasonTitle',e=>e.textContent=t.title); safe('#seasonText',e=>e.textContent=t.text); safe('#seasonDates',e=>e.textContent=t.dates); safe('#seasonCaption',e=>e.textContent=t.caption)}
+function renderSeason(){
+  const key=currentSeason(), s=seasons[key];
+  document.body.dataset.season=key;
+  safe('#seasonHeroImage',e=>e.style.backgroundImage=`url('${s.img}')`);
+  const meta=document.querySelector('meta[name="theme-color"]');
+  if(meta) meta.setAttribute('content',s.themeColor);
+}
 function renderRanks(){if(!cfg)return;safe('#rankGrid',e=>e.innerHTML=cfg.ranks.map(r=>`<article class="rank"><img src="${r.image}" alt="${r.name}" loading="lazy"><div><small>${fmt(r.threshold)}+ QUQN</small><h3>${r.name}</h3><p>${r.tag}</p></div></article>`).join(''))}
 function openLightbox(src,title){safe('#lightboxImg',e=>e.src=src);safe('#lightboxTitle',e=>e.textContent=title);safe('#lightbox',e=>{e.classList.add('open');e.setAttribute('aria-hidden','false')})}
 function setStats(minted,holders){if(!cfg)return;minted=Number(minted)||cfg.fallbackMinted;holders=Number(holders)||cfg.fallbackHolders;const pct=Math.min(100,(minted/cfg.maxSupply)*100);safe('#minted',e=>e.textContent=fmt(minted));safe('#holders',e=>e.textContent=fmt(holders));safe('#progressPct',e=>e.textContent=pct.toFixed(2)+'%');safe('#meterFill',e=>e.style.width=Math.max(.35,pct)+'%')}
