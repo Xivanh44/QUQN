@@ -72,8 +72,21 @@ function updateMintCalc(){const input=$('#mintCount');if(!input||!cfg)return;let
 
 function applyLang(){document.documentElement.lang=lang;safe('#lang',e=>e.textContent=lang==='en'?'FR':'EN');$$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t];if(v!==undefined)el.innerHTML=v});if(cfg){const c=(cfg.homeCopy&&(cfg.homeCopy[lang]||cfg.homeCopy.en))||{};safe('#heroTitle',e=>e.innerHTML=lang==='en'?'SMALL COQ.<br><em>BIG DREAMS.</em>':'PETIT COQ.<br><em>GRANDS RÊVES.</em>');safe('#heroSubtitle',e=>e.textContent=c.heroSubtitle||'');safe('#storyLead',e=>e.textContent=c.storyLead||'');safe('#storyBody',e=>e.textContent=c.storyBody||'');safe('#voiceQuote',e=>e.textContent=c.voiceQuote||'');safe('#beginnerLead',e=>e.textContent=c.beginnerLead||'');safe('#beginnerQuote',e=>e.textContent=c.beginnerQuote||'');safe('#announcement',e=>e.textContent=(cfg.announcement&&(cfg.announcement[lang]||cfg.announcement.en))||'')}renderSeason();renderRanks();updateMintCalc()}
 
-function futurePool(){return (cfg?.gallery||[]).filter(x=>x.visible)}
-function showFuture(item){if(!item)return;safe('#futureImage',e=>{e.src=item.src;e.alt=item.title});safe('#futureTitle',e=>e.textContent=item.title)}
+function futurePool(){
+  const rankImages=new Set((cfg?.ranks||[]).map(r=>r.image));
+  return (cfg?.gallery||[]).filter(x=>
+    x.visible &&
+    x.category!=='seasons' &&
+    x.category!=='brand' &&
+    !rankImages.has(x.src)
+  );
+}
+function showFuture(item){
+  if(!item)return;
+  safe('#futureImage',e=>{e.src=item.src;e.alt=item.title});
+  safe('#futureTitle',e=>e.textContent=item.title);
+  safe('.future-stage',e=>e.style.setProperty('--future-bg',`url("${item.src}")`));
+}
 function spinFuture(){const pool=futurePool();if(!pool.length)return;const card=$('#futureCard');card?.classList.add('spinning');let ticks=0;const maxTicks=18;const timer=setInterval(()=>{let i=Math.floor(Math.random()*pool.length);showFuture(pool[i]);ticks++;if(ticks>=maxTicks){clearInterval(timer);let i;do{i=Math.floor(Math.random()*pool.length)}while(pool.length>1&&i===currentFutureIndex);currentFutureIndex=i;showFuture(pool[i]);setTimeout(()=>card?.classList.remove('spinning'),180)}},70)}
 function setupGuide(){const modal=$('#guideModal');$$('[data-open-guide]').forEach(b=>b.addEventListener('click',()=>{if(modal?.showModal)modal.showModal();else modal?.setAttribute('open','')}));safe('#guideClose',e=>e.addEventListener('click',()=>modal?.close()));modal?.addEventListener('click',ev=>{if(ev.target===modal)modal.close()})}
 
