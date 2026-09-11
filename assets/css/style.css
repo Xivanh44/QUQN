@@ -13,3 +13,79 @@ button{font:inherit}
 .guide-modal{width:min(1050px,calc(100% - 30px));max-height:92vh;padding:0;border:0;border-radius:25px;background:#f7eedb;color:#1c160d;box-shadow:0 30px 120px rgba(0,0,0,.7)}.guide-modal::backdrop{background:rgba(0,0,0,.82);backdrop-filter:blur(5px)}.guide-shell{padding:28px 32px 45px}.guide-top{position:sticky;top:0;z-index:4;margin:-28px -32px 0;padding:16px 26px;display:flex;justify-content:space-between;align-items:center;background:rgba(17,13,8,.96);color:#fff;border-radius:25px 25px 0 0;backdrop-filter:blur(12px)}.guide-close{border:0;background:none;color:#fff;font-size:35px;line-height:1;cursor:pointer}.guide-hero{padding:45px 0 28px;display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:end}.guide-hero>span,.guide-hero>h2,.guide-hero>p{grid-column:1}.guide-hero h2{font-size:clamp(44px,6vw,70px);letter-spacing:-.05em;line-height:.95;margin:8px 0 10px}.guide-hero>p{color:#635743}.guide-hero .coq-tip{grid-column:2;grid-row:1/5}.guide-fair{background:#17120b;color:#fff;border-radius:18px;padding:22px;margin-bottom:18px}.guide-fair h3{margin:4px 0 13px;font-size:25px}.guide-fair>p{color:#b8aa96;font-size:12px}.guide-fair small{color:#e4bd58;font-weight:900;letter-spacing:.12em}.guide-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}.guide-steps article{background:#fff;border:1px solid rgba(83,57,13,.13);border-radius:16px;padding:21px;display:grid;grid-template-columns:45px 1fr;gap:14px}.guide-steps article>b{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#19130c;color:#e9bd55}.guide-steps small{font-size:9px;letter-spacing:.11em;font-weight:950;color:#8b5d0d}.guide-steps h3{font-size:18px;margin:5px 0 8px}.guide-steps p{font-size:12px;color:#655845}.guide-steps a{font-size:11px;color:#825610;font-weight:850}.guide-safety{margin-top:14px;background:#21170b;color:#fff;border-radius:16px;padding:18px;display:flex;gap:15px;align-items:center}.guide-safety>span{font-size:30px}.guide-safety small{color:#e5bd5c;font-size:9px;font-weight:900}.guide-safety h3{margin:3px 0}.guide-safety p{margin:0;color:#c4b8a5}.guide-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px}.inline-guide{color:#e5be5e;text-decoration:underline}.footer-guide{font-size:11px;color:#c8bcaa}
 @media(max-width:980px){.live-strip-inner{grid-template-columns:1fr repeat(2,1fr)}.live-brand{grid-column:1/4;border-right:0!important;border-bottom:1px solid rgba(255,255,255,.08);padding:9px 0!important}.live-strip-inner>.live-stat,.live-progress{padding:10px 12px}.live-progress{grid-column:2/4}.seasonal-grid,.game-layout{grid-template-columns:1fr}.season-frame{min-height:520px}.season-frame img{height:520px}.future-card{margin:0;max-width:none}.guide-hero{grid-template-columns:1fr}.guide-hero .coq-tip{grid-column:1;grid-row:auto}.guide-steps{grid-template-columns:1fr}}
 @media(max-width:650px){.live-strip-inner{grid-template-columns:repeat(2,1fr);padding:4px 0}.live-brand{grid-column:1/3}.live-strip-inner>*{border-right:0;border-bottom:1px solid rgba(255,255,255,.07)}.live-progress{grid-column:1/3;border-bottom:0!important}.v4-hero{min-height:720px}.v4-hero-layout{min-height:720px;padding-top:110px}.v4-hero .hero-overlay{background:linear-gradient(0deg,rgba(3,3,3,.96) 0%,rgba(3,3,3,.72) 60%,rgba(3,3,3,.18) 100%)}.micro-facts span{font-size:7px}.seasonal-section,.billionaire-game{padding:65px 0}.season-frame{min-height:460px;border-radius:18px}.season-frame img{height:460px}.future-stage{height:480px}.future-result h3{font-size:27px}.guide-modal{width:calc(100% - 14px);max-height:96vh}.guide-shell{padding:20px 16px 30px}.guide-top{margin:-20px -16px 0;padding:13px 15px;border-radius:20px 20px 0 0}.guide-hero{padding-top:32px}.guide-steps article{grid-template-columns:38px 1fr;padding:16px}.guide-steps article>b{width:36px;height:36px}.token-fingerprint{grid-template-columns:repeat(2,1fr)}.nav-guide{display:none}}
+
+
+/* V4.1 — the season is the global skin, not a standalone content section. */
+body{--season-accent:#d68a31;--season-accent-2:#7a3218;--season-glow:rgba(214,138,49,.16);--season-soft:rgba(214,138,49,.08);--season-community-1:#a75c22;--season-community-2:#ffd485;--season-community-3:#8b3f1b}
+body[data-season="spring"]{--season-accent:#f2a8bd;--season-accent-2:#6f9b61;--season-glow:rgba(242,168,189,.18);--season-soft:rgba(111,155,97,.08);--season-community-1:#86a86f;--season-community-2:#f8d5df;--season-community-3:#d4a33f}
+body[data-season="summer"]{--season-accent:#5ad7d8;--season-accent-2:#e4ad32;--season-glow:rgba(90,215,216,.17);--season-soft:rgba(90,215,216,.07);--season-community-1:#1d8a91;--season-community-2:#ffd56f;--season-community-3:#e88a28}
+body[data-season="autumn"]{--season-accent:#e48a32;--season-accent-2:#8d331f;--season-glow:rgba(228,138,50,.19);--season-soft:rgba(141,51,31,.08);--season-community-1:#973d21;--season-community-2:#efb34d;--season-community-3:#612015}
+body[data-season="winter"]{--season-accent:#a9ddf2;--season-accent-2:#5e83a1;--season-glow:rgba(169,221,242,.20);--season-soft:rgba(94,131,161,.09);--season-community-1:#46708d;--season-community-2:#d9edf5;--season-community-3:#b78b34}
+
+/* Seasonal atmosphere across the complete homepage, while gold remains QUQN's core identity. */
+.site-header{border-bottom-color:color-mix(in srgb,var(--season-accent) 32%,transparent)}
+.live-strip{background:linear-gradient(90deg,rgba(6,6,5,.98),color-mix(in srgb,var(--season-accent-2) 22%,#080706),rgba(6,6,5,.98))}
+.live-strip-inner{position:relative}
+.live-strip-inner:after{content:"";position:absolute;inset:auto 0 0;height:1px;background:linear-gradient(90deg,transparent,var(--season-accent),transparent);opacity:.55}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:radial-gradient(circle at 78% 20%,var(--season-glow),transparent 28%)}
+.v4-hero .hero-overlay{background:linear-gradient(90deg,rgba(3,3,3,.93) 0%,rgba(3,3,3,.68) 46%,rgba(3,3,3,.18) 74%,rgba(3,3,3,.08) 100%),linear-gradient(0deg,#070706 0%,transparent 35%),linear-gradient(135deg,var(--season-soft),transparent 48%)}
+.black{background:radial-gradient(circle at 85% 18%,var(--season-glow),transparent 36%),radial-gradient(circle at 10% 95%,var(--season-soft),transparent 28%),#080807}
+.billionaire-game{background:radial-gradient(circle at 12% 15%,var(--season-glow),transparent 27%),linear-gradient(145deg,#080807 0%,color-mix(in srgb,var(--season-accent-2) 12%,#080807) 55%,#080807 100%)}
+.ticker{background:linear-gradient(90deg,var(--gold),color-mix(in srgb,var(--season-accent) 30%,var(--gold)),var(--gold))}
+.community{background:linear-gradient(105deg,var(--season-community-1),var(--season-community-2) 48%,var(--season-community-3));color:#171108}
+.btn.gold{box-shadow:0 8px 26px color-mix(in srgb,var(--season-accent) 26%,transparent)}
+.micro-facts span{border-color:color-mix(in srgb,var(--season-accent) 38%,rgba(248,214,117,.3))}
+.future-card{box-shadow:0 30px 90px color-mix(in srgb,var(--season-accent) 16%,rgba(0,0,0,.45))}
+.footer{border-top:1px solid color-mix(in srgb,var(--season-accent) 22%,rgba(255,255,255,.08))}
+
+/* Tiny seasonal motion cues; decorative only, no separate "season" content block. */
+body[data-season="spring"] .hero:before,body[data-season="autumn"] .hero:before,body[data-season="winter"] .hero:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.55;background-repeat:repeat;background-size:260px 260px;animation:seasonDrift 18s linear infinite}
+body[data-season="spring"] .hero:before{background-image:radial-gradient(ellipse at 20% 20%,rgba(255,210,224,.75) 0 2px,transparent 3px),radial-gradient(ellipse at 70% 45%,rgba(255,230,238,.65) 0 2px,transparent 3px)}
+body[data-season="autumn"] .hero:before{background-image:radial-gradient(ellipse at 25% 20%,rgba(223,124,45,.65) 0 3px,transparent 4px),radial-gradient(ellipse at 75% 55%,rgba(163,63,32,.55) 0 3px,transparent 4px)}
+body[data-season="winter"] .hero:before{background-image:radial-gradient(circle,rgba(255,255,255,.75) 0 2px,transparent 2.5px),radial-gradient(circle,rgba(185,226,245,.7) 0 1.5px,transparent 2px);background-position:0 0,130px 70px}
+@keyframes seasonDrift{from{background-position:0 -260px,130px -190px}to{background-position:70px 0,190px 70px}}
+
+@media(max-width:650px){body[data-season="spring"] .hero:before,body[data-season="autumn"] .hero:before,body[data-season="winter"] .hero:before{opacity:.28}.hero:after{opacity:.8}}
+
+
+/* V4.2 — the roulette is the homepage attraction: intro + game in the first screen. */
+.v4-hero{min-height:720px}
+.v4-hero-layout.attraction-layout{min-height:648px;grid-template-columns:minmax(0,.88fr) minmax(430px,.72fr);align-items:center;gap:44px;padding:58px 0 46px}
+.attraction-intro{max-width:650px}
+.attraction-intro h1{font-size:clamp(54px,6.7vw,92px);margin:14px 0 20px}
+.attraction-intro .hero-subtitle{font-size:17px;max-width:570px;margin-bottom:20px}
+.hero-game{position:relative;z-index:3;width:100%;max-width:500px;margin-left:auto;padding:18px;border:1px solid color-mix(in srgb,var(--season-accent) 38%,rgba(255,210,104,.22));border-radius:24px;background:linear-gradient(150deg,rgba(18,14,8,.92),rgba(3,3,3,.80));box-shadow:0 28px 90px rgba(0,0,0,.52),0 0 50px var(--season-glow);backdrop-filter:blur(15px)}
+.hero-game-head{padding:3px 4px 12px}
+.hero-game-head .kicker{font-size:9px;letter-spacing:.14em}
+.hero-game-head h2{font-size:clamp(28px,3.1vw,43px);line-height:.96;letter-spacing:-.045em;margin:6px 0 8px;color:#fff}
+.hero-game-head>p{font-size:12px;line-height:1.45;color:#b9ad9a;margin:0;max-width:420px}
+.hero-game .game-button{margin-top:12px;min-width:0;width:100%;padding:12px 15px}
+.hero-future-card{padding:8px;border-radius:18px;max-width:none;margin:0}
+.hero-future-stage{height:285px;border-radius:13px}
+.hero-future-card .future-result{padding:11px 8px 7px}
+.hero-future-card .future-result h3{font-size:24px;margin:2px 0 3px}
+.hero-game .game-disclaimer{font-size:8px!important;line-height:1.35;margin:8px 5px 0;color:#7e7466!important}
+.hero-game .spin-fx span{font-size:27px}
+/* The detailed story now comes after the immediate attraction. */
+#story.section{padding-top:82px}
+
+@media(max-width:980px){
+  .v4-hero{min-height:auto}
+  .v4-hero-layout.attraction-layout{grid-template-columns:1fr;min-height:auto;padding:64px 0 50px;gap:26px}
+  .attraction-intro{max-width:720px}
+  .hero-game{max-width:720px;margin:0}
+  .hero-future-stage{height:380px}
+}
+@media(max-width:650px){
+  .v4-hero-layout.attraction-layout{padding-top:42px;gap:20px}
+  .attraction-intro h1{font-size:clamp(48px,16vw,72px)}
+  .attraction-intro .hero-subtitle{font-size:15px}
+  .hero-actions{gap:8px}.hero-actions .btn{padding:11px 13px;font-size:11px}
+  .micro-facts{margin-top:11px}.micro-facts span{padding:4px 7px}
+  .hero-game{padding:12px;border-radius:18px}
+  .hero-game-head h2{font-size:30px}
+  .hero-game-head>p{font-size:11px}
+  .hero-future-stage{height:315px}
+  .hero-future-card .future-result h3{font-size:22px}
+  #story.section{padding-top:65px}
+}
