@@ -1,0 +1,264 @@
+/* ==========================================================
+   QUQN V6 — richer motion, roulette, road, seasonal ambience
+   Loaded AFTER style.css so this file only adds/overrides.
+   ========================================================== */
+
+:root{
+  --v6-gold:#f5c85c;
+  --v6-gold-soft:#ffe8a0;
+  --v6-card:rgba(15,13,9,.82);
+  --v6-ease:cubic-bezier(.2,.75,.25,1);
+}
+
+/* --- Small premium motion, not a casino explosion --- */
+.btn,.rank,.future-card,.feature-img img,.community-box,.persona-grid>img{
+  transition:transform .32s var(--v6-ease),box-shadow .32s var(--v6-ease),border-color .32s ease,filter .32s ease;
+}
+.btn{position:relative;overflow:hidden}
+.btn:after{
+  content:"";position:absolute;inset:-40% auto -40% -35%;width:24%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);
+  transform:skewX(-20deg);opacity:0;pointer-events:none;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover:after{animation:v6Shine .8s ease}
+@keyframes v6Shine{0%{left:-35%;opacity:0}25%{opacity:.7}100%{left:120%;opacity:0}}
+.rank:hover{transform:translateY(-6px);border-color:rgba(244,198,96,.55);box-shadow:0 20px 45px rgba(0,0,0,.24)}
+.feature-img:hover img,.persona-grid>img:hover{transform:translateY(-4px);filter:saturate(1.06) brightness(1.03)}
+
+/* --- Hero: more alive, but subtle --- */
+.hero{isolation:isolate}
+.hero-image{
+  will-change:transform;
+  transform:scale(1.04) translate3d(var(--hero-x,0px),var(--hero-y,0px),0);
+  transition:transform .8s var(--v6-ease),filter .8s ease;
+}
+.hero:before{
+  content:"";position:absolute;inset:-20%;
+  background:
+    radial-gradient(circle at 78% 28%,rgba(255,216,109,.15),transparent 17%),
+    radial-gradient(circle at 62% 66%,rgba(255,255,255,.07),transparent 20%);
+  z-index:1;pointer-events:none;mix-blend-mode:screen;
+  animation:v6HeroBreath 6s ease-in-out infinite alternate;
+}
+@keyframes v6HeroBreath{to{transform:translate3d(1.5%,-1%,0) scale(1.025);opacity:.72}}
+.hero-glint{
+  position:absolute;z-index:3;width:5px;height:5px;border-radius:50%;
+  background:#fff6c7;box-shadow:0 0 8px 3px rgba(255,211,84,.65);
+  pointer-events:none;animation:v6Glint 3.8s ease-in-out infinite;
+}
+@keyframes v6Glint{0%,70%,100%{opacity:0;transform:scale(.2) rotate(0)}78%{opacity:1;transform:scale(1.7) rotate(45deg)}88%{opacity:.1;transform:scale(.4) rotate(90deg)}}
+
+/* --- Seasonal global atmosphere --- */
+#season-atmosphere{position:fixed;inset:0;z-index:18;pointer-events:none;overflow:hidden;opacity:.36}
+.season-particle{
+  position:absolute;top:-8vh;font-size:12px;line-height:1;
+  animation:v6Fall var(--fall-time,11s) linear infinite;
+  animation-delay:var(--fall-delay,0s);
+  left:var(--fall-left,50%);
+  opacity:var(--fall-opacity,.45);
+  filter:drop-shadow(0 0 5px rgba(255,215,115,.18));
+}
+@keyframes v6Fall{
+  from{transform:translate3d(0,-10vh,0) rotate(0deg)}
+  to{transform:translate3d(var(--fall-drift,30px),112vh,0) rotate(250deg)}
+}
+body[data-season="spring"] .season-particle{color:#f4c8d4}
+body[data-season="summer"] .season-particle{color:#ffe2a0;animation-name:v6FloatSpark}
+body[data-season="autumn"] .season-particle{color:#c67a32}
+body[data-season="winter"] .season-particle{color:#dff5ff}
+@keyframes v6FloatSpark{
+  0%{transform:translate3d(0,105vh,0) scale(.5);opacity:0}
+  30%{opacity:.5}
+  100%{transform:translate3d(var(--fall-drift,30px),-10vh,0) scale(1.15);opacity:0}
+}
+
+/* --- Scroll reveals --- */
+.v6-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s var(--v6-ease)}
+.v6-reveal.is-visible{opacity:1;transform:none}
+
+/* --- Stats: animated emphasis --- */
+.live-stat strong,.live-progress strong{font-variant-numeric:tabular-nums}
+.live-stat.v6-pop strong{animation:v6StatPop .55s var(--v6-ease)}
+@keyframes v6StatPop{0%{transform:scale(.82);opacity:.35}65%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+
+/* --- Billionaire game V6 --- */
+.hero-game{
+  box-shadow:0 24px 70px rgba(0,0,0,.43),0 0 0 1px rgba(245,200,92,.10) inset;
+}
+.hero-future-stage{position:relative}
+.hero-future-stage:after{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:linear-gradient(120deg,transparent 25%,rgba(255,226,142,.22) 47%,transparent 68%);
+  transform:translateX(-130%);opacity:0;
+}
+.future-card.spinning .hero-future-stage:after{animation:v6RouletteSweep .62s linear infinite;opacity:1}
+@keyframes v6RouletteSweep{to{transform:translateX(130%)}}
+.future-card.v6-reveal-win{animation:v6Win .64s var(--v6-ease)}
+@keyframes v6Win{0%{transform:scale(.96)}45%{transform:scale(1.025)}100%{transform:scale(1)}}
+
+.future-result{position:relative}
+.future-meta{
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:6px 0 4px;
+}
+#futureRarity{
+  display:inline-flex;align-items:center;min-height:22px;padding:4px 8px;border-radius:999px;
+  font-size:8px;font-weight:950;letter-spacing:.12em;text-transform:uppercase;
+  color:#161006;background:#d9b65b;
+}
+#futureRarity[data-rarity="rare"]{background:linear-gradient(90deg,#d9ecff,#92c7ff);color:#07111b}
+#futureRarity[data-rarity="legendary"]{background:linear-gradient(90deg,#fff4a5,#f6a82e,#fff1a0);box-shadow:0 0 18px rgba(245,190,65,.38)}
+#futurePunchline{margin:4px 0 9px;color:#bfb3a1;font-size:11px;min-height:34px}
+.future-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#shareFuture{
+  border:1px solid rgba(244,198,96,.34);background:rgba(255,255,255,.035);
+  color:#e9d7ad;border-radius:999px;padding:6px 10px;font-size:9px;font-weight:850;cursor:pointer
+}
+#shareFuture:hover{border-color:rgba(244,198,96,.72);color:#fff}
+.future-card[data-special="broke"] .future-stage img{filter:grayscale(.58) contrast(1.07)}
+.future-card[data-special="broke"] .future-stage:before{
+  content:"CARD DECLINED";position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-10deg);
+  color:#ffdddd;border:4px solid #ef5252;background:rgba(80,0,0,.66);padding:7px 12px;font-weight:1000;font-size:clamp(13px,2vw,23px);
+  letter-spacing:.08em;border-radius:5px;white-space:nowrap;
+}
+
+/* --- Road to 21 million --- */
+.road-section{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(244,198,96,.12),transparent 30%),
+    linear-gradient(180deg,#080807,#0c0a07);
+}
+.road-card{
+  position:relative;border:1px solid rgba(244,198,96,.25);border-radius:26px;
+  background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(244,198,96,.025));
+  padding:34px;box-shadow:0 30px 75px rgba(0,0,0,.24);overflow:hidden
+}
+.road-copy{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:36px}
+.road-copy h2{font-size:clamp(34px,5vw,62px);line-height:1;margin:8px 0 0;letter-spacing:-.045em}
+.road-copy p{max-width:430px;color:#aa9e8c;font-size:12px;margin:0}
+.road-track{height:10px;background:#282218;border-radius:99px;position:relative;margin:52px 10px 72px}
+#roadFill{
+  position:absolute;inset:0 auto 0 0;width:0;border-radius:99px;
+  background:linear-gradient(90deg,#9d650e,#f5c65e,#fff0ab);
+  box-shadow:0 0 22px rgba(244,198,96,.32);transition:width 1.2s var(--v6-ease)
+}
+#roadCoq{
+  position:absolute;top:50%;left:0;transform:translate(-50%,-54%);
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:#f5c65e;color:#181006;border:3px solid #080706;font-size:22px;
+  box-shadow:0 7px 20px rgba(0,0,0,.4),0 0 18px rgba(244,198,96,.25);
+  transition:left 1.2s var(--v6-ease)
+}
+.road-milestones{position:absolute;inset:-30px 0 auto 0;height:70px}
+.road-milestone{position:absolute;left:var(--at);transform:translateX(-50%);text-align:center;min-width:80px}
+.road-milestone i{display:block;width:10px;height:10px;border:2px solid #8d7650;background:#18140e;border-radius:50%;margin:24px auto 8px}
+.road-milestone b{display:block;font-size:10px;color:#c8b991}
+.road-milestone small{display:block;font-size:8px;color:#6f6659;white-space:nowrap}
+.road-milestone.reached i{background:var(--gold);border-color:#fff0ae;box-shadow:0 0 12px rgba(244,198,96,.55)}
+.road-milestone.reached b{color:#ffe09a}
+.road-status{text-align:center;color:#d9c9a6;font-size:12px;margin-top:-34px}
+
+/* --- Interactive QUQN character --- */
+.feature-img.interactive-quqn{cursor:pointer}
+.quqn-talk{
+  position:absolute;right:8px;top:10px;z-index:5;max-width:230px;
+  background:rgba(8,7,5,.92);border:1px solid rgba(244,198,96,.44);
+  color:#ffe9b2;border-radius:14px 14px 4px 14px;padding:10px 12px;
+  font-size:11px;font-weight:760;line-height:1.35;box-shadow:0 14px 35px rgba(0,0,0,.28);
+  opacity:0;transform:translateY(8px) scale(.96);pointer-events:none;
+  transition:.25s ease
+}
+.quqn-talk.show{opacity:1;transform:none}
+.interactive-quqn.v6-wiggle img{animation:v6Wiggle .55s var(--v6-ease)}
+@keyframes v6Wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-2deg) translateY(-3px)}55%{transform:rotate(2.5deg) translateY(-5px)}}
+
+/* --- Music/miner control overrides --- */
+#quqn-miner-widget{
+  transition:opacity .28s ease,transform .35s var(--v6-ease);
+}
+#quqn-miner-widget:hover{transform:translateY(-3px)}
+#quqn-sound-toggle{
+  min-width:70px!important;
+  transition:transform .2s ease,border-color .2s ease,background .2s ease!important;
+}
+#quqn-sound-toggle[data-state="on"]{background:rgba(55,42,10,.92)!important;border-color:#e6bd58!important}
+#quqn-sound-toggle[data-state="blocked"]{animation:v6PulseButton 1.8s ease-in-out infinite}
+@keyframes v6PulseButton{50%{box-shadow:0 0 0 5px rgba(244,198,96,.09),0 4px 14px rgba(0,0,0,.25)}}
+
+/* --- Mobile polish --- */
+@media(max-width:980px){
+  .road-copy{display:block}
+  .road-copy p{margin-top:14px}
+  .road-card{padding:25px 18px}
+  .road-milestone small{display:none}
+  #season-atmosphere{opacity:.22}
+}
+@media(max-width:650px){
+  .hero:before{opacity:.65}
+  .road-track{margin-left:4px;margin-right:4px}
+  .road-milestone{min-width:38px}
+  .road-milestone b{font-size:8px}
+  .road-milestone:nth-child(2),.road-milestone:nth-child(4){display:none}
+  #futurePunchline{font-size:10px}
+}
+
+/* Respect visitors who explicitly ask their OS for less motion. */
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+  .v6-reveal{opacity:1;transform:none}
+  #season-atmosphere{display:none}
+}
+
+
+/* V6.2: QUQN visit greeting + click wink */
+.interactive-quqn{position:relative}
+.quqn-wink{
+  position:absolute;z-index:7;right:11%;top:13%;
+  font-size:clamp(22px,3.3vw,43px);
+  opacity:0;transform:scale(.2) rotate(-12deg);
+  filter:drop-shadow(0 3px 9px rgba(0,0,0,.45));
+  pointer-events:none
+}
+.quqn-wink.show{animation:quqnWinkPop .68s cubic-bezier(.2,.85,.25,1)}
+@keyframes quqnWinkPop{
+  0%{opacity:0;transform:scale(.2) rotate(-12deg)}
+  28%{opacity:1;transform:scale(1.15) rotate(7deg)}
+  67%{opacity:1;transform:scale(.98)}
+  100%{opacity:0;transform:scale(.75) translateY(-8px)}
+}
+.quqn-talk.visit-greeting{border-color:rgba(255,215,112,.72);box-shadow:0 14px 35px rgba(0,0,0,.35),0 0 22px rgba(244,198,96,.12)}
+
+/* V6.2: a token briefly crosses the top scene exactly on the audio cling */
+.cling-coin{
+  position:fixed;z-index:64;left:72%;top:31%;
+  width:34px;height:34px;border-radius:50%;
+  opacity:0;pointer-events:none;
+  transform:translate3d(0,0,0) scale(.35) rotate(0deg);
+  filter:drop-shadow(0 0 12px rgba(255,213,95,.72))
+}
+.cling-coin img{display:block;width:100%;height:100%;border-radius:50%}
+.cling-coin.fly{animation:clingCoinFly 1.05s cubic-bezier(.15,.72,.22,1) forwards}
+@keyframes clingCoinFly{
+  0%{opacity:0;transform:translate3d(0,10px,0) scale(.35) rotate(0)}
+  15%{opacity:1;transform:translate3d(-8px,-20px,0) scale(1.06) rotate(80deg)}
+  58%{opacity:1;transform:translate3d(-88px,-62px,0) scale(.88) rotate(330deg)}
+  100%{opacity:0;transform:translate3d(-165px,-25px,0) scale(.42) rotate(610deg)}
+}
+
+/* Live-stat update flash, only when a real fetched value changes/loads */
+.live-stat strong.live-flash,.live-progress strong.live-flash{
+  animation:liveGoldFlash .78s ease
+}
+@keyframes liveGoldFlash{
+  0%{text-shadow:0 0 0 rgba(255,210,85,0);transform:scale(1)}
+  42%{text-shadow:0 0 18px rgba(255,210,85,.72);transform:scale(1.08);color:#ffe19a}
+  100%{text-shadow:none;transform:scale(1)}
+}
+#syncState[data-state="live"]{color:#d8bd72}
+#syncState[data-state="syncing"]{opacity:.66}
+#syncState[data-state="offline"]{color:#b98b69}
+#syncState[data-state="cached"]{color:#a89f8f}
+@media(max-width:720px){
+  .cling-coin{left:67%;top:27%;width:27px;height:27px}
+}
