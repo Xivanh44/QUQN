@@ -41,6 +41,7 @@
 
   <link rel="icon" href="assets/logo.webp" type="image/webp">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/v6.css">
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
@@ -99,7 +100,16 @@
               <img id="futureImage" src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN billionaire future">
               <div id="spinFX" class="spin-fx" aria-hidden="true"><span>🪙</span><span>👑</span><span>🐓</span><span>💰</span></div>
             </div>
-            <div class="future-result"><small data-t="yourFuture">YOUR QUQN FUTURE</small><h3 id="futureTitle">Wen Lambo?</h3><button id="spinAgain" class="text-button" type="button" data-t="spinAgain">Try another destiny ↻</button></div>
+            <div class="future-result">
+              <small data-t="yourFuture">YOUR QUQN FUTURE</small>
+              <h3 id="futureTitle">Supercar Collector</h3>
+              <div class="future-meta"><span id="futureRarity" data-rarity="common">COMMON</span></div>
+              <p id="futurePunchline">The garage has become a liquidity problem.</p>
+              <div class="future-actions">
+                <button id="spinAgain" class="text-button" type="button" data-t="spinAgain">Try another destiny ↻</button>
+                <button id="shareFuture" type="button">SHARE DESTINY ↗</button>
+              </div>
+            </div>
           </div>
           <p class="game-disclaimer" data-t="gameDisclaimer">Just a random meme game. Not a prediction, promise or financial advice. Obviously.</p>
         </aside>
@@ -107,6 +117,45 @@
     </section>
 
     <section class="ticker"><div>21,000,000 DREAMS ✦ BORN ON BITCOIN ✦ STRONG FRENCH ACCENT ✦ SMALL WALLET, MASSIVE CONFIDENCE ✦ ROOSTERS CAN'T FLY. QUQN DOESN'T CARE. ✦</div></section>
+    <section id="story" class="section black">
+      <div class="shell split">
+        <div class="copy"><span class="kicker" data-t="storyKicker">OK, NOW MEET QUQN</span><h2 data-t="storyTitle">He started small.<br>His ego did not.</h2><p id="storyLead" class="lead">QUQN was born small. His dreams were not.</p><p id="storyBody">He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn.</p><blockquote><b>“</b><p id="voiceQuote">Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.</p><footer data-t="voiceNote">— QUQN, in aggressively French English.</footer></blockquote></div>
+        <figure id="storyMascot" class="feature-img interactive-quqn" title="Tap QUQN">
+          <img src="assets/mascot.webp" alt="QUQN mascot">
+          <span id="quqnTalk" class="quqn-talk">Euh… click ze coq.</span>
+          <figcaption data-t="netWorth">Current net worth: <strong>emotionally billionaire.</strong> · Tap QUQN</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="road21m" class="section road-section">
+      <div class="shell">
+        <div class="road-card">
+          <div class="road-copy">
+            <div>
+              <span class="kicker">THE ROAD TO 21 MILLION</span>
+              <h2>From the farm<br>to completely unreasonable dreams.</h2>
+            </div>
+            <p>This is supply progress, not a price target. Every real QUQN minted simply moves the little coq further along the road.</p>
+          </div>
+          <div class="road-track">
+            <div id="roadFill"></div>
+            <div id="roadCoq" aria-hidden="true">🐓</div>
+            <div id="roadMilestones" class="road-milestones"></div>
+          </div>
+          <p id="roadStatus" class="road-status">Loading current mint progress…</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="ranks" class="section black">
+      <div class="shell"><div class="section-head"><span class="kicker" data-t="coopKicker">THE COOP</span><h2 data-t="coopTitle">How unreasonable are your dreams?</h2><p data-t="coopIntro">Community ranks are for fun. They currently create no financial rights or rewards.</p></div><div id="rankGrid" class="rank-grid"></div></div>
+    </section>
+
+    <section class="section black persona"><div class="shell persona-grid"><img src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN with a golden supercar"><div><span class="kicker" data-t="personaKicker">CHARACTER FILE</span><h2 data-t="personaTitle">Cute. French. Financially overconfident.</h2><dl><div><dt data-t="voice">Voice</dt><dd data-t="voiceV">High-pitched chicken voice + very strong French accent. Suddenly deep when excited.</dd></div><div><dt data-t="skill">Special skill</dt><dd data-t="skillV">Jumping into things before understanding them.</dd></div><div><dt data-t="enemy">Natural enemies</dt><dd data-t="enemyV">Doubt, patience and realistic expectations.</dd></div><div><dt data-t="mission">Mission</dt><dd data-t="missionV">Leave the farm. Become absurdly rich. Work out the details later.</dd></div></dl></div></div></section>
+
+    <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">X is for memes and QUQN’s terrible financial confidence. Telegram is for the Coop. Social links appear here once the official accounts are created.</p></div><div id="socialButtons" class="social-buttons"></div></div></section>
 
     <section id="what-is-quqn" class="section black">
       <div class="shell narrow">
@@ -120,22 +169,6 @@
         </div>
       </div>
     </section>
-
-
-    <section id="story" class="section black">
-      <div class="shell split">
-        <div class="copy"><span class="kicker" data-t="storyKicker">OK, NOW MEET QUQN</span><h2 data-t="storyTitle">He started small.<br>His ego did not.</h2><p id="storyLead" class="lead">QUQN was born small. His dreams were not.</p><p id="storyBody">He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn.</p><blockquote><b>“</b><p id="voiceQuote">Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.</p><footer data-t="voiceNote">— QUQN, in aggressively French English.</footer></blockquote></div>
-        <figure class="feature-img"><img src="assets/mascot.webp" alt="QUQN mascot"><figcaption data-t="netWorth">Current net worth: <strong>emotionally billionaire.</strong></figcaption></figure>
-      </div>
-    </section>
-
-    <section id="ranks" class="section black">
-      <div class="shell"><div class="section-head"><span class="kicker" data-t="coopKicker">THE COOP</span><h2 data-t="coopTitle">How unreasonable are your dreams?</h2><p data-t="coopIntro">Community ranks are for fun. They currently create no financial rights or rewards.</p></div><div id="rankGrid" class="rank-grid"></div></div>
-    </section>
-
-    <section class="section black persona"><div class="shell persona-grid"><img src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN with a golden supercar"><div><span class="kicker" data-t="personaKicker">CHARACTER FILE</span><h2 data-t="personaTitle">Cute. French. Financially overconfident.</h2><dl><div><dt data-t="voice">Voice</dt><dd data-t="voiceV">High-pitched chicken voice + very strong French accent. Suddenly deep when excited.</dd></div><div><dt data-t="skill">Special skill</dt><dd data-t="skillV">Jumping into things before understanding them.</dd></div><div><dt data-t="enemy">Natural enemies</dt><dd data-t="enemyV">Doubt, patience and realistic expectations.</dd></div><div><dt data-t="mission">Mission</dt><dd data-t="missionV">Leave the farm. Become absurdly rich. Work out the details later.</dd></div></dl></div></div></section>
-
-    <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">X is for memes and QUQN’s terrible financial confidence. Telegram is for the Coop. Social links appear here once the official accounts are created.</p></div><div id="socialButtons" class="social-buttons"></div></div></section>
 
     <section id="faq" class="section black faq"><div class="shell narrow"><div class="section-head"><span class="kicker">FAQ</span><h2 data-t="faqTitle">Before the coq gets carried away.</h2></div>
       <details><summary data-t="q1">Is QUQN sold by this website or the project?</summary><p data-t="a1">No. The website does not sell QUQN, connect to wallets, custody funds or receive payments for the token.</p></details>
@@ -173,4 +206,6 @@
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Close">×</button><img id="lightboxImg" alt=""><span id="lightboxTitle"></span></div>
   <script src="assets/js/app.js" defer></script>
   <script src="assets/js/quqn-audio.js" defer></script>
+  <script src="assets/js/v6.js" defer></script>
+  <script src="assets/js/unisat-live.js" defer></script>
 </body></html>
