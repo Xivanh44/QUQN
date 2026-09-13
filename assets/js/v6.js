@@ -344,6 +344,222 @@
     document.addEventListener("quqn:cling",spawnClingCoin);
   }
 
+
+  /* ==========================================================
+     LIVE COOP — UniSat holders + automatic QUQN rank cards
+     ========================================================== */
+  let liveCoopData = null;
+
+  function injectCoopStyles(){
+    if(q("#quqn-live-coop-style")) return;
+    const style=document.createElement("style");
+    style.id="quqn-live-coop-style";
+    style.textContent=`
+      .live-coop{margin-top:42px;padding-top:34px;border-top:1px solid rgba(244,198,96,.16)}
+      .live-coop-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:20px}
+      .live-coop-head h3{margin:5px 0 4px;font-size:clamp(25px,3.4vw,40px);letter-spacing:-.035em}
+      .live-coop-head p{margin:0;color:#978d7d;font-size:11px;max-width:560px}
+      .live-coop-status{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:9px;font-weight:900;letter-spacing:.1em;color:#bba66d}
+      .live-coop-dot{width:7px;height:7px;border-radius:50%;background:#c5a557;box-shadow:0 0 10px rgba(232,196,91,.45)}
+      .live-coop-status[data-state="live"] .live-coop-dot{background:#7bd596;box-shadow:0 0 12px rgba(123,213,150,.5)}
+      .live-coop-status[data-state="error"] .live-coop-dot{background:#d47b6c;box-shadow:none}
+      .holder-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      .holder-card{
+        position:relative;display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;
+        min-height:112px;padding:12px;border:1px solid rgba(244,198,96,.17);border-radius:18px;
+        background:linear-gradient(135deg,rgba(255,255,255,.035),rgba(244,198,96,.025));
+        overflow:hidden;transition:transform .28s var(--v6-ease),border-color .28s ease,box-shadow .28s ease
+      }
+      .holder-card:hover{transform:translateY(-3px);border-color:rgba(244,198,96,.42);box-shadow:0 18px 38px rgba(0,0,0,.23)}
+      .holder-rank-no{
+        position:absolute;right:11px;top:9px;color:rgba(255,224,145,.18);
+        font-size:28px;font-weight:1000;letter-spacing:-.06em
+      }
+      .holder-card img{
+        width:112px;height:112px;object-fit:cover;border-radius:13px;
+        border:1px solid rgba(244,198,96,.2);background:#12100d
+      }
+      .holder-info{display:flex;flex-direction:column;justify-content:center;min-width:0;padding-right:25px}
+      .holder-rank{display:inline-flex;align-items:center;align-self:flex-start;padding:4px 8px;border-radius:999px;
+        background:rgba(244,198,96,.12);border:1px solid rgba(244,198,96,.24);
+        color:#f3cf78;font-size:8px;font-weight:950;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+      .holder-balance{font-size:clamp(19px,2.4vw,28px);font-weight:950;color:#f3e5bd;line-height:1.05}
+      .holder-balance small{font-size:9px;color:#958a78;letter-spacing:.08em}
+      .holder-address{
+        margin-top:7px;color:#847b70;font:700 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;
+        overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+      }
+      .holder-loading,.holder-error{
+        grid-column:1/-1;padding:24px;border:1px dashed rgba(244,198,96,.18);border-radius:16px;
+        color:#9c9180;text-align:center;font-size:11px
+      }
+      .coop-refresh{
+        appearance:none;border:1px solid rgba(244,198,96,.24);background:rgba(255,255,255,.025);
+        color:#cdb77f;border-radius:999px;padding:7px 10px;font-size:8px;font-weight:900;
+        letter-spacing:.08em;cursor:pointer;margin-left:8px
+      }
+      .coop-refresh:hover{border-color:rgba(244,198,96,.55);color:#fff0bf}
+      @media(max-width:760px){
+        .live-coop-head{display:block}
+        .live-coop-status{margin-top:12px}
+        .holder-grid{grid-template-columns:1fr}
+        .holder-card{grid-template-columns:92px minmax(0,1fr)}
+        .holder-card img{width:92px;height:92px}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function shortAddress(address){
+    const a=String(address||"");
+    return a.length>18 ? `${a.slice(0,9)}…${a.slice(-7)}` : a;
+  }
+
+  function coopText(){
+    const fr=document.documentElement.lang==="fr";
+    return fr ? {
+      kicker:"MEMBRES EN DIRECT",
+      title:"Qui est dans la Coop ?",
+      intro:"Les soldes publics BRC-20 viennent de UniSat. Le rang et la carte évoluent automatiquement avec le nombre de QUQN détenus.",
+      loading:"Chargement des détenteurs QUQN…",
+      error:"Impossible de charger la Coop pour le moment.",
+      live:"LIVE · UNISAT",
+      refresh:"ACTUALISER"
+    } : {
+      kicker:"LIVE MEMBERS",
+      title:"Who is in the Coop?",
+      intro:"Public BRC-20 balances come from UniSat. Each holder's rank and card update automatically with the QUQN balance.",
+      loading:"Loading QUQN holders…",
+      error:"The Coop cannot be loaded right now.",
+      live:"LIVE · UNISAT",
+      refresh:"REFRESH"
+    };
+  }
+
+  function ensureLiveCoop(){
+    const ranks=q("#ranks .shell");
+    const rankGrid=q("#rankGrid");
+    if(!ranks || !rankGrid) return null;
+    let wrap=q("#liveCoop");
+    if(wrap) return wrap;
+
+    wrap=document.createElement("div");
+    wrap.id="liveCoop";
+    wrap.className="live-coop";
+    wrap.innerHTML=`
+      <div class="live-coop-head">
+        <div>
+          <span id="liveCoopKicker" class="kicker">LIVE MEMBERS</span>
+          <h3 id="liveCoopTitle">Who is in the Coop?</h3>
+          <p id="liveCoopIntro"></p>
+        </div>
+        <div id="liveCoopStatus" class="live-coop-status">
+          <i class="live-coop-dot"></i><span>CONNECTING…</span>
+          <button id="coopRefresh" class="coop-refresh" type="button">REFRESH</button>
+        </div>
+      </div>
+      <div id="holderGrid" class="holder-grid">
+        <div class="holder-loading">Loading QUQN holders…</div>
+      </div>`;
+    rankGrid.insertAdjacentElement("afterend",wrap);
+
+    q("#coopRefresh")?.addEventListener("click",()=>loadLiveCoop(true));
+    return wrap;
+  }
+
+  function renderLiveCoop(data){
+    const wrap=ensureLiveCoop();
+    if(!wrap) return;
+    const t=coopText();
+    q("#liveCoopKicker").textContent=t.kicker;
+    q("#liveCoopTitle").textContent=t.title;
+    q("#liveCoopIntro").textContent=t.intro;
+    const refresh=q("#coopRefresh"); if(refresh) refresh.textContent=t.refresh;
+
+    const status=q("#liveCoopStatus");
+    if(status){
+      status.dataset.state="live";
+      const span=status.querySelector("span");
+      if(span) span.textContent=`${t.live} · ${Number(data.total || data.holders?.length || 0)}`;
+    }
+
+    const holders=[...(data.holders||[])].sort((a,b)=>Number(b.overallBalance||0)-Number(a.overallBalance||0));
+    const grid=q("#holderGrid");
+    if(!grid) return;
+    const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
+
+    grid.innerHTML=holders.map((h,index)=>{
+      const balance=Number(h.overallBalance||0);
+      const image=h.rankImage || "assets/logo.webp";
+      const rank=h.rank || "QUQN Holder";
+      const addr=String(h.address||"");
+      return `<article class="holder-card">
+        <span class="holder-rank-no">#${index+1}</span>
+        <img src="${image}" alt="${rank}" loading="lazy" onerror="this.src='assets/logo.webp'">
+        <div class="holder-info">
+          <span class="holder-rank">${rank}</span>
+          <div class="holder-balance">${balance.toLocaleString(locale)} <small>QUQN</small></div>
+          <div class="holder-address" title="${addr}">${shortAddress(addr)}</div>
+        </div>
+      </article>`;
+    }).join("") || `<div class="holder-loading">${t.loading}</div>`;
+  }
+
+  async function loadLiveCoop(force=false){
+    const wrap=ensureLiveCoop();
+    if(!wrap) return;
+    const t=coopText();
+    const grid=q("#holderGrid");
+    const status=q("#liveCoopStatus");
+
+    if(liveCoopData && !force){
+      renderLiveCoop(liveCoopData);
+      return;
+    }
+    if(grid && !liveCoopData) grid.innerHTML=`<div class="holder-loading">${t.loading}</div>`;
+    if(status){
+      status.dataset.state="";
+      const span=status.querySelector("span"); if(span) span.textContent="CONNECTING…";
+    }
+
+    try{
+      const config=await fetch("assets/config.json",{cache:"no-store"}).then(r=>{
+        if(!r.ok) throw new Error("config");
+        return r.json();
+      });
+      const apiBase=String(config.apiBase||"").replace(/\/$/,"");
+      if(!apiBase) throw new Error("No apiBase");
+
+      const response=await fetch(`${apiBase}/api/holders`,{cache:"no-store"});
+      if(!response.ok) throw new Error(`holders ${response.status}`);
+      const data=await response.json();
+      if(!Array.isArray(data.holders)) throw new Error("Invalid holders payload");
+      liveCoopData=data;
+      renderLiveCoop(data);
+    }catch(err){
+      console.warn("QUQN live Coop:",err);
+      if(grid) grid.innerHTML=`<div class="holder-error">${t.error}</div>`;
+      if(status){
+        status.dataset.state="error";
+        const span=status.querySelector("span"); if(span) span.textContent="UNISAT OFFLINE";
+      }
+    }
+  }
+
+  function setupLiveCoop(){
+    injectCoopStyles();
+    ensureLiveCoop();
+    loadLiveCoop();
+
+    // Language switch changes <html lang>; redraw labels without another API request.
+    new MutationObserver(()=>{ if(liveCoopData) renderLiveCoop(liveCoopData); })
+      .observe(document.documentElement,{attributes:true,attributeFilter:["lang"]});
+
+    // Gentle refresh only while the page is open. Manual refresh is also available.
+    setInterval(()=>{ if(!document.hidden) loadLiveCoop(true); },300000);
+  }
+
+
   function initV6(){
     hijackRoulette();
     buildRoadMilestones();
@@ -352,6 +568,7 @@
     setupMascot();
     setupVisitGreeting();
     setupClingFX();
+    setupLiveCoop();
     setupReveal();
 
     // Give app.js time to put current config values into the strip.
