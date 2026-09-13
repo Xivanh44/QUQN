@@ -401,6 +401,38 @@
       }
       .coop-refresh:hover{border-color:rgba(244,198,96,.55);color:#fff0bf}
 
+      /* --- Viral loop: find your public Coop rank and share it on X --- */
+      .coop-rank-finder{
+        margin:18px 0 20px;padding:18px;border:1px solid rgba(244,198,96,.22);border-radius:18px;
+        background:linear-gradient(135deg,rgba(244,198,96,.075),rgba(255,255,255,.02));
+        box-shadow:0 18px 42px rgba(0,0,0,.16)
+      }
+      .coop-rank-finder-top{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:12px}
+      .coop-rank-finder h4{margin:4px 0 4px;font-size:20px;letter-spacing:-.025em;color:#f2ddb0}
+      .coop-rank-finder p{margin:0;color:#8f8576;font-size:10px;line-height:1.45}
+      .coop-rank-form{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+      .coop-rank-form input{
+        min-width:0;width:100%;box-sizing:border-box;padding:12px 13px;border-radius:12px;
+        border:1px solid rgba(244,198,96,.22);background:rgba(7,6,5,.72);color:#f5e7c3;
+        font:700 10px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;outline:none
+      }
+      .coop-rank-form input:focus{border-color:rgba(244,198,96,.62);box-shadow:0 0 0 3px rgba(244,198,96,.07)}
+      .coop-rank-find-btn,.coop-rank-share-btn{
+        appearance:none;border:0;border-radius:12px;padding:11px 14px;cursor:pointer;
+        background:linear-gradient(135deg,#fff0b6,#e6aa37 58%,#ffdc7a);color:#171006;
+        font-size:9px;font-weight:1000;letter-spacing:.08em;white-space:nowrap
+      }
+      .coop-rank-result{display:none;grid-template-columns:74px minmax(0,1fr) auto;align-items:center;gap:14px;margin-top:13px;padding:12px;border-radius:14px;border:1px solid rgba(244,198,96,.2);background:rgba(0,0,0,.2)}
+      .coop-rank-result.show{display:grid}
+      .coop-rank-result img{width:74px;height:74px;object-fit:cover;border-radius:13px;border:1px solid rgba(244,198,96,.26)}
+      .coop-rank-result-main{min-width:0}
+      .coop-rank-result-main small{display:block;color:#9a8e7a;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+      .coop-rank-result-main strong{display:block;margin:3px 0 5px;color:#ffe29a;font-size:23px;line-height:1}
+      .coop-rank-result-main span{display:block;color:#cdbf9f;font-size:10px}
+      .coop-rank-note{margin-top:9px!important;font-size:8px!important;color:#766e64!important}
+      .coop-rank-error{margin-top:10px;color:#d7a59d;font-size:10px;font-weight:750}
+
+
       /* --- HERO: 3-part QUQN dashboard --- */
       .v4-hero{min-height:780px}
       .v4-hero .attraction-layout{
@@ -703,6 +735,13 @@
       }
 
       @media(max-width:760px){
+        .coop-rank-finder{padding:14px;margin:16px 0 18px}
+        .coop-rank-finder-top{display:block}
+        .coop-rank-form{grid-template-columns:1fr}
+        .coop-rank-find-btn{width:100%}
+        .coop-rank-result{grid-template-columns:58px minmax(0,1fr);gap:10px}
+        .coop-rank-result img{width:58px;height:58px}
+        .coop-rank-result .coop-rank-share-btn{grid-column:1/-1;width:100%}
         .live-coop-head{display:block}
         .live-coop-status{margin-top:12px}
         .holder-grid{grid-template-columns:1fr}
@@ -737,7 +776,16 @@
       heroHolders:"détenteurs",
       enter:"ENTRER DANS LA COOP ↓",
       showMore:"VOIR PLUS",
-      hideMore:"RÉDUIRE"
+      hideMore:"RÉDUIRE",
+      findKicker:"TON RANG DANS THE COOP",
+      findTitle:"Trouve ton rang et partage-le",
+      findIntro:"Colle ton adresse Bitcoin publique. Aucun wallet à connecter.",
+      findPlaceholder:"bc1p…",
+      findButton:"TROUVER MON RANG",
+      findShare:"PARTAGER MON RANG SUR X ↗",
+      findNotFound:"Cette adresse n’apparaît pas parmi les détenteurs QUQN actuels.",
+      findEmpty:"Colle d’abord ton adresse Bitcoin.",
+      findNote:"La vérification se fait dans ton navigateur avec les données publiques UniSat. Cette fonction n’envoie pas l’adresse saisie."
     } : {
       kicker:"LIVE MEMBERS",
       title:"Who is in the Coop?",
@@ -750,7 +798,16 @@
       heroHolders:"holders",
       enter:"ENTER THE COOP ↓",
       showMore:"SHOW MORE",
-      hideMore:"SHOW LESS"
+      hideMore:"SHOW LESS",
+      findKicker:"YOUR COOP RANK",
+      findTitle:"Find your rank and share it",
+      findIntro:"Paste your public Bitcoin address. No wallet connection needed.",
+      findPlaceholder:"bc1p…",
+      findButton:"FIND MY RANK",
+      findShare:"SHARE MY RANK ON X ↗",
+      findNotFound:"This address is not among the current QUQN holders.",
+      findEmpty:"Paste your Bitcoin address first.",
+      findNote:"The check runs in your browser against public UniSat data. This feature does not send the address you type."
     };
   }
 
@@ -877,6 +934,47 @@
     scheduleHeroSideSync(30);
   }
 
+  let currentMyRank = null;
+
+  function rankShareText(match){
+    const balance=Number(match.holder.overallBalance||0).toLocaleString("en-US");
+    const rank=match.holder.rank||"QUQN Holder";
+    return `🐓 My QUQN rank: #${match.place} in The Coop — ${rank} with ${balance} $QUQN.\n\nSmall Coq. Big Dreams.\nBRC-20 on Bitcoin.\n@QUQNbtc`;
+  }
+
+  function shareMyRankOnX(){
+    if(!currentMyRank) return;
+    const text=rankShareText(currentMyRank);
+    const site=`${location.origin}${location.pathname}#ranks`;
+    const intent=`https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(site)}`;
+    window.open(intent,"_blank","noopener,noreferrer");
+  }
+
+  function findMyCoopRank(){
+    const input=q("#coopRankAddress"), result=q("#coopRankResult"), error=q("#coopRankError");
+    if(!input || !result || !error) return;
+    const t=coopText();
+    const value=String(input.value||"").trim().toLowerCase();
+    result.classList.remove("show");
+    currentMyRank=null;
+    if(!value){ error.textContent=t.findEmpty; return; }
+    const holders=[...(liveCoopData?.holders||[])].sort((a,b)=>Number(b.overallBalance||0)-Number(a.overallBalance||0));
+    const index=holders.findIndex(h=>String(h.address||"").trim().toLowerCase()===value);
+    if(index<0){ error.textContent=t.findNotFound; return; }
+    const holder=holders[index];
+    currentMyRank={holder,place:index+1};
+    error.textContent="";
+    const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
+    const image=holder.rankImage||"assets/logo.webp";
+    const rank=holder.rank||"QUQN Holder";
+    q("#coopRankImage").src=image;
+    q("#coopRankPlace").textContent=`#${index+1} · ${rank}`;
+    q("#coopRankBalance").textContent=`${Number(holder.overallBalance||0).toLocaleString(locale)} QUQN`;
+    q("#coopRankAddressShort").textContent=shortAddress(holder.address||"");
+    q("#coopRankShare").textContent=t.findShare;
+    result.classList.add("show");
+  }
+
   function ensureLiveCoop(){
     const ranks=q("#ranks .shell");
     const rankGrid=q("#rankGrid");
@@ -899,12 +997,40 @@
           <button id="coopRefresh" class="coop-refresh" type="button">REFRESH</button>
         </div>
       </div>
+      <div id="coopRankFinder" class="coop-rank-finder">
+        <div class="coop-rank-finder-top">
+          <div>
+            <span id="coopRankKicker" class="kicker">YOUR COOP RANK</span>
+            <h4 id="coopRankTitle">Find your rank and share it</h4>
+            <p id="coopRankIntro">Paste your public Bitcoin address. No wallet connection needed.</p>
+          </div>
+        </div>
+        <div class="coop-rank-form">
+          <input id="coopRankAddress" type="text" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="bc1p…" aria-label="Bitcoin address">
+          <button id="coopRankFind" class="coop-rank-find-btn" type="button">FIND MY RANK</button>
+        </div>
+        <div id="coopRankError" class="coop-rank-error" aria-live="polite"></div>
+        <div id="coopRankResult" class="coop-rank-result" aria-live="polite">
+          <img id="coopRankImage" src="assets/logo.webp" alt="QUQN rank">
+          <div class="coop-rank-result-main">
+            <small>THE COOP · LIVE</small>
+            <strong id="coopRankPlace">—</strong>
+            <span id="coopRankBalance">—</span>
+            <span id="coopRankAddressShort">—</span>
+          </div>
+          <button id="coopRankShare" class="coop-rank-share-btn" type="button">SHARE MY RANK ON X ↗</button>
+        </div>
+        <p id="coopRankNote" class="coop-rank-note">The check runs in your browser against public UniSat data. This feature does not send the address you type.</p>
+      </div>
       <div id="holderGrid" class="holder-grid">
         <div class="holder-loading">Loading QUQN holders…</div>
       </div>`;
     rankGrid.insertAdjacentElement("afterend",wrap);
 
     q("#coopRefresh")?.addEventListener("click",()=>loadLiveCoop(true));
+    q("#coopRankFind")?.addEventListener("click",findMyCoopRank);
+    q("#coopRankAddress")?.addEventListener("keydown",ev=>{ if(ev.key==="Enter") findMyCoopRank(); });
+    q("#coopRankShare")?.addEventListener("click",shareMyRankOnX);
     return wrap;
   }
 
@@ -916,6 +1042,13 @@
     q("#liveCoopTitle").textContent=t.title;
     q("#liveCoopIntro").textContent=t.intro;
     const refresh=q("#coopRefresh"); if(refresh) refresh.textContent=t.refresh;
+    q("#coopRankKicker").textContent=t.findKicker;
+    q("#coopRankTitle").textContent=t.findTitle;
+    q("#coopRankIntro").textContent=t.findIntro;
+    q("#coopRankAddress").placeholder=t.findPlaceholder;
+    q("#coopRankFind").textContent=t.findButton;
+    q("#coopRankNote").textContent=t.findNote;
+    if(currentMyRank) q("#coopRankShare").textContent=t.findShare;
 
     const status=q("#liveCoopStatus");
     if(status){
