@@ -431,6 +431,14 @@
       .coop-rank-result-main span{display:block;color:#cdbf9f;font-size:10px}
       .coop-rank-note{margin-top:9px!important;font-size:8px!important;color:#766e64!important}
       .coop-rank-error{margin-top:10px;color:#d7a59d;font-size:10px;font-weight:750}
+      .coop-rank-card-wrap{display:none;margin-top:14px;padding:12px;border-radius:16px;border:1px solid rgba(244,198,96,.18);background:rgba(0,0,0,.22)}
+      .coop-rank-card-wrap.show{display:block}
+      .coop-rank-canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:13px;border:1px solid rgba(244,198,96,.18);background:#100d08}
+      .coop-rank-card-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+      .coop-rank-card-btn{appearance:none;border-radius:11px;padding:10px 13px;cursor:pointer;font-size:8px;font-weight:1000;letter-spacing:.08em}
+      .coop-rank-card-btn.primary{border:0;background:linear-gradient(135deg,#fff0b6,#e6aa37 58%,#ffdc7a);color:#171006}
+      .coop-rank-card-btn.secondary{border:1px solid rgba(244,198,96,.28);background:rgba(255,255,255,.025);color:#e6cf92}
+      .coop-rank-card-help{margin-top:8px!important;color:#746c61!important;font-size:8px!important}
 
 
       /* --- HERO: 3-part QUQN dashboard --- */
@@ -742,6 +750,8 @@
         .coop-rank-result{grid-template-columns:58px minmax(0,1fr);gap:10px}
         .coop-rank-result img{width:58px;height:58px}
         .coop-rank-result .coop-rank-share-btn{grid-column:1/-1;width:100%}
+        .coop-rank-card-actions{display:grid;grid-template-columns:1fr}
+        .coop-rank-card-btn{width:100%}
         .live-coop-head{display:block}
         .live-coop-status{margin-top:12px}
         .holder-grid{grid-template-columns:1fr}
@@ -783,6 +793,9 @@
       findPlaceholder:"bc1p…",
       findButton:"TROUVER MON RANG",
       findShare:"PARTAGER MON RANG SUR X ↗",
+      cardShare:"PARTAGER LA CARTE",
+      cardSave:"ENREGISTRER MA CARTE ↓",
+      cardHelp:"Sur mobile, “Partager la carte” peut envoyer directement l’image vers X. Sur ordinateur, enregistre-la puis ajoute-la à ton post.",
       findNotFound:"Cette adresse n’apparaît pas parmi les détenteurs QUQN actuels.",
       findEmpty:"Colle d’abord ton adresse Bitcoin.",
       findNote:"La vérification se fait dans ton navigateur avec les données publiques UniSat. Cette fonction n’envoie pas l’adresse saisie."
@@ -805,6 +818,9 @@
       findPlaceholder:"bc1p…",
       findButton:"FIND MY RANK",
       findShare:"SHARE MY RANK ON X ↗",
+      cardShare:"SHARE THE CARD",
+      cardSave:"SAVE MY CARD ↓",
+      cardHelp:"On mobile, “Share the card” can send the image directly to X. On desktop, save it and attach it to your post.",
       findNotFound:"This address is not among the current QUQN holders.",
       findEmpty:"Paste your Bitcoin address first.",
       findNote:"The check runs in your browser against public UniSat data. This feature does not send the address you type."
@@ -939,14 +955,171 @@
   function rankShareText(match){
     const balance=Number(match.holder.overallBalance||0).toLocaleString("en-US");
     const rank=match.holder.rank||"QUQN Holder";
-    return `🐓 My QUQN rank: #${match.place} in The Coop — ${rank} with ${balance} $QUQN.\n\nSmall Coq. Big Dreams.\nBRC-20 on Bitcoin.\n@QUQNbtc`;
+    return `🐓 I’m #${match.place} in The Coop.\n👑 ${rank} · ${balance} $QUQN\n\nSmall Coq. Big Dreams.\nBRC-20 on Bitcoin.\n\nFind your rank ↓\n@QUQNbtc`;
+  }
+
+  function rankShareUrl(){
+    return `${location.origin}${location.pathname}#ranks`;
+  }
+
+  function loadCanvasImage(src){
+    return new Promise(resolve=>{
+      const img=new Image();
+      img.onload=()=>resolve(img);
+      img.onerror=()=>resolve(null);
+      img.src=src;
+    });
+  }
+
+  function roundedRectPath(ctx,x,y,w,h,r){
+    const rr=Math.min(r,w/2,h/2);
+    ctx.beginPath();
+    ctx.moveTo(x+rr,y);
+    ctx.arcTo(x+w,y,x+w,y+h,rr);
+    ctx.arcTo(x+w,y+h,x,y+h,rr);
+    ctx.arcTo(x,y+h,x,y,rr);
+    ctx.arcTo(x,y,x+w,y,rr);
+    ctx.closePath();
+  }
+
+  function fitText(ctx,text,maxWidth,startSize,minSize=24){
+    let size=startSize;
+    while(size>minSize){
+      ctx.font=`900 ${size}px system-ui,-apple-system,Segoe UI,sans-serif`;
+      if(ctx.measureText(text).width<=maxWidth) return size;
+      size-=2;
+    }
+    return minSize;
+  }
+
+  async function drawRankShareCard(match){
+    const canvas=q("#coopRankCanvas"), wrap=q("#coopRankCardWrap");
+    if(!canvas || !wrap || !match) return;
+    const ctx=canvas.getContext("2d");
+    if(!ctx) return;
+    canvas.width=1200; canvas.height=675;
+
+    const holder=match.holder||{};
+    const rank=holder.rank||"QUQN Holder";
+    const balance=Number(holder.overallBalance||0).toLocaleString("en-US");
+    const rankImg=await loadCanvasImage(holder.rankImage||"assets/logo.webp");
+    const logo=await loadCanvasImage("assets/logo.webp");
+
+    // Background.
+    const bg=ctx.createLinearGradient(0,0,1200,675);
+    bg.addColorStop(0,"#090806");
+    bg.addColorStop(.58,"#171006");
+    bg.addColorStop(1,"#070706");
+    ctx.fillStyle=bg; ctx.fillRect(0,0,1200,675);
+
+    // Warm glows.
+    const glow1=ctx.createRadialGradient(960,110,20,960,110,420);
+    glow1.addColorStop(0,"rgba(244,190,66,.28)");
+    glow1.addColorStop(1,"rgba(244,190,66,0)");
+    ctx.fillStyle=glow1; ctx.fillRect(520,0,680,600);
+    const glow2=ctx.createRadialGradient(210,560,20,210,560,360);
+    glow2.addColorStop(0,"rgba(217,154,37,.16)");
+    glow2.addColorStop(1,"rgba(217,154,37,0)");
+    ctx.fillStyle=glow2; ctx.fillRect(0,240,620,435);
+
+    // Border.
+    roundedRectPath(ctx,18,18,1164,639,34);
+    ctx.strokeStyle="rgba(244,198,96,.55)"; ctx.lineWidth=3; ctx.stroke();
+
+    // Branding.
+    if(logo){
+      ctx.save();
+      ctx.beginPath(); ctx.arc(88,87,42,0,Math.PI*2); ctx.clip();
+      ctx.drawImage(logo,46,45,84,84); ctx.restore();
+    }
+    ctx.fillStyle="#f5e6bd"; ctx.font="950 38px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText("QUQN",148,99);
+    ctx.fillStyle="#cfa744"; ctx.font="800 18px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.letterSpacing="3px";
+    ctx.fillText("THE COOP · LIVE",826,80);
+
+    // Rank art panel.
+    roundedRectPath(ctx,58,172,410,410,30);
+    ctx.fillStyle="rgba(255,255,255,.025)"; ctx.fill();
+    ctx.strokeStyle="rgba(244,198,96,.32)"; ctx.lineWidth=2; ctx.stroke();
+    if(rankImg){
+      ctx.save(); roundedRectPath(ctx,76,190,374,374,24); ctx.clip();
+      const sw=rankImg.naturalWidth||rankImg.width, sh=rankImg.naturalHeight||rankImg.height;
+      const scale=Math.max(374/sw,374/sh);
+      const dw=sw*scale, dh=sh*scale;
+      ctx.drawImage(rankImg,76+(374-dw)/2,190+(374-dh)/2,dw,dh);
+      ctx.restore();
+    }
+
+    // Text content.
+    ctx.fillStyle="#c89d3d"; ctx.font="900 30px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText("YOUR ON-CHAIN RANK",535,190);
+    ctx.fillStyle="#fff4d5"; ctx.font="1000 108px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText(`#${match.place}`,526,318);
+    const rankSize=fitText(ctx,rank,590,62,34);
+    ctx.fillStyle="#f5c95b"; ctx.font=`950 ${rankSize}px system-ui,-apple-system,Segoe UI,sans-serif`;
+    ctx.fillText(rank,535,392);
+    ctx.fillStyle="#fff1c5"; ctx.font="950 54px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText(balance,535,475);
+    const balWidth=ctx.measureText(balance).width;
+    ctx.fillStyle="#9e8f70"; ctx.font="900 20px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText("QUQN",555+balWidth,473);
+
+    // Footer statement.
+    ctx.fillStyle="#f1e2bd"; ctx.font="850 26px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText("Small Coq. Big Dreams.",535,548);
+    ctx.fillStyle="#9a8c70"; ctx.font="750 18px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText("BRC-20 on Bitcoin · @QUQNbtc",535,585);
+    ctx.fillStyle="#6f6556"; ctx.font="700 15px system-ui,-apple-system,Segoe UI,sans-serif";
+    ctx.fillText("xivanh44.github.io/QUQN/",535,615);
+
+    wrap.classList.add("show");
+  }
+
+  function canvasToBlob(canvas){
+    return new Promise(resolve=>canvas?.toBlob(resolve,"image/png",.95));
+  }
+
+  async function downloadRankCard(){
+    if(!currentMyRank) return;
+    const canvas=q("#coopRankCanvas");
+    const blob=await canvasToBlob(canvas);
+    if(!blob) return;
+    const rank=(currentMyRank.holder.rank||"QUQN-Holder").replace(/[^a-z0-9]+/gi,"-").replace(/^-|-$/g,"");
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url; a.download=`QUQN-Coop-${currentMyRank.place}-${rank}.png`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+  }
+
+  async function shareRankCard(){
+    if(!currentMyRank) return;
+    const canvas=q("#coopRankCanvas");
+    const blob=await canvasToBlob(canvas);
+    if(!blob) return;
+    const file=new File([blob],"QUQN-Coop-rank.png",{type:"image/png"});
+    const payload={
+      title:"My QUQN rank",
+      text:rankShareText(currentMyRank),
+      url:rankShareUrl(),
+      files:[file]
+    };
+    try{
+      if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+        await navigator.share(payload);
+        return;
+      }
+    }catch(err){
+      if(err?.name==="AbortError") return;
+    }
+    await downloadRankCard();
   }
 
   function shareMyRankOnX(){
     if(!currentMyRank) return;
     const text=rankShareText(currentMyRank);
-    const site=`${location.origin}${location.pathname}#ranks`;
-    const intent=`https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(site)}`;
+    const intent=`https://x.com/intent/post?text=${encodeURIComponent(text)}&url=${encodeURIComponent(rankShareUrl())}`;
     window.open(intent,"_blank","noopener,noreferrer");
   }
 
@@ -956,6 +1129,7 @@
     const t=coopText();
     const value=String(input.value||"").trim().toLowerCase();
     result.classList.remove("show");
+    q("#coopRankCardWrap")?.classList.remove("show");
     currentMyRank=null;
     if(!value){ error.textContent=t.findEmpty; return; }
     const holders=[...(liveCoopData?.holders||[])].sort((a,b)=>Number(b.overallBalance||0)-Number(a.overallBalance||0));
@@ -972,7 +1146,11 @@
     q("#coopRankBalance").textContent=`${Number(holder.overallBalance||0).toLocaleString(locale)} QUQN`;
     q("#coopRankAddressShort").textContent=shortAddress(holder.address||"");
     q("#coopRankShare").textContent=t.findShare;
+    q("#coopRankCardShare").textContent=t.cardShare;
+    q("#coopRankCardSave").textContent=t.cardSave;
+    q("#coopRankCardHelp").textContent=t.cardHelp;
     result.classList.add("show");
+    drawRankShareCard(currentMyRank);
   }
 
   function ensureLiveCoop(){
@@ -1020,6 +1198,14 @@
           </div>
           <button id="coopRankShare" class="coop-rank-share-btn" type="button">SHARE MY RANK ON X ↗</button>
         </div>
+        <div id="coopRankCardWrap" class="coop-rank-card-wrap">
+          <canvas id="coopRankCanvas" class="coop-rank-canvas" width="1200" height="675" aria-label="QUQN Coop rank share card"></canvas>
+          <div class="coop-rank-card-actions">
+            <button id="coopRankCardShare" class="coop-rank-card-btn primary" type="button">SHARE THE CARD</button>
+            <button id="coopRankCardSave" class="coop-rank-card-btn secondary" type="button">SAVE MY CARD ↓</button>
+          </div>
+          <p id="coopRankCardHelp" class="coop-rank-card-help">On mobile, share the card directly. On desktop, save it and attach it to your X post.</p>
+        </div>
         <p id="coopRankNote" class="coop-rank-note">The check runs in your browser against public UniSat data. This feature does not send the address you type.</p>
       </div>
       <div id="holderGrid" class="holder-grid">
@@ -1031,6 +1217,8 @@
     q("#coopRankFind")?.addEventListener("click",findMyCoopRank);
     q("#coopRankAddress")?.addEventListener("keydown",ev=>{ if(ev.key==="Enter") findMyCoopRank(); });
     q("#coopRankShare")?.addEventListener("click",shareMyRankOnX);
+    q("#coopRankCardShare")?.addEventListener("click",shareRankCard);
+    q("#coopRankCardSave")?.addEventListener("click",downloadRankCard);
     return wrap;
   }
 
@@ -1048,6 +1236,9 @@
     q("#coopRankAddress").placeholder=t.findPlaceholder;
     q("#coopRankFind").textContent=t.findButton;
     q("#coopRankNote").textContent=t.findNote;
+    if(q("#coopRankCardShare")) q("#coopRankCardShare").textContent=t.cardShare;
+    if(q("#coopRankCardSave")) q("#coopRankCardSave").textContent=t.cardSave;
+    if(q("#coopRankCardHelp")) q("#coopRankCardHelp").textContent=t.cardHelp;
     if(currentMyRank) q("#coopRankShare").textContent=t.findShare;
 
     const status=q("#liveCoopStatus");
