@@ -399,12 +399,112 @@
         letter-spacing:.08em;cursor:pointer;margin-left:8px
       }
       .coop-refresh:hover{border-color:rgba(244,198,96,.55);color:#fff0bf}
+
+      /* --- HERO: 3-part QUQN dashboard --- */
+      .v4-hero{min-height:820px}
+      .v4-hero .attraction-layout{
+        width:min(1380px,calc(100% - 28px));
+        grid-template-columns:minmax(235px,.78fr) minmax(460px,1.55fr) minmax(300px,.92fr);
+        gap:18px;align-items:stretch;min-height:800px;padding:88px 0 42px
+      }
+      .v4-hero .attraction-intro{
+        align-self:center;padding:22px 4px 22px 0;min-width:0
+      }
+      .v4-hero .attraction-intro h1{
+        font-size:clamp(48px,4.7vw,72px);line-height:.86;margin:14px 0 20px
+      }
+      .v4-hero .attraction-intro .hero-subtitle{font-size:15px;line-height:1.45}
+      .v4-hero .hero-game{
+        align-self:center;min-width:0;max-height:680px;overflow:auto
+      }
+
+      .hero-coop-preview{
+        align-self:center;min-width:0;border:1px solid rgba(244,198,96,.28);
+        background:linear-gradient(155deg,rgba(13,11,8,.91),rgba(20,15,8,.78));
+        border-radius:20px;padding:15px 13px 13px;box-shadow:0 26px 65px rgba(0,0,0,.32);
+        backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)
+      }
+      .hero-coop-preview-head{display:flex;justify-content:space-between;align-items:start;gap:10px;margin-bottom:10px}
+      .hero-coop-preview .kicker{font-size:8px;letter-spacing:.16em}
+      .hero-coop-preview h3{font-size:23px;line-height:1;margin:4px 0 3px;letter-spacing:-.035em}
+      .hero-coop-preview-count{font-size:9px;color:#9f927c;font-weight:800}
+      .hero-live-pill{
+        display:inline-flex;align-items:center;gap:5px;white-space:nowrap;padding:5px 7px;
+        border:1px solid rgba(123,213,150,.25);border-radius:999px;color:#9ee5b2;
+        font-size:7px;font-weight:950;letter-spacing:.08em;background:rgba(33,76,44,.12)
+      }
+      .hero-live-pill i{width:5px;height:5px;border-radius:50%;background:#7bd596;box-shadow:0 0 8px rgba(123,213,150,.75)}
+      .hero-top10{display:grid;gap:4px}
+      .hero-holder-row{
+        display:grid;grid-template-columns:34px 28px minmax(0,1fr) auto;align-items:center;gap:7px;
+        min-height:42px;padding:4px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.045);
+        background:rgba(255,255,255,.022);transition:.2s ease
+      }
+      .hero-holder-row:hover{background:rgba(244,198,96,.06);border-color:rgba(244,198,96,.18);transform:translateX(-2px)}
+      .hero-holder-row[data-place="1"]{background:linear-gradient(90deg,rgba(244,198,96,.14),rgba(244,198,96,.03));border-color:rgba(244,198,96,.32)}
+      .hero-holder-row img{width:34px;height:34px;object-fit:cover;border-radius:8px;border:1px solid rgba(244,198,96,.2)}
+      .hero-place{font-size:12px;font-weight:1000;color:#d9c286}
+      .hero-holder-main{min-width:0}
+      .hero-holder-rank{display:block;color:#e8d49c;font-size:8px;font-weight:950;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      .hero-holder-address{display:block;color:#71695f;font:650 7px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+      .hero-holder-balance{text-align:right;color:#fff0bf;font-size:10px;font-weight:950;white-space:nowrap}
+      .hero-holder-balance small{display:block;color:#7e7568;font-size:6px;letter-spacing:.08em}
+      .hero-coop-enter{
+        display:flex;justify-content:center;align-items:center;margin-top:9px;padding:9px 10px;
+        border-radius:10px;text-decoration:none;color:#171006;background:linear-gradient(135deg,#fff0b6,#e6aa37 58%,#ffdc7a);
+        font-size:9px;font-weight:950;letter-spacing:.08em
+      }
+      .hero-coop-loading{padding:24px 8px;text-align:center;color:#8f8473;font-size:10px}
+
+      /* --- Full Coop: premium podium on top, compact leaderboard below --- */
+      .holder-grid{grid-template-columns:repeat(6,minmax(0,1fr));align-items:stretch;padding-top:12px}
+      .holder-card{grid-column:span 3}
+      .holder-card:nth-child(1),.holder-card:nth-child(2),.holder-card:nth-child(3){grid-column:span 2}
+      .holder-card:nth-child(1){order:2;transform:translateY(-10px);border-color:rgba(255,215,105,.55);background:linear-gradient(145deg,rgba(255,213,91,.14),rgba(255,255,255,.025));box-shadow:0 22px 55px rgba(197,139,28,.12)}
+      .holder-card:nth-child(2){order:1;border-color:rgba(210,220,230,.25);background:linear-gradient(145deg,rgba(205,218,230,.065),rgba(255,255,255,.02))}
+      .holder-card:nth-child(3){order:3;border-color:rgba(196,130,72,.28);background:linear-gradient(145deg,rgba(190,116,54,.07),rgba(255,255,255,.02))}
+      .holder-card:nth-child(n+4){order:4}
+      .holder-card:nth-child(1) .holder-rank-no{color:rgba(255,225,135,.5);font-size:35px}
+      .holder-card:nth-child(2) .holder-rank-no,.holder-card:nth-child(3) .holder-rank-no{color:rgba(230,220,195,.3)}
+      .holder-card:nth-child(1) img{box-shadow:0 0 26px rgba(244,198,96,.17)}
+      .holder-card:nth-child(1):hover{transform:translateY(-14px)}
+
+      @media(max-width:1120px){
+        .v4-hero .attraction-layout{
+          grid-template-columns:minmax(220px,.75fr) minmax(430px,1.5fr) minmax(270px,.9fr);
+          width:min(100% - 18px,1180px);gap:12px
+        }
+        .hero-holder-row{grid-template-columns:30px 24px minmax(0,1fr) auto;gap:5px}
+        .hero-holder-row img{width:30px;height:30px}
+        .hero-holder-address{display:none}
+      }
+      @media(max-width:980px){
+        .v4-hero{min-height:auto}
+        .v4-hero .attraction-layout{
+          display:flex;flex-direction:column;width:min(100% - 28px,760px);
+          min-height:0;padding:92px 0 44px;gap:18px
+        }
+        .v4-hero .hero-game{order:1;max-height:none;width:100%}
+        .hero-coop-preview{order:2;width:100%}
+        .v4-hero .attraction-intro{order:3;width:100%;padding:24px 0 0}
+        .v4-hero .attraction-intro h1{font-size:clamp(54px,10vw,82px)}
+        .hero-top10{grid-template-columns:1fr 1fr}
+        .holder-grid{grid-template-columns:1fr 1fr}
+        .holder-card,.holder-card:nth-child(1),.holder-card:nth-child(2),.holder-card:nth-child(3){grid-column:auto;order:initial;transform:none}
+        .holder-card:nth-child(1):hover{transform:translateY(-3px)}
+      }
+
       @media(max-width:760px){
         .live-coop-head{display:block}
         .live-coop-status{margin-top:12px}
         .holder-grid{grid-template-columns:1fr}
         .holder-card{grid-template-columns:92px minmax(0,1fr)}
         .holder-card img{width:92px;height:92px}
+        .hero-top10{grid-template-columns:1fr}
+        .hero-holder-row:nth-child(n+6){display:none}
+        .hero-coop-preview.show-top10 .hero-holder-row:nth-child(n+6){display:grid}
+        .hero-coop-more{display:block!important}
+        .holder-grid{grid-template-columns:1fr}
       }
     `;
     document.head.appendChild(style);
@@ -424,7 +524,12 @@
       loading:"Chargement des détenteurs QUQN…",
       error:"Impossible de charger la Coop pour le moment.",
       live:"LIVE · UNISAT",
-      refresh:"ACTUALISER"
+      refresh:"ACTUALISER",
+      heroTitle:"THE COOP · LIVE",
+      heroHolders:"détenteurs",
+      enter:"ENTRER DANS LA COOP ↓",
+      show10:"VOIR LE TOP 10",
+      hide10:"RÉDUIRE"
     } : {
       kicker:"LIVE MEMBERS",
       title:"Who is in the Coop?",
@@ -432,8 +537,83 @@
       loading:"Loading QUQN holders…",
       error:"The Coop cannot be loaded right now.",
       live:"LIVE · UNISAT",
-      refresh:"REFRESH"
+      refresh:"REFRESH",
+      heroTitle:"THE COOP · LIVE",
+      heroHolders:"holders",
+      enter:"ENTER THE COOP ↓",
+      show10:"SHOW TOP 10",
+      hide10:"SHOW LESS"
     };
+  }
+
+
+  function ensureHeroCoopPreview(){
+    const layout=q(".v4-hero .attraction-layout");
+    const game=q("#billionaire");
+    if(!layout || !game) return null;
+    let preview=q("#heroCoopPreview");
+    if(preview) return preview;
+
+    preview=document.createElement("aside");
+    preview.id="heroCoopPreview";
+    preview.className="hero-coop-preview";
+    preview.setAttribute("aria-label","The Coop live preview");
+    preview.innerHTML=`
+      <div class="hero-coop-preview-head">
+        <div>
+          <span class="kicker">ON-CHAIN</span>
+          <h3 id="heroCoopTitle">THE COOP · LIVE</h3>
+          <div id="heroCoopCount" class="hero-coop-preview-count">—</div>
+        </div>
+        <span class="hero-live-pill"><i></i>UNISAT</span>
+      </div>
+      <div id="heroTop10" class="hero-top10">
+        <div class="hero-coop-loading">Connecting to the Coop…</div>
+      </div>
+      <button id="heroCoopMore" class="coop-refresh hero-coop-more" type="button" style="display:none;margin:9px auto 0">SHOW TOP 10</button>
+      <a id="heroCoopEnter" class="hero-coop-enter" href="#liveCoop">ENTER THE COOP ↓</a>`;
+
+    game.insertAdjacentElement("afterend",preview);
+
+    q("#heroCoopMore")?.addEventListener("click",()=>{
+      preview.classList.toggle("show-top10");
+      const t=coopText();
+      q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hide10:t.show10;
+    });
+    return preview;
+  }
+
+  function renderHeroCoop(data){
+    const preview=ensureHeroCoopPreview();
+    if(!preview) return;
+    const t=coopText();
+    const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
+    const holders=[...(data.holders||[])]
+      .sort((a,b)=>Number(b.overallBalance||0)-Number(a.overallBalance||0))
+      .slice(0,10);
+
+    q("#heroCoopTitle").textContent=t.heroTitle;
+    q("#heroCoopCount").textContent=`${Number(data.total || data.holders?.length || 0)} ${t.heroHolders}`;
+    q("#heroCoopEnter").textContent=t.enter;
+    q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hide10:t.show10;
+
+    const list=q("#heroTop10");
+    if(!list) return;
+    list.innerHTML=holders.map((h,index)=>{
+      const rank=h.rank||"QUQN Holder";
+      const image=h.rankImage||"assets/logo.webp";
+      const balance=Number(h.overallBalance||0);
+      const addr=String(h.address||"");
+      return `<div class="hero-holder-row" data-place="${index+1}">
+        <img src="${image}" alt="" loading="lazy" onerror="this.src='assets/logo.webp'">
+        <span class="hero-place">#${index+1}</span>
+        <span class="hero-holder-main">
+          <b class="hero-holder-rank">${rank}</b>
+          <small class="hero-holder-address">${shortAddress(addr)}</small>
+        </span>
+        <span class="hero-holder-balance">${balance.toLocaleString(locale)}<small>QUQN</small></span>
+      </div>`;
+    }).join("");
   }
 
   function ensureLiveCoop(){
@@ -482,6 +662,8 @@
       const span=status.querySelector("span");
       if(span) span.textContent=`${t.live} · ${Number(data.total || data.holders?.length || 0)}`;
     }
+
+    renderHeroCoop(data);
 
     const holders=[...(data.holders||[])].sort((a,b)=>Number(b.overallBalance||0)-Number(a.overallBalance||0));
     const grid=q("#holderGrid");
@@ -548,6 +730,7 @@
 
   function setupLiveCoop(){
     injectCoopStyles();
+    ensureHeroCoopPreview();
     ensureLiveCoop();
     loadLiveCoop();
 
