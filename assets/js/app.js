@@ -6,11 +6,11 @@ const translations = {
     navStory:'Story', navSeason:'This season', navGame:'Billionaire game', navRanks:'The Coop', navGuide:'How it works',
     howBtn:'HOW QUQN WORKS', viewBtn:'VIEW QUQN ON UNISCAN ↗', heroRisk:'Experimental meme token. No promise of profit, value or liquidity.',
     progress:'Mint progress', minted:'Minted', holders:'Holders', max:'Max supply', perMint:'Per mint',
-    storyKicker:'MEET QUQN', storyTitle:'He started small.<br>His ego did not.', voiceNote:'— QUQN, in aggressively French English.', netWorth:'Current net worth: <strong>emotionally billionaire.</strong>',
+    storyKicker:'MEET QUQN', storyTitle:'He started small.<br>His ego did not.', voiceNote:'— QUQN', netWorth:'Current net worth: <strong>emotionally billionaire.</strong>',
     seasonKicker:'QUQN THIS SEASON',
     gameKicker:'THE COMPLETELY SCIENTIFIC QUQN TEST', gameTitle:'What kind of billionaire will you be?', gameIntro:'One click. Zero science. QUQN decides your imaginary billionaire future.', gameButton:'SPIN MY FUTURE', gameDisclaimer:'Just a random meme game. Not a prediction, promise or financial advice. Obviously.', yourFuture:'YOUR QUQN FUTURE', spinAgain:'Try another destiny ↻',
     coopKicker:'THE COOP', coopTitle:'How unreasonable are your dreams?', coopIntro:'Community ranks are for fun. They currently create no financial rights or rewards.',
-    personaKicker:'CHARACTER FILE', personaTitle:'Cute. French. Financially overconfident.', voice:'Voice', voiceV:'High-pitched chicken voice + very strong French accent. Suddenly deep when excited.', skill:'Special skill', skillV:'Jumping into things before understanding them.', enemy:'Natural enemies', enemyV:'Doubt, patience and realistic expectations.', mission:'Mission', missionV:'Leave the farm. Become absurdly rich. Work out the details later.',
+    personaKicker:'CHARACTER FILE', personaTitle:'Cute. Cocky. Financially overconfident.', voice:'Voice', voiceV:'High-pitched cartoon coq chirp. Gets extra dramatic when excited.', skill:'Special skill', skillV:'Jumping into things before understanding them.', enemy:'Natural enemies', enemyV:'Doubt, patience and realistic expectations.', mission:'Mission', missionV:'Leave the farm. Become absurdly rich. Work out the details later.',
     communityTitle:'A meme needs people, not promises.', communityBody:'X is for memes and QUQN’s terrible financial confidence. Telegram is for the Coop. Social links appear here once the official accounts are created.',
     faqTitle:'Before the coq gets carried away.', q1:'Is QUQN sold by this website or the project?', a1:'No. The website does not sell QUQN, connect to wallets, custody funds or receive payments for the token.', q2:'Where are the technical details?', faqGuide:'Open the complete fair-mint & beginner guide →', q3:'Can QUQN go to zero?', a3:'Yes. QUQN is experimental and highly speculative. It can have no market or value.',
     guideKicker:'HOW QUQN WORKS', guideTitle:'From zero to your first QUQN.', fairLabel:'FAIR MINT FACTS', fairTitle:'No sale by the project. No fundraising.', fairNote:'QUQN does not sell tokens or receive fees, commissions, money, personal data or other benefits from prospective holders in exchange for QUQN. Bitcoin network and third-party service fees, if any, are paid outside this website and are not received by QUQN.', fairLegal:'Read the legal & MiCA note →',
@@ -26,11 +26,11 @@ const translations = {
     navStory:'Histoire', navSeason:'Cette saison', navGame:'Jeu du milliardaire', navRanks:'The Coop', navGuide:'Comment ça marche',
     howBtn:'COMMENT ÇA MARCHE', viewBtn:'VOIR QUQN SUR UNISCAN ↗', heroRisk:'Memecoin expérimental. Aucune promesse de profit, de valeur ou de liquidité.',
     progress:'Progression du mint', minted:'Minté', holders:'Détenteurs', max:'Offre max', perMint:'Par mint',
-    storyKicker:'DÉCOUVRIR QUQN', storyTitle:'Il est né petit.<br>Pas son ego.', voiceNote:'— QUQN, dans son anglais au très fort accent français.', netWorth:'Patrimoine actuel : <strong>milliardaire émotionnel.</strong>',
+    storyKicker:'DÉCOUVRIR QUQN', storyTitle:'Il est né petit.<br>Pas son ego.', voiceNote:'— QUQN', netWorth:'Patrimoine actuel : <strong>milliardaire émotionnel.</strong>',
     seasonKicker:'QUQN CETTE SAISON',
     gameKicker:'LE TEST QUQN TOTALEMENT SCIENTIFIQUE', gameTitle:'Quel genre de milliardaire seras-tu ?', gameIntro:'Un clic. Zéro science. QUQN décide de ton futur de milliardaire imaginaire.', gameButton:'LANCE MON FUTUR', gameDisclaimer:'Un jeu aléatoire pour rire. Ce n’est ni une prédiction, ni une promesse, ni un conseil financier. Évidemment.', yourFuture:'TON FUTUR VERSION QUQN', spinAgain:'Essayer un autre destin ↻',
     coopKicker:'THE COOP', coopTitle:'À quel point tes rêves sont-ils déraisonnables ?', coopIntro:'Les rangs communautaires sont là pour s’amuser. Ils ne donnent aujourd’hui aucun droit financier ni récompense.',
-    personaKicker:'FICHE DU PERSONNAGE', personaTitle:'Mignon. Français. Financièrement trop confiant.', voice:'Voix', voiceV:'Voix aiguë de poulet + très fort accent français. Elle devient soudain grave quand il s’emballe.', skill:'Talent spécial', skillV:'Foncer dans les choses avant de les comprendre.', enemy:'Ennemis naturels', enemyV:'Le doute, la patience et les attentes réalistes.', mission:'Mission', missionV:'Quitter la ferme. Devenir absurdement riche. Régler les détails plus tard.',
+    personaKicker:'FICHE DU PERSONNAGE', personaTitle:'Mignon. Culotté. Financièrement trop confiant.', voice:'Voix', voiceV:'Petit cri de coq cartoon, aigu et expressif. Encore plus dramatique quand il s’emballe.', skill:'Talent spécial', skillV:'Foncer dans les choses avant de les comprendre.', enemy:'Ennemis naturels', enemyV:'Le doute, la patience et les attentes réalistes.', mission:'Mission', missionV:'Quitter la ferme. Devenir absurdement riche. Régler les détails plus tard.',
     communityTitle:'Un meme a besoin de gens, pas de promesses.', communityBody:'X servira aux memes et à la confiance financière catastrophique de QUQN. Telegram sera The Coop. Les liens apparaîtront ici dès que les comptes officiels seront créés.',
     faqTitle:'Avant que le coq ne s’emballe.', q1:'QUQN est-il vendu par ce site ou le projet ?', a1:'Non. Le site ne vend pas QUQN, ne connecte pas de wallet, ne conserve aucun fonds et ne reçoit aucun paiement pour le token.', q2:'Où sont les détails techniques ?', faqGuide:'Ouvrir le guide complet fair mint & débutant →', q3:'QUQN peut-il valoir zéro ?', a3:'Oui. QUQN est expérimental et très spéculatif. Il peut n’avoir aucun marché ni aucune valeur.',
     guideKicker:'COMMENT QUQN FONCTIONNE', guideTitle:'De zéro à tes premiers QUQN.', fairLabel:'FAITS DU FAIR MINT', fairTitle:'Aucune vente par le projet. Aucune levée de fonds.', fairNote:'QUQN ne vend pas de tokens et ne reçoit des détenteurs potentiels ni frais, ni commission, ni argent, ni données personnelles, ni autre avantage en échange de QUQN. Les éventuels frais du réseau Bitcoin et de services tiers sont payés en dehors de ce site et ne sont pas reçus par QUQN.', fairLegal:'Lire la note juridique & MiCA →',
@@ -45,10 +45,10 @@ const translations = {
 };
 
 const seasons = {
-  spring:{img:'assets/gallery/le-coq-quqn-au-jardin-dore.webp',themeColor:'#1b2013'},
-  summer:{img:'assets/gallery/vacances-tropicales-dorees-de-quqn.webp',themeColor:'#092127'},
-  autumn:{img:'assets/gallery/coq-quqn-dans-un-automne-dore.webp',themeColor:'#211008'},
-  winter:{img:'assets/gallery/coq-royal-glissant-sur-la-glace-de-noel.webp',themeColor:'#0b1720'}
+  spring:{img:'assets/gallery/le-coq-quqn-au-jardin-dore.webp', en:{pill:'SPRING QUQN',title:'Spring Coq.',text:'Flowers are blooming. QUQN assumes this is bullish.',dates:'MARCH · APRIL · MAY',caption:'SPRING EDITION'}, fr:{pill:'QUQN PRINTEMPS',title:'Coq de printemps.',text:'Les fleurs poussent. QUQN en conclut évidemment que c’est bullish.',dates:'MARS · AVRIL · MAI',caption:'ÉDITION PRINTEMPS'}},
+  summer:{img:'assets/gallery/vacances-tropicales-dorees-de-quqn.webp', en:{pill:'SUMMER QUQN',title:'Summer Coq.',text:'Sun, yachts and imaginary profits. QUQN has already booked the villa.',dates:'JUNE · JULY · AUGUST',caption:'SUMMER EDITION'}, fr:{pill:'QUQN ÉTÉ',title:'Coq d’été.',text:'Soleil, yachts et profits imaginaires. QUQN a déjà réservé la villa.',dates:'JUIN · JUILLET · AOÛT',caption:'ÉDITION ÉTÉ'}},
+  autumn:{img:'assets/gallery/coq-quqn-dans-un-automne-dore.webp', en:{pill:'AUTUMN QUQN',title:'Autumn Coq.',text:'The leaves are falling. QUQN is calling them unrealised profits.',dates:'SEPTEMBER · OCTOBER · NOVEMBER',caption:'AUTUMN EDITION'}, fr:{pill:'QUQN AUTOMNE',title:'Coq d’automne.',text:'Les feuilles tombent. QUQN appelle ça des profits non réalisés.',dates:'SEPTEMBRE · OCTOBRE · NOVEMBRE',caption:'ÉDITION AUTOMNE'}},
+  winter:{img:'assets/gallery/coq-royal-glissant-sur-la-glace-de-noel.webp', en:{pill:'WINTER QUQN',title:'Winter Coq.',text:'Cold outside. Confidence still irresponsibly hot.',dates:'DECEMBER · JANUARY · FEBRUARY',caption:'WINTER EDITION'}, fr:{pill:'QUQN HIVER',title:'Coq d’hiver.',text:'Il fait froid dehors. Sa confiance reste irresponsablement brûlante.',dates:'DÉCEMBRE · JANVIER · FÉVRIER',caption:'ÉDITION HIVER'}}
 };
 
 let cfg, lang=localStorage.getItem('quqnLang')||'en', currentFutureIndex=-1;
@@ -56,13 +56,7 @@ const fmt=n=>Number(n).toLocaleString(lang==='fr'?'fr-FR':'en-US');
 const safe=(sel,fn)=>{const el=$(sel); if(el)fn(el); return el};
 
 function currentSeason(){const m=new Date().getMonth()+1; if(m>=3&&m<=5)return 'spring'; if(m>=6&&m<=8)return 'summer'; if(m>=9&&m<=11)return 'autumn'; return 'winter'}
-function renderSeason(){
-  const key=currentSeason(), s=seasons[key];
-  document.body.dataset.season=key;
-  safe('#seasonHeroImage',e=>e.style.backgroundImage=`url('${s.img}')`);
-  const meta=document.querySelector('meta[name="theme-color"]');
-  if(meta) meta.setAttribute('content',s.themeColor);
-}
+function renderSeason(){const s=seasons[currentSeason()], t=s[lang]||s.en; safe('#seasonHeroImage',e=>e.style.backgroundImage=`url('${s.img}')`); safe('#seasonImage',e=>{e.src=s.img;e.alt=t.title}); safe('#seasonPill',e=>e.textContent=t.pill); safe('#seasonTitle',e=>e.textContent=t.title); safe('#seasonText',e=>e.textContent=t.text); safe('#seasonDates',e=>e.textContent=t.dates); safe('#seasonCaption',e=>e.textContent=t.caption)}
 function renderRanks(){if(!cfg)return;safe('#rankGrid',e=>e.innerHTML=cfg.ranks.map(r=>`<article class="rank"><img src="${r.image}" alt="${r.name}" loading="lazy"><div><small>${fmt(r.threshold)}+ QUQN</small><h3>${r.name}</h3><p>${r.tag}</p></div></article>`).join(''))}
 function openLightbox(src,title){safe('#lightboxImg',e=>e.src=src);safe('#lightboxTitle',e=>e.textContent=title);safe('#lightbox',e=>{e.classList.add('open');e.setAttribute('aria-hidden','false')})}
 function setStats(minted,holders){if(!cfg)return;minted=Number(minted)||cfg.fallbackMinted;holders=Number(holders)||cfg.fallbackHolders;const pct=Math.min(100,(minted/cfg.maxSupply)*100);safe('#minted',e=>e.textContent=fmt(minted));safe('#holders',e=>e.textContent=fmt(holders));safe('#progressPct',e=>e.textContent=pct.toFixed(2)+'%');safe('#meterFill',e=>e.style.width=Math.max(.35,pct)+'%')}
@@ -72,21 +66,8 @@ function updateMintCalc(){const input=$('#mintCount');if(!input||!cfg)return;let
 
 function applyLang(){document.documentElement.lang=lang;safe('#lang',e=>e.textContent=lang==='en'?'FR':'EN');$$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t];if(v!==undefined)el.innerHTML=v});if(cfg){const c=(cfg.homeCopy&&(cfg.homeCopy[lang]||cfg.homeCopy.en))||{};safe('#heroTitle',e=>e.innerHTML=lang==='en'?'SMALL COQ.<br><em>BIG DREAMS.</em>':'PETIT COQ.<br><em>GRANDS RÊVES.</em>');safe('#heroSubtitle',e=>e.textContent=c.heroSubtitle||'');safe('#storyLead',e=>e.textContent=c.storyLead||'');safe('#storyBody',e=>e.textContent=c.storyBody||'');safe('#voiceQuote',e=>e.textContent=c.voiceQuote||'');safe('#beginnerLead',e=>e.textContent=c.beginnerLead||'');safe('#beginnerQuote',e=>e.textContent=c.beginnerQuote||'');safe('#announcement',e=>e.textContent=(cfg.announcement&&(cfg.announcement[lang]||cfg.announcement.en))||'')}renderSeason();renderRanks();updateMintCalc()}
 
-function futurePool(){
-  const rankImages=new Set((cfg?.ranks||[]).map(r=>r.image));
-  return (cfg?.gallery||[]).filter(x=>
-    x.visible &&
-    x.category!=='seasons' &&
-    x.category!=='brand' &&
-    !rankImages.has(x.src)
-  );
-}
-function showFuture(item){
-  if(!item)return;
-  safe('#futureImage',e=>{e.src=item.src;e.alt=item.title});
-  safe('#futureTitle',e=>e.textContent=item.title);
-  safe('.future-stage',e=>e.style.setProperty('--future-bg',`url("${item.src}")`));
-}
+function futurePool(){return (cfg?.gallery||[]).filter(x=>x.visible)}
+function showFuture(item){if(!item)return;safe('#futureImage',e=>{e.src=item.src;e.alt=item.title});safe('#futureTitle',e=>e.textContent=item.title)}
 function spinFuture(){const pool=futurePool();if(!pool.length)return;const card=$('#futureCard');card?.classList.add('spinning');let ticks=0;const maxTicks=18;const timer=setInterval(()=>{let i=Math.floor(Math.random()*pool.length);showFuture(pool[i]);ticks++;if(ticks>=maxTicks){clearInterval(timer);let i;do{i=Math.floor(Math.random()*pool.length)}while(pool.length>1&&i===currentFutureIndex);currentFutureIndex=i;showFuture(pool[i]);setTimeout(()=>card?.classList.remove('spinning'),180)}},70)}
 function setupGuide(){const modal=$('#guideModal');$$('[data-open-guide]').forEach(b=>b.addEventListener('click',()=>{if(modal?.showModal)modal.showModal();else modal?.setAttribute('open','')}));safe('#guideClose',e=>e.addEventListener('click',()=>modal?.close()));modal?.addEventListener('click',ev=>{if(ev.target===modal)modal.close()})}
 
