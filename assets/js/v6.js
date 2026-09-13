@@ -42,7 +42,7 @@
     {title:"Guernsey Coq",src:"assets/gallery/destiny-32-guernsey-coq.webp",tier:"common",rarity:"easter egg",punch:"Offshore? He thought they meant a yacht."},
     {title:"Himeji Shogun",src:"assets/gallery/destiny-33-himeji-shogun.webp",tier:"common",rarity:"easter egg",punch:"A castle this elegant deserves an unnecessarily golden coq."},
     {title:"Frankfurt Euro Coq",src:"assets/gallery/destiny-34-frankfurt-euro-coq.webp",tier:"common",rarity:"easter egg",punch:"The ECB called. QUQN misunderstood the assignment."},
-    {title:"Swiss Banker Coq",src:"assets/gallery/destiny-35-swiss-banker-coq.webp",tier:"common",rarity:"easter egg",punch:"Discretion, precision, and one extremely loud French chicken."},
+    {title:"Swiss Banker Coq",src:"assets/gallery/destiny-35-swiss-banker-coq.webp",tier:"common",rarity:"easter egg",punch:"Discretion, precision… and absolutely no intention of explaining the account."},
     {title:"Lambo Coq",src:"assets/gallery/destiny-36-lambo-coq.webp",tier:"common",rarity:"common",punch:"He skipped the roadmap and went straight to the showroom."}
   ];
 
@@ -253,21 +253,21 @@
     const fig=q("#storyMascot"), bubble=q("#quqnTalk");
     if(!fig || !bubble) return;
     const en=[
-      "Euh… zis plan is completely scientific.",
+      "Euh… this plan is completely scientific.",
       "Small coq. BIG confidence.",
-      "Zey said diversify. I bought sunglasses.",
-      "Patience? Non. We have dreams.",
-      "I am not overconfident. I am French.",
-      "Today ze farm. Tomorrow… penthouse.",
+      "They said diversify. I bought sunglasses.",
+      "Patience? We have dreams.",
+      "Confidence is also an asset class.",
+      "Today the farm. Tomorrow… penthouse.",
       "Risk management? Euh… next question.",
-      "Please admire ze financial plumage."
+      "Please admire the financial plumage."
     ];
     const fr=[
       "Euh… ce plan est totalement scientifique.",
       "Petit coq. ÉNORME confiance.",
       "On m'a dit de diversifier. J'ai acheté des lunettes.",
-      "La patience ? Non. On a des rêves.",
-      "Je ne suis pas trop confiant. Je suis français.",
+      "La patience ? On a des rêves.",
+      "La confiance est aussi une classe d'actifs.",
       "Aujourd'hui la ferme. Demain… le penthouse.",
       "Gestion du risque ? Euh… question suivante.",
       "Merci d'admirer le plumage financier."
@@ -281,18 +281,13 @@
       fig.classList.remove("v6-wiggle"); void fig.offsetWidth; fig.classList.add("v6-wiggle");
       clearTimeout(hideTimer); hideTimer=setTimeout(()=>bubble.classList.remove("show"),3600);
 
-      // Optional character voice: a French TTS voice reading English produces
-      // the strong French flavour when the browser/OS provides one.
+      // Short character sound instead of browser text-to-speech.
+      // A tiny playback-rate variation keeps repeated clicks from feeling mechanical.
       try{
-        if("speechSynthesis" in window){
-          speechSynthesis.cancel();
-          const u=new SpeechSynthesisUtterance(line);
-          const voices=speechSynthesis.getVoices();
-          u.voice=voices.find(v=>/^fr[-_]/i.test(v.lang))||null;
-          u.lang=isFr?"fr-FR":"fr-FR";
-          u.rate=1.07;u.pitch=1.28;u.volume=.72;
-          speechSynthesis.speak(u);
-        }
+        const chirp=new Audio("assets/audio/quqn-coq-chirp.mp3");
+        chirp.volume=.52;
+        chirp.playbackRate=.96 + Math.random()*.10;
+        chirp.play().catch(()=>{});
       }catch(_){}
     });
   }
@@ -302,26 +297,26 @@
     const fig=q("#storyMascot"), bubble=q("#quqnTalk");
     if(!fig || !bubble) return;
     const en=[
-      "Bonjour. I have made several excellent imaginary investments.",
-      "Euh… welcome. Please ignore ze risk management department.",
+      "I have made several excellent imaginary investments.",
+      "Euh… welcome. Please ignore the risk management department.",
       "Small coq. Big dreams. Very small attention span.",
-      "Today we build ze empire. Tomorrow we understand what we built.",
-      "Welcome back. Ze confidence remains irrationally strong.",
-      "I checked ze charts. Zey looked expensive.",
-      "Please enter. Ze penthouse is currently conceptual.",
-      "Bonjour investor. Emotionally, we are already billionaires.",
+      "Today we build the empire. Tomorrow we understand what we built.",
+      "Welcome back. The confidence remains irrationally strong.",
+      "I checked the charts. They looked expensive.",
+      "Please enter. The penthouse is currently conceptual.",
+      "Emotionally, we are already billionaires.",
       "I have a strategy. Unfortunately it is mostly optimism.",
-      "Zis website is powered by Bitcoin and unreasonable confidence."
+      "This website is powered by Bitcoin and unreasonable confidence."
     ];
     const fr=[
-      "Bonjour. J'ai encore fait d'excellents investissements imaginaires.",
+      "J'ai encore fait d'excellents investissements imaginaires.",
       "Bienvenue. Merci d'ignorer le service gestion des risques.",
       "Petit coq. Grands rêves. Très petite capacité d'attention.",
       "Aujourd'hui l'empire. Demain on comprendra comment il fonctionne.",
-      "Re-bonjour. La confiance reste parfaitement déraisonnable.",
+      "La confiance reste parfaitement déraisonnable.",
       "J'ai regardé les graphiques. Ils avaient l'air chers.",
       "Entrez. Le penthouse est encore au stade conceptuel.",
-      "Bonjour investisseur. Émotionnellement, nous sommes déjà milliardaires.",
+      "Émotionnellement, nous sommes déjà milliardaires.",
       "J'ai une stratégie. Malheureusement, c'est surtout de l'optimisme.",
       "Ce site fonctionne au Bitcoin et à la confiance déraisonnable."
     ];
