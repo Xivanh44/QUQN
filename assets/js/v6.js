@@ -328,18 +328,6 @@
       setTimeout(()=>bubble.classList.remove("show","visit-greeting"),4200);
     },1250);
   }
-
-  function setupWinkReaction(){
-    const fig=q("#storyMascot");
-    if(!fig) return;
-    let wink=fig.querySelector(".quqn-wink");
-    if(!wink){
-      wink=document.createElement("span");
-      wink.className="quqn-wink";
-      wink.textContent="😉";
-      wink.setAttribute("aria-hidden","true");
-      fig.appendChild(wink);
-    }
     fig.addEventListener("click",()=>{
       wink.classList.remove("show");
       void wink.offsetWidth;
@@ -369,7 +357,6 @@
     setupSeasonAtmosphere();
     setupMascot();
     setupVisitGreeting();
-    setupWinkReaction();
     setupClingFX();
     setupReveal();
 
