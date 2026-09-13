@@ -359,7 +359,7 @@
       .live-coop-head{display:flex;align-items:end;justify-content:space-between;gap:22px;margin-bottom:20px}
       .live-coop-head h3{margin:5px 0 4px;font-size:clamp(25px,3.4vw,40px);letter-spacing:-.035em}
       .live-coop-head p{margin:0;color:#978d7d;font-size:11px;max-width:560px}
-      .live-coop-status{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:9px;font-weight:900;letter-spacing:.1em;color:#bba66d}
+      .live-coop-status{display:flex;align-items:center;gap:6px;white-space:nowrap;font-size:9px;font-weight:900;letter-spacing:.1em;color:#bba66d}
       .live-coop-dot{width:7px;height:7px;border-radius:50%;background:#c5a557;box-shadow:0 0 10px rgba(232,196,91,.45)}
       .live-coop-status[data-state="live"] .live-coop-dot{background:#7bd596;box-shadow:0 0 12px rgba(123,213,150,.5)}
       .live-coop-status[data-state="error"] .live-coop-dot{background:#d47b6c;box-shadow:none}
@@ -535,60 +535,61 @@
         width:100%;
         height:auto;
         align-self:center;
-        overflow:hidden
+        overflow:hidden;
+        display:flex
       }
       .v4-hero .hero-game-head{
-        padding:16px 16px 12px
+        padding:14px 14px 10px
       }
       .v4-hero .hero-game-head h2{
-        font-size:clamp(29px,2.6vw,42px);
+        font-size:clamp(26px,2.25vw,36px);
         line-height:.95;
         letter-spacing:-.045em;
-        margin:7px 0 9px;
+        margin:5px 0 7px;
         text-wrap:balance;
         overflow-wrap:normal
       }
       .v4-hero .hero-game-head p{
-        font-size:11px;
-        line-height:1.4;
-        margin:0 0 10px
+        font-size:10px;
+        line-height:1.32;
+        margin:0 0 8px
       }
       .v4-hero .hero-game .game-button{
         width:100%;
         min-width:0;
         margin-top:5px;
-        padding:11px 12px;
+        padding:10px 12px;
         font-size:10px
       }
       .v4-hero .hero-future-card{
         width:calc(100% - 20px);
-        margin:0 10px 10px;
-        padding:9px;
+        margin:0 10px 8px;
+        padding:8px;
         border-radius:18px;
         max-width:none;
         height:auto!important
       }
       .v4-hero .hero-future-stage{
-        height:315px!important;
+        height:250px!important;
         min-height:0;
         border-radius:13px
       }
       .v4-hero .future-result{
-        padding:11px 8px 8px
+        padding:9px 8px 6px
       }
       .v4-hero .future-result h3{
-        font-size:22px;
+        font-size:18px;
         line-height:1.03;
-        margin:4px 0 4px
+        margin:3px 0 3px
       }
       .v4-hero #futurePunchline{
-        font-size:9px;
-        line-height:1.3;
+        font-size:8px;
+        line-height:1.22;
         min-height:0;
-        margin:4px 0 7px
+        margin:3px 0 5px
       }
-      .v4-hero .future-actions{gap:8px}
-      .v4-hero .future-actions button{font-size:8px}
+      .v4-hero .future-actions{gap:6px}
+      .v4-hero .future-actions button{font-size:7px;padding:7px 8px}
       .v4-hero .game-disclaimer{
         margin:6px 14px 12px;
         font-size:8px!important;
@@ -605,7 +606,7 @@
 
       /* --- V4: identical heights for the two side extensions --- */
       .v4-hero .attraction-layout{
-        --hero-side-height: 640px;
+        --hero-side-height: 620px;
       }
       .v4-hero .hero-game,
       .hero-coop-preview{
@@ -619,6 +620,7 @@
         flex-direction:column;
         height:100%;
         min-height:0;
+        width:100%;
       }
       .v4-hero .hero-game-head{flex:0 0 auto}
       .v4-hero .hero-future-card{
@@ -659,7 +661,7 @@
       }
 
       @media(max-width:1180px){
-        .v4-hero .attraction-layout{--hero-side-height:600px}
+        .v4-hero .attraction-layout{--hero-side-height:580px}
         .v4-hero .hero-game-head h2{font-size:clamp(27px,2.45vw,36px)}
         .v4-hero .hero-future-stage{height:auto!important;min-height:225px}
         .v4-hero .attraction-intro h1{font-size:clamp(46px,4.6vw,64px)}
