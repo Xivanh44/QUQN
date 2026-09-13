@@ -403,8 +403,8 @@
       /* --- HERO: 3-part QUQN dashboard --- */
       .v4-hero{min-height:780px}
       .v4-hero .attraction-layout{
-        width:min(1440px,calc(100% - 36px));
-        grid-template-columns:minmax(330px,1fr) minmax(410px,1.28fr) minmax(330px,1fr);
+        width:min(1400px,calc(100% - 36px));
+        grid-template-columns:390px minmax(500px,1fr) 340px;
         grid-template-areas:"game intro coop";
         gap:18px;align-items:stretch;min-height:760px;padding:88px 0 42px
       }
@@ -603,10 +603,53 @@
         overflow:hidden
       }
 
+      /* --- V4: identical heights for the two side extensions --- */
+      .v4-hero .attraction-layout{
+        --hero-side-height: 640px;
+      }
+      .v4-hero .hero-game,
+      .hero-coop-preview{
+        align-self:stretch;
+        height:var(--hero-side-height)!important;
+        max-height:var(--hero-side-height)!important;
+        min-height:var(--hero-side-height)!important;
+      }
+      .v4-hero .hero-game .future-card{
+        display:flex;
+        flex-direction:column;
+        height:100%;
+        min-height:0;
+      }
+      .v4-hero .hero-game-head{flex:0 0 auto}
+      .v4-hero .hero-future-card{
+        flex:1 1 auto;
+        display:flex;
+        flex-direction:column;
+        min-height:0;
+      }
+      .v4-hero .hero-future-stage{
+        flex:1 1 auto;
+        min-height:245px;
+        height:auto!important;
+      }
+      .v4-hero .future-result{flex:0 0 auto}
+      .hero-coop-preview{
+        display:flex;
+        flex-direction:column;
+        min-height:0;
+      }
+      .hero-top10{
+        flex:1 1 auto;
+        min-height:0;
+        align-content:start;
+      }
+      .hero-coop-more{margin-top:10px}
+      .hero-coop-enter{margin-top:10px}
+
       @media(max-width:1180px){
         .v4-hero .attraction-layout{
-          grid-template-columns:minmax(285px,1fr) minmax(360px,1.22fr) minmax(285px,1fr);
-          width:min(100% - 20px,1220px);gap:12px
+          grid-template-columns:340px minmax(420px,1fr) 300px;
+          width:min(100% - 20px,1160px);gap:12px
         }
         .v4-hero .attraction-intro{padding:28px 28px}
         .v4-hero .attraction-intro h1{font-size:clamp(52px,5vw,74px)}
@@ -616,8 +659,9 @@
       }
 
       @media(max-width:1180px){
+        .v4-hero .attraction-layout{--hero-side-height:600px}
         .v4-hero .hero-game-head h2{font-size:clamp(27px,2.45vw,36px)}
-        .v4-hero .hero-future-stage{height:285px!important}
+        .v4-hero .hero-future-stage{height:auto!important;min-height:225px}
         .v4-hero .attraction-intro h1{font-size:clamp(46px,4.6vw,64px)}
       }
 
@@ -632,10 +676,10 @@
           justify-content:flex-end
         }
         .v4-hero .attraction-intro h1{font-size:clamp(54px,10vw,82px)}
-        .v4-hero .hero-game{order:2;width:100%;height:auto}
+        .v4-hero .hero-game{order:2;width:100%;height:auto;min-height:0;max-height:none!important}
         .v4-hero .hero-game-head h2{font-size:clamp(34px,8vw,52px)}
         .v4-hero .hero-future-stage{height:min(72vw,460px)!important}
-        .hero-coop-preview{order:3;width:100%;height:auto}
+        .hero-coop-preview{order:3;width:100%;height:auto;min-height:0;max-height:none!important}
         .hero-top10{grid-template-columns:1fr 1fr}
         .holder-grid{grid-template-columns:1fr 1fr}
         .holder-card,.holder-card:nth-child(1),.holder-card:nth-child(2),.holder-card:nth-child(3){grid-column:auto;order:initial;transform:none}
