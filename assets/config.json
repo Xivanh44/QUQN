@@ -12,7 +12,7 @@
   "inscriptionNumber": 127329518,
   "uniscanUrl": "https://uniscan.cc/brc20/QUQN",
   "unisatMintUrl": "https://unisat.io/inscribe/brc20",
-  "apiBase": "",
+  "apiBase": "https://quqn-api.marmet430.workers.dev",
   "autoSync": true,
   "announcement": {
     "en": "🐣 QUQN is live: fair mint on Bitcoin. No presale. No ICO. No fundraising.",
@@ -26,18 +26,18 @@
   "homeCopy": {
     "en": {
       "heroTitle": "SMALL COQ. BIG DREAMS.",
-      "heroSubtitle": "Meet QUQN — the tiny coq who represents every crypto dreamer.",
+      "heroSubtitle": "Meet QUQN — the tiny French coq who represents every crypto dreamer with a small wallet and completely unreasonable ambition.",
       "storyLead": "QUQN was born small. His dreams were not.",
-      "storyBody": "He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn. He often jumps into things before understanding them and gets dramatically serious whenever he starts imagining himself as a billionaire.",
+      "storyBody": "He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn. He speaks English with a very strong French accent, often jumps into things before understanding them, and gets a suspiciously deep voice whenever he starts imagining himself as a billionaire.",
       "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
       "beginnerLead": "Never used a Bitcoin wallet? No problem. Follow the steps below slowly. You do not send money to QUQN, and QUQN will never ask for your recovery phrase.",
       "beginnerQuote": "First time? Euh… perfect. We go slowly. Even ze coq managed it."
     },
     "fr": {
       "heroTitle": "PETIT COQ. GRANDS RÊVES.",
-      "heroSubtitle": "Voici QUQN — le petit coq qui représente tous les rêveurs crypto.",
+      "heroSubtitle": "Voici QUQN — le petit coq français qui représente tous les rêveurs crypto au petit portefeuille et aux ambitions totalement déraisonnables.",
       "storyLead": "QUQN est né petit. Pas ses rêves.",
-      "storyBody": "Il regarde les baleines, les tokens de célébrités et les memecoins devenus légendaires depuis le bord de la ferme et se pose une seule question : « Pourquoi pas moi ? » QUQN est trop sûr de lui, impulsif, maladroit mais attachant, et persuadé qu’un jour le petit investisseur aura son tour. Il fonce parfois avant d’avoir compris et devient soudain très sérieux dès qu’il s’imagine milliardaire.",
+      "storyBody": "Il regarde les baleines, les tokens de célébrités et les memecoins devenus légendaires depuis le bord de la ferme et se pose une seule question : « Pourquoi pas moi ? » QUQN est trop sûr de lui, impulsif, maladroit mais attachant, et persuadé qu’un jour le petit investisseur aura son tour. Il parle anglais avec un très fort accent français, fonce parfois avant d’avoir compris, et prend soudain une voix grave dès qu’il s’imagine milliardaire.",
       "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
       "beginnerLead": "Vous n’avez jamais utilisé de wallet Bitcoin ? Pas de problème. Suivez tranquillement les étapes ci-dessous. Vous n’envoyez jamais d’argent à QUQN et QUQN ne vous demandera jamais votre phrase de récupération.",
       "beginnerQuote": "Première fois ? Euh… parfait. On va doucement. Même ze coq a réussi."
