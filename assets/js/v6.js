@@ -793,9 +793,11 @@
       findPlaceholder:"bc1p…",
       findButton:"TROUVER MON RANG",
       findShare:"PARTAGER MON RANG SUR X ↗",
-      cardShare:"PARTAGER LA CARTE",
+      cardShareMobile:"PARTAGER LA CARTE",
+      cardShareDesktop:"OUVRIR X AVEC LE TEXTE ↗",
       cardSave:"ENREGISTRER MA CARTE ↓",
-      cardHelp:"Sur mobile, “Partager la carte” peut envoyer directement l’image vers X. Sur ordinateur, enregistre-la puis ajoute-la à ton post.",
+      cardHelpMobile:"Sur mobile, partage directement la carte avec l’image.",
+      cardHelpDesktop:"Sur ordinateur : enregistre la carte, ouvre X avec le texte prérempli, puis ajoute l’image téléchargée.",
       findNotFound:"Cette adresse n’apparaît pas parmi les détenteurs QUQN actuels.",
       findEmpty:"Colle d’abord ton adresse Bitcoin.",
       findNote:"La vérification se fait dans ton navigateur avec les données publiques UniSat. Cette fonction n’envoie pas l’adresse saisie."
@@ -818,9 +820,11 @@
       findPlaceholder:"bc1p…",
       findButton:"FIND MY RANK",
       findShare:"SHARE MY RANK ON X ↗",
-      cardShare:"SHARE THE CARD",
+      cardShareMobile:"SHARE THE CARD",
+      cardShareDesktop:"OPEN X WITH TEXT ↗",
       cardSave:"SAVE MY CARD ↓",
-      cardHelp:"On mobile, “Share the card” can send the image directly to X. On desktop, save it and attach it to your post.",
+      cardHelpMobile:"On mobile, share the card directly with the image.",
+      cardHelpDesktop:"On desktop: save the card, open X with the prefilled text, then attach the downloaded image.",
       findNotFound:"This address is not among the current QUQN holders.",
       findEmpty:"Paste your Bitcoin address first.",
       findNote:"The check runs in your browser against public UniSat data. This feature does not send the address you type."
@@ -876,7 +880,10 @@
   function setupHeroSideSync(){
     const img=q("#futureImage");
     img?.addEventListener("load",()=>scheduleHeroSideSync(20));
-    window.addEventListener("resize",()=>scheduleHeroSideSync(120),{passive:true});
+    window.addEventListener("resize",()=>{
+      scheduleHeroSideSync(120);
+      updateRankCardShareUI();
+    },{passive:true});
     scheduleHeroSideSync(600);
   }
 
@@ -1093,8 +1100,27 @@
     setTimeout(()=>URL.revokeObjectURL(url),1500);
   }
 
+  function isMobileShareEnvironment(){
+    return window.innerWidth<=1100 && (navigator.maxTouchPoints||0)>0;
+  }
+
+  function updateRankCardShareUI(){
+    const t=coopText();
+    const mobile=isMobileShareEnvironment();
+    const shareBtn=q("#coopRankCardShare");
+    const help=q("#coopRankCardHelp");
+    if(shareBtn) shareBtn.textContent=mobile?t.cardShareMobile:t.cardShareDesktop;
+    if(help) help.textContent=mobile?t.cardHelpMobile:t.cardHelpDesktop;
+  }
+
   async function shareRankCard(){
     if(!currentMyRank) return;
+
+    if(!isMobileShareEnvironment()){
+      shareMyRankOnX();
+      return;
+    }
+
     const canvas=q("#coopRankCanvas");
     const blob=await canvasToBlob(canvas);
     if(!blob) return;
@@ -1105,6 +1131,7 @@
       url:rankShareUrl(),
       files:[file]
     };
+
     try{
       if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
         await navigator.share(payload);
@@ -1113,6 +1140,7 @@
     }catch(err){
       if(err?.name==="AbortError") return;
     }
+
     await downloadRankCard();
   }
 
@@ -1146,9 +1174,8 @@
     q("#coopRankBalance").textContent=`${Number(holder.overallBalance||0).toLocaleString(locale)} QUQN`;
     q("#coopRankAddressShort").textContent=shortAddress(holder.address||"");
     q("#coopRankShare").textContent=t.findShare;
-    q("#coopRankCardShare").textContent=t.cardShare;
     q("#coopRankCardSave").textContent=t.cardSave;
-    q("#coopRankCardHelp").textContent=t.cardHelp;
+    updateRankCardShareUI();
     result.classList.add("show");
     drawRankShareCard(currentMyRank);
   }
@@ -1201,10 +1228,10 @@
         <div id="coopRankCardWrap" class="coop-rank-card-wrap">
           <canvas id="coopRankCanvas" class="coop-rank-canvas" width="1200" height="675" aria-label="QUQN Coop rank share card"></canvas>
           <div class="coop-rank-card-actions">
-            <button id="coopRankCardShare" class="coop-rank-card-btn primary" type="button">SHARE THE CARD</button>
+            <button id="coopRankCardShare" class="coop-rank-card-btn primary" type="button">OPEN X WITH TEXT ↗</button>
             <button id="coopRankCardSave" class="coop-rank-card-btn secondary" type="button">SAVE MY CARD ↓</button>
           </div>
-          <p id="coopRankCardHelp" class="coop-rank-card-help">On mobile, share the card directly. On desktop, save it and attach it to your X post.</p>
+          <p id="coopRankCardHelp" class="coop-rank-card-help">On desktop: save the card, open X with the prefilled text, then attach the downloaded image.</p>
         </div>
         <p id="coopRankNote" class="coop-rank-note">The check runs in your browser against public UniSat data. This feature does not send the address you type.</p>
       </div>
@@ -1236,9 +1263,8 @@
     q("#coopRankAddress").placeholder=t.findPlaceholder;
     q("#coopRankFind").textContent=t.findButton;
     q("#coopRankNote").textContent=t.findNote;
-    if(q("#coopRankCardShare")) q("#coopRankCardShare").textContent=t.cardShare;
     if(q("#coopRankCardSave")) q("#coopRankCardSave").textContent=t.cardSave;
-    if(q("#coopRankCardHelp")) q("#coopRankCardHelp").textContent=t.cardHelp;
+    updateRankCardShareUI();
     if(currentMyRank) q("#coopRankShare").textContent=t.findShare;
 
     const status=q("#liveCoopStatus");
