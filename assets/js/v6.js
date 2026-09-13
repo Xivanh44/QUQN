@@ -486,6 +486,123 @@
       .holder-card:nth-child(1) img{box-shadow:0 0 26px rgba(244,198,96,.17)}
       .holder-card:nth-child(1):hover{transform:translateY(-14px)}
 
+
+      /* --- V3 cleanup: open center image + compact side panels --- */
+      .v4-hero .attraction-intro{
+        position:relative;
+        justify-content:flex-end;
+        padding:32px 34px 46px;
+        border:0;
+        border-radius:0;
+        background:transparent;
+        box-shadow:none;
+        backdrop-filter:none;
+        -webkit-backdrop-filter:none;
+        overflow:visible
+      }
+      .v4-hero .attraction-intro:before{
+        content:"";
+        position:absolute;
+        z-index:-1;
+        left:-10%;
+        right:-10%;
+        bottom:0;
+        height:48%;
+        background:linear-gradient(0deg,rgba(5,4,3,.72),rgba(5,4,3,.34) 48%,transparent);
+        pointer-events:none
+      }
+      .v4-hero .attraction-intro h1{
+        font-size:clamp(50px,4.4vw,70px);
+        line-height:.88;
+        max-width:520px;
+        margin:10px 0 15px;
+        text-shadow:0 5px 22px rgba(0,0,0,.72)
+      }
+      .v4-hero .attraction-intro .hero-subtitle{
+        font-size:14px;
+        line-height:1.42;
+        max-width:430px;
+        text-shadow:0 3px 14px rgba(0,0,0,.8)
+      }
+      .v4-hero .attraction-intro .hero-actions{gap:9px}
+      .v4-hero .attraction-intro .btn{padding:11px 14px;font-size:10px}
+      .v4-hero .attraction-intro .micro-facts{margin-top:12px}
+
+      /* Keep the Billionaire Game fully inside its column. */
+      .v4-hero .hero-game{
+        box-sizing:border-box;
+        min-width:0;
+        width:100%;
+        height:auto;
+        align-self:center;
+        overflow:hidden
+      }
+      .v4-hero .hero-game-head{
+        padding:16px 16px 12px
+      }
+      .v4-hero .hero-game-head h2{
+        font-size:clamp(29px,2.6vw,42px);
+        line-height:.95;
+        letter-spacing:-.045em;
+        margin:7px 0 9px;
+        text-wrap:balance;
+        overflow-wrap:normal
+      }
+      .v4-hero .hero-game-head p{
+        font-size:11px;
+        line-height:1.4;
+        margin:0 0 10px
+      }
+      .v4-hero .hero-game .game-button{
+        width:100%;
+        min-width:0;
+        margin-top:5px;
+        padding:11px 12px;
+        font-size:10px
+      }
+      .v4-hero .hero-future-card{
+        width:calc(100% - 20px);
+        margin:0 10px 10px;
+        padding:9px;
+        border-radius:18px;
+        max-width:none;
+        height:auto!important
+      }
+      .v4-hero .hero-future-stage{
+        height:315px!important;
+        min-height:0;
+        border-radius:13px
+      }
+      .v4-hero .future-result{
+        padding:11px 8px 8px
+      }
+      .v4-hero .future-result h3{
+        font-size:22px;
+        line-height:1.03;
+        margin:4px 0 4px
+      }
+      .v4-hero #futurePunchline{
+        font-size:9px;
+        line-height:1.3;
+        min-height:0;
+        margin:4px 0 7px
+      }
+      .v4-hero .future-actions{gap:8px}
+      .v4-hero .future-actions button{font-size:8px}
+      .v4-hero .game-disclaimer{
+        margin:6px 14px 12px;
+        font-size:8px!important;
+        line-height:1.3
+      }
+
+      /* Coop and Game remain equal side extensions. */
+      .hero-coop-preview{
+        align-self:center;
+        height:auto;
+        max-height:650px;
+        overflow:hidden
+      }
+
       @media(max-width:1180px){
         .v4-hero .attraction-layout{
           grid-template-columns:minmax(285px,1fr) minmax(360px,1.22fr) minmax(285px,1fr);
@@ -497,6 +614,13 @@
         .hero-holder-row img{width:30px;height:30px}
         .hero-holder-address{display:none}
       }
+
+      @media(max-width:1180px){
+        .v4-hero .hero-game-head h2{font-size:clamp(27px,2.45vw,36px)}
+        .v4-hero .hero-future-stage{height:285px!important}
+        .v4-hero .attraction-intro h1{font-size:clamp(46px,4.6vw,64px)}
+      }
+
       @media(max-width:980px){
         .v4-hero{min-height:auto}
         .v4-hero .attraction-layout{
@@ -504,10 +628,13 @@
           min-height:0;padding:92px 0 44px;gap:18px
         }
         .v4-hero .attraction-intro{
-          order:1;width:100%;padding:30px 24px;min-height:420px
+          order:1;width:100%;padding:30px 24px 34px;min-height:500px;
+          justify-content:flex-end
         }
         .v4-hero .attraction-intro h1{font-size:clamp(54px,10vw,82px)}
         .v4-hero .hero-game{order:2;width:100%;height:auto}
+        .v4-hero .hero-game-head h2{font-size:clamp(34px,8vw,52px)}
+        .v4-hero .hero-future-stage{height:min(72vw,460px)!important}
         .hero-coop-preview{order:3;width:100%;height:auto}
         .hero-top10{grid-template-columns:1fr 1fr}
         .holder-grid{grid-template-columns:1fr 1fr}
