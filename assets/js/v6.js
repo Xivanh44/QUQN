@@ -4,34 +4,53 @@
   const q = (s, root=document) => root.querySelector(s);
   const qa = (s, root=document) => [...root.querySelectorAll(s)];
 
-  // 5 personal Easter eggs + broadly understandable billionaire fantasies.
-  // Seasons, rank images and "Original Dreamer" are intentionally excluded.
+  // QUQN V6.3 — 36 approved Billionaire Game destinies.
+  // Actual result probabilities are tier-based: 75% common / 20% rare / 5% legendary.
+  // Easter eggs live in the common probability tier but keep their own reveal label.
   const destinies = [
-    {title:"Supercar Collector", src:"assets/gallery/le-roi-coq-et-la-supercar-doree.webp", rarity:"common", w:11, punch:"The garage has become a liquidity problem."},
-    {title:"Wall Street Coq", src:"assets/gallery/le-roi-dore-de-wall-street.webp", rarity:"common", w:10, punch:"Still does not understand half the charts. Owns the building anyway."},
-    {title:"Dubai Gold King", src:"assets/gallery/coq-royal-quqn-a-dubai.webp", rarity:"common", w:9, punch:"Subtlety was never part of the roadmap."},
-    {title:"Private Jet Coq", src:"assets/gallery/coq-royal-en-jet-prive.webp", rarity:"common", w:9, punch:"Economy class? QUQN has never heard of this protocol."},
-    {title:"Gold Rush", src:"assets/gallery/le-coq-quqn-dans-la-ruee-doree.webp", rarity:"common", w:9, punch:"One pickaxe. Zero patience. Maximum confidence."},
-    {title:"Sun Valley Millionaire", src:"assets/gallery/coq-royal-dore-devale-les-pistes.webp", rarity:"common", w:8, punch:"Fresh powder. Fresh delusions of grandeur."},
-    {title:"Crypto Whale", src:"assets/gallery/coq-royal-dans-un-royaume-de-tresors-crypto.webp", rarity:"rare", w:5, punch:"Technically still a coq. Emotionally a whale."},
-    {title:"Space Yacht Captain", src:"assets/gallery/poulet-royal-dans-un-yacht-spatial-dore.webp", rarity:"rare", w:4, punch:"Earth became too reasonably priced."},
-    {title:"Moon Base Billionaire", src:"assets/gallery/le-debarquement-lunaire-dore-de-quqn.webp", rarity:"rare", w:4, punch:"Roosters cannot fly. The budget says otherwise."},
-
-    {title:"Nantes Coq", src:"assets/gallery/coq-royal-sur-les-quais-de-nantes.webp", rarity:"easter egg", w:3, punch:"Machines de l'Île, Loire, a little Breton energy — and absolutely no modesty."},
-    {title:"Guernsey Coq", src:"assets/gallery/coq-royal-a-castle-cornet.webp", rarity:"easter egg", w:3, punch:"Offshore? He thought they meant a yacht."},
-    {title:"Himeji Shogun", src:"assets/gallery/coq-quqn-shogun-a-himeji.webp", rarity:"easter egg", w:3, punch:"A castle this elegant deserves an unnecessarily golden coq."},
-    {title:"Frankfurt Euro Coq", src:"assets/gallery/le-roi-coq-du-crypto-empire-europeen.webp", rarity:"easter egg", w:3, punch:"The ECB called. QUQN misunderstood the assignment."},
-    {title:"Swiss Banker Coq", src:"assets/gallery/coq-quqn-roi-de-geneve-riches.webp", rarity:"easter egg", w:3, punch:"Discretion, precision, and one extremely loud French chicken."},
-
-    {title:"3 A.M. Trader", src:"assets/gallery/le-roi-dore-de-wall-street.webp", rarity:"rare", w:2, punch:"Twelve screens. Four coffees. One terrible decision away from greatness."},
-    {title:"Still Broke", src:"assets/mascot.webp", rarity:"legendary", w:1, punch:"Plot twist: the card declined. Small coq. Same dreams.", special:"broke"}
+    {title:"The Monaco Billionaire",src:"assets/gallery/destiny-01-the-monaco-billionaire.webp",tier:"common",rarity:"common",punch:"The yacht has a smaller yacht. Naturally."},
+    {title:"Wall Street Coq",src:"assets/gallery/destiny-02-wall-street-coq.webp",tier:"common",rarity:"common",punch:"Still does not understand half the charts. Owns the building anyway."},
+    {title:"Dubai Gold King",src:"assets/gallery/destiny-03-dubai-gold-king.webp",tier:"common",rarity:"common",punch:"Subtlety was never part of the roadmap."},
+    {title:"Private Jet Coq",src:"assets/gallery/destiny-04-private-jet-coq.webp",tier:"common",rarity:"common",punch:"Economy class? QUQN has never heard of this protocol."},
+    {title:"Moon Base Billionaire",src:"assets/gallery/destiny-05-moon-base-billionaire.webp",tier:"rare",rarity:"rare",punch:"Roosters cannot fly. The budget says otherwise."},
+    {title:"Mars Landlord",src:"assets/gallery/destiny-06-mars-landlord.webp",tier:"common",rarity:"common",punch:"The neighbors are 54 million kilometers away. Perfect."},
+    {title:"Space Yacht Captain",src:"assets/gallery/destiny-07-space-yacht-captain.webp",tier:"rare",rarity:"rare",punch:"Earth became too reasonably priced."},
+    {title:"Casino Boss",src:"assets/gallery/destiny-08-casino-boss.webp",tier:"common",rarity:"common",punch:"Statistically questionable. Visually magnificent."},
+    {title:"Secret Island Owner",src:"assets/gallery/destiny-09-secret-island-owner.webp",tier:"common",rarity:"common",punch:"Private beach. Publicly unreasonable confidence."},
+    {title:"Supercar Collector",src:"assets/gallery/destiny-10-supercar-collector.webp",tier:"common",rarity:"common",punch:"The garage has become a liquidity problem."},
+    {title:"The Crypto Whale",src:"assets/gallery/destiny-11-the-crypto-whale.webp",tier:"rare",rarity:"rare",punch:"Technically still a coq. Emotionally a whale."},
+    {title:"Diamond Hands",src:"assets/gallery/destiny-12-diamond-hands.webp",tier:"rare",rarity:"rare",punch:"Paper hands were never invited."},
+    {title:"The HODL Monk",src:"assets/gallery/destiny-13-the-hodl-monk.webp",tier:"common",rarity:"common",punch:"Inner peace. Outer volatility."},
+    {title:"The Bull Market King",src:"assets/gallery/destiny-14-the-bull-market-king.webp",tier:"rare",rarity:"rare",punch:"He asked for a green candle. He got a stampede."},
+    {title:"The Bear Market Survivor",src:"assets/gallery/destiny-15-the-bear-market-survivor.webp",tier:"rare",rarity:"rare",punch:"Markets crash. Champagne stays cold."},
+    {title:"The Accidental Billionaire",src:"assets/gallery/destiny-16-the-accidental-billionaire.webp",tier:"common",rarity:"common",punch:"He clicked once. Nobody understands what happened next."},
+    {title:"The Lazy Billionaire",src:"assets/gallery/destiny-17-the-lazy-billionaire.webp",tier:"common",rarity:"common",punch:"Why mine when the robots can have the character development?"},
+    {title:"The Evil Genius",src:"assets/gallery/destiny-18-the-evil-genius.webp",tier:"common",rarity:"common",punch:"The machine is either genius or a very expensive toaster."},
+    {title:"The Philanthropist Coq",src:"assets/gallery/destiny-19-the-philanthropist-coq.webp",tier:"common",rarity:"common",punch:"Making it rain, but with suspiciously chicken-shaped coins."},
+    {title:"The Royal Coq",src:"assets/gallery/destiny-20-the-royal-coq.webp",tier:"common",rarity:"common",punch:"A throne this large was absolutely necessary."},
+    {title:"The Influencer Billionaire",src:"assets/gallery/destiny-21-the-influencer-billionaire.webp",tier:"common",rarity:"common",punch:"One selfie away from financial wisdom."},
+    {title:"The Football Club Owner",src:"assets/gallery/destiny-22-the-football-club-owner.webp",tier:"common",rarity:"common",punch:"He bought the club because season tickets were complicated."},
+    {title:"The Art Collector",src:"assets/gallery/destiny-23-the-art-collector.webp",tier:"common",rarity:"common",punch:"Every masterpiece looks strangely familiar."},
+    {title:"The Doomsday Billionaire",src:"assets/gallery/destiny-24-the-doomsday-billionaire.webp",tier:"common",rarity:"common",punch:"If the world ends, at least the minibar is stocked."},
+    {title:"The Time Traveller",src:"assets/gallery/destiny-25-the-time-traveller.webp",tier:"rare",rarity:"rare",punch:"He came from 2126 to say: still no one knows."},
+    {title:"The Medieval Tycoon",src:"assets/gallery/destiny-26-the-medieval-tycoon.webp",tier:"common",rarity:"common",punch:"Diversified across castles, gold and questionable feudal assets."},
+    {title:"The Pirate Billionaire",src:"assets/gallery/destiny-27-the-pirate-billionaire.webp",tier:"common",rarity:"common",punch:"Not your keys, not your treasure chest."},
+    {title:"The Emperor of Nothing",src:"assets/gallery/destiny-28-the-emperor-of-nothing.webp",tier:"legendary",rarity:"legendary",punch:"Unlimited authority. Zero subjects.",special:"nothing"},
+    {title:"The 3 A.M. Trader",src:"assets/gallery/destiny-29-the-3-a-m-trader.webp",tier:"common",rarity:"common",punch:"Twelve screens. Four coffees. One terrible decision away from greatness."},
+    {title:"Still Broke",src:"assets/gallery/destiny-30-still-broke.webp",tier:"legendary",rarity:"legendary",punch:"Plot twist: the card declined. Small coq. Same dreams.",special:"broke"},
+    {title:"Nantes Coq",src:"assets/gallery/destiny-31-nantes-coq.webp",tier:"common",rarity:"easter egg",punch:"Machines de l'Île, Loire, a little Breton energy — and absolutely no modesty."},
+    {title:"Guernsey Coq",src:"assets/gallery/destiny-32-guernsey-coq.webp",tier:"common",rarity:"easter egg",punch:"Offshore? He thought they meant a yacht."},
+    {title:"Himeji Shogun",src:"assets/gallery/destiny-33-himeji-shogun.webp",tier:"common",rarity:"easter egg",punch:"A castle this elegant deserves an unnecessarily golden coq."},
+    {title:"Frankfurt Euro Coq",src:"assets/gallery/destiny-34-frankfurt-euro-coq.webp",tier:"common",rarity:"easter egg",punch:"The ECB called. QUQN misunderstood the assignment."},
+    {title:"Swiss Banker Coq",src:"assets/gallery/destiny-35-swiss-banker-coq.webp",tier:"common",rarity:"easter egg",punch:"Discretion, precision, and one extremely loud French chicken."},
+    {title:"Lambo Coq",src:"assets/gallery/destiny-36-lambo-coq.webp",tier:"common",rarity:"common",punch:"He skipped the roadmap and went straight to the showroom."}
   ];
 
   const weightedPick = () => {
-    const total = destinies.reduce((a,x)=>a+x.w,0);
-    let r = Math.random()*total;
-    for (const x of destinies){ r -= x.w; if(r <= 0) return x; }
-    return destinies[0];
+    const roll = Math.random() * 100;
+    const tier = roll < 75 ? "common" : (roll < 95 ? "rare" : "legendary");
+    const pool = destinies.filter(x => x.tier === tier);
+    return pool[Math.floor(Math.random() * pool.length)] || destinies[0];
   };
 
   function showDestiny(item, final=false){
