@@ -73,6 +73,15 @@ function setupGuide(){const modal=$('#guideModal');$$('[data-open-guide]').forEa
 
 async function init(){
   cfg=await fetch('assets/config.json',{cache:'no-store'}).then(r=>r.json());
+  // V6 hotfix: presentation copy only. Never rewrite apiBase or other config fields.
+  if(cfg?.homeCopy?.en){
+    cfg.homeCopy.en.heroSubtitle='Meet QUQN — the tiny coq who represents every crypto dreamer.';
+    cfg.homeCopy.en.storyBody='He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: “Why not me?” QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn. He often jumps into things before understanding them and gets dramatically serious whenever he starts imagining himself as a billionaire.';
+  }
+  if(cfg?.homeCopy?.fr){
+    cfg.homeCopy.fr.heroSubtitle='Voici QUQN — le petit coq qui représente tous les rêveurs crypto.';
+    cfg.homeCopy.fr.storyBody='Il regarde les baleines, les tokens de célébrités et les memecoins devenus légendaires depuis le bord de la ferme et se pose une seule question : « Pourquoi pas moi ? » QUQN est trop sûr de lui, impulsif, maladroit mais attachant, et persuadé qu’un jour le petit investisseur aura son tour. Il fonce parfois avant d’avoir compris et devient soudain très sérieux dès qu’il s’imagine milliardaire.';
+  }
   ['topUniscan','heroUniscan','beginnerUniscan','guideUniscan'].forEach(id=>safe('#'+id,e=>e.href=cfg.uniscanUrl));
   safe('#unisatCta',e=>e.href=cfg.unisatMintUrl);safe('#walletDownload',e=>e.href=cfg.unisatWalletUrl||'https://unisat.io/download');safe('#officialMintGuide',e=>e.href=cfg.unisatGuideUrl||'https://docs.unisat.io/products/unisat-inscribe/how-to-inscribe-on-unisat');
   safe('#mintCount',e=>e.addEventListener('input',updateMintCalc));safe('#lang',e=>e.addEventListener('click',()=>{lang=lang==='en'?'fr':'en';localStorage.setItem('quqnLang',lang);applyLang()}));

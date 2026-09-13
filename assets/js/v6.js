@@ -328,13 +328,7 @@
       setTimeout(()=>bubble.classList.remove("show","visit-greeting"),4200);
     },1250);
   }
-    fig.addEventListener("click",()=>{
-      wink.classList.remove("show");
-      void wink.offsetWidth;
-      wink.classList.add("show");
-      setTimeout(()=>wink.classList.remove("show"),700);
-    });
-  }
+
 
   function spawnClingCoin(){
     if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
