@@ -452,14 +452,13 @@
         font-size:7px;font-weight:950;letter-spacing:.08em;background:rgba(33,76,44,.12)
       }
       .hero-live-pill i{width:5px;height:5px;border-radius:50%;background:#7bd596;box-shadow:0 0 8px rgba(123,213,150,.75)}
-      .hero-top10{display:grid;gap:4px}
+      .hero-top10{display:grid;gap:5px;align-content:start}
       .hero-holder-row{
-        display:grid;grid-template-columns:34px 28px minmax(0,1fr) auto;align-items:center;gap:7px;
-        min-height:42px;padding:4px 6px;border-radius:10px;border:1px solid rgba(255,255,255,.045);
+        display:grid;grid-template-columns:34px 30px minmax(0,1fr) auto;align-items:center;gap:7px;
+        min-height:34px;padding:4px 7px;border-radius:11px;border:1px solid rgba(255,255,255,.045);
         background:rgba(255,255,255,.022);transition:.2s ease
       }
       .hero-holder-row:hover{background:rgba(244,198,96,.06);border-color:rgba(244,198,96,.18);transform:translateX(-2px)}
-      .hero-holder-row[data-place="1"]{background:linear-gradient(90deg,rgba(244,198,96,.14),rgba(244,198,96,.03));border-color:rgba(244,198,96,.32)}
       .hero-holder-row img{width:34px;height:34px;object-fit:cover;border-radius:8px;border:1px solid rgba(244,198,96,.2)}
       .hero-place{font-size:12px;font-weight:1000;color:#d9c286}
       .hero-holder-main{min-width:0}
@@ -467,6 +466,33 @@
       .hero-holder-address{display:block;color:#71695f;font:650 7px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
       .hero-holder-balance{text-align:right;color:#fff0bf;font-size:10px;font-weight:950;white-space:nowrap}
       .hero-holder-balance small{display:block;color:#7e7568;font-size:6px;letter-spacing:.08em}
+      .hero-holder-row[data-place="1"]{
+        grid-template-columns:54px 40px minmax(0,1fr) auto;
+        min-height:58px;padding:8px 10px;border-radius:14px;
+        background:linear-gradient(90deg,rgba(244,198,96,.16),rgba(244,198,96,.04));
+        border-color:rgba(244,198,96,.34)
+      }
+      .hero-holder-row[data-place="1"] img{width:54px;height:54px;border-radius:11px;box-shadow:0 0 18px rgba(244,198,96,.16)}
+      .hero-holder-row[data-place="1"] .hero-place{font-size:18px}
+      .hero-holder-row[data-place="1"] .hero-holder-rank{font-size:11px}
+      .hero-holder-row[data-place="1"] .hero-holder-address{font-size:8px}
+      .hero-holder-row[data-place="1"] .hero-holder-balance{font-size:15px}
+      .hero-holder-row[data-place="1"] .hero-holder-balance small{font-size:7px}
+      .hero-holder-row[data-place="2"],
+      .hero-holder-row[data-place="3"]{
+        grid-template-columns:42px 34px minmax(0,1fr) auto;
+        min-height:46px;padding:6px 9px;border-radius:12px
+      }
+      .hero-holder-row[data-place="2"] img,
+      .hero-holder-row[data-place="3"] img{width:42px;height:42px;border-radius:10px}
+      .hero-holder-row[data-place="2"] .hero-place,
+      .hero-holder-row[data-place="3"] .hero-place{font-size:15px}
+      .hero-holder-row[data-place="2"] .hero-holder-rank,
+      .hero-holder-row[data-place="3"] .hero-holder-rank{font-size:9px}
+      .hero-holder-row[data-place="2"] .hero-holder-address,
+      .hero-holder-row[data-place="3"] .hero-holder-address{font-size:7px}
+      .hero-holder-row[data-place="2"] .hero-holder-balance,
+      .hero-holder-row[data-place="3"] .hero-holder-balance{font-size:12px}
       .hero-coop-enter{
         display:flex;justify-content:center;align-items:center;margin-top:9px;padding:9px 10px;
         border-radius:10px;text-decoration:none;color:#171006;background:linear-gradient(135deg,#fff0b6,#e6aa37 58%,#ffdc7a);
@@ -636,9 +662,17 @@
         }
         .v4-hero .attraction-intro{padding:28px 28px}
         .v4-hero .attraction-intro h1{font-size:clamp(52px,5vw,74px)}
-        .hero-holder-row{grid-template-columns:30px 24px minmax(0,1fr) auto;gap:5px}
-        .hero-holder-row img{width:30px;height:30px}
+        .hero-holder-row{grid-template-columns:28px 24px minmax(0,1fr) auto;gap:5px;min-height:32px;padding:4px 6px}
+        .hero-holder-row img{width:28px;height:28px}
         .hero-holder-address{display:none}
+        .hero-holder-row[data-place="1"]{grid-template-columns:46px 34px minmax(0,1fr) auto;min-height:52px;padding:7px 8px}
+        .hero-holder-row[data-place="1"] img{width:46px;height:46px}
+        .hero-holder-row[data-place="1"] .hero-place{font-size:16px}
+        .hero-holder-row[data-place="1"] .hero-holder-balance{font-size:13px}
+        .hero-holder-row[data-place="2"],.hero-holder-row[data-place="3"]{grid-template-columns:38px 30px minmax(0,1fr) auto;min-height:42px;padding:5px 8px}
+        .hero-holder-row[data-place="2"] img,.hero-holder-row[data-place="3"] img{width:38px;height:38px}
+        .hero-holder-row[data-place="2"] .hero-place,.hero-holder-row[data-place="3"] .hero-place{font-size:14px}
+        .hero-holder-row[data-place="2"] .hero-holder-balance,.hero-holder-row[data-place="3"] .hero-holder-balance{font-size:11px}
       }
 
       @media(max-width:1180px){
@@ -702,8 +736,8 @@
       heroTitle:"THE COOP · LIVE",
       heroHolders:"détenteurs",
       enter:"ENTRER DANS LA COOP ↓",
-      show10:"VOIR LE TOP 10",
-      hide10:"RÉDUIRE"
+      showMore:"VOIR PLUS",
+      hideMore:"RÉDUIRE"
     } : {
       kicker:"LIVE MEMBERS",
       title:"Who is in the Coop?",
@@ -715,8 +749,8 @@
       heroTitle:"THE COOP · LIVE",
       heroHolders:"holders",
       enter:"ENTER THE COOP ↓",
-      show10:"SHOW TOP 10",
-      hide10:"SHOW LESS"
+      showMore:"SHOW MORE",
+      hideMore:"SHOW LESS"
     };
   }
 
@@ -804,7 +838,7 @@
     q("#heroCoopMore")?.addEventListener("click",()=>{
       preview.classList.toggle("show-top10");
       const t=coopText();
-      q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hide10:t.show10;
+      q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hideMore:t.showMore;
     });
     return preview;
   }
@@ -816,12 +850,12 @@
     const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
     const holders=[...(data.holders||[])]
       .sort((a,b)=>Number(b.overallBalance||0)-Number(a.overallBalance||0))
-      .slice(0,10);
+      .slice(0,12);
 
     q("#heroCoopTitle").textContent=t.heroTitle;
     q("#heroCoopCount").textContent=`${Number(data.total || data.holders?.length || 0)} ${t.heroHolders}`;
     q("#heroCoopEnter").textContent=t.enter;
-    q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hide10:t.show10;
+    q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hideMore:t.showMore;
 
     const list=q("#heroTop10");
     if(!list) return;
