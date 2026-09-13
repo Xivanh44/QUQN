@@ -401,21 +401,38 @@
       .coop-refresh:hover{border-color:rgba(244,198,96,.55);color:#fff0bf}
 
       /* --- HERO: 3-part QUQN dashboard --- */
-      .v4-hero{min-height:820px}
+      .v4-hero{min-height:780px}
       .v4-hero .attraction-layout{
-        width:min(1380px,calc(100% - 28px));
-        grid-template-columns:minmax(235px,.78fr) minmax(460px,1.55fr) minmax(300px,.92fr);
-        gap:18px;align-items:stretch;min-height:800px;padding:88px 0 42px
+        width:min(1440px,calc(100% - 36px));
+        grid-template-columns:minmax(330px,1fr) minmax(410px,1.28fr) minmax(330px,1fr);
+        grid-template-areas:"game intro coop";
+        gap:18px;align-items:stretch;min-height:760px;padding:88px 0 42px
       }
       .v4-hero .attraction-intro{
-        align-self:center;padding:22px 4px 22px 0;min-width:0
+        grid-area:intro;align-self:stretch;min-width:0;
+        display:flex;flex-direction:column;justify-content:center;
+        padding:34px 38px;
+        border-radius:22px;
+        border:1px solid rgba(244,198,96,.20);
+        background:linear-gradient(160deg,rgba(8,7,5,.34),rgba(8,7,5,.64));
+        box-shadow:0 26px 70px rgba(0,0,0,.22);
+        backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)
       }
       .v4-hero .attraction-intro h1{
-        font-size:clamp(48px,4.7vw,72px);line-height:.86;margin:14px 0 20px
+        font-size:clamp(58px,5.4vw,86px);line-height:.84;margin:14px 0 22px
       }
-      .v4-hero .attraction-intro .hero-subtitle{font-size:15px;line-height:1.45}
+      .v4-hero .attraction-intro .hero-subtitle{font-size:16px;line-height:1.5;max-width:460px}
       .v4-hero .hero-game{
-        align-self:center;min-width:0;max-height:680px;overflow:auto
+        grid-area:game;align-self:stretch;min-width:0;max-height:none;overflow:visible;
+        height:100%
+      }
+      .v4-hero .hero-game .future-card{height:100%}
+      .hero-coop-preview{grid-area:coop;height:100%}
+      .v4-hero .hero-game,.v4-hero .future-card,.v4-hero .hero-future-stage{
+        scrollbar-width:none
+      }
+      .v4-hero .hero-game::-webkit-scrollbar,.v4-hero .future-card::-webkit-scrollbar,.v4-hero .hero-future-stage::-webkit-scrollbar{
+        display:none;width:0;height:0
       }
 
       .hero-coop-preview{
@@ -469,11 +486,13 @@
       .holder-card:nth-child(1) img{box-shadow:0 0 26px rgba(244,198,96,.17)}
       .holder-card:nth-child(1):hover{transform:translateY(-14px)}
 
-      @media(max-width:1120px){
+      @media(max-width:1180px){
         .v4-hero .attraction-layout{
-          grid-template-columns:minmax(220px,.75fr) minmax(430px,1.5fr) minmax(270px,.9fr);
-          width:min(100% - 18px,1180px);gap:12px
+          grid-template-columns:minmax(285px,1fr) minmax(360px,1.22fr) minmax(285px,1fr);
+          width:min(100% - 20px,1220px);gap:12px
         }
+        .v4-hero .attraction-intro{padding:28px 28px}
+        .v4-hero .attraction-intro h1{font-size:clamp(52px,5vw,74px)}
         .hero-holder-row{grid-template-columns:30px 24px minmax(0,1fr) auto;gap:5px}
         .hero-holder-row img{width:30px;height:30px}
         .hero-holder-address{display:none}
@@ -484,10 +503,12 @@
           display:flex;flex-direction:column;width:min(100% - 28px,760px);
           min-height:0;padding:92px 0 44px;gap:18px
         }
-        .v4-hero .hero-game{order:1;max-height:none;width:100%}
-        .hero-coop-preview{order:2;width:100%}
-        .v4-hero .attraction-intro{order:3;width:100%;padding:24px 0 0}
+        .v4-hero .attraction-intro{
+          order:1;width:100%;padding:30px 24px;min-height:420px
+        }
         .v4-hero .attraction-intro h1{font-size:clamp(54px,10vw,82px)}
+        .v4-hero .hero-game{order:2;width:100%;height:auto}
+        .hero-coop-preview{order:3;width:100%;height:auto}
         .hero-top10{grid-template-columns:1fr 1fr}
         .holder-grid{grid-template-columns:1fr 1fr}
         .holder-card,.holder-card:nth-child(1),.holder-card:nth-child(2),.holder-card:nth-child(3){grid-column:auto;order:initial;transform:none}
