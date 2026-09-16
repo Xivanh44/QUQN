@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 40">
+<rect width="60" height="40" fill="#006C35"/>
+<text x="30" y="18" font-family="Arial,sans-serif" font-size="7" text-anchor="middle" fill="#fff">لا إله إلا الله</text>
+<path d="M15 28h28M39 26l4 2-4 2" stroke="#fff" stroke-width="2" fill="none"/>
+</svg>
