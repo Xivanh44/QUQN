@@ -3,8 +3,8 @@ const $$ = s => [...document.querySelectorAll(s)];
 
 const translations = {
   en: {
-    navStory:'Story', navSeason:'This season', navGame:'Billionaire game', navRanks:'The Coop', navGuide:'How it works',
-    howBtn:'HOW QUQN WORKS', viewBtn:'VIEW QUQN ON UNISCAN ↗', heroRisk:'Experimental meme token. No promise of profit, value or liquidity.',
+    navStory:'Story', navSeason:'This season', navMint:'Mint', navGame:'Billionaire game', navRanks:'The Coop', navGuide:'How it works',
+    howBtn:'HOW QUQN WORKS', viewBtn:'VIEW QUQN ON UNISCAN ↗', quickMintKicker:'READY TO MINT?', quickMintTitle:'Choose your route', quickUnisat:'Recommended · BRC-20 mint', quickOkx:'Alternative · Official mint guide', quickOpen:'OPEN ↗', quickMintNote:'Third-party services. Always verify ticker QUQN and Bitcoin before confirming.', heroRisk:'Experimental meme token. No promise of profit, value or liquidity.',
     progress:'Mint progress', minted:'Minted', holders:'Holders', max:'Max supply', perMint:'Per mint',
     storyKicker:'MEET QUQN', storyTitle:'He started small.<br>His ego did not.', voiceNote:'— QUQN', netWorth:'Current net worth: <strong>emotionally billionaire.</strong>',
     seasonKicker:'QUQN THIS SEASON',
@@ -26,8 +26,8 @@ const translations = {
     safetyKicker:'THE ONE RULE TO REMEMBER', safetyTitle:'Your recovery phrase is never needed to mint QUQN.', safetyBody:'If anyone asks for it, stop.'
   },
   fr: {
-    navStory:'Histoire', navSeason:'Cette saison', navGame:'Jeu du milliardaire', navRanks:'The Coop', navGuide:'Comment ça marche',
-    howBtn:'COMMENT ÇA MARCHE', viewBtn:'VOIR QUQN SUR UNISCAN ↗', heroRisk:'Memecoin expérimental. Aucune promesse de profit, de valeur ou de liquidité.',
+    navStory:'Histoire', navSeason:'Cette saison', navMint:'Minter', navGame:'Jeu du milliardaire', navRanks:'The Coop', navGuide:'Comment ça marche',
+    howBtn:'COMMENT ÇA MARCHE', viewBtn:'VOIR QUQN SUR UNISCAN ↗', quickMintKicker:'PRÊT À MINTER ?', quickMintTitle:'Choisis ton option', quickUnisat:'Recommandé · Mint BRC-20', quickOkx:'Alternative · Guide officiel de mint', quickOpen:'OUVRIR ↗', quickMintNote:'Services tiers. Vérifie toujours le ticker QUQN et le réseau Bitcoin avant de confirmer.', heroRisk:'Memecoin expérimental. Aucune promesse de profit, de valeur ou de liquidité.',
     progress:'Progression du mint', minted:'Minté', holders:'Détenteurs', max:'Offre max', perMint:'Par mint',
     storyKicker:'DÉCOUVRIR QUQN', storyTitle:'Il est né petit.<br>Pas son ego.', voiceNote:'— QUQN', netWorth:'Patrimoine actuel : <strong>milliardaire émotionnel.</strong>',
     seasonKicker:'QUQN CETTE SAISON',
