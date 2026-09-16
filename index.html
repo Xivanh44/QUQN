@@ -57,7 +57,23 @@
     .mint-route ol{margin:10px 0 0;padding-left:20px}
     .mint-route li{margin:7px 0;line-height:1.45}
     .mint-route code{font:inherit;font-weight:800}
-    @media (max-width:760px){.mint-route-grid{grid-template-columns:1fr}}
+
+    .quick-mint{margin-top:16px;padding:13px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:rgba(8,7,5,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-width:660px}
+    .quick-mint-title{display:flex;align-items:baseline;gap:9px;margin:0 2px 10px}
+    .quick-mint-title span{font-size:.66rem;font-weight:900;letter-spacing:.12em;color:#d6a72c}
+    .quick-mint-title strong{font-size:.92rem;color:#fff}
+    .quick-mint-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+    .quick-mint-card{display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:10px;min-width:0;padding:10px 11px;border:1px solid rgba(255,255,255,.14);border-radius:14px;background:rgba(255,255,255,.055);color:#fff;text-decoration:none;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+    .quick-mint-card:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.30);background:rgba(255,255,255,.09)}
+    .quick-mint-card.recommended{border-color:rgba(224,171,61,.62);background:rgba(224,171,61,.10)}
+    .quick-mint-card img{width:38px;height:38px;border-radius:10px;display:block}
+    .quick-mint-card span{display:flex;flex-direction:column;min-width:0}
+    .quick-mint-card span strong{font-size:.88rem;line-height:1.15;color:#fff}
+    .quick-mint-card span small{font-size:.68rem;line-height:1.25;color:rgba(255,255,255,.66);margin-top:3px}
+    .quick-mint-card em{font-style:normal;font-size:.62rem;font-weight:900;letter-spacing:.05em;color:#d6a72c}
+    .quick-mint-note{display:block;margin:9px 3px 0;font-size:.62rem;line-height:1.35;color:rgba(255,255,255,.55)}
+
+    @media (max-width:760px){.mint-route-grid{grid-template-columns:1fr}.quick-mint-links{grid-template-columns:1fr}.quick-mint{padding:11px}.quick-mint-title{flex-direction:column;gap:2px}}
   </style>
 </head>
 <body>
@@ -69,6 +85,7 @@
       <a class="brand" href="#top"><img src="assets/logo.webp" alt="QUQN"><span>QUQN</span></a>
       <div class="navlinks">
         <a href="#story" data-t="navStory">Story</a>
+        <a href="#mint-options" data-t="navMint">Mint</a>
         <a href="#billionaire" data-t="navGame">Billionaire game</a>
         <a href="#ranks" data-t="navRanks">The Coop</a>
         <button class="nav-guide" type="button" data-open-guide data-t="navGuide">How it works</button>
@@ -102,6 +119,33 @@
             <button class="btn gold" type="button" data-open-guide data-t="howBtn">HOW QUQN WORKS</button>
             <a id="heroUniscan" class="btn outline" target="_blank" rel="noopener" data-t="viewBtn">VIEW QUQN ↗</a>
           </div>
+
+          <div id="mint-options" class="quick-mint" aria-label="QUQN mint options">
+            <div class="quick-mint-title">
+              <span data-t="quickMintKicker">READY TO MINT?</span>
+              <strong data-t="quickMintTitle">Choose your route</strong>
+            </div>
+            <div class="quick-mint-links">
+              <a class="quick-mint-card recommended" href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener">
+                <img src="assets/platforms/unisat-wallet.svg" alt="UniSat Wallet">
+                <span>
+                  <strong>UniSat Wallet</strong>
+                  <small data-t="quickUnisat">Recommended · BRC-20 mint</small>
+                </span>
+                <em data-t="quickOpen">OPEN ↗</em>
+              </a>
+              <a class="quick-mint-card" href="https://web3.okx.com/en/help/how-can-i-inscribe-brc20-tokens" target="_blank" rel="noopener">
+                <img src="assets/platforms/okx-wallet.svg" alt="OKX Wallet">
+                <span>
+                  <strong>OKX Wallet</strong>
+                  <small data-t="quickOkx">Alternative · Official mint guide</small>
+                </span>
+                <em data-t="quickOpen">OPEN ↗</em>
+              </a>
+            </div>
+            <small class="quick-mint-note" data-t="quickMintNote">Third-party services. Always verify ticker QUQN and Bitcoin before confirming.</small>
+          </div>
+
           <div class="micro-facts"><span>NO PRESALE</span><span>NO ICO</span><span>NO FUNDRAISING</span><span>FAIR MINT</span></div>
         </div>
 
@@ -221,7 +265,7 @@
   </dialog>
 
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Close">×</button><img id="lightboxImg" alt=""><span id="lightboxTitle"></span></div>
-  <script src="assets/js/app.js?v=20260916-unisat-okx" defer></script>
+  <script src="assets/js/app.js?v=20260916-top-mint" defer></script>
   <script src="assets/js/quqn-audio.js" defer></script>
   <script src="assets/js/v6.js?v=20260913-viral3" defer></script>
   <script src="assets/js/unisat-live.js" defer></script>
