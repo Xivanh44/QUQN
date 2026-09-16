@@ -58,7 +58,25 @@
     .mint-route li{margin:7px 0;line-height:1.45}
     .mint-route code{font:inherit;font-weight:800}
 
-    .lang-select{appearance:auto;-webkit-appearance:auto;cursor:pointer;min-width:112px;padding:9px 30px 9px 12px!important;background:#17130d!important;color:#fff!important;border:1px solid rgba(224,171,61,.55)!important;font-weight:800;line-height:1.1}.lang-select option{background:#17130d;color:#fff}html[dir="rtl"] body{text-align:right}html[dir="rtl"] .nav,html[dir="rtl"] .hero-actions,html[dir="rtl"] .quick-mint-title,html[dir="rtl"] .guide-actions{direction:rtl}
+    html[dir="rtl"] body{text-align:right}html[dir="rtl"] .nav,html[dir="rtl"] .hero-actions,html[dir="rtl"] .quick-mint-title,html[dir="rtl"] .guide-actions{direction:rtl}
+
+    .lang-picker{position:relative;display:inline-block;z-index:120}
+    .lang-btn{display:flex!important;align-items:center;gap:8px;min-width:112px;
+      background:#17130d!important;color:#fff!important;border:1px solid rgba(224,171,61,.55)!important;
+      padding:9px 11px!important;font-weight:800;cursor:pointer}
+    .lang-btn img,.lang-menu img{width:22px;height:15px;object-fit:cover;border-radius:2px;
+      box-shadow:0 0 0 1px rgba(255,255,255,.18);flex:0 0 auto}
+    .lang-caret{margin-left:auto;color:#e0ab3d;font-size:12px}
+    .lang-menu{display:none;position:absolute;right:0;top:calc(100% + 7px);min-width:154px;
+      padding:6px;background:#17130d;border:1px solid rgba(224,171,61,.55);border-radius:12px;
+      box-shadow:0 14px 35px rgba(0,0,0,.38);z-index:9999}
+    .lang-menu.open{display:block}
+    .lang-menu button{width:100%;display:flex;align-items:center;gap:10px;padding:9px 10px;
+      border:0;border-radius:8px;background:transparent;color:#fff;font:inherit;font-weight:750;
+      text-align:left;cursor:pointer}
+    .lang-menu button:hover,.lang-menu button.active{background:rgba(224,171,61,.15)}
+    html[dir="rtl"] .lang-menu{right:auto;left:0}
+    html[dir="rtl"] .lang-menu button{text-align:right}
     .quick-mint{margin-top:16px;padding:13px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:rgba(8,7,5,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);max-width:660px}
     .quick-mint-title{display:flex;align-items:baseline;gap:9px;margin:0 2px 10px}
     .quick-mint-title span{font-size:.66rem;font-weight:900;letter-spacing:.12em;color:#d6a72c}
@@ -91,7 +109,25 @@
         <a href="#ranks" data-t="navRanks">The Coop</a>
         <button class="nav-guide" type="button" data-open-guide data-t="navGuide">How it works</button>
       </div>
-      <div class="navtools"><select id="lang" class="chip lang-select" aria-label="Language"><option value="en">🇬🇧 EN</option><option value="zh">🇨🇳 中文</option><option value="ko">🇰🇷 한국어</option><option value="ja">🇯🇵 日本語</option><option value="pt">🇧🇷 PT-BR</option><option value="es">🇪🇸 ES</option><option value="ar">🇸🇦 العربية</option><option value="fr">🇫🇷 FR</option></select><a id="topUniscan" class="btn gold small" target="_blank" rel="noopener" data-t="topUniscan">View on UniScan ↗</a></div>
+      <div class="navtools">
+<div class="lang-picker" id="langPicker">
+  <button id="langBtn" class="chip lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+    <img id="langFlag" src="assets/flags/gb.svg" alt="">
+    <span id="langLabel">EN</span>
+    <span class="lang-caret">▾</span>
+  </button>
+  <div id="langMenu" class="lang-menu" role="listbox" aria-label="Language">
+    <button type="button" data-lang-choice="en"><img src="assets/flags/gb.svg" alt=""> <span>EN</span></button>
+    <button type="button" data-lang-choice="zh"><img src="assets/flags/cn.svg" alt=""> <span>中文</span></button>
+    <button type="button" data-lang-choice="ko"><img src="assets/flags/kr.svg" alt=""> <span>한국어</span></button>
+    <button type="button" data-lang-choice="ja"><img src="assets/flags/jp.svg" alt=""> <span>日本語</span></button>
+    <button type="button" data-lang-choice="pt"><img src="assets/flags/br.svg" alt=""> <span>PT-BR</span></button>
+    <button type="button" data-lang-choice="es"><img src="assets/flags/es.svg" alt=""> <span>ES</span></button>
+    <button type="button" data-lang-choice="ar"><img src="assets/flags/sa.svg" alt=""> <span>العربية</span></button>
+    <button type="button" data-lang-choice="fr"><img src="assets/flags/fr.svg" alt=""> <span>FR</span></button>
+  </div>
+</div>
+<a id="topUniscan" class="btn gold small" target="_blank" rel="noopener" data-t="topUniscan">View on UniScan ↗</a></div>
     </nav>
   </header>
 
@@ -266,7 +302,7 @@
   </dialog>
 
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Close">×</button><img id="lightboxImg" alt=""><span id="lightboxTitle"></span></div>
-  <script src="assets/js/app.js?v=20260917-8lang" defer></script>
+  <script src="assets/js/app.js?v=20260917-realflags" defer></script>
   <script src="assets/js/quqn-audio.js" defer></script>
   <script src="assets/js/v6.js?v=20260913-viral3" defer></script>
   <script src="assets/js/unisat-live.js" defer></script>
