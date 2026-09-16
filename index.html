@@ -93,6 +93,25 @@
     .quick-mint-note{display:block;margin:9px 3px 0;font-size:.62rem;line-height:1.35;color:rgba(255,255,255,.55)}
 
     @media (max-width:760px){.mint-route-grid{grid-template-columns:1fr}.quick-mint-links{grid-template-columns:1fr}.quick-mint{padding:11px}.quick-mint-title{flex-direction:column;gap:2px}}
+  
+    .top-social-links{display:flex;align-items:center;gap:6px}
+    .top-social{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;
+      border-radius:11px;text-decoration:none;font-size:1rem;font-weight:900;transition:transform .18s ease,border-color .18s ease}
+    .top-social:hover{transform:translateY(-1px)}
+    .top-social.x-link{background:#111;color:#fff;border:1px solid rgba(255,255,255,.20)}
+    .top-social.telegram-link{background:#229ED9;color:#fff;border:1px solid rgba(255,255,255,.20)}
+    .hero-social-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:11px}
+    .hero-social{display:inline-flex;align-items:center;gap:8px;padding:9px 13px;border-radius:12px;
+      text-decoration:none;font-size:.78rem;line-height:1;font-weight:800;transition:transform .18s ease,filter .18s ease}
+    .hero-social:hover{transform:translateY(-1px);filter:brightness(1.08)}
+    .hero-social.x{background:#111;color:#fff;border:1px solid rgba(255,255,255,.22)}
+    .hero-social.telegram{background:#229ED9;color:#fff;border:1px solid rgba(255,255,255,.18)}
+    .hero-social span{font-size:1rem}
+    .telegram-community{border-color:rgba(34,158,217,.65)!important}
+    @media (max-width:900px){
+      .top-social-links{display:none}
+    }
+
   </style>
 </head>
 <body>
@@ -127,6 +146,10 @@
     <button type="button" data-lang-choice="fr"><img src="assets/flags/fr.svg" alt=""> <span>FR</span></button>
   </div>
 </div>
+<div class="top-social-links" aria-label="QUQN official social links">
+  <a class="top-social x-link" href="https://x.com/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN on X">𝕏</a>
+  <a class="top-social telegram-link" href="https://t.me/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN Telegram">✈</a>
+</div>
 <a id="topUniscan" class="btn gold small" target="_blank" rel="noopener" data-t="topUniscan">View on UniScan ↗</a></div>
     </nav>
   </header>
@@ -155,6 +178,11 @@
           <div class="hero-actions">
             <button class="btn gold" type="button" data-open-guide data-t="howBtn">HOW QUQN WORKS</button>
             <a id="heroUniscan" class="btn outline" target="_blank" rel="noopener" data-t="viewBtn">VIEW QUQN ↗</a>
+          </div>
+
+          <div class="hero-social-links" aria-label="Official QUQN community links">
+            <a class="hero-social x" href="https://x.com/QUQNbtc" target="_blank" rel="noopener"><span>𝕏</span><strong>@QUQNbtc</strong></a>
+            <a class="hero-social telegram" href="https://t.me/QUQNbtc" target="_blank" rel="noopener"><span>✈</span><strong>Telegram</strong></a>
           </div>
 
           <div id="mint-options" class="quick-mint" aria-label="QUQN mint options">
@@ -253,7 +281,10 @@
 
     <section class="section black persona"><div class="shell persona-grid"><img src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN with a golden supercar"><div><span class="kicker" data-t="personaKicker">CHARACTER FILE</span><h2 data-t="personaTitle">Cute. Cocky. Financially overconfident.</h2><dl><div><dt data-t="skill">Special skill</dt><dd data-t="skillV">Jumping into things before understanding them.</dd></div><div><dt data-t="enemy">Natural enemies</dt><dd data-t="enemyV">Doubt, patience and realistic expectations.</dd></div><div><dt data-t="mission">Mission</dt><dd data-t="missionV">Leave the farm. Become absurdly rich. Work out the details later.</dd></div></dl></div></div></section>
 
-    <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">Follow QUQN on X for memes, Coop updates and on-chain milestones. Join the QUQN community on Telegram.</p></div><div id="socialButtons" class="social-buttons"></div></div></section>
+    <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">Follow QUQN on X for memes, Coop updates and on-chain milestones. Join the QUQN community on Telegram.</p></div><div id="socialButtons" class="social-buttons">
+  <a class="btn dark" href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a>
+  <a class="btn dark telegram-community" href="https://t.me/QUQNbtc" target="_blank" rel="noopener">✈ Telegram</a>
+</div></div></section>
 
     <section id="what-is-quqn" class="section black">
       <div class="shell narrow">
@@ -302,7 +333,7 @@
   </dialog>
 
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Close">×</button><img id="lightboxImg" alt=""><span id="lightboxTitle"></span></div>
-  <script src="assets/js/app.js?v=20260917-telegram" defer></script>
+  <script src="assets/js/app.js?v=20260917-social-top" defer></script>
   <script src="assets/js/quqn-audio.js" defer></script>
   <script src="assets/js/v6.js?v=20260913-viral3" defer></script>
   <script src="assets/js/unisat-live.js" defer></script>
