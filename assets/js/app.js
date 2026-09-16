@@ -286,6 +286,18 @@ const translations = {
   }
 };
 
+
+const langMeta={
+  en:{label:'EN',flag:'assets/flags/gb.svg'},
+  zh:{label:'中文',flag:'assets/flags/cn.svg'},
+  ko:{label:'한국어',flag:'assets/flags/kr.svg'},
+  ja:{label:'日本語',flag:'assets/flags/jp.svg'},
+  pt:{label:'PT-BR',flag:'assets/flags/br.svg'},
+  es:{label:'ES',flag:'assets/flags/es.svg'},
+  ar:{label:'العربية',flag:'assets/flags/sa.svg'},
+  fr:{label:'FR',flag:'assets/flags/fr.svg'}
+};
+
 const seasons = {
   spring:{img:'assets/gallery/le-coq-quqn-au-jardin-dore.webp', en:{pill:'SPRING QUQN',title:'Spring Coq.',text:'Flowers are blooming. QUQN assumes this is bullish.',dates:'MARCH · APRIL · MAY',caption:'SPRING EDITION'}, fr:{pill:'QUQN PRINTEMPS',title:'Coq de printemps.',text:'Les fleurs poussent. QUQN en conclut évidemment que c’est bullish.',dates:'MARS · AVRIL · MAI',caption:'ÉDITION PRINTEMPS'}, zh:{pill:'QUQN · 春季',title:'春日小公鸡。',text:'花开了。QUQN 理所当然地认为这是 bullish。',dates:'三月 · 四月 · 五月',caption:'春季版'}},
   summer:{img:'assets/gallery/vacances-tropicales-dorees-de-quqn.webp', en:{pill:'SUMMER QUQN',title:'Summer Coq.',text:'Sun, yachts and imaginary profits. QUQN has already booked the villa.',dates:'JUNE · JULY · AUGUST',caption:'SUMMER EDITION'}, fr:{pill:'QUQN ÉTÉ',title:'Coq d’été.',text:'Soleil, yachts et profits imaginaires. QUQN a déjà réservé la villa.',dates:'JUIN · JUILLET · AOÛT',caption:'ÉDITION ÉTÉ'}, zh:{pill:'QUQN · 夏季',title:'夏日小公鸡。',text:'阳光、游艇和想象中的利润。QUQN 已经把别墅订好了。',dates:'六月 · 七月 · 八月',caption:'夏季版'}},
@@ -306,7 +318,10 @@ async function liveStats(){setStats(cfg.fallbackMinted,cfg.fallbackHolders);if(!
 function setupSocial(){if(!cfg)return;const s=cfg.social||{},xUrl=s.x||'https://x.com/QUQNbtc';const labels=lang==='zh'?{x:'𝕏 关注 @QUQNbtc',tg:'✈ 加入 Telegram',soon:'✈ Telegram — 即将开放'}:lang==='ko'?{x:'𝕏 @QUQNbtc 팔로우',tg:'✈ Telegram 참여',soon:'✈ Telegram — 곧 공개'}:lang==='pt'?{x:'𝕏 Seguir @QUQNbtc',tg:'✈ Entrar no Telegram',soon:'✈ Telegram — em breve'}:lang==='es'?{x:'𝕏 Seguir @QUQNbtc',tg:'✈ Unirse a Telegram',soon:'✈ Telegram — próximamente'}:lang==='ja'?{x:'𝕏 @QUQNbtcをフォロー',tg:'✈ Telegramに参加',soon:'✈ Telegram — 近日公開'}:lang==='ar'?{x:'𝕏 متابعة @QUQNbtc',tg:'✈ الانضمام إلى Telegram',soon:'✈ Telegram — قريبًا'}:lang==='fr'?{x:'𝕏 Suivre @QUQNbtc',tg:'✈ Rejoindre Telegram',soon:'✈ Telegram — bientôt'}:{x:'𝕏 Follow @QUQNbtc',tg:'✈ Join Telegram',soon:'✈ Telegram — coming soon'};safe('#socialButtons',e=>e.innerHTML=`<a class="btn dark" href="${xUrl}" target="_blank" rel="noopener">${labels.x}</a>`+(s.telegram?`<a class="btn dark" href="${s.telegram}" target="_blank" rel="noopener">${labels.tg}</a>`:`<span class="btn dark disabled">${labels.soon}</span>`))}
 function updateMintCalc(){const input=$('#mintCount');if(!input||!cfg)return;let n=Math.max(1,Math.min(21000,Number(input.value)||1));safe('#mintCalcResult',e=>e.textContent=`${fmt(n*cfg.mintLimit)} QUQN`)}
 
-function applyLang(){if(!translations[lang])lang='en';document.documentElement.lang=lang==='zh'?'zh-CN':lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';safe('#lang',e=>e.value=lang);$$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t];if(v!==undefined)el.innerHTML=v});if(cfg){const c=(cfg.homeCopy&&(cfg.homeCopy[lang]||cfg.homeCopy.en))||{};const heroTitles={en:'SMALL COQ.<br><em>BIG DREAMS.</em>',zh:'小小公鸡。<br><em>大大梦想。</em>',ko:'작은 수탉.<br><em>큰 꿈.</em>',pt:'SMALL COQ.<br><em>BIG DREAMS.</em>',es:'SMALL COQ.<br><em>BIG DREAMS.</em>',ja:'小さなコック。<br><em>大きな夢。</em>',ar:'ديك صغير.<br><em>أحلام كبيرة.</em>',fr:'PETIT COQ.<br><em>GRANDS RÊVES.</em>'};safe('#heroTitle',e=>e.innerHTML=heroTitles[lang]||heroTitles.en);safe('#heroSubtitle',e=>e.textContent=c.heroSubtitle||'');safe('#storyLead',e=>e.textContent=c.storyLead||'');safe('#storyBody',e=>e.textContent=c.storyBody||'');safe('#voiceQuote',e=>e.textContent=c.voiceQuote||'');safe('#beginnerLead',e=>e.textContent=c.beginnerLead||'');safe('#beginnerQuote',e=>e.textContent=c.beginnerQuote||'');safe('#announcement',e=>e.textContent=(cfg.announcement&&(cfg.announcement[lang]||cfg.announcement.en))||'')}renderSeason();renderRanks();updateMintCalc();setupSocial()}
+function applyLang(){if(!translations[lang])lang='en';document.documentElement.lang=lang==='zh'?'zh-CN':lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';const lm=langMeta[lang]||langMeta.en;
+safe('#langFlag',e=>e.src=lm.flag);
+safe('#langLabel',e=>e.textContent=lm.label);
+$$('[data-lang-choice]').forEach(b=>b.classList.toggle('active',b.dataset.langChoice===lang));$$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t];if(v!==undefined)el.innerHTML=v});if(cfg){const c=(cfg.homeCopy&&(cfg.homeCopy[lang]||cfg.homeCopy.en))||{};const heroTitles={en:'SMALL COQ.<br><em>BIG DREAMS.</em>',zh:'小小公鸡。<br><em>大大梦想。</em>',ko:'작은 수탉.<br><em>큰 꿈.</em>',pt:'SMALL COQ.<br><em>BIG DREAMS.</em>',es:'SMALL COQ.<br><em>BIG DREAMS.</em>',ja:'小さなコック。<br><em>大きな夢。</em>',ar:'ديك صغير.<br><em>أحلام كبيرة.</em>',fr:'PETIT COQ.<br><em>GRANDS RÊVES.</em>'};safe('#heroTitle',e=>e.innerHTML=heroTitles[lang]||heroTitles.en);safe('#heroSubtitle',e=>e.textContent=c.heroSubtitle||'');safe('#storyLead',e=>e.textContent=c.storyLead||'');safe('#storyBody',e=>e.textContent=c.storyBody||'');safe('#voiceQuote',e=>e.textContent=c.voiceQuote||'');safe('#beginnerLead',e=>e.textContent=c.beginnerLead||'');safe('#beginnerQuote',e=>e.textContent=c.beginnerQuote||'');safe('#announcement',e=>e.textContent=(cfg.announcement&&(cfg.announcement[lang]||cfg.announcement.en))||'')}renderSeason();renderRanks();updateMintCalc();setupSocial()}
 
 function futurePool(){return (cfg?.gallery||[]).filter(x=>x.visible)}
 function showFuture(item){if(!item)return;safe('#futureImage',e=>{e.src=item.src;e.alt=item.title});safe('#futureTitle',e=>e.textContent=item.title)}
@@ -378,7 +393,25 @@ async function init(){
 
   ['topUniscan','heroUniscan','beginnerUniscan','guideUniscan'].forEach(id=>safe('#'+id,e=>e.href=cfg.uniscanUrl));
   safe('#unisatCta',e=>e.href=cfg.unisatMintUrl);safe('#walletDownload',e=>e.href=cfg.unisatWalletUrl||'https://unisat.io/download');safe('#officialMintGuide',e=>e.href=cfg.unisatGuideUrl||'https://docs.unisat.io/products/unisat-inscribe/how-to-inscribe-on-unisat');
-  safe('#mintCount',e=>e.addEventListener('input',updateMintCalc));safe('#lang',e=>e.addEventListener('change',()=>{lang=e.value;localStorage.setItem('quqnLang',lang);applyLang()}));
+  safe('#mintCount',e=>e.addEventListener('input',updateMintCalc));
+safe('#langBtn',b=>b.addEventListener('click',ev=>{
+  ev.stopPropagation();
+  const m=document.querySelector('#langMenu');
+  const open=m?.classList.toggle('open');
+  b.setAttribute('aria-expanded',open?'true':'false');
+}));
+$$('[data-lang-choice]').forEach(b=>b.addEventListener('click',ev=>{
+  ev.stopPropagation();
+  lang=b.dataset.langChoice;
+  localStorage.setItem('quqnLang',lang);
+  document.querySelector('#langMenu')?.classList.remove('open');
+  document.querySelector('#langBtn')?.setAttribute('aria-expanded','false');
+  applyLang();
+}));
+document.addEventListener('click',()=>{
+  document.querySelector('#langMenu')?.classList.remove('open');
+  document.querySelector('#langBtn')?.setAttribute('aria-expanded','false');
+});
   safe('#spinFuture',e=>e.addEventListener('click',spinFuture));safe('#spinAgain',e=>e.addEventListener('click',spinFuture));safe('#futureImage',e=>e.addEventListener('click',()=>openLightbox(e.src,$('#futureTitle')?.textContent||'QUQN')));
   safe('#lightboxClose',e=>e.addEventListener('click',()=>$('#lightbox')?.classList.remove('open')));safe('#lightbox',e=>e.addEventListener('click',ev=>{if(ev.target===e)e.classList.remove('open')}));
   setupGuide(); applyLang(); liveStats();
