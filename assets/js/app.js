@@ -305,7 +305,35 @@ const seasons = {
   winter:{img:'assets/gallery/coq-royal-glissant-sur-la-glace-de-noel.webp', en:{pill:'WINTER QUQN',title:'Winter Coq.',text:'Cold outside. Confidence still irresponsibly hot.',dates:'DECEMBER · JANUARY · FEBRUARY',caption:'WINTER EDITION'}, fr:{pill:'QUQN HIVER',title:'Coq d’hiver.',text:'Il fait froid dehors. Sa confiance reste irresponsablement brûlante.',dates:'DÉCEMBRE · JANVIER · FÉVRIER',caption:'ÉDITION HIVER'}, zh:{pill:'QUQN · 冬季',title:'冬日小公鸡。',text:'外面很冷，但它的自信依然热得不负责任。',dates:'十二月 · 一月 · 二月',caption:'冬季版'}}
 };
 
-let cfg, lang=localStorage.getItem('quqnLang')||'en', currentFutureIndex=-1;
+function detectPreferredLang(){
+  const supported=['en','zh','ko','ja','pt','es','ar','fr'];
+  const saved=localStorage.getItem('quqnLang');
+  if(saved && supported.includes(saved)) return saved;
+
+  const browserLangs=(navigator.languages && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language || 'en']
+  ).map(v=>String(v).toLowerCase());
+
+  const prefixMap={
+    zh:'zh',
+    ko:'ko',
+    ja:'ja',
+    pt:'pt',
+    es:'es',
+    ar:'ar',
+    fr:'fr',
+    en:'en'
+  };
+
+  for(const code of browserLangs){
+    const prefix=code.split('-')[0];
+    if(prefixMap[prefix]) return prefixMap[prefix];
+  }
+  return 'en';
+}
+
+let cfg, lang=detectPreferredLang(), currentFutureIndex=-1;
 const fmt=n=>Number(n).toLocaleString(lang==='fr'?'fr-FR':lang==='zh'?'zh-CN':lang==='ko'?'ko-KR':lang==='pt'?'pt-BR':lang==='es'?'es-ES':lang==='ja'?'ja-JP':lang==='ar'?'ar-SA':'en-US');
 const safe=(sel,fn)=>{const el=$(sel); if(el)fn(el); return el};
 
