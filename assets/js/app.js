@@ -49,6 +49,124 @@ const translations = {
     safetyKicker:'LA RÈGLE À RETENIR', safetyTitle:'Ta phrase de récupération n’est jamais nécessaire pour minter QUQN.', safetyBody:'Si quelqu’un te la demande, arrête-toi.'
   },
 
+
+  ko: {
+    navStory:'스토리', navSeason:'이번 시즌', navMint:'민트', navGame:'억만장자 게임', navRanks:'The Coop', navGuide:'이용 방법',
+    topUniscan:'UniScan에서 보기 ↗',
+    howBtn:'QUQN 작동 방식', viewBtn:'UNISCAN에서 QUQN 보기 ↗',
+    quickMintKicker:'민트할 준비됐나요?', quickMintTitle:'방법을 선택하세요', quickUnisat:'추천 · BRC-20 민트', quickOkx:'대안 · 공식 민트 가이드', quickOpen:'열기 ↗',
+    quickMintNote:'아래 서비스는 제3자 서비스입니다. 확인 전에 항상 ticker가 QUQN인지, 네트워크가 Bitcoin인지 확인하세요.',
+    heroRisk:'실험적인 밈 토큰입니다. 수익, 가치 또는 유동성을 보장하지 않습니다.',
+    heroEyebrow:'🐓 BRC-20 · BITCOIN MAINNET · FAIR MINT',
+    noPresale:'프리세일 없음', noIco:'ICO 없음', noFundraising:'모금 없음', noCreatorFee:'크리에이터 민트 수수료 없음', fairMint:'FAIR MINT',
+    progress:'민트 진행률', minted:'민트됨', holders:'보유자', max:'최대 공급량', perMint:'민트당',
+    storyKicker:'QUQN 소개', storyTitle:'작은 수탉.<br>큰 꿈.', voiceNote:'— QUQN', netWorth:'현재 순자산: <strong>마음만은 이미 억만장자.</strong>',
+    seasonKicker:'QUQN 이번 시즌',
+    gameKicker:'완전히 “과학적인” QUQN 테스트', gameTitle:'당신은 어떤 억만장자가 될까요?', gameIntro:'한 번 눌러보세요. 과학적 근거는 0%. QUQN이 당신의 상상 속 억만장자 라이프를 정합니다.', gameButton:'내 미래 뽑기', gameDisclaimer:'무작위 밈 게임입니다. 예측, 약속 또는 투자 조언이 아닙니다. 당연하죠.', yourFuture:'당신의 QUQN 미래', spinAgain:'다시 뽑기 ↻',
+    coopKicker:'THE COOP · 커뮤니티', coopTitle:'당신의 꿈은 얼마나 터무니없나요?', coopIntro:'커뮤니티 랭크는 재미를 위한 것입니다. 현재 어떠한 금융적 권리나 보상을 제공하지 않습니다.',
+    personaKicker:'캐릭터 파일', personaTitle:'귀엽고. 자신감 넘치고. 부에 대해 지나치게 낙관적.', voice:'목소리', voiceV:'높고 만화 같은 수탉 목소리. 흥분하면 갑자기 더 드라마틱해집니다.', skill:'특기', skillV:'완전히 이해하기도 전에 일단 뛰어들기.', enemy:'천적', enemyV:'의심, 인내심, 그리고 현실적인 기대.', mission:'미션', missionV:'농장을 떠나 말도 안 되게 부자가 되기. 세부사항은 나중에.',
+    communityTitle:'밈에는 사람이 필요합니다. 약속이 아니라.', communityBody:'X에서 QUQN을 팔로우하고 밈, Coop 업데이트, 온체인 이정표를 확인하세요. Telegram 커뮤니티에도 참여할 수 있습니다.',
+    roadKicker:'2,100만 QUQN을 향한 길', roadTitle:'농장에서 출발해,<br>말도 안 되게 큰 꿈으로.', roadBody:'이것은 공급량 민트 진행률이지 가격 목표가 아닙니다. 실제 QUQN 민트 하나하나가 이 작은 수탉을 길 위에서 조금씩 앞으로 보냅니다.', roadLoading:'현재 민트 진행률 불러오는 중…',
+    aboutKicker:'BITCOIN · BRC-20 · FAIR MINT', aboutTitle:'QUQN이란?',
+    aboutLead:'QUQN은 Bitcoin 메인넷의 커뮤니티 중심 BRC-20 밈 코인으로, 터무니없이 큰 암호화폐 꿈을 꾸는 작은 수탉을 중심으로 합니다.',
+    aboutBody:'QUQN은 프리세일, ICO, 크리에이터 민트 수수료 없이 fair mint로 시작했습니다. 최대 공급량은 21,000,000 QUQN이며, 1회 전체 민트는 1,000 QUQN입니다. Bitcoin과 BRC-20 문화, 밈, 가벼운 커뮤니티 분위기, 그리고 <strong>Small Coq. Big Dreams.</strong>라는 슬로건을 결합합니다.',
+    aboutGuide:'Bitcoin 인스크립션이나 BRC-20이 처음이라면 초보자 가이드를 통해 ticker 확인, 수수료 이해, UniSat 또는 OKX Wallet 같은 호환 가능한 제3자 서비스를 이용한 QUQN 민트 방법을 확인할 수 있습니다.',
+    aboutMintBtn:'QUQN 민트 방법',
+    faqTitle:'이 작은 수탉이 너무 들뜨기 전에.', q1:'QUQN은 이 사이트나 프로젝트가 판매하나요?', a1:'아니요. 이 사이트는 QUQN을 판매하지 않고, 지갑을 연결하지 않으며, 자금을 보관하거나 토큰 구매 대금을 받지 않습니다.', q2:'기술 정보는 어디에 있나요?', faqGuide:'전체 fair mint 및 초보자 가이드 열기 →', q3:'QUQN이 0이 될 수 있나요?', a3:'네. QUQN은 실험적이고 매우 투기적인 자산입니다. 시장이나 가치가 전혀 없을 수도 있습니다.', q4:'BRC-20 fair mint란?', a4:'모든 참여자가 동일한 공개 규칙에 따라 최대 공급량이 채워질 때까지 민트하는 방식입니다. QUQN은 프리세일이나 ICO가 없었고, 프로젝트는 크리에이터 민트 수수료를 받지 않습니다.', q5:'QUQN은 어떻게 민트하나요?', a5:'QUQN 초보자 가이드에서 Bitcoin 네트워크, ticker QUQN, 최대 공급량 21,000,000, 1회 민트 한도 1,000 QUQN을 확인한 후 UniSat 또는 OKX Wallet 같은 호환 서비스를 선택하세요.',
+    guideKicker:'QUQN 작동 방식', guideTitle:'0에서 첫 QUQN까지.', fairLabel:'FAIR MINT 사실', fairTitle:'프로젝트는 토큰을 판매하지도, 모금을 하지도 않습니다.', fairNote:'QUQN은 토큰을 판매하지 않으며, 잠재 보유자가 QUQN을 얻는 대가로 수수료, 커미션, 자금, 개인정보 또는 기타 이익을 받지 않습니다. Bitcoin 네트워크 수수료 및 제3자 서비스 수수료가 있다면 모두 이 웹사이트 밖에서 지불되며 QUQN 프로젝트는 이를 받지 않습니다.', fairLegal:'법률 및 MiCA 안내 보기 →',
+    b1Label:'지갑 준비', b1Title:'호환 Bitcoin 지갑 선택', b1Body:'UniSat Wallet 또는 OKX Wallet을 사용할 수 있습니다. 반드시 공식 웹사이트에서만 다운로드하고, 복구 구문은 절대 공유하지 마세요.', walletDownload:'공식 UniSat Wallet ↗', okxWalletDownload:'공식 OKX Wallet ↗',
+    b2Label:'키 보호', b2Title:'지갑을 만들고 복구 구문을 안전하게 보관', b2Body:'복구 구문은 지갑을 통제합니다. 오프라인에 적어 보관하고 절대 누구에게도 보내지 마세요.', seedWarning:'⚠ 스크린샷, 사진 촬영, 이메일 전송, 클라우드 저장을 하지 마세요.',
+    b3Label:'수수료용 BTC 준비', b3Title:'지갑에 소량의 BTC 준비', b3Body:'민트에는 Bitcoin 네트워크와 제3자 인스크립션 서비스가 사용되므로 수수료가 발생합니다. 이 수수료는 QUQN에 지급되지 않습니다.',
+    b4Label:'클릭 전 확인', b4Title:'UniScan에서 정확한 QUQN 페이지 열기', openExact:'공식 QUQN UniScan 페이지 열기 ↗',
+    fpTicker:'TICKER', fpNetwork:'네트워크', fpMax:'최대 공급량', fpPerMint:'민트당', fpInscription:'INSCRIPTION #',
+    b5Label:'QUQN 부화시키기', b5Title:'민트 경로 선택', b5Body:'QUQN은 Bitcoin의 표준 4-byte BRC-20입니다. 호환되는 제3자 BRC-20 인스크립션 서비스를 통해 민트할 수 있습니다. UniSat을 추천하며 OKX Wallet도 대안입니다.', calcLabel:'전체 민트 횟수', calcGets:'전체 민트 1회당 1,000 QUQN, 총', officialGuide:'UniSat 가이드 ↗',
+    unisatOptionTitle:'옵션 1 — UniSat', recommended:'추천', unisatStep1:'UniSat BRC-20 인스크립션 페이지를 엽니다.', unisatStep2:'ticker <code>QUQN</code>을 검색해 엽니다.', unisatStep3:'<strong>Mint</strong>를 선택하고 <strong>4-byte (classic)</strong> BRC-20인지 확인합니다.', unisatStep4:'전체 민트 1회가 <strong>1,000 QUQN</strong>인지 확인하고 민트 횟수를 선택합니다.', unisatStep5:'수신 Bitcoin 주소와 모든 네트워크/서비스 수수료를 확인합니다.', unisatStep6:'주문을 확인하고 Bitcoin 확인을 기다립니다.', openUnisatMint:'UniSat BRC-20 민트 열기 ↗',
+    okxOptionTitle:'옵션 2 — OKX Wallet', okxStep1:'OKX Wallet을 열고 <strong>더보기 → NFT → Inscriptions → Inscription Center</strong>로 이동합니다.', okxStep2:'Bitcoin/BRC-20 인스크립션 경로를 선택한 뒤 <strong>Mint</strong>를 선택합니다.', okxStep3:'ticker <code>QUQN</code>을 입력합니다.', okxStep4:'전체 민트에는 <strong>1,000 QUQN</strong>을 입력하고 민트 횟수를 선택합니다.', okxStep5:'수신 Bitcoin 주소를 입력하거나 확인합니다.', okxStep6:'민트 요약과 수수료를 확인한 뒤 승인합니다.', okxGuide:'공식 OKX BRC-20 가이드 ↗',
+    mintImportant:'<strong>중요:</strong> 민트 전에 항상 <strong>Bitcoin</strong> 네트워크, ticker <strong>QUQN</strong>, 최대 공급량 <strong>21,000,000</strong>, 공식 UniScan 페이지를 확인하세요. 제3자 인터페이스와 수수료는 변경될 수 있습니다.',
+    verifyUniscan:'UniScan에서 QUQN 확인 ↗', mintUnisat:'UniSat으로 민트 ↗', mintOkx:'OKX Wallet으로 민트 ↗',
+    b6Label:'기다리고 확인', b6Title:'Bitcoin 확인을 기다린 뒤 지갑 확인', b6Body:'Bitcoin 거래는 즉시 완료되지 않습니다. QUQN을 “해제”하거나 “풀어준다”며 DM으로 돈을 요구하는 사람에게 절대 지불하지 마세요.',
+    safetyKicker:'한 가지만 기억하세요', safetyTitle:'QUQN 민트에는 복구 구문이 절대 필요하지 않습니다.', safetyBody:'누군가 복구 구문을 요구하면 즉시 중단하세요.',
+    riskLegal:'위험 및 법률', privacy:'개인정보 보호', footerNote:'Bitcoin 문화 위에 만들어졌습니다. 투자 조언이 아니며, 어떠한 가치도 보장하지 않습니다.'
+  },
+
+  pt: {
+    navStory:'História', navSeason:'Nesta temporada', navMint:'Mint', navGame:'Jogo do bilionário', navRanks:'The Coop', navGuide:'Como funciona',
+    topUniscan:'Ver no UniScan ↗',
+    howBtn:'COMO O QUQN FUNCIONA', viewBtn:'VER QUQN NO UNISCAN ↗',
+    quickMintKicker:'PRONTO PARA MINTAR?', quickMintTitle:'Escolha sua rota', quickUnisat:'Recomendado · Mint BRC-20', quickOkx:'Alternativa · Guia oficial', quickOpen:'ABRIR ↗',
+    quickMintNote:'Serviços de terceiros. Sempre confira o ticker QUQN e a rede Bitcoin antes de confirmar.',
+    heroRisk:'Memecoin experimental. Sem promessa de lucro, valor ou liquidez.',
+    heroEyebrow:'🐓 BRC-20 · BITCOIN MAINNET · FAIR MINT',
+    noPresale:'SEM PRÉ-VENDA', noIco:'SEM ICO', noFundraising:'SEM CAPTAÇÃO', noCreatorFee:'SEM TAXA DE MINT DO CRIADOR', fairMint:'FAIR MINT',
+    progress:'Progresso do mint', minted:'Mintado', holders:'Holders', max:'Oferta máxima', perMint:'Por mint',
+    storyKicker:'CONHEÇA QUQN', storyTitle:'Coq pequeno.<br>Sonhos grandes.', voiceNote:'— QUQN', netWorth:'Patrimônio atual: <strong>bilionário na cabeça.</strong>',
+    seasonKicker:'QUQN NESTA TEMPORADA',
+    gameKicker:'O TESTE QUQN TOTALMENTE “CIENTÍFICO”', gameTitle:'Que tipo de bilionário você seria?', gameIntro:'Toque uma vez. Zero ciência. QUQN decide sua vida imaginária de bilionário.', gameButton:'SORTear MEU FUTURO', gameDisclaimer:'Jogo meme totalmente aleatório. Não é previsão, promessa nem conselho de investimento. Obviamente.', yourFuture:'Seu futuro QUQN', spinAgain:'Tentar outro destino ↻',
+    coopKicker:'THE COOP · COMUNIDADE', coopTitle:'Quão absurdos são seus sonhos?', coopIntro:'Os ranks da comunidade são só por diversão. No momento não dão direitos financeiros nem recompensas.',
+    personaKicker:'FICHA DO PERSONAGEM', personaTitle:'Fofo. Confiante. Otimista demais com dinheiro.', voice:'Voz', voiceV:'Uma voz aguda de galinho de desenho animado. Quando se empolga, fica dramaticamente mais séria.', skill:'Habilidade especial', skillV:'Entrar antes de entender completamente.', enemy:'Inimigo natural', enemyV:'Dúvida, paciência e expectativas realistas.', mission:'Missão', missionV:'Sair da fazenda. Ficar absurdamente rico. Detalhes depois.',
+    communityTitle:'Um meme precisa de pessoas, não de promessas.', communityBody:'Siga QUQN no X para memes, atualizações da Coop e marcos on-chain. Entre também na comunidade do Telegram.',
+    roadKicker:'A ESTRADA ATÉ 21 MILHÕES', roadTitle:'Da fazenda<br>para sonhos completamente absurdos.', roadBody:'Isto mostra o progresso da oferta mintada, não uma meta de preço. Cada QUQN realmente mintado só faz o pequeno coq avançar um pouco mais.', roadLoading:'Carregando o progresso atual do mint…',
+    aboutKicker:'BITCOIN · BRC-20 · FAIR MINT', aboutTitle:'O que é QUQN?',
+    aboutLead:'QUQN é uma memecoin BRC-20 comunitária na mainnet do Bitcoin, construída em torno de um pequeno coq com ambições cripto completamente absurdas.',
+    aboutBody:'QUQN foi lançado como fair mint, sem pré-venda, sem ICO e sem taxa de mint para o criador. A oferta máxima é de 21.000.000 QUQN e cada mint completo cria 1.000 QUQN. O projeto mistura cultura Bitcoin e BRC-20, memes, uma comunidade leve e o lema <strong>Small Coq. Big Dreams.</strong>',
+    aboutGuide:'Se você é novo em inscriptions do Bitcoin ou tokens BRC-20, o guia para iniciantes explica como verificar o ticker, entender as taxas e mintar QUQN usando serviços compatíveis de terceiros como UniSat ou OKX Wallet.',
+    aboutMintBtn:'COMO MINTAR QUQN',
+    faqTitle:'Antes que o pequeno coq fique confiante demais.', q1:'QUQN é vendido por este site ou pelo projeto?', a1:'Não. Este site não vende QUQN, não conecta sua carteira, não guarda fundos e não recebe pagamentos pela compra de tokens.', q2:'Onde estão os detalhes técnicos?', faqGuide:'Abrir o guia completo de fair mint e iniciantes →', q3:'QUQN pode ir a zero?', a3:'Sim. QUQN é experimental e altamente especulativo. Pode não ter mercado nem valor.', q4:'O que é um fair mint BRC-20?', a4:'Um fair mint BRC-20 permite que participantes mintem sob as mesmas regras públicas até a oferta máxima ser alcançada. QUQN não teve pré-venda nem ICO e o projeto não recebe taxa de mint do criador.', q5:'Como mintar QUQN?', a5:'Use o guia para iniciantes QUQN para verificar Bitcoin, ticker QUQN, oferta máxima de 21.000.000 e limite de 1.000 QUQN por mint, depois escolha um serviço compatível como UniSat ou OKX Wallet.',
+    guideKicker:'COMO O QUQN FUNCIONA', guideTitle:'Do zero ao seu primeiro QUQN.', fairLabel:'FATOS DO FAIR MINT', fairTitle:'O projeto não vende tokens nem capta recursos.', fairNote:'QUQN não vende tokens nem recebe taxas, comissões, fundos, dados pessoais ou outros benefícios quando um possível holder obtém QUQN. Taxas da rede Bitcoin e taxas de terceiros, se houver, são pagas fora deste site e não são recebidas pelo projeto QUQN.', fairLegal:'Ler a nota legal e MiCA →',
+    b1Label:'TENHA UMA CARTEIRA', b1Title:'Escolha uma carteira Bitcoin compatível', b1Body:'Você pode usar UniSat Wallet ou OKX Wallet. Baixe apenas dos sites oficiais e nunca compartilhe sua seed phrase.', walletDownload:'UniSat Wallet oficial ↗', okxWalletDownload:'OKX Wallet oficial ↗',
+    b2Label:'PROTEJA SUAS CHAVES', b2Title:'Crie sua carteira e guarde a seed phrase com segurança', b2Body:'Sua seed phrase controla a carteira. Anote offline e nunca envie para ninguém.', seedWarning:'⚠ Não tire print, não fotografe, não envie por e-mail e não salve na nuvem.',
+    b3Label:'TENHA BTC PARA TAXAS', b3Title:'Mantenha uma pequena quantia de BTC na carteira', b3Body:'O mint usa a rede Bitcoin e um serviço de inscription de terceiros, então há taxas. Essas taxas não vão para o QUQN.',
+    b4Label:'CONFIRA ANTES DE CLICAR', b4Title:'Abra a página correta do QUQN no UniScan', openExact:'Abrir página oficial do QUQN no UniScan ↗',
+    fpTicker:'TICKER', fpNetwork:'REDE', fpMax:'MÁXIMO', fpPerMint:'POR MINT', fpInscription:'INSCRIPTION #',
+    b5Label:'CHOCAR QUQN', b5Title:'Escolha sua rota de mint', b5Body:'QUQN é um BRC-20 padrão de 4 bytes no Bitcoin. Você pode mintá-lo por um serviço compatível de inscription BRC-20 de terceiros. UniSat é a opção recomendada e OKX Wallet é uma alternativa.', calcLabel:'Número de mints completos', calcGets:'Com 1.000 QUQN por mint completo, isso corresponde a', officialGuide:'Guia UniSat ↗',
+    unisatOptionTitle:'Opção 1 — UniSat', recommended:'RECOMENDADO', unisatStep1:'Abra a página de inscription BRC-20 da UniSat.', unisatStep2:'Pesquise o ticker <code>QUQN</code> e abra-o.', unisatStep3:'Selecione <strong>Mint</strong> e confirme que é o BRC-20 <strong>4-byte (classic)</strong>.', unisatStep4:'Confirme <strong>1.000 QUQN</strong> por mint completo e escolha o número de mints.', unisatStep5:'Confira o endereço Bitcoin de recebimento e todas as taxas de rede/serviço.', unisatStep6:'Confirme o pedido e aguarde a confirmação do Bitcoin.', openUnisatMint:'Abrir mint BRC-20 na UniSat ↗',
+    okxOptionTitle:'Opção 2 — OKX Wallet', okxStep1:'Abra a OKX Wallet e vá para <strong>Mais → NFT → Inscriptions → Inscription Center</strong>.', okxStep2:'Selecione a rota Bitcoin/BRC-20 e depois <strong>Mint</strong>.', okxStep3:'Digite o ticker <code>QUQN</code>.', okxStep4:'Digite <strong>1.000 QUQN</strong> para um mint completo e escolha o número de mints.', okxStep5:'Digite ou confirme o endereço Bitcoin do destinatário.', okxStep6:'Revise o resumo e as taxas e então confirme.', okxGuide:'Guia BRC-20 oficial da OKX ↗',
+    mintImportant:'<strong>Importante:</strong> sempre confira a rede <strong>Bitcoin</strong>, o ticker <strong>QUQN</strong>, a oferta máxima de <strong>21.000.000</strong> e a página oficial no UniScan antes de mintar. Interfaces e taxas de terceiros podem mudar.',
+    verifyUniscan:'Verificar QUQN no UniScan ↗', mintUnisat:'Mintar com UniSat ↗', mintOkx:'Mintar com OKX Wallet ↗',
+    b6Label:'AGUARDE E CONFIRA', b6Title:'Espere a confirmação do Bitcoin e depois confira sua carteira', b6Body:'Transações Bitcoin não são instantâneas. Nunca pague alguém por DM que diga que pode “desbloquear” ou “liberar” seus QUQN.',
+    safetyKicker:'LEMBRE APENAS DISSO', safetyTitle:'Mintar QUQN nunca exige sua seed phrase.', safetyBody:'Se alguém pedir sua seed phrase, pare imediatamente.',
+    riskLegal:'Risco e Legal', privacy:'Privacidade', footerNote:'Construído na cultura Bitcoin. Não é conselho financeiro. Nenhum valor é prometido.'
+  },
+
+  es: {
+    navStory:'Historia', navSeason:'Esta temporada', navMint:'Mintear', navGame:'Juego del multimillonario', navRanks:'The Coop', navGuide:'Cómo funciona',
+    topUniscan:'Ver en UniScan ↗',
+    howBtn:'CÓMO FUNCIONA QUQN', viewBtn:'VER QUQN EN UNISCAN ↗',
+    quickMintKicker:'¿LISTO PARA MINTEAR?', quickMintTitle:'Elige tu ruta', quickUnisat:'Recomendado · Mint BRC-20', quickOkx:'Alternativa · Guía oficial', quickOpen:'ABRIR ↗',
+    quickMintNote:'Servicios de terceros. Verifica siempre el ticker QUQN y la red Bitcoin antes de confirmar.',
+    heroRisk:'Memecoin experimental. Sin promesas de beneficio, valor ni liquidez.',
+    heroEyebrow:'🐓 BRC-20 · BITCOIN MAINNET · FAIR MINT',
+    noPresale:'SIN PREVENTA', noIco:'SIN ICO', noFundraising:'SIN RECAUDACIÓN', noCreatorFee:'SIN COMISIÓN DE MINT DEL CREADOR', fairMint:'FAIR MINT',
+    progress:'Progreso del mint', minted:'Minteado', holders:'Holders', max:'Suministro máximo', perMint:'Por mint',
+    storyKicker:'CONOCE A QUQN', storyTitle:'Coq pequeño.<br>Sueños grandes.', voiceNote:'— QUQN', netWorth:'Patrimonio actual: <strong>multimillonario mentalmente.</strong>',
+    seasonKicker:'QUQN ESTA TEMPORADA',
+    gameKicker:'EL TEST QUQN TOTALMENTE “CIENTÍFICO”', gameTitle:'¿Qué tipo de multimillonario serías?', gameIntro:'Toca una vez. Cero ciencia. QUQN decide tu vida imaginaria de multimillonario.', gameButton:'SORTEAR MI FUTURO', gameDisclaimer:'Juego meme totalmente aleatorio. No es una predicción, promesa ni consejo de inversión. Obviamente.', yourFuture:'Tu futuro QUQN', spinAgain:'Probar otro destino ↻',
+    coopKicker:'THE COOP · COMUNIDAD', coopTitle:'¿Qué tan absurdos son tus sueños?', coopIntro:'Los rangos de la comunidad son solo por diversión. Actualmente no otorgan derechos financieros ni recompensas.',
+    personaKicker:'FICHA DEL PERSONAJE', personaTitle:'Tierno. Seguro de sí mismo. Demasiado optimista con el dinero.', voice:'Voz', voiceV:'Voz aguda de gallito de dibujos animados. Cuando se emociona, se vuelve dramáticamente más seria.', skill:'Habilidad especial', skillV:'Entrar antes de entenderlo del todo.', enemy:'Enemigo natural', enemyV:'La duda, la paciencia y las expectativas realistas.', mission:'Misión', missionV:'Salir de la granja. Hacerse absurdamente rico. Los detalles después.',
+    communityTitle:'Un meme necesita personas, no promesas.', communityBody:'Sigue a QUQN en X para memes, novedades de la Coop y hitos on-chain. También puedes unirte a la comunidad de Telegram.',
+    roadKicker:'EL CAMINO A 21 MILLONES', roadTitle:'De la granja<br>a sueños completamente absurdos.', roadBody:'Esto muestra el progreso del suministro minteado, no un objetivo de precio. Cada QUQN minteado de verdad simplemente hace que el pequeño coq avance un poco más.', roadLoading:'Cargando el progreso actual del mint…',
+    aboutKicker:'BITCOIN · BRC-20 · FAIR MINT', aboutTitle:'¿Qué es QUQN?',
+    aboutLead:'QUQN es una memecoin BRC-20 impulsada por la comunidad en la mainnet de Bitcoin, construida alrededor de un pequeño coq con ambiciones cripto completamente absurdas.',
+    aboutBody:'QUQN se lanzó como fair mint, sin preventa, sin ICO y sin comisión de mint para el creador. El suministro máximo es de 21.000.000 QUQN y cada mint completo crea 1.000 QUQN. El proyecto mezcla la cultura Bitcoin y BRC-20 con memes, una comunidad desenfadada y el lema <strong>Small Coq. Big Dreams.</strong>',
+    aboutGuide:'Si eres nuevo en las inscriptions de Bitcoin o en los tokens BRC-20, la guía para principiantes explica cómo verificar el ticker, entender las comisiones y mintear QUQN mediante servicios compatibles de terceros como UniSat u OKX Wallet.',
+    aboutMintBtn:'CÓMO MINTEAR QUQN',
+    faqTitle:'Antes de que el pequeño coq se venga demasiado arriba.', q1:'¿QUQN lo vende este sitio o el proyecto?', a1:'No. Este sitio no vende QUQN, no conecta tu wallet, no custodia fondos y no recibe pagos por comprar tokens.', q2:'¿Dónde están los detalles técnicos?', faqGuide:'Abrir la guía completa de fair mint y principiantes →', q3:'¿QUQN puede valer cero?', a3:'Sí. QUQN es experimental y altamente especulativo. Puede no tener mercado ni valor.', q4:'¿Qué es un fair mint BRC-20?', a4:'Un fair mint BRC-20 permite que los participantes minteen bajo las mismas reglas públicas hasta alcanzar el suministro máximo. QUQN no tuvo preventa ni ICO y el proyecto no recibe una comisión de mint del creador.', q5:'¿Cómo minteo QUQN?', a5:'Usa la guía para principiantes de QUQN para verificar Bitcoin, el ticker QUQN, el suministro máximo de 21.000.000 y el límite de 1.000 QUQN por mint; luego elige un servicio compatible como UniSat u OKX Wallet.',
+    guideKicker:'CÓMO FUNCIONA QUQN', guideTitle:'De cero a tus primeros QUQN.', fairLabel:'DATOS DEL FAIR MINT', fairTitle:'El proyecto no vende tokens ni recauda fondos.', fairNote:'QUQN no vende tokens ni recibe comisiones, fondos, datos personales u otros beneficios cuando un posible holder obtiene QUQN. Las comisiones de la red Bitcoin y de terceros, si existen, se pagan fuera de este sitio y no las recibe el proyecto QUQN.', fairLegal:'Leer la nota legal y MiCA →',
+    b1Label:'CONSIGUE UNA WALLET', b1Title:'Elige una wallet Bitcoin compatible', b1Body:'Puedes usar UniSat Wallet u OKX Wallet. Descárgalas solo desde sus sitios oficiales y nunca compartas tu frase de recuperación.', walletDownload:'UniSat Wallet oficial ↗', okxWalletDownload:'OKX Wallet oficial ↗',
+    b2Label:'PROTEGE TUS CLAVES', b2Title:'Crea tu wallet y guarda bien tu frase de recuperación', b2Body:'Tu frase de recuperación controla tu wallet. Escríbela y guárdala offline. Nunca se la envíes a nadie.', seedWarning:'⚠ No hagas capturas, no la fotografíes, no la envíes por email ni la guardes en la nube.',
+    b3Label:'TEN BTC PARA COMISIONES', b3Title:'Mantén una pequeña cantidad de BTC en la wallet', b3Body:'El mint usa la red Bitcoin y un servicio de inscription de terceros, por lo que hay comisiones. Esas comisiones no van a QUQN.',
+    b4Label:'VERIFICA ANTES DE HACER CLIC', b4Title:'Abre la página exacta de QUQN en UniScan', openExact:'Abrir página oficial de QUQN en UniScan ↗',
+    fpTicker:'TICKER', fpNetwork:'RED', fpMax:'MÁXIMO', fpPerMint:'POR MINT', fpInscription:'INSCRIPTION #',
+    b5Label:'INCUBA QUQN', b5Title:'Elige tu ruta de mint', b5Body:'QUQN es un BRC-20 estándar de 4 bytes en Bitcoin. Puedes mintearlo mediante un servicio compatible de inscription BRC-20 de terceros. UniSat es la opción recomendada y OKX Wallet es una alternativa.', calcLabel:'Número de mints completos', calcGets:'A 1.000 QUQN por mint completo, eso corresponde a', officialGuide:'Guía de UniSat ↗',
+    unisatOptionTitle:'Opción 1 — UniSat', recommended:'RECOMENDADO', unisatStep1:'Abre la página de inscription BRC-20 de UniSat.', unisatStep2:'Busca el ticker <code>QUQN</code> y ábrelo.', unisatStep3:'Selecciona <strong>Mint</strong> y confirma que sea el BRC-20 <strong>4-byte (classic)</strong>.', unisatStep4:'Confirma <strong>1.000 QUQN</strong> por mint completo y elige el número de mints.', unisatStep5:'Verifica la dirección Bitcoin receptora y todas las comisiones de red/servicio.', unisatStep6:'Confirma la orden y espera la confirmación de Bitcoin.', openUnisatMint:'Abrir mint BRC-20 en UniSat ↗',
+    okxOptionTitle:'Opción 2 — OKX Wallet', okxStep1:'Abre OKX Wallet y ve a <strong>Más → NFT → Inscriptions → Inscription Center</strong>.', okxStep2:'Selecciona la ruta Bitcoin/BRC-20 y después <strong>Mint</strong>.', okxStep3:'Introduce el ticker <code>QUQN</code>.', okxStep4:'Introduce <strong>1.000 QUQN</strong> para un mint completo y elige el número de mints.', okxStep5:'Introduce o verifica la dirección Bitcoin del destinatario.', okxStep6:'Revisa el resumen y las comisiones, y confirma.', okxGuide:'Guía BRC-20 oficial de OKX ↗',
+    mintImportant:'<strong>Importante:</strong> verifica siempre la red <strong>Bitcoin</strong>, el ticker <strong>QUQN</strong>, el suministro máximo de <strong>21.000.000</strong> y la página oficial de UniScan antes de mintear. Las interfaces y comisiones de terceros pueden cambiar.',
+    verifyUniscan:'Verificar QUQN en UniScan ↗', mintUnisat:'Mintear con UniSat ↗', mintOkx:'Mintear con OKX Wallet ↗',
+    b6Label:'ESPERA Y VERIFICA', b6Title:'Espera la confirmación de Bitcoin y revisa tu wallet', b6Body:'Las transacciones de Bitcoin no son instantáneas. Nunca pagues por DM a alguien que diga poder “desbloquear” o “liberar” tus QUQN.',
+    safetyKicker:'RECUERDA SOLO ESTO', safetyTitle:'Mintear QUQN nunca requiere tu frase de recuperación.', safetyBody:'Si alguien te pide tu frase de recuperación, detente inmediatamente.',
+    riskLegal:'Riesgo y Legal', privacy:'Privacidad', footerNote:'Construido sobre la cultura Bitcoin. No es asesoramiento financiero. No se promete ningún valor.'
+  },
+
   zh: {
     navStory:'故事', navSeason:'本季', navMint:'铸造', navGame:'亿万富翁小游戏', navRanks:'鸡舍社区', navGuide:'如何参与',
     topUniscan:'在 UniScan 查看 ↗',
@@ -97,7 +215,7 @@ const seasons = {
 };
 
 let cfg, lang=localStorage.getItem('quqnLang')||'en', currentFutureIndex=-1;
-const fmt=n=>Number(n).toLocaleString(lang==='fr'?'fr-FR':lang==='zh'?'zh-CN':'en-US');
+const fmt=n=>Number(n).toLocaleString(lang==='fr'?'fr-FR':lang==='zh'?'zh-CN':lang==='ko'?'ko-KR':lang==='pt'?'pt-BR':lang==='es'?'es-ES':'en-US');
 const safe=(sel,fn)=>{const el=$(sel); if(el)fn(el); return el};
 
 function currentSeason(){const m=new Date().getMonth()+1; if(m>=3&&m<=5)return 'spring'; if(m>=6&&m<=8)return 'summer'; if(m>=9&&m<=11)return 'autumn'; return 'winter'}
@@ -106,10 +224,10 @@ function renderRanks(){if(!cfg)return;safe('#rankGrid',e=>e.innerHTML=cfg.ranks.
 function openLightbox(src,title){safe('#lightboxImg',e=>e.src=src);safe('#lightboxTitle',e=>e.textContent=title);safe('#lightbox',e=>{e.classList.add('open');e.setAttribute('aria-hidden','false')})}
 function setStats(minted,holders){if(!cfg)return;minted=Number(minted)||cfg.fallbackMinted;holders=Number(holders)||cfg.fallbackHolders;const pct=Math.min(100,(minted/cfg.maxSupply)*100);safe('#minted',e=>e.textContent=fmt(minted));safe('#holders',e=>e.textContent=fmt(holders));safe('#progressPct',e=>e.textContent=pct.toFixed(2)+'%');safe('#meterFill',e=>e.style.width=Math.max(.35,pct)+'%')}
 async function liveStats(){setStats(cfg.fallbackMinted,cfg.fallbackHolders);if(!cfg.autoSync||!cfg.apiBase){safe('#syncState',e=>e.textContent='STATIC');return}try{const r=await fetch(cfg.apiBase.replace(/\/$/,'')+'/api/token',{cache:'no-store'});if(!r.ok)throw Error();const d=await r.json();setStats(d.totalMinted||d.minted,d.holdersCount);safe('#syncState',e=>e.textContent='LIVE')}catch{safe('#syncState',e=>e.textContent='STATIC')}}
-function setupSocial(){if(!cfg)return;const s=cfg.social||{},xUrl=s.x||'https://x.com/QUQNbtc';const labels=lang==='zh'?{x:'𝕏 关注 @QUQNbtc',tg:'✈ 加入 Telegram',soon:'✈ Telegram — 即将开放'}:lang==='fr'?{x:'𝕏 Suivre @QUQNbtc',tg:'✈ Rejoindre Telegram',soon:'✈ Telegram — bientôt'}:{x:'𝕏 Follow @QUQNbtc',tg:'✈ Join Telegram',soon:'✈ Telegram — coming soon'};safe('#socialButtons',e=>e.innerHTML=`<a class="btn dark" href="${xUrl}" target="_blank" rel="noopener">${labels.x}</a>`+(s.telegram?`<a class="btn dark" href="${s.telegram}" target="_blank" rel="noopener">${labels.tg}</a>`:`<span class="btn dark disabled">${labels.soon}</span>`))}
+function setupSocial(){if(!cfg)return;const s=cfg.social||{},xUrl=s.x||'https://x.com/QUQNbtc';const labels=lang==='zh'?{x:'𝕏 关注 @QUQNbtc',tg:'✈ 加入 Telegram',soon:'✈ Telegram — 即将开放'}:lang==='ko'?{x:'𝕏 @QUQNbtc 팔로우',tg:'✈ Telegram 참여',soon:'✈ Telegram — 곧 공개'}:lang==='pt'?{x:'𝕏 Seguir @QUQNbtc',tg:'✈ Entrar no Telegram',soon:'✈ Telegram — em breve'}:lang==='es'?{x:'𝕏 Seguir @QUQNbtc',tg:'✈ Unirse a Telegram',soon:'✈ Telegram — próximamente'}:lang==='fr'?{x:'𝕏 Suivre @QUQNbtc',tg:'✈ Rejoindre Telegram',soon:'✈ Telegram — bientôt'}:{x:'𝕏 Follow @QUQNbtc',tg:'✈ Join Telegram',soon:'✈ Telegram — coming soon'};safe('#socialButtons',e=>e.innerHTML=`<a class="btn dark" href="${xUrl}" target="_blank" rel="noopener">${labels.x}</a>`+(s.telegram?`<a class="btn dark" href="${s.telegram}" target="_blank" rel="noopener">${labels.tg}</a>`:`<span class="btn dark disabled">${labels.soon}</span>`))}
 function updateMintCalc(){const input=$('#mintCount');if(!input||!cfg)return;let n=Math.max(1,Math.min(21000,Number(input.value)||1));safe('#mintCalcResult',e=>e.textContent=`${fmt(n*cfg.mintLimit)} QUQN`)}
 
-function applyLang(){if(!translations[lang])lang='en';document.documentElement.lang=lang==='zh'?'zh-CN':lang;safe('#lang',e=>e.value=lang);$$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t];if(v!==undefined)el.innerHTML=v});if(cfg){const c=(cfg.homeCopy&&(cfg.homeCopy[lang]||cfg.homeCopy.en))||{};const heroTitles={en:'SMALL COQ.<br><em>BIG DREAMS.</em>',fr:'PETIT COQ.<br><em>GRANDS RÊVES.</em>',zh:'小小公鸡。<br><em>大大梦想。</em>'};safe('#heroTitle',e=>e.innerHTML=heroTitles[lang]||heroTitles.en);safe('#heroSubtitle',e=>e.textContent=c.heroSubtitle||'');safe('#storyLead',e=>e.textContent=c.storyLead||'');safe('#storyBody',e=>e.textContent=c.storyBody||'');safe('#voiceQuote',e=>e.textContent=c.voiceQuote||'');safe('#beginnerLead',e=>e.textContent=c.beginnerLead||'');safe('#beginnerQuote',e=>e.textContent=c.beginnerQuote||'');safe('#announcement',e=>e.textContent=(cfg.announcement&&(cfg.announcement[lang]||cfg.announcement.en))||'')}renderSeason();renderRanks();updateMintCalc();setupSocial()}
+function applyLang(){if(!translations[lang])lang='en';document.documentElement.lang=lang==='zh'?'zh-CN':lang;safe('#lang',e=>e.value=lang);$$('[data-t]').forEach(el=>{const v=translations[lang][el.dataset.t];if(v!==undefined)el.innerHTML=v});if(cfg){const c=(cfg.homeCopy&&(cfg.homeCopy[lang]||cfg.homeCopy.en))||{};const heroTitles={en:'SMALL COQ.<br><em>BIG DREAMS.</em>',zh:'小小公鸡。<br><em>大大梦想。</em>',ko:'작은 수탉.<br><em>큰 꿈.</em>',pt:'SMALL COQ.<br><em>BIG DREAMS.</em>',es:'SMALL COQ.<br><em>BIG DREAMS.</em>',fr:'PETIT COQ.<br><em>GRANDS RÊVES.</em>'};safe('#heroTitle',e=>e.innerHTML=heroTitles[lang]||heroTitles.en);safe('#heroSubtitle',e=>e.textContent=c.heroSubtitle||'');safe('#storyLead',e=>e.textContent=c.storyLead||'');safe('#storyBody',e=>e.textContent=c.storyBody||'');safe('#voiceQuote',e=>e.textContent=c.voiceQuote||'');safe('#beginnerLead',e=>e.textContent=c.beginnerLead||'');safe('#beginnerQuote',e=>e.textContent=c.beginnerQuote||'');safe('#announcement',e=>e.textContent=(cfg.announcement&&(cfg.announcement[lang]||cfg.announcement.en))||'')}renderSeason();renderRanks();updateMintCalc();setupSocial()}
 
 function futurePool(){return (cfg?.gallery||[]).filter(x=>x.visible)}
 function showFuture(item){if(!item)return;safe('#futureImage',e=>{e.src=item.src;e.alt=item.title});safe('#futureTitle',e=>e.textContent=item.title)}
@@ -135,6 +253,31 @@ async function init(){
     voiceQuote:'他们说小公鸡飞不起来？哼。今天也许不行。明天……亿万富翁。呃……大概吧。',
     beginnerLead:'从没用过 Bitcoin 钱包？没关系。按步骤慢慢来。你不需要向 QUQN 转钱，QUQN 也永远不会索要你的助记词。',
     beginnerQuote:'第一次？呃……太好了。慢慢来。连这只小公鸡都学会了。'
+  };
+
+  cfg.homeCopy.ko={
+    heroSubtitle:'QUQN을 만나보세요 — 모든 크립토 드리머를 대표하는 작은 수탉.',
+    storyLead:'QUQN은 작게 태어났습니다. 꿈은 전혀 작지 않습니다.',
+    storyBody:'농장 가장자리에서 고래, 셀럽 토큰, 전설이 된 memecoin을 바라보며 단 하나를 묻습니다. “왜 나는 안 돼?” QUQN은 지나치게 자신감 있고, 충동적이고, 서툴지만 사랑스럽고, 언젠가는 작은 투자자에게도 차례가 올 거라고 믿습니다. 이해하기 전에 뛰어들기도 하고, 억만장자가 되는 상상을 할 때는 갑자기 진지해집니다.',
+    voiceQuote:'작은 수탉은 못 난다고? 흥. 오늘은 아닐지 몰라도. 내일은… 억만장자. 어… 아마도.',
+    beginnerLead:'Bitcoin 지갑이 처음인가요? 괜찮습니다. 천천히 단계별로 진행하세요. QUQN에 돈을 보낼 필요도 없고, QUQN은 절대 복구 구문을 요구하지 않습니다.',
+    beginnerQuote:'처음이라고? 어… 좋아. 천천히 해. 이 작은 수탉도 배웠으니까.'
+  };
+  cfg.homeCopy.pt={
+    heroSubtitle:'Conheça QUQN — o pequeno coq que representa todo sonhador cripto.',
+    storyLead:'QUQN nasceu pequeno. Os sonhos dele, nem um pouco.',
+    storyBody:'Da beira da fazenda, ele observa baleias, tokens de celebridades e memecoins que viraram lendas e faz uma única pergunta: “Por que não eu?” QUQN é confiante demais, impulsivo, meio desajeitado, mas carismático, e acredita que um dia o pequeno investidor terá sua vez. Às vezes entra antes de entender e fica subitamente sério quando começa a imaginar a vida de bilionário.',
+    voiceQuote:'Disseram que galinho não voa? Hm. Hoje talvez não. Amanhã… bilionário. É… talvez.',
+    beginnerLead:'Nunca usou uma carteira Bitcoin? Sem problema. Vá passo a passo. Você não precisa enviar dinheiro ao QUQN e QUQN nunca vai pedir sua seed phrase.',
+    beginnerQuote:'Primeira vez? Ah… ótimo. Vai devagar. Até esse pequeno coq aprendeu.'
+  };
+  cfg.homeCopy.es={
+    heroSubtitle:'Conoce a QUQN — el pequeño coq que representa a todos los soñadores cripto.',
+    storyLead:'QUQN nació pequeño. Sus sueños, para nada.',
+    storyBody:'Desde el borde de la granja observa ballenas, tokens de famosos y memecoins convertidos en leyenda, y se hace una sola pregunta: “¿Por qué yo no?” QUQN es demasiado seguro de sí mismo, impulsivo, torpe pero entrañable, y está convencido de que algún día le tocará al pequeño inversor. A veces se lanza antes de entender y se pone de repente muy serio cuando se imagina multimillonario.',
+    voiceQuote:'¿Dicen que un gallito no puede volar? Hm. Hoy quizá no. Mañana… multimillonario. Eh… probablemente.',
+    beginnerLead:'¿Nunca has usado una wallet Bitcoin? No pasa nada. Ve paso a paso. No necesitas enviar dinero a QUQN y QUQN nunca te pedirá tu frase de recuperación.',
+    beginnerQuote:'¿Primera vez? Eh… perfecto. Ve despacio. Hasta este pequeño coq aprendió.'
   };
 
   ['topUniscan','heroUniscan','beginnerUniscan','guideUniscan'].forEach(id=>safe('#'+id,e=>e.href=cfg.uniscanUrl));
