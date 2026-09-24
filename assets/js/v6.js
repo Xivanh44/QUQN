@@ -1332,6 +1332,14 @@
       if(!response.ok) throw new Error(`holders ${response.status}`);
       const data=await response.json();
       if(!Array.isArray(data.holders)) throw new Error("Invalid holders payload");
+      // Use the site's current artwork even when the holder API has older rank images.
+      const rankImages=new Map((config.ranks||[]).map(rank=>[
+        String(rank.name||"").trim().toLowerCase(),rank.image
+      ]));
+      for(const holder of data.holders){
+        const image=rankImages.get(String(holder.rank||"").trim().toLowerCase());
+        if(image) holder.rankImage=image;
+      }
       liveCoopData=data;
       renderLiveCoop(data);
     }catch(err){

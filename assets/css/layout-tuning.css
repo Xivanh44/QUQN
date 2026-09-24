@@ -3,8 +3,12 @@
 .brand img,.live-brand img,.footer .brand img,.guide-top .brand img,.legal-top .brand img,.manager-head .brand img{
   border-radius:50%;clip-path:circle(49% at 50% 50%);background:transparent
 }
-/* The sticky header and announcement must never cover the crown of the miner. */
-body #quqn-miner-widget{top:142px!important;width:clamp(83px,8.4vw,125px)!important}
+/* Keep the miner beside the language picker inside the sticky header. */
+.site-header .nav{gap:clamp(8px,2vw,20px)}
+.site-header .navtools{gap:6px}
+.site-header #quqn-sound-toggle{min-width:0!important}
+@media(min-width:981px) and (max-width:1150px){.site-header .top-social-links{display:none}}
+@media(max-width:400px){.site-header .brand{gap:6px}.site-header .lang-btn{min-width:104px;padding-inline:8px!important}}
 .site-header{z-index:100}
 .v4-hero{background:#071625}
 .v4-hero .hero-image{
@@ -74,7 +78,7 @@ body .v4-hero .attraction-intro .hero-actions>.hero-social span{font-size:14px}
 @media(max-width:1050px){#ranks .rank-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:1180px) and (min-width:981px){body .v4-hero .attraction-intro .hero-actions{gap:4px}body .v4-hero .attraction-intro .hero-actions>a,body .v4-hero .attraction-intro .hero-actions>button{padding:7px 3px;font-size:8px}}
 @media(max-width:980px){body .v4-hero .attraction-layout{min-height:0;padding-top:90px}body .v4-hero .attraction-intro{min-height:760px;padding-top:260px}}
-@media(max-width:760px){.v4-hero .hero-image{background-position:center top!important}body #quqn-miner-widget{top:112px!important;width:74px!important}}
+@media(max-width:760px){.v4-hero .hero-image{background-position:center top!important}.site-header .nav{justify-content:space-between}.site-header .navtools{margin-left:auto}}
 @media(max-width:600px){body .v4-hero .attraction-intro .hero-actions{grid-template-columns:repeat(2,minmax(0,1fr))}body .v4-hero .attraction-intro{min-height:780px;padding-top:250px}}
 @media(max-width:650px){#story .feature-img{min-height:0}#story .feature-img img{height:auto;aspect-ratio:16/9}#story .quqn-talk{bottom:56px}#ranks .rank-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#ranks .rank img{height:clamp(190px,48vw,290px)!important}.reference-roadmap-track{grid-template-columns:1fr;gap:0}.reference-roadmap-track:before{left:23px;right:auto;top:10px;bottom:20px;width:2px;height:auto}.reference-roadmap-track li{display:grid;grid-template-columns:46px 1fr;column-gap:17px;text-align:left;padding:0 0 25px}.reference-roadmap-dot{grid-row:1/4;margin:0}.reference-roadmap-track h3{margin:0 0 3px}.reference-roadmap-note{text-align:left}}
 /* A shorter reading path: introductory facts, characters, story, Coop, journey and FAQ. */
@@ -106,10 +110,6 @@ body .v4-hero .hero-coop-more[hidden]{display:none!important}
 
 /* Keep the desktop city and gold artwork visible on phones. The figures stay
    first, but occupy a short band so the rooster's face appears on entry. */
-@media(max-width:760px){
-  body #quqn-miner-widget{position:fixed!important;top:auto!important;bottom:12px!important;left:auto!important;right:8px!important;width:56px!important;z-index:65;gap:2px}
-  body #quqn-sound-toggle{min-width:0!important;width:100%;padding:5px 1px;font-size:7px;letter-spacing:0}
-}
 @media(max-width:650px){
   body .live-strip{padding:3px 0!important}
   body .live-strip-inner{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px!important;padding:0!important}
