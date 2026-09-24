@@ -170,6 +170,9 @@
     {at:(10000000/MAX)*100,label:"10M",amount:10000000},
     {at:100,label:"21M",amount:MAX}
   ];
+  const roadLocales={en:"en-US",fr:"fr-FR",ko:"ko-KR",pt:"pt-BR",es:"es-ES",ja:"ja-JP",ar:"ar-SA",zh:"zh-CN"};
+  function roadLocale(){return roadLocales[document.documentElement.lang.split("-")[0]]||"en-US"}
+  function roadText(key){return window.quqnRoadText?.(key)||({roadMilestoneFarm:"THE FARM",roadMilestoneStart:"START",roadMinted:"minted"}[key])}
   function updateRoad(){
     const mintedEl=q("#minted"), fill=q("#roadFill"), coq=q("#roadCoq"), status=q("#roadStatus");
     if(!mintedEl || !fill || !coq) return;
@@ -178,8 +181,9 @@
     fill.style.width=pct+"%";
     coq.style.left=pct+"%";
     if(status){
-      const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
-      status.textContent=`${Math.round(minted).toLocaleString(locale)} / ${MAX.toLocaleString(locale)} QUQN minted · ${pct.toFixed(2)}%`;
+      const locale=roadLocale();
+      const progress=pct.toLocaleString(locale,{minimumFractionDigits:2,maximumFractionDigits:2});
+      status.textContent=`${Math.round(minted).toLocaleString(locale)} / ${MAX.toLocaleString(locale)} QUQN ${roadText("roadMinted")} · ${progress}%`;
     }
     qa(".road-milestone").forEach(el=>{
       const amount=Number(el.dataset.amount)||0;
@@ -190,9 +194,11 @@
   function buildRoadMilestones(){
     const wrap=q("#roadMilestones");
     if(!wrap) return;
+    const locale=roadLocale();
+    const compact=new Intl.NumberFormat(locale,{notation:"compact",maximumFractionDigits:0});
     wrap.innerHTML=milestones.map(m=>`
       <span class="road-milestone" data-amount="${m.amount}" style="--at:${m.at}%">
-        <i></i><b>${m.label}</b><small>${m.amount?m.amount.toLocaleString("en-US"):"START"}</small>
+        <i></i><b>${m.amount?compact.format(m.amount):roadText("roadMilestoneFarm")}</b><small>${m.amount?m.amount.toLocaleString(locale):roadText("roadMilestoneStart")}</small>
       </span>`).join("");
   }
 
@@ -1383,6 +1389,7 @@
   function initV6(){
     hijackRoulette();
     buildRoadMilestones();
+    document.addEventListener("quqn:languagechange",()=>{buildRoadMilestones();updateRoad()});
     setupHeroMotion();
     setupSeasonAtmosphere();
     setupMascot();

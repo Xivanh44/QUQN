@@ -114,9 +114,15 @@ body #ranks .live-coop{margin-top:27px;padding-top:25px}
 #community .community-box{padding:23px 31px;gap:18px}
 #community h2{font-size:clamp(1.6rem,3vw,2.4rem);margin:4px 0 6px}
 #community p{margin:0}
-body .v4-hero .hero-top10 .hero-holder-row:nth-child(n+6){display:none}
-body .v4-hero .hero-coop-preview.show-top10 .hero-holder-row:nth-child(n+6){display:grid}
-body .v4-hero .hero-coop-more:not([hidden]){display:block!important}
+@media(max-width:980px){
+  body .v4-hero .hero-top10 .hero-holder-row:nth-child(n+6){display:none}
+  body .v4-hero .hero-coop-preview.show-top10 .hero-holder-row:nth-child(n+6){display:grid}
+  body .v4-hero .hero-coop-more:not([hidden]){display:block!important}
+}
+@media(min-width:981px){
+  body .v4-hero .hero-top10 .hero-holder-row:nth-child(n+6){display:grid}
+  body .v4-hero .hero-top10{max-height:none;overflow:visible}
+}
 body .v4-hero .hero-coop-more[hidden]{display:none!important}
 @media(max-width:1050px){#ranks .rank img{height:230px!important}}
 @media(max-width:980px){body .v4-hero .attraction-layout{min-height:0}body .v4-hero .attraction-intro{min-height:710px;padding-top:235px}body .v4-hero .hero-future-stage{height:clamp(205px,37vw,285px)!important}.reference-explainer,.reference-chapters{padding:36px 0 39px}.v4-hero .hero-image:after{height:850px;top:-45px;left:65%;transform:translateX(-50%)}}
