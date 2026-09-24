@@ -48,8 +48,8 @@
   button.type = "button";
 
   widget.append(img,button);
-  const languagePicker = document.querySelector(".site-header #langPicker");
-  if(languagePicker) languagePicker.insertAdjacentElement("afterend",widget);
+  const headerTools = document.querySelector(".site-header .navtools");
+  if(headerTools) headerTools.appendChild(widget);
   else document.body.appendChild(widget);
 
   const audio = new Audio(AUDIO_SRC);
