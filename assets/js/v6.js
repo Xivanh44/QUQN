@@ -919,6 +919,7 @@
       preview.classList.toggle("show-top10");
       const t=coopText();
       q("#heroCoopMore").textContent=preview.classList.contains("show-top10")?t.hideMore:t.showMore;
+      scheduleHeroSideSync(30);
     });
     return preview;
   }
@@ -926,6 +927,7 @@
   function renderHeroCoop(data){
     const preview=ensureHeroCoopPreview();
     if(!preview) return;
+    const pill=preview.querySelector(".hero-live-pill");if(pill) pill.innerHTML="<i></i>UNISAT";
     const t=coopText();
     const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
     const holders=[...(data.holders||[])]
@@ -954,6 +956,8 @@
         <span class="hero-holder-balance">${balance.toLocaleString(locale)}<small>QUQN</small></span>
       </div>`;
     }).join("");
+    const more=q("#heroCoopMore");
+    if(more) more.hidden=holders.length<=5;
     scheduleHeroSideSync(30);
   }
 
@@ -1315,8 +1319,9 @@
       const span=status.querySelector("span"); if(span) span.textContent="CONNECTING…";
     }
 
+    let config=null;
     try{
-      const config=await fetch("assets/config.json",{cache:"no-store"}).then(r=>{
+      config=await fetch("assets/config.json",{cache:"no-store"}).then(r=>{
         if(!r.ok) throw new Error("config");
         return r.json();
       });
@@ -1332,6 +1337,19 @@
     }catch(err){
       console.warn("QUQN live Coop:",err);
       if(grid) grid.innerHTML=`<div class="holder-error">${t.error}</div>`;
+      const preview=q("#heroCoopPreview"), teaser=q("#heroTop10");
+      if(preview && teaser){
+        const fr=document.documentElement.lang==="fr";
+        q("#heroCoopTitle").textContent="THE COOP";
+        q("#heroCoopCount").textContent=fr?"Aperçu des rangs · données live indisponibles":"Rank preview · live data unavailable";
+        const ranks=Array.isArray(config?.ranks)?config.ranks.slice(0,3):[];
+        teaser.innerHTML=ranks.map(rank=>`<div class="hero-holder-row coop-rank-teaser">
+          <img src="${rank.image}" alt="" loading="lazy">
+          <span class="hero-holder-main"><b class="hero-holder-rank">${rank.name}</b></span>
+          <span class="hero-holder-balance">${Number(rank.threshold).toLocaleString(fr?"fr-FR":"en-US")}+<small>QUQN</small></span>
+        </div>`).join("");
+        const pill=preview.querySelector(".hero-live-pill");if(pill) pill.textContent=fr?"HORS LIGNE":"OFFLINE";
+      }
       if(status){
         status.dataset.state="error";
         const span=status.querySelector("span"); if(span) span.textContent="UNISAT OFFLINE";

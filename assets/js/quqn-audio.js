@@ -52,6 +52,19 @@
   widget.append(img,button);
   document.body.appendChild(widget);
 
+  // Keep the miner in the mobile viewport even if another theme rule changes
+  // its placement. The full-size desktop positioning remains stylesheet-led.
+  const mobileDock = window.matchMedia("(max-width: 760px)");
+  const mobilePosition = {position:"fixed",top:"auto",bottom:"12px",left:"auto",right:"8px",width:"56px"};
+  function positionMiner(){
+    for(const [property,value] of Object.entries(mobilePosition)){
+      if(mobileDock.matches) widget.style.setProperty(property,value,"important");
+      else widget.style.removeProperty(property);
+    }
+  }
+  positionMiner();
+  mobileDock.addEventListener("change",positionMiner);
+
   const audio = new Audio(AUDIO_SRC);
   audio.preload = "auto";
   audio.volume = .36;

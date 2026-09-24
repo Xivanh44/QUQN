@@ -48,7 +48,7 @@
       "threshold": 1000,
       "name": "Hatchling",
       "tag": "The first crack in the shell.",
-      "image": "assets/gallery/piece-dor-royale-au-coq-quqn.webp"
+      "image": "assets/gallery/hatchling-quqn.webp"
     },
     {
       "threshold": 10000,
@@ -113,7 +113,7 @@
       "visible": true
     },
     {
-      "src": "assets/gallery/coq-quqn-roi-de-geneve-riches.webp",
+      "src": "assets/gallery/destiny-35-swiss-banker-coq.webp",
       "title": "Swiss Banker Coq",
       "category": "world",
       "visible": true
@@ -155,7 +155,7 @@
       "visible": true
     },
     {
-      "src": "assets/gallery/coq-quqn-shogun-a-himeji.webp",
+      "src": "assets/gallery/destiny-33-himeji-shogun.webp",
       "title": "Himeji Shogun",
       "category": "history",
       "visible": true
@@ -163,12 +163,6 @@
     {
       "src": "assets/gallery/rooster-royal-a-londres-sous-l-or.webp",
       "title": "London Royal Coq",
-      "category": "world",
-      "visible": true
-    },
-    {
-      "src": "assets/gallery/coq-dore-au-port-de-bristol.webp",
-      "title": "Bristol Coq",
       "category": "world",
       "visible": true
     },

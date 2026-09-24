@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="8v3qXcOpX2NvV6rlmcw8ACCsoa6rYDXrkncukjb3hn8" />
+  <meta name="google-site-verification" content="8v3qXcOpX2NvV6rlmcw8ACCsoa6rYDXrkncukjb3hn8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#080705">
@@ -41,9 +41,12 @@
   <link rel="preload" href="assets/media/QUQN_miner_poster.webp" as="image" type="image/webp">
   <link rel="preload" href="assets/audio/QUQN_bling_crypto_loop.mp3" as="audio" type="audio/mpeg">
 
-  <link rel="icon" href="assets/logo.webp" type="image/webp">
+  <link rel="icon" href="assets/quqn-token.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/v6.css">
+  <link rel="stylesheet" href="assets/css/reference.css">
+  <link rel="stylesheet" href="assets/css/uniform.css">
+  <link rel="stylesheet" href="assets/css/layout-tuning.css">
 
   <style>
     .wallet-choice-links,.mint-route-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
@@ -120,9 +123,9 @@
 
   <header class="site-header">
     <nav class="nav shell">
-      <a class="brand" href="#top"><img src="assets/logo.webp" alt="QUQN"><span>QUQN</span></a>
+      <a class="brand" href="#top"><img src="assets/quqn-token.png" alt="QUQN"><span>QUQN</span></a>
       <div class="navlinks">
-        <a href="#story" data-t="navStory">Story</a>
+        <a href="#chapters" data-t="navStory">Story</a>
         <a href="#mint-options" data-t="navMint">Mint</a>
         <a href="#billionaire" data-t="navGame">Billionaire game</a>
         <a href="#ranks" data-t="navRanks">The Coop</a>
@@ -158,7 +161,7 @@
     <!-- Important numbers first: compact and visible without turning the homepage into documentation. -->
     <section class="live-strip" aria-label="QUQN key figures">
       <div class="shell live-strip-inner">
-        <div class="live-brand"><img src="assets/logo.webp" alt=""><span><b>QUQN</b><small>BRC-20 · BITCOIN</small></span><i id="syncState">STATIC</i></div>
+        <div class="live-brand"><img src="assets/quqn-token.png" alt=""><span><b>QUQN</b><small>BRC-20 · BITCOIN</small></span><i id="syncState">STATIC</i></div>
         <div class="live-stat"><small data-t="minted">Minted</small><strong id="minted">90,000</strong></div>
         <div class="live-stat"><small data-t="holders">Holders</small><strong id="holders">1</strong></div>
         <div class="live-stat"><small data-t="max">Max supply</small><strong>21,000,000</strong></div>
@@ -167,7 +170,6 @@
       </div>
     </section>
 
-    <!-- The hero automatically changes with the Northern Hemisphere season. -->
     <section class="hero v4-hero">
       <div id="seasonHeroImage" class="hero-image"></div><div class="hero-overlay"></div>
       <div class="shell hero-layout v4-hero-layout attraction-layout">
@@ -178,11 +180,8 @@
           <div class="hero-actions">
             <button class="btn gold" type="button" data-open-guide data-t="howBtn">HOW QUQN WORKS</button>
             <a id="heroUniscan" class="btn outline" target="_blank" rel="noopener" data-t="viewBtn">VIEW QUQN ↗</a>
-          </div>
-
-          <div class="hero-social-links" aria-label="Official QUQN community links">
-            <a class="hero-social x" href="https://x.com/QUQNbtc" target="_blank" rel="noopener"><span>𝕏</span><strong>@QUQNbtc</strong></a>
-            <a class="hero-social telegram" href="https://t.me/QUQNbtc" target="_blank" rel="noopener"><span>✈</span><strong>Telegram</strong></a>
+            <a class="hero-social x" href="https://x.com/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN sur X"><span>𝕏</span><strong>QUQN</strong></a>
+            <a class="hero-social telegram" href="https://t.me/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN sur Telegram"><span>✈</span><strong>Telegram</strong></a>
           </div>
 
           <div id="mint-options" class="quick-mint" aria-label="QUQN mint options">
@@ -242,17 +241,41 @@
       </div>
     </section>
 
-    <section class="ticker"><div>21,000,000 DREAMS ✦ BORN ON BITCOIN ✦ SMALL COQ. BIG DREAMS. ✦ SMALL WALLET, MASSIVE CONFIDENCE ✦ ROOSTERS CAN'T FLY. QUQN DOESN'T CARE. ✦</div></section>
+    <!-- The hero automatically changes with the Northern Hemisphere season. -->
+    <section class="reference-explainer" id="how"><div class="shell">
+  <div class="ref-section-heading"><span class="ref-eyebrow" data-ref="basicsEyebrow">THE BASICS</span><h2 data-ref="basicsTitle">A little rooster. A real Bitcoin token.</h2><p data-ref="basicsIntro">The whole story starts here.</p></div>
+  <div class="reference-explainer-grid">
+    <article><span class="ref-icon gold">₿</span><small>01 / NETWORK</small><h3>BITCOIN</h3><p data-ref="btcBody">QUQN lives on Bitcoin mainnet, recorded through inscriptions.</p></article>
+    <article><span class="ref-icon cyan">✳</span><small>02 / FORMAT</small><h3>BRC-20</h3><p data-ref="brcBody">The QUQN ticker uses the classic BRC-20 token format.</p></article>
+    <article><span class="ref-icon mint">✦</span><small>03 / LAUNCH</small><h3>FAIR MINT</h3><p data-ref="fairBody">Same public mint rules for everyone: 1,000 QUQN per full mint, up to 21 million.</p></article>
+  </div>
+</div></section><section id="chapters" class="reference-chapters"><div class="shell">
+  <div class="ref-section-heading"><span class="ref-eyebrow" data-ref="storyEyebrow">THE QUQN STORY</span><h2 data-ref="storyHeading">One little dream. A much bigger world.</h2><p data-ref="storyIntro">Meet the dreamer. The other two are still waiting in the shadows.</p></div>
+  <div class="reference-character-grid">
+    <article class="reference-character known"><div class="reference-character-art"><img src="assets/quqn-thinking.webp" alt="QUQN thinking about his future"><span class="character-badge" data-ref="quqnMood">THE DREAMER</span></div><div class="reference-character-copy"><small>01 · QUQN</small><h3>QUQN</h3><p data-ref="quqnBody">Small wallet. Impossible ambition. Some days he worries, some days he believes he can rule the world.</p><a href="#story" data-ref="meetQuqn">MEET QUQN ↓</a></div></article>
+    <article class="reference-character unknown"><div class="reference-character-art"><div class="secret-silhouette silhouette-one" aria-hidden="true"><i></i></div><span class="character-badge" data-ref="locked">COMING SOON</span></div><div class="reference-character-copy"><small>02 · ???</small><h3>???</h3><p data-ref="lockedBody">Another character will enter the story. Their identity remains a secret.</p><span class="locked-link">✦   CHAPTER LOCKED</span></div></article>
+    <article class="reference-character unknown"><div class="reference-character-art"><div class="secret-silhouette silhouette-two" aria-hidden="true"><i></i></div><span class="character-badge" data-ref="locked">COMING SOON</span></div><div class="reference-character-copy"><small>03 · ???</small><h3>???</h3><p data-ref="lockedBody">Another character will enter the story. Their identity remains a secret.</p><span class="locked-link">✦   CHAPTER LOCKED</span></div></article>
+  </div>
+</div></section><section class="ticker"><div>21,000,000 DREAMS ✦ BORN ON BITCOIN ✦ SMALL COQ. BIG DREAMS. ✦ SMALL WALLET, MASSIVE CONFIDENCE ✦ ROOSTERS CAN'T FLY. QUQN DOESN'T CARE. ✦</div></section>
     <section id="story" class="section black">
       <div class="shell split">
         <div class="copy"><span class="kicker" data-t="storyKicker">OK, NOW MEET QUQN</span><h2 data-t="storyTitle">He started small.<br>His ego did not.</h2><p id="storyLead" class="lead">QUQN was born small. His dreams were not.</p><p id="storyBody">He watches whales, celebrity coins and legendary memes from the edge of the farm and asks the only question that matters: ‘Why not me?’ QUQN is overconfident, impulsive, charmingly clumsy and absolutely convinced that one day the little guy gets his turn.</p><blockquote><b>“</b><p id="voiceQuote">Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.</p><footer data-t="voiceNote">— QUQN</footer></blockquote></div>
         <figure id="storyMascot" class="feature-img interactive-quqn" title="Tap QUQN">
-          <img src="assets/mascot.webp" alt="QUQN mascot">
+          <img src="assets/quqn-confident.webp" alt="QUQN souriant et confiant">
           <span id="quqnTalk" class="quqn-talk">Euh… click ze coq.</span>
           <figcaption data-t="netWorth">Current net worth: <strong>emotionally billionaire.</strong> · Tap QUQN</figcaption>
         </figure>
       </div>
     </section>
+
+    <section id="ranks" class="section black">
+      <div class="shell"><div class="section-head"><span class="kicker" data-t="coopKicker">THE COOP</span><h2 data-t="coopTitle">How unreasonable are your dreams?</h2><p data-t="coopIntro">Community ranks are for fun. They currently create no financial rights or rewards.</p></div><div id="rankGrid" class="rank-grid"></div></div>
+    </section>
+
+    <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">Follow QUQN on X for memes, Coop updates and on-chain milestones. Join the QUQN community on Telegram.</p></div><div id="socialButtons" class="social-buttons">
+  <a class="btn dark" href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a>
+  <a class="btn dark telegram-community" href="https://t.me/QUQNbtc" target="_blank" rel="noopener">✈ Telegram</a>
+</div></div></section>
 
     <section id="road21m" class="section road-section">
       <div class="shell">
@@ -275,45 +298,32 @@
     </section>
 
 
-    <section id="ranks" class="section black">
-      <div class="shell"><div class="section-head"><span class="kicker" data-t="coopKicker">THE COOP</span><h2 data-t="coopTitle">How unreasonable are your dreams?</h2><p data-t="coopIntro">Community ranks are for fun. They currently create no financial rights or rewards.</p></div><div id="rankGrid" class="rank-grid"></div></div>
-    </section>
-
-    <section class="section black persona"><div class="shell persona-grid"><img src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN with a golden supercar"><div><span class="kicker" data-t="personaKicker">CHARACTER FILE</span><h2 data-t="personaTitle">Cute. Cocky. Financially overconfident.</h2><dl><div><dt data-t="skill">Special skill</dt><dd data-t="skillV">Jumping into things before understanding them.</dd></div><div><dt data-t="enemy">Natural enemies</dt><dd data-t="enemyV">Doubt, patience and realistic expectations.</dd></div><div><dt data-t="mission">Mission</dt><dd data-t="missionV">Leave the farm. Become absurdly rich. Work out the details later.</dd></div></dl></div></div></section>
-
-    <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">Follow QUQN on X for memes, Coop updates and on-chain milestones. Join the QUQN community on Telegram.</p></div><div id="socialButtons" class="social-buttons">
-  <a class="btn dark" href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a>
-  <a class="btn dark telegram-community" href="https://t.me/QUQNbtc" target="_blank" rel="noopener">✈ Telegram</a>
-</div></div></section>
-
-    <section id="what-is-quqn" class="section black">
-      <div class="shell narrow">
-        <div class="section-head">
-          <span class="kicker" data-t="aboutKicker">BITCOIN · BRC-20 · FAIR MINT</span>
-          <h2 data-t="aboutTitle">What is QUQN?</h2>
-          <p class="lead" data-t="aboutLead">QUQN is a community-driven BRC-20 meme coin on Bitcoin mainnet, built around one small coq with completely unreasonable crypto ambitions.</p>
-          <p data-t="aboutBody">QUQN launched as a fair mint with no presale, no ICO and no creator mint fee. The maximum supply is 21,000,000 QUQN and each mint creates 1,000 QUQN. The project mixes Bitcoin and BRC-20 culture with memes, a playful community and the motto <strong>Small Coq. Big Dreams.</strong></p>
-          <p data-t="aboutGuide">If you are new to Bitcoin inscriptions or BRC-20 tokens, the beginner guide explains how to verify the ticker, understand the fees and mint QUQN through compatible third-party services such as UniSat or OKX Wallet.</p>
-          <button class="btn gold" type="button" data-open-guide data-t="aboutMintBtn">HOW TO MINT QUQN</button>
-        </div>
-      </div>
-    </section>
+    <section id="storyRoadmap" class="reference-roadmap" aria-labelledby="storyRoadmapTitle"><div class="shell">
+      <div class="ref-section-heading"><span class="ref-eyebrow" data-roadmap="kicker">THE STORY AHEAD</span><h2 id="storyRoadmapTitle" data-roadmap="title">Where the coq goes next.</h2><p data-roadmap="intro">A creative direction for QUQN, one chapter at a time.</p></div>
+      <ol class="reference-roadmap-track">
+        <li class="is-live"><span class="reference-roadmap-dot">01</span><small data-roadmap="phase1">LIVE</small><h3 data-roadmap="step1">QUQN on Bitcoin</h3><p data-roadmap="body1">Fair mint on Bitcoin and the first chapter of the story.</p></li>
+        <li class="is-current"><span class="reference-roadmap-dot">02</span><small data-roadmap="phase2">IN PROGRESS</small><h3 data-roadmap="step2">The Coop</h3><p data-roadmap="body2">Community stories, public ranks and the live holder view.</p></li>
+        <li><span class="reference-roadmap-dot">03</span><small data-roadmap="phase3">PLANNED STORY</small><h3 data-roadmap="step3">New faces</h3><p data-roadmap="body3">Introduce the two characters waiting in the shadows.</p></li>
+        <li><span class="reference-roadmap-dot">04</span><small data-roadmap="phase4">CREATIVE IDEA</small><h3 data-roadmap="step4">A bigger world</h3><p data-roadmap="body4">Explore more places and adventures for the characters.</p></li>
+      </ol>
+      <p class="reference-roadmap-note" data-roadmap="note">Story ideas can change. These stages carry no dates, token rewards or promise of value.</p>
+    </div></section>
 
     <section id="faq" class="section black faq"><div class="shell narrow"><div class="section-head"><span class="kicker">FAQ</span><h2 data-t="faqTitle">Before the coq gets carried away.</h2></div>
       <details><summary data-t="q1">Is QUQN sold by this website or the project?</summary><p data-t="a1">No. The website does not sell QUQN, connect to wallets, custody funds or receive payments for the token.</p></details>
-      <details><summary data-t="q2">Where are the technical details?</summary><p><button class="inline-guide" type="button" data-open-guide data-t="faqGuide">Open the complete fair-mint & beginner guide →</button></p></details>
+      <details><summary data-t="q2">Where are the technical details?</summary><p><button class="inline-guide" type="button" data-open-guide data-t="faqGuide">Open the complete fair-mint &amp; beginner guide →</button></p></details>
       <details><summary data-t="q3">Can QUQN go to zero?</summary><p data-t="a3">Yes. QUQN is experimental and highly speculative. It can have no market or value.</p></details>
       <details><summary data-t="q4">What is a BRC-20 fair mint?</summary><p data-t="a4">A BRC-20 fair mint lets participants mint tokens under the same public rules until the maximum supply is reached. For QUQN, there was no presale or ICO and the project does not receive a creator mint fee.</p></details>
       <details><summary data-t="q5">How do I mint QUQN?</summary><p data-t="a5">Use the QUQN beginner guide to verify the Bitcoin network, ticker QUQN, the 21,000,000 maximum supply and the 1,000 QUQN mint limit, then choose a compatible third-party BRC-20 inscription service such as UniSat or OKX Wallet.</p></details>
     </div></section>
   </main>
 
-  <footer class="footer"><div class="shell footer-grid"><div class="brand"><img src="assets/logo.webp" alt="QUQN"><span>QUQN</span></div><div><button class="footer-guide" type="button" data-open-guide data-t="navGuide">How it works</button><a href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a><a href="legal.html" data-t="riskLegal">Risk & Legal</a><a href="legal.html#privacy" data-t="privacy">Privacy</a><a href="https://t.me/QUQNbtc" target="_blank" rel="noopener">Telegram</a><a href="manager.html" class="admin-link">Manager</a></div><p data-t="footerNote">Built on Bitcoin culture. Not financial advice. No promised value.</p></div></footer>
+  <footer class="footer"><div class="shell footer-grid"><div class="brand"><img src="assets/quqn-token.png" alt="QUQN"><span>QUQN</span></div><div><button class="footer-guide" type="button" data-open-guide data-t="navGuide">How it works</button><a href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a><a href="legal.html" data-t="riskLegal">Risk &amp; Legal</a><a href="legal.html#privacy" data-t="privacy">Privacy</a><a href="https://t.me/QUQNbtc" target="_blank" rel="noopener">Telegram</a><a href="manager.html" class="admin-link">Manager</a></div><p data-t="footerNote">Built on Bitcoin culture. Not financial advice. No promised value.</p></div></footer>
 
   <!-- Full technical journey, hidden until a visitor asks for it. -->
   <dialog id="guideModal" class="guide-modal">
     <div class="guide-shell">
-      <div class="guide-top"><div class="brand"><img src="assets/logo.webp" alt=""><span>QUQN</span></div><button id="guideClose" class="guide-close" type="button" aria-label="Close">×</button></div>
+      <div class="guide-top"><div class="brand"><img src="assets/quqn-token.png" alt=""><span>QUQN</span></div><button id="guideClose" class="guide-close" type="button" aria-label="Close">×</button></div>
       <div class="guide-hero"><span class="kicker dark" data-t="guideKicker">HOW QUQN WORKS</span><h2 data-t="guideTitle">From zero to your first QUQN.</h2><p id="beginnerLead">Never used a Bitcoin wallet? No problem. Follow these steps slowly. You do not send money to QUQN, and QUQN will never ask for your recovery phrase.</p><blockquote class="coq-tip"><b>“</b><p id="beginnerQuote">First time? Euh… perfect. We go slowly. Even ze coq managed it.</p><footer>— QUQN</footer></blockquote></div>
 
       <section class="guide-fair"><div><small data-t="fairLabel">FAIR MINT FACTS</small><h3 data-t="fairTitle">No sale by the project. No fundraising.</h3></div><div class="fair-facts"><span data-t="noPresale">NO PRESALE</span><span data-t="noIco">NO ICO</span><span data-t="noCreatorFee">NO CREATOR MINT FEE</span><span data-t="noFundraising">NO FUNDRAISING</span></div><p data-t="fairNote">QUQN does not sell tokens or receive fees, commissions, money, personal data or other benefits from prospective holders in exchange for QUQN. Bitcoin network and third-party service fees, if any, are paid outside this website and are not received by QUQN.</p></section>
@@ -324,11 +334,11 @@
         <article><b>3</b><div><small data-t="b3Label">ADD BTC FOR FEES</small><h3 data-t="b3Title">Put a small amount of BTC in your wallet</h3><p data-t="b3Body">Minting uses the Bitcoin network and a third-party inscription service, so fees apply. These fees do not go to QUQN.</p></div></article>
         <article><b>4</b><div><small data-t="b4Label">VERIFY BEFORE YOU CLICK</small><h3 data-t="b4Title">Open the exact QUQN page on UniScan</h3><div class="token-fingerprint"><span><small data-t="fpTicker">TICKER</small><strong>QUQN</strong></span><span><small data-t="fpNetwork">NETWORK</small><strong>Bitcoin</strong></span><span><small data-t="fpMax">MAX</small><strong>21,000,000</strong></span><span><small data-t="fpPerMint">PER MINT</small><strong>1,000</strong></span><span><small data-t="fpInscription">INSCRIPTION #</small><strong>127329518</strong></span></div><a id="beginnerUniscan" target="_blank" rel="noopener" data-t="openExact">Open exact QUQN page ↗</a></div></article>
         <article><b>5</b><div><small data-t="b5Label">HATCH QUQN</small><h3 data-t="b5Title">Choose your mint route</h3><p data-t="b5Body">QUQN is a standard 4-byte BRC-20 on Bitcoin. You can mint it through a compatible third-party BRC-20 inscription service. UniSat is the recommended route, and OKX Wallet is an alternative.</p><div class="mint-calc"><label for="mintCount" data-t="calcLabel">Number of full mints</label><input id="mintCount" type="number" min="1" max="21000" value="1" inputmode="numeric"><div><span data-t="calcGets">At 1,000 QUQN per full mint, that corresponds to</span><strong id="mintCalcResult">1,000 QUQN</strong></div></div><div class="mint-route-grid"><section class="mint-route recommended"><div class="mint-route-head"><h4 data-t="unisatOptionTitle">Option 1 — UniSat</h4><span class="route-badge" data-t="recommended">RECOMMENDED</span></div><ol><li data-t="unisatStep1">Open the UniSat BRC-20 inscription page.</li><li data-t="unisatStep2">Search for ticker <code>QUQN</code> and open it.</li><li data-t="unisatStep3">Select <strong>Mint</strong> and confirm it is the <strong>4-byte (classic)</strong> BRC-20.</li><li data-t="unisatStep4">Verify <strong>1,000 QUQN</strong> for a full mint and choose the number of mints.</li><li data-t="unisatStep5">Check the receiving Bitcoin address and all network/service fees.</li><li data-t="unisatStep6">Confirm the order and wait for Bitcoin confirmation.</li></ol><div class="mint-route-links"><a href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener" data-t="openUnisatMint">Open UniSat BRC-20 mint ↗</a><a id="officialMintGuide" href="https://docs.unisat.io/products/unisat-inscribe/how-to-inscribe-on-unisat" target="_blank" rel="noopener" data-t="officialGuide">UniSat guide ↗</a></div></section><section class="mint-route"><div class="mint-route-head"><h4 data-t="okxOptionTitle">Option 2 — OKX Wallet</h4></div><ol><li data-t="okxStep1">Open OKX Wallet and go to <strong>More → NFT → Inscriptions → Inscription Center</strong>.</li><li data-t="okxStep2">Select the Bitcoin/BRC-20 inscription route, then <strong>Mint</strong>.</li><li data-t="okxStep3">Enter ticker <code>QUQN</code>.</li><li data-t="okxStep4">Enter <strong>1,000 QUQN</strong> for a full mint and choose the number of mints.</li><li data-t="okxStep5">Enter or verify the recipient Bitcoin address.</li><li data-t="okxStep6">Review the mint summary and fees, then confirm.</li></ol><div class="mint-route-links"><a id="okxMintGuide" href="https://www.okx.com/en-eu/help/how-can-i-inscribe-brc20-tokens" target="_blank" rel="noopener" data-t="okxGuide">Official OKX BRC-20 guide ↗</a></div></section></div><p data-t="mintImportant"><strong>Important:</strong> always verify <strong>Bitcoin</strong>, ticker <strong>QUQN</strong>, maximum supply <strong>21,000,000</strong> and the official UniScan page before minting. Third-party interfaces and fees can change.</p></div></article>
-        <article><b>6</b><div><small data-t="b6Label">WAIT & CHECK</small><h3 data-t="b6Title">Wait for Bitcoin confirmation, then check your wallet</h3><p data-t="b6Body">Bitcoin transactions are not instant. Never pay somebody in a private message to “unlock” or “release” your QUQN.</p></div></article>
+        <article><b>6</b><div><small data-t="b6Label">WAIT &amp; CHECK</small><h3 data-t="b6Title">Wait for Bitcoin confirmation, then check your wallet</h3><p data-t="b6Body">Bitcoin transactions are not instant. Never pay somebody in a private message to “unlock” or “release” your QUQN.</p></div></article>
       </div>
 
       <div class="guide-safety"><span>🔐</span><div><small data-t="safetyKicker">THE ONE RULE TO REMEMBER</small><h3 data-t="safetyTitle">Your recovery phrase is never needed to mint QUQN.</h3><p data-t="safetyBody">If anyone asks for it, stop.</p></div></div>
-      <div class="guide-actions"><a id="guideUniscan" class="btn dark" target="_blank" rel="noopener" data-t="verifyUniscan">Verify QUQN on UniScan ↗</a><a id="unisatCta" class="btn outline-dark" href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener" data-t="mintUnisat">Mint with UniSat ↗</a><a class="btn outline-dark" href="https://www.okx.com/en-eu/help/how-can-i-inscribe-brc20-tokens" target="_blank" rel="noopener" data-t="mintOkx">Mint with OKX Wallet ↗</a><a href="legal.html#mica" class="text-button" data-t="fairLegal">Read the legal & MiCA note →</a></div>
+      <div class="guide-actions"><a id="guideUniscan" class="btn dark" target="_blank" rel="noopener" data-t="verifyUniscan">Verify QUQN on UniScan ↗</a><a id="unisatCta" class="btn outline-dark" href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener" data-t="mintUnisat">Mint with UniSat ↗</a><a class="btn outline-dark" href="https://www.okx.com/en-eu/help/how-can-i-inscribe-brc20-tokens" target="_blank" rel="noopener" data-t="mintOkx">Mint with OKX Wallet ↗</a><a href="legal.html#mica" class="text-button" data-t="fairLegal">Read the legal &amp; MiCA note →</a></div>
     </div>
   </dialog>
 
@@ -337,7 +347,9 @@
   <script src="assets/js/quqn-audio.js" defer></script>
   <script src="assets/js/v6.js?v=20260913-viral3" defer></script>
   <script src="assets/js/unisat-live.js" defer></script>
+  <script src="assets/js/reference.js" defer></script>
+  <script src="assets/js/roadmap.js" defer></script>
   <!-- Cloudflare Web Analytics -->
-  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b35c66ba3ab247f2be2e243dfdebaa23"}'></script>
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b35c66ba3ab247f2be2e243dfdebaa23"}'></script>
   <!-- End Cloudflare Web Analytics -->
 </body></html>

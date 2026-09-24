@@ -1,0 +1,21 @@
+/* Legal and manager pages use the same QUQN visual palette as the homepage. */
+body.legal-body,body.manager-body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;background:radial-gradient(ellipse at 85% 0,#153749,#071320 54%);color:#f4f4ed}
+.legal-top{background:#06101b;border-bottom:1px solid #d9aa4e91;box-shadow:0 8px 20px #0008}
+.legal-top .brand img,.manager-head .brand img{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 0 7px #fabb4c80)}
+.legal-top .brand span,.manager-head .brand span{font-weight:1000;color:#ffd16f;letter-spacing:-.04em;text-shadow:0 1px 0 #93540d}
+.legal-card{background:linear-gradient(150deg,#112937,#091a29);border:1px solid #dfb45888;border-radius:16px;box-shadow:0 25px 65px #0009}
+.legal-card h1{color:#ffda80}.legal-card h2{color:#fff0ca;border-bottom:1px solid #e6b85d51;padding-bottom:9px}
+.legal-card p,.legal-card li{color:#cedadd;line-height:1.65}
+.legal-card a{color:#ffd277;text-decoration:underline;text-underline-offset:3px}
+.legal-card .notice,.legal-card .mica-box{background:#163341;border:1px solid #e2b95b8a;border-radius:11px;color:#e5ebdf}
+.legal-card .notice strong{color:#ffe1a1}
+.manager-head .plain-link{color:#ffcf6a}
+.manager-body .panel{background:linear-gradient(150deg,#112938,#0a1d2c);border:1px solid #d9ae5876;border-radius:13px;box-shadow:0 10px 25px #0004}
+.manager-body .panel h1,.manager-body .panel h2{color:#ffde93}
+.manager-body .panel p{color:#d0dcdd}
+.manager-body .field label{color:#ffd47e}
+.manager-body .field input,.manager-body .field textarea,.manager-body .field select{background:#081724;border:1px solid #cba66180;color:#f8f6ee;border-radius:9px}
+.manager-body .btn.gold{color:#251808;background:linear-gradient(#ffec9c,#ffc13e,#db931c);border:1px solid #ffdf8b;border-radius:10px}
+.manager-body .btn.outline{color:#f5d697;border:1px solid #d9ae5876;background:#0b2030;border-radius:10px}
+.manager-body .status{color:#d7d5c9}
+@media(max-width:650px){.legal-main{padding:35px 15px}.legal-card{padding:24px 19px}.legal-card h1{font-size:2.3rem}}
