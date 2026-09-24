@@ -10,13 +10,13 @@
 .site-header #topUniscan{font-size:10.4px!important;padding:8px 11px!important}
 @media(min-width:981px) and (max-width:1150px){.site-header .top-social-links{display:none}}
 @media(max-width:650px){
-  .site-header .nav{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0}
+  .site-header .nav{display:grid;grid-template-columns:max-content minmax(10px,1fr) max-content minmax(10px,1fr) max-content;gap:0}
   .site-header .brand{grid-column:1;justify-self:start}
   .site-header .navtools{display:contents}
-  .site-header .lang-picker{grid-column:2;justify-self:center}
+  .site-header .lang-picker{grid-column:3;justify-self:center}
   .site-header .lang-btn{min-width:86px;max-width:110px;padding:6px 8px!important;gap:5px!important;font-size:13px}
   .site-header .lang-btn img{width:20px;height:14px}
-  .site-header #quqn-miner-widget{grid-column:3;justify-self:end}
+  .site-header #quqn-miner-widget{grid-column:5;justify-self:end}
 }
 @media(max-width:350px){
   .site-header .brand{gap:4px}

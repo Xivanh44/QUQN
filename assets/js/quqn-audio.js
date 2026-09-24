@@ -13,24 +13,24 @@
   const style = document.createElement("style");
   style.textContent = `
     #quqn-miner-widget{
-      position:relative;z-index:1;flex:0 0 50px;
-      width:50px;height:62px;display:flex;flex-direction:column;
+      position:relative;z-index:1;flex:0 0 48px;
+      width:48px;height:48px;display:flex;flex-direction:column;
       align-items:center;justify-content:center;gap:0;
       filter:drop-shadow(0 3px 6px rgba(0,0,0,.35));user-select:none
     }
-    #quqn-miner-widget img{display:block;width:38px;height:38px;object-fit:contain}
+    #quqn-miner-widget img{display:block;width:34px;height:34px;object-fit:contain}
     #quqn-sound-toggle{
       border:1px solid rgba(214,176,79,.62);background:rgba(8,7,5,.88);color:#f2d786;
-      border-radius:999px;padding:3px 2px;min-height:18px;width:50px;
-      font:800 8px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      border-radius:999px;padding:3px 2px;min-height:18px;width:48px;margin-top:-4px;
+      font:800 7px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       letter-spacing:0;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25);
       backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)
     }
     #quqn-sound-toggle[data-state="on"]{background:rgba(58,43,8,.92);border-color:#e7bd57}
     #quqn-sound-toggle[data-state="blocked"]{animation:quqnSoundPulse 1.8s ease-in-out infinite}
     @keyframes quqnSoundPulse{50%{box-shadow:0 0 0 5px rgba(244,198,96,.10),0 4px 14px rgba(0,0,0,.25)}}
-    @media(max-width:760px){#quqn-miner-widget{flex-basis:46px;width:46px;height:60px}
-      #quqn-miner-widget img{width:36px;height:36px}
+    @media(max-width:760px){#quqn-miner-widget{flex-basis:46px;width:46px;height:48px}
+      #quqn-miner-widget img{width:32px;height:32px}
       #quqn-sound-toggle{width:46px;font-size:7px}}
   `;
   document.head.appendChild(style);
