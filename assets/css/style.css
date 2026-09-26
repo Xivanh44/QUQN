@@ -97,8 +97,7 @@ body[data-season="winter"] .hero:before{background-image:radial-gradient(circle,
 .future-stage{
   background-color:#090805;
   background-image:
-    linear-gradient(rgba(5,5,4,.68),rgba(5,5,4,.68)),
-    var(--future-bg, none);
+    linear-gradient(rgba(5,5,4,.68),rgba(5,5,4,.68));
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
