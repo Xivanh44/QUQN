@@ -70,22 +70,6 @@
     ctx.textAlign='center';
     ctx.fillText('SMALL COQ. BIG DREAMS.',360,635);
 
-    /* Small QUQN medallion. */
-    try{
-      const token=await loadImage('assets/logo.webp');
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(148,148,40,0,Math.PI*2);
-      ctx.clip();
-      ctx.drawImage(token,108,108,80,80);
-      ctx.restore();
-      ctx.strokeStyle='#efb83f';
-      ctx.lineWidth=5;
-      ctx.beginPath();
-      ctx.arc(148,148,44,0,Math.PI*2);
-      ctx.stroke();
-    }catch{}
-
     ctx.restore();
 
     /* Circular double frame. */
@@ -100,6 +84,28 @@
     ctx.beginPath();
     ctx.arc(360,360,324,0,Math.PI*2);
     ctx.stroke();
+
+    /* Small QUQN medallion above the frame. */
+    try{
+      const token=await loadImage('assets/quqn-token.png');
+      ctx.save();
+      ctx.shadowColor='rgba(0,0,0,.35)';
+      ctx.shadowBlur=16;
+      ctx.fillStyle='#0a0907';
+      ctx.beginPath();
+      ctx.arc(140,140,44,0,Math.PI*2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(140,140,38,0,Math.PI*2);
+      ctx.clip();
+      ctx.drawImage(token,102,102,76,76);
+      ctx.restore();
+      ctx.strokeStyle='#efb83f';
+      ctx.lineWidth=5;
+      ctx.beginPath();
+      ctx.arc(140,140,42,0,Math.PI*2);
+      ctx.stroke();
+    }catch{}
   }
 
   function bind(){q('#memeTemplate')?.addEventListener('change',renderMeme);q('#memeTop')?.addEventListener('input',renderMeme);q('#memeBottom')?.addEventListener('input',renderMeme);q('#memePreset')?.addEventListener('change',e=>{const p=presets[e.target.value]||presets.custom;if(e.target.value!=='custom'){q('#memeTop').value=p[0];q('#memeBottom').value=p[1]}renderMeme()});q('#memeDownload')?.addEventListener('click',()=>downloadCanvas(q('#memeCanvas'),'quqn-meme.png'));q('#memeShare')?.addEventListener('click',()=>shareCanvas(q('#memeCanvas'),'quqn-meme.png','QUQN — Small Coq. Big Dreams.'));

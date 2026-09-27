@@ -341,7 +341,7 @@
     if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const coin=document.createElement("div");
     coin.className="cling-coin";
-    coin.innerHTML='<img src="assets/logo.webp" alt="">';
+    coin.innerHTML='<img src="assets/quqn-token.png" alt="">';
     document.body.appendChild(coin);
     requestAnimationFrame(()=>coin.classList.add("fly"));
     setTimeout(()=>coin.remove(),1200);
@@ -896,11 +896,11 @@
     if(!list) return;
     list.innerHTML=holders.map((h,index)=>{
       const rank=h.rank||"QUQN Holder";
-      const image=h.rankImage||"assets/logo.webp";
+      const image=h.rankImage||"assets/quqn-token.png";
       const balance=Number(h.overallBalance||0);
       const addr=String(h.address||"");
       return `<div class="hero-holder-row" data-place="${index+1}">
-        <img src="${image}" alt="" loading="lazy" onerror="this.src='assets/logo.webp'">
+        <img src="${image}" alt="" loading="lazy" onerror="this.src='assets/quqn-token.png'">
         <span class="hero-place">#${index+1}</span>
         <span class="hero-holder-main">
           <b class="hero-holder-rank">${rank}</b>
@@ -966,8 +966,8 @@
     const holder=match.holder||{};
     const rank=holder.rank||"QUQN Holder";
     const balance=Number(holder.overallBalance||0).toLocaleString("en-US");
-    const rankImg=await loadCanvasImage(holder.rankImage||"assets/logo.webp");
-    const logo=await loadCanvasImage("assets/logo.webp");
+    const rankImg=await loadCanvasImage(holder.rankImage||"assets/quqn-token.png");
+    const logo=await loadCanvasImage("assets/quqn-token.png");
 
     // Background.
     const bg=ctx.createLinearGradient(0,0,1200,675);
@@ -1124,7 +1124,7 @@
     currentMyRank={holder,place:index+1};
     error.textContent="";
     const locale=document.documentElement.lang==="fr"?"fr-FR":"en-US";
-    const image=holder.rankImage||"assets/logo.webp";
+    const image=holder.rankImage||"assets/quqn-token.png";
     const rank=holder.rank||"QUQN Holder";
     q("#coopRankImage").src=image;
     q("#coopRankPlace").textContent=`#${index+1} · ${rank}`;
@@ -1173,7 +1173,7 @@
         </div>
         <div id="coopRankError" class="coop-rank-error" aria-live="polite"></div>
         <div id="coopRankResult" class="coop-rank-result" aria-live="polite">
-          <img id="coopRankImage" src="assets/logo.webp" alt="QUQN rank">
+          <img id="coopRankImage" src="assets/quqn-token.png" alt="QUQN rank">
           <div class="coop-rank-result-main">
             <small>THE COOP · LIVE</small>
             <strong id="coopRankPlace">—</strong>
@@ -1240,12 +1240,12 @@
 
     grid.innerHTML=holders.map((h,index)=>{
       const balance=Number(h.overallBalance||0);
-      const image=h.rankImage || "assets/logo.webp";
+      const image=h.rankImage || "assets/quqn-token.png";
       const rank=h.rank || "QUQN Holder";
       const addr=String(h.address||"");
       return `<article class="holder-card">
         <span class="holder-rank-no">#${index+1}</span>
-        <img src="${image}" alt="${rank}" loading="lazy" onerror="this.src='assets/logo.webp'">
+        <img src="${image}" alt="${rank}" loading="lazy" onerror="this.src='assets/quqn-token.png'">
         <div class="holder-info">
           <span class="holder-rank">${rank}</span>
           <div class="holder-balance">${balance.toLocaleString(locale)} <small>QUQN</small></div>
