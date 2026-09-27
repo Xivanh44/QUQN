@@ -26,3 +26,7 @@ body.tech-v2 main{overflow:hidden}
 /* V8.2 */
 #pfpCanvas{border-radius:50%!important;overflow:hidden!important}
 .wall-grid img{transform:scale(.90)!important;transform-origin:center center!important;object-position:50% 45%!important}
+
+/* V8.3 fixes */
+.tech-hero-copy h1 em{display:block}
+@media(max-width:650px){.tech-hero-copy h1{letter-spacing:-.06em}}
