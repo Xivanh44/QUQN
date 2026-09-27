@@ -16,7 +16,12 @@
   "autoSync": true,
   "announcement": {
     "en": "🐣 QUQN is live: fair mint on Bitcoin. No presale. No ICO. No fundraising.",
-    "fr": "🐣 QUQN est lancé : fair mint sur Bitcoin. Pas de prévente, pas d’ICO, pas de levée de fonds."
+    "fr": "🐣 QUQN est lancé : fair mint sur Bitcoin. Pas de prévente, pas d’ICO, pas de levée de fonds.",
+    "th": "🐣 QUQN เปิดตัวแล้ว: fair mint บน Bitcoin ไม่มี presale ไม่มี ICO ไม่มีการระดมทุน",
+    "vi": "🐣 QUQN đã ra mắt: fair mint trên Bitcoin. Không presale, không ICO, không gây quỹ.",
+    "tr": "🐣 QUQN yayında: Bitcoin üzerinde fair mint. Presale yok. ICO yok. Fon toplama yok.",
+    "id": "🐣 QUQN sudah live: fair mint di Bitcoin. Tanpa presale, tanpa ICO, tanpa penggalangan dana.",
+    "hi": "🐣 QUQN लाइव है: Bitcoin पर fair mint. कोई presale नहीं, कोई ICO नहीं, कोई fundraising नहीं।"
   },
   "social": {
     "x": "",
@@ -41,6 +46,51 @@
       "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
       "beginnerLead": "Vous n’avez jamais utilisé de wallet Bitcoin ? Pas de problème. Suivez tranquillement les étapes ci-dessous. Vous n’envoyez jamais d’argent à QUQN et QUQN ne vous demandera jamais votre phrase de récupération.",
       "beginnerQuote": "Première fois ? Euh… parfait. On va doucement. Même ze coq a réussi."
+    },
+    "th": {
+      "heroTitle": "PETIT COQ. GRANDS RÊVES.",
+      "heroSubtitle": "นี่คือ QUQN — เจ้าตัวเล็กชาวฝรั่งเศสที่เป็นตัวแทนของนักฝันคริปโตที่มี wallet เล็กและความทะเยอทะยานเกินเหตุ",
+      "storyLead": "QUQN เกิดมาตัวเล็ก แต่ความฝันไม่เล็ก",
+      "storyBody": "จากขอบฟาร์ม เขามอง whales, celebrity tokens และ memecoins ระดับตำนาน แล้วถามคำถามเดียวว่า “ทำไมจะเป็นฉันไม่ได้?” QUQN มั่นใจเกินไป ใจร้อน ซุ่มซ่ามแต่น่าเอ็นดู และเชื่อว่าสักวันคนตัวเล็กจะได้โอกาสของตัวเอง",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
+      "beginnerLead": "ไม่เคยใช้ Bitcoin wallet? ไม่เป็นไร ทำตามขั้นตอนช้า ๆ คุณไม่ต้องส่งเงินให้ QUQN และ QUQN จะไม่ขอ recovery phrase ของคุณ",
+      "beginnerQuote": "ครั้งแรกเหรอ? Euh… perfect. ค่อย ๆ ไป แม้แต่ ze coq ก็ทำได้"
+    },
+    "vi": {
+      "heroTitle": "COQ NHỎ. GIẤC MƠ LỚN.",
+      "heroSubtitle": "Gặp QUQN — chú coq Pháp nhỏ đại diện cho mọi người mơ về crypto với ví nhỏ và tham vọng hoàn toàn phi lý.",
+      "storyLead": "QUQN sinh ra nhỏ bé. Giấc mơ thì không.",
+      "storyBody": "Từ rìa trang trại, cậu nhìn whales, token người nổi tiếng và những memecoin huyền thoại rồi hỏi: “Tại sao không phải mình?” QUQN quá tự tin, bốc đồng, vụng về đáng yêu và tin rằng một ngày nào đó người nhỏ bé cũng sẽ đến lượt.",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
+      "beginnerLead": "Chưa từng dùng ví Bitcoin? Không sao. Hãy đi từng bước. Bạn không gửi tiền cho QUQN và QUQN sẽ không bao giờ hỏi recovery phrase.",
+      "beginnerQuote": "Lần đầu à? Euh… perfect. Đi chậm thôi. Ngay cả ze coq cũng làm được."
+    },
+    "tr": {
+      "heroTitle": "KÜÇÜK COQ. BÜYÜK HAYALLER.",
+      "heroSubtitle": "QUQN ile tanış — küçük cüzdanı ve tamamen mantıksız hırsları olan her kripto hayalperestini temsil eden küçük Fransız coq.",
+      "storyLead": "QUQN küçük doğdu. Hayalleri değildi.",
+      "storyBody": "Çiftliğin kenarından whales, ünlü tokenleri ve efsane memecoinleri izleyip tek bir soru soruyor: “Neden ben olmayayım?” QUQN aşırı özgüvenli, dürtüsel, sevimli biçimde sakar ve bir gün küçük oyuncunun da sırasının geleceğine inanıyor.",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
+      "beginnerLead": "Daha önce Bitcoin wallet kullanmadın mı? Sorun değil. Adım adım ilerle. QUQN’a para göndermezsin ve QUQN recovery phrase’ini asla istemez.",
+      "beginnerQuote": "İlk kez mi? Euh… perfect. Yavaş gidelim. Ze coq bile başardı."
+    },
+    "id": {
+      "heroTitle": "COQ KECIL. MIMPI BESAR.",
+      "heroSubtitle": "Kenali QUQN — coq Prancis kecil yang mewakili setiap pemimpi crypto dengan wallet kecil dan ambisi yang benar-benar tidak masuk akal.",
+      "storyLead": "QUQN lahir kecil. Mimpinya tidak.",
+      "storyBody": "Dari tepi peternakan ia melihat whales, token selebritas, dan memecoin legendaris lalu bertanya: “Kenapa bukan aku?” QUQN terlalu percaya diri, impulsif, kikuk tapi menggemaskan, dan yakin suatu hari giliran si kecil akan tiba.",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
+      "beginnerLead": "Belum pernah memakai Bitcoin wallet? Tidak masalah. Ikuti langkah perlahan. Kamu tidak mengirim uang ke QUQN dan QUQN tidak akan pernah meminta recovery phrase.",
+      "beginnerQuote": "Pertama kali? Euh… perfect. Pelan-pelan. Bahkan ze coq bisa."
+    },
+    "hi": {
+      "heroTitle": "छोटा COQ. बड़े सपने.",
+      "heroSubtitle": "QUQN से मिलिए — छोटा फ्रेंच coq जो छोटे wallet और पूरी तरह अव्यावहारिक महत्वाकांक्षा वाले हर crypto dreamer का प्रतिनिधित्व करता है।",
+      "storyLead": "QUQN छोटा पैदा हुआ। उसके सपने नहीं।",
+      "storyBody": "फार्म के किनारे से वह whales, celebrity tokens और legendary memecoins को देखता है और पूछता है: “मैं क्यों नहीं?” QUQN जरूरत से ज़्यादा आत्मविश्वासी, impulsive, प्यारे ढंग से clumsy और पूरी तरह यकीन रखता है कि एक दिन छोटे खिलाड़ी की भी बारी आएगी।",
+      "voiceQuote": "Zey say ze coq cannot fly? Pfff. Today, maybe. Tomorrow... BILLIONAIRE. Euh... probably.",
+      "beginnerLead": "Bitcoin wallet कभी इस्तेमाल नहीं किया? कोई बात नहीं। धीरे-धीरे steps follow करें। आप QUQN को पैसा नहीं भेजते और QUQN recovery phrase कभी नहीं मांगेगा।",
+      "beginnerQuote": "पहली बार? Euh… perfect. धीरे चलते हैं। Ze coq भी कर पाया।"
     }
   },
   "ranks": [
