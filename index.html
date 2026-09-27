@@ -797,9 +797,7 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
 .qfr-dossier-direct,.qfr-dossier-links{position:relative;z-index:6}
 
 /* Hero title FR accent safe */
-[lang="fr"] .tech-hero-copy h1{line-height:.90!important;letter-spacing:-.068em}
-[lang="fr"] .tech-hero-copy h1 em{display:block;padding-top:.06em}
-@media(max-width:650px){[lang="fr"] .tech-hero-copy h1{line-height:.92!important;font-size:clamp(54px,15vw,72px)!important}}
+}
 
 /* Header and cards logo cleanup */
 .tech-city-bottom img,.tech-data-brand img,.qfr-premium-cover-art img{background:transparent!important;box-shadow:none!important}
@@ -881,115 +879,68 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
 }
 
 
-/* ===== V8.6.2 — fixed title zone, text auto-fits ===== */
-.hero-title-box{
-  width:100%;
-  max-width:100%;
-  height:290px;
-  min-width:0;
-  overflow:hidden;
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  position:relative;
-}
-.hero-title-box #heroTitle{
-  width:100%!important;
-  max-width:100%!important;
-  margin:0!important;
-  padding:0!important;
-  line-height:.96!important;
-  letter-spacing:-.05em!important;
-}
-.hero-title-box #heroTitle .hero-title-line{
-  display:block!important;
-  white-space:nowrap!important;
-  max-width:100%!important;
-  line-height:.99!important;
-}
-.hero-title-box #heroTitle em.hero-title-line{
-  padding-top:.05em!important;
-}
-@media (min-width:981px) and (max-width:1320px){
-  .hero-title-box{height:248px}
-}
-@media (min-width:651px) and (max-width:980px){
-  .hero-title-box{height:218px}
-}
-@media (max-width:650px){
-  .hero-title-box{height:180px}
-}
 
-/* Keep secret characters centered and fully contained in their cards. */
-.reference-character.unknown .secret-character-img{
-  width:100%!important;
-  height:100%!important;
-  object-fit:contain!important;
-  object-position:center bottom!important;
-  padding:10px 22px 0!important;
-  transform:none!important;
-}
-
-
-/* ===== V8.6.4 — fixed hero-title area ===== */
-.tech-hero-copy{min-width:0!important}
-
-.hero-title-box{
-  width:min(700px,92%)!important;
-  max-width:700px!important;
-  height:290px!important;
+/* ===== V8.6.5 — single authoritative hero title layout ===== */
+.tech-hero-copy{
   min-width:0!important;
   overflow:hidden!important;
-  flex:none!important;
-  margin-right:40px!important;
 }
-
+.hero-title-box{
+  width:100%!important;
+  max-width:100%!important;
+  height:246px!important;
+  min-width:0!important;
+  margin:0 0 18px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  display:block!important;
+  position:relative!important;
+}
 .hero-title-box #heroTitle{
+  display:block!important;
   width:100%!important;
   max-width:100%!important;
   margin:0!important;
   padding:0!important;
+  text-align:left!important;
+  transform:none!important;
+  position:static!important;
   line-height:.98!important;
   letter-spacing:-.045em!important;
 }
-
 .hero-title-box #heroTitle .hero-title-line{
   display:block!important;
   width:max-content!important;
   max-width:none!important;
+  margin:0!important;
+  padding:0!important;
   white-space:nowrap!important;
   line-height:1!important;
 }
-
 .hero-title-box #heroTitle em.hero-title-line{
-  padding-top:.06em!important;
+  padding-top:.04em!important;
+}
+@media(max-width:980px){
+  .hero-title-box{height:215px!important;margin-bottom:14px!important}
+}
+@media(max-width:650px){
+  .hero-title-box{height:176px!important;margin-bottom:12px!important}
 }
 
-@media (min-width:981px) and (max-width:1320px){
-  .hero-title-box{
-    width:min(610px,88%)!important;
-    max-width:610px!important;
-    height:250px!important;
-    margin-right:36px!important;
-  }
+/* Secret characters remain hidden silhouettes, centered in their own cards. */
+.reference-character.unknown .reference-character-art{
+  overflow:hidden!important;
 }
-
-@media (min-width:651px) and (max-width:980px){
-  .hero-title-box{
-    width:100%!important;
-    max-width:680px!important;
-    height:218px!important;
-    margin-right:0!important;
-  }
-}
-
-@media (max-width:650px){
-  .hero-title-box{
-    width:100%!important;
-    max-width:100%!important;
-    height:180px!important;
-    margin-right:0!important;
-  }
+.reference-character.unknown .secret-character-img{
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  padding:8px 22px 0!important;
+  transform:none!important;
+  opacity:.96!important;
 }
 
 </style>
@@ -1707,73 +1658,42 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
 })();
 </script>
 
-  <!-- Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b35c66ba3ab247f2be2e243dfdebaa23"}'></script>
   <!-- End Cloudflare Web Analytics -->
-</body></htm
 <script>
-/* V8.6.4 — fit any translated title inside the same fixed box. */
+/* V8.6.5 — one fitter for every translated hero title. */
 (() => {
-  let raf = 0;
-
+  let raf=0;
   function fitHeroTitle(){
     cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(() => {
-      const box = document.querySelector('.hero-title-box');
-      const title = document.getElementById('heroTitle');
-      if(!box || !title) return;
-
-      const lines = [...title.querySelectorAll('.hero-title-line')];
-      if(!lines.length) return;
-
-      const vw = window.innerWidth;
-      let size = vw <= 650 ? 76 : (vw <= 980 ? 88 : 112);
-      const min = vw <= 650 ? 26 : 30;
-
-      title.style.fontSize = size + 'px';
-
-      const fits = () => {
-        const widthOk = lines.every(line => line.scrollWidth <= box.clientWidth - 4);
-        const heightOk = title.scrollHeight <= box.clientHeight - 4;
-        return widthOk && heightOk;
-      };
-
-      while(size > min && !fits()){
-        size -= 1;
-        title.style.fontSize = size + 'px';
+    raf=requestAnimationFrame(()=>{
+      const box=document.querySelector('.hero-title-box');
+      const title=document.getElementById('heroTitle');
+      if(!box||!title)return;
+      const lines=[...title.querySelectorAll('.hero-title-line')];
+      if(!lines.length)return;
+      const vw=window.innerWidth;
+      const max=vw<=650?76:(vw<=980?88:112);
+      const min=vw<=650?25:28;
+      let size=max;
+      const setSize=n=>title.style.setProperty('font-size',n+'px','important');
+      setSize(size);
+      const fits=()=>lines.every(line=>line.getBoundingClientRect().width<=box.clientWidth-2) && title.getBoundingClientRect().height<=box.clientHeight-2;
+      while(size>min&&!fits()){
+        size-=1;
+        setSize(size);
       }
     });
   }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', fitHeroTitle);
-  } else {
-    fitHeroTitle();
-  }
-
-  new MutationObserver(fitHeroTitle).observe(document.documentElement,{
-    attributes:true,
-    attributeFilter:['lang']
-  });
-
-  const title = document.getElementById('heroTitle');
-  if(title){
-    new MutationObserver(fitHeroTitle).observe(title,{
-      childList:true,
-      subtree:true,
-      characterData:true
-    });
-  }
-
-  document.addEventListener('click',e=>{
-    if(e.target.closest('[data-lang-choice]')){
-      setTimeout(fitHeroTitle,40);
-      setTimeout(fitHeroTitle,180);
-    }
-  },true);
-
+  const boot=()=>{fitHeroTitle();setTimeout(fitHeroTitle,80);setTimeout(fitHeroTitle,300)};
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',boot):boot();
+  new MutationObserver(fitHeroTitle).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  const title=document.getElementById('heroTitle');
+  if(title)new MutationObserver(fitHeroTitle).observe(title,{childList:true,subtree:true,characterData:true});
+  document.addEventListener('click',e=>{if(e.target.closest('[data-lang-choice]')){setTimeout(fitHeroTitle,40);setTimeout(fitHeroTitle,180)}},true);
   window.addEventListener('resize',fitHeroTitle,{passive:true});
 })();
 </script>
-
-l>
+</body>
+</html>
