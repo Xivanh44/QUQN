@@ -253,7 +253,7 @@
         </div>
 
         <div class="tech-lab-grid">
-          <article class="lab-card lab-meme">
+          <article id="memeFactoryCard" class="lab-card lab-meme">
             <div class="lab-card-head"><span>01</span><div><small>QUQN TOOL</small><h3 data-tech-i18n="memeFactory">Meme Factory</h3></div><b>CANVAS</b></div>
             <canvas id="memeCanvas" width="720" height="720" aria-label="QUQN meme preview"></canvas>
             <div class="lab-controls">
@@ -283,15 +283,21 @@
               <label><span data-tech-i18n="topText">Top text</span><input id="memeTop" value="SMALL COQ."></label>
               <label><span data-tech-i18n="bottomText">Bottom text</span><input id="memeBottom" value="BIG DREAMS."></label>
             </div>
-            <button id="memeDownload" class="lab-button" type="button" data-tech-i18n="exportPng">EXPORT PNG ↗</button>
+            <div class="lab-action-row">
+              <button id="memeDownload" class="lab-button" type="button" data-tech-i18n="exportPng">EXPORT PNG ↗</button>
+              <button id="memeShare" class="lab-button lab-button-share" type="button" data-tech-i18n="shareImage">SHARE IMAGE ↗</button>
+            </div>
           </article>
 
-          <article class="lab-card lab-pfp">
+          <article id="pfpMakerCard" class="lab-card lab-pfp">
             <div class="lab-card-head"><span>02</span><div><small>QUQN TOOL</small><h3 data-tech-i18n="pfpMaker">PFP Maker</h3></div><b>LOCAL</b></div>
             <div class="pfp-stage"><canvas id="pfpCanvas" width="720" height="720" aria-label="QUQN PFP preview"></canvas></div>
             <div class="pfp-note"><i>●</i><span data-tech-i18n="localOnly">Your image stays in your browser. Nothing is uploaded to QUQN.</span></div>
             <div class="lab-controls one-col"><label class="upload-label"><span data-tech-i18n="uploadPhoto">Upload a photo</span><input id="pfpUpload" type="file" accept="image/*"></label></div>
-            <button id="pfpDownload" class="lab-button" type="button" data-tech-i18n="exportPfp">EXPORT PFP ↗</button>
+            <div class="lab-action-row">
+              <button id="pfpDownload" class="lab-button" type="button" data-tech-i18n="exportPfp">EXPORT PFP ↗</button>
+              <button id="pfpShare" class="lab-button lab-button-share" type="button" data-tech-i18n="shareImage">SHARE IMAGE ↗</button>
+            </div>
           </article>
 
           <article class="lab-card lab-wall">
@@ -302,8 +308,12 @@
               <img src="assets/gallery/destiny-36-lambo-coq.webp" alt="QUQN Lambo">
               <img src="assets/gallery/destiny-05-moon-base-billionaire.webp" alt="QUQN Moon Base">
             </div>
-            <p data-tech-i18n="wallNote">A future community wall for real QUQN creations. The preview uses official QUQN artwork — no fake community posts.</p>
-            <a class="lab-button" href="https://x.com/intent/post?text=Small%20Coq.%20Big%20Dreams.%20%24QUQN%20%23BRC20%20%23Bitcoin&url=https%3A%2F%2Fquqn.eu" target="_blank" rel="noopener" data-tech-i18n="shareX">CREATE & SHARE ON X ↗</a>
+            <p data-tech-i18n="wallNote">Create a meme or a PFP above, export it, then share it. The Coop Wall will later showcase real community creations after moderation.</p>
+            <div class="wall-create-actions">
+              <a class="lab-button" href="#memeFactoryCard" data-tech-i18n="createMeme">CREATE A MEME ↗</a>
+              <a class="lab-button" href="#pfpMakerCard" data-tech-i18n="createPfp">CREATE A PFP ↗</a>
+            </div>
+            <small class="wall-coming" data-tech-i18n="wallComing">COMMUNITY SUBMISSIONS · COMING LATER</small>
           </article>
         </div>
       </div>
