@@ -160,3 +160,6 @@ body .v4-hero .hero-coop-more[hidden]{display:none!important}
   .site-header #quqn-miner-widget{max-width:42px!important}
   .site-header #quqn-miner-widget img{width:29px!important;height:29px!important;max-width:29px!important;max-height:29px!important}
 }
+
+/* V8.2 */
+.qfr-dossier-links button,.qfr-dossier-links a,.qfr-premium-index a,.qfr-premium-links a,#qfrOpenDossier{pointer-events:auto!important;touch-action:manipulation}

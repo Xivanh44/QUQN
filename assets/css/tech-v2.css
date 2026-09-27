@@ -22,3 +22,7 @@ body.tech-v2 main{overflow:hidden}
 .pfp-stage{width:min(100%,560px);margin-inline:auto;aspect-ratio:1;display:grid;place-items:center}
 .pfp-stage #pfpCanvas{width:100%;aspect-ratio:1;border-radius:50%!important;background:transparent!important;border:0!important}
 .wall-grid img{object-position:50% 45%}
+
+/* V8.2 */
+#pfpCanvas{border-radius:50%!important;overflow:hidden!important}
+.wall-grid img{transform:scale(.90)!important;transform-origin:center center!important;object-position:50% 45%!important}
