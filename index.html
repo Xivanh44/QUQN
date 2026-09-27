@@ -727,6 +727,60 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
   white-space:nowrap;
 }
 
+
+/* ===== V8.2 fixes ===== */
+.qfr-dossier-links button,
+.qfr-dossier-links a,
+.qfr-premium-index a,
+.qfr-premium-links a,
+#qfrOpenDossier{
+  position:relative;
+  z-index:3;
+  pointer-events:auto!important;
+  touch-action:manipulation;
+}
+.qfr-coop-tab[data-tab="votes"]::after{
+  content:"●";
+  display:inline-block;
+  margin-left:7px;
+  color:#69d0c8;
+  font-size:.82em;
+}
+.qfr-vote-entry{
+  margin-top:10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 13px;
+  border:1px solid rgba(95,231,221,.16);
+  border-radius:11px;
+  background:rgba(95,231,221,.035);
+}
+.qfr-vote-entry p{margin:0;color:#c5baaa;font-size:.68rem;line-height:1.45}
+.qfr-vote-entry button{
+  appearance:none;border:1px solid rgba(95,231,221,.24);background:#12100d;color:#88d7d0;
+  border-radius:9px;padding:8px 10px;font:900 .58rem/1 inherit;cursor:pointer;white-space:nowrap
+}
+.qfr-wall-grid{gap:10px!important}
+.qfr-wall-card{min-height:0!important;aspect-ratio:1.18/1!important}
+.qfr-wall-card img{
+  object-fit:cover!important;object-position:center center!important;
+  transform:scale(.88)!important;transform-origin:center center!important
+}
+.qfr-wall-card:nth-child(1) img{transform:scale(.86)!important;object-position:50% 48%!important}
+.qfr-wall-card:nth-child(2) img{transform:scale(.86)!important;object-position:50% 47%!important}
+.qfr-wall-card:nth-child(3) img{transform:scale(.84)!important;object-position:50% 45%!important}
+.qfr-wall-card:nth-child(4) img{transform:scale(.84)!important;object-position:50% 45%!important}
+.qfr-wall-card:nth-child(5) img{transform:scale(.84)!important;object-position:50% 44%!important}
+.qfr-wall-card:nth-child(6) img{transform:scale(.90)!important;object-position:50% 43%!important}
+@media(max-width:760px){
+  .qfr-wall-grid{grid-template-columns:repeat(2,1fr)!important}
+  .qfr-wall-card{aspect-ratio:1/1!important}
+}
+.wall-grid img{transform:scale(.90)!important;transform-origin:center center!important;object-position:50% 45%!important}
+#pfpCanvas{overflow:hidden!important}
+
 </style>
 
 
@@ -1272,7 +1326,7 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
       qa('.qfr-coop-panel',layer).forEach(x=>x.classList.remove('active'));
       b.classList.add('active'); q(`[data-panel="${b.dataset.tab}"]`,layer)?.classList.add('active');
     }));
-    qa('[data-open-coop-tab]',layer).forEach(step=>step.addEventListener('click',()=>{
+    qa('[data-open-coop-tab]',layer).forEach(step=>step.addEventListener('click',(e)=>{e.preventDefault();
       const target=q(`.qfr-coop-tab[data-tab="${step.dataset.openCoopTab}"]`,layer);
       if(target){
         target.click();
@@ -1292,6 +1346,10 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
       <article><small>ON-CHAIN</small><strong>Road to 21M</strong><p>${fr?'Voir la progression publique du fair mint sans répéter les chiffres ici.':'Open the public fair-mint progression without repeating the figures here.'}</p><p><a class="qfr-soft-btn" href="#road21m">${fr?'VOIR LA PROGRESSION ↓':'OPEN ROAD ↓'}</a></p></article>
       <article><small>THE COOP</small><strong>${fr?'Rangs + détenteurs':'Ranks + holders'}</strong><p>${fr?'L’identité communautaire reste basée sur les rangs et la vue Live Coop existante.':'Community identity remains based on the existing ranks and Live Coop.'}</p><p><a class="qfr-soft-btn" href="#ranks">${fr?'VOIR LES RANGS ↓':'SEE RANKS ↓'}</a></p></article>
       <article><small>QUQN LAB</small><strong>${fr?'Créer':'Create'}</strong><p>${fr?'Ouvrir directement les deux outils de création QUQN.':'Open the two QUQN creation tools directly.'}</p><p><a class="qfr-soft-btn" href="index.html#memeFactoryCard" target="_blank" rel="noopener">MEME FACTORY ↗</a> <a class="qfr-soft-btn" href="index.html#pfpMakerCard" target="_blank" rel="noopener">PFP MAKER ↗</a></p></article>
+    </div>
+    <div class="qfr-vote-entry">
+      <p>${fr?'Un sondage créatif est actif. Ouvre l’onglet Votes pour choisir le prochain visuel QUQN.':'A creative poll is live. Open the Votes tab to choose the next QUQN visual.'}</p>
+      <button type="button" data-open-coop-tab="votes">${fr?'OUVRIR VOTES →':'OPEN VOTES →'}</button>
     </div>`;
 
     /* Creative poll: no fake aggregate results in production. */
@@ -1366,15 +1424,25 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
   }));
 
   const modal=q('#qfrDossierModal');
-  q('#qfrOpenDossier')?.addEventListener('click',()=>modal?.showModal?modal.showModal():modal?.setAttribute('open',''));
+  q('#qfrOpenDossier')?.addEventListener('click',(e)=>{e.preventDefault();modal?.showModal?modal.showModal():modal?.setAttribute('open','');});
 
   function openDossierAt(section){
     if(!modal)return;
     if(modal.showModal)modal.showModal(); else modal.setAttribute('open','');
     requestAnimationFrame(()=>document.getElementById('qfr-dossier-'+section)?.scrollIntoView({block:'start'}));
   }
-  qa('[data-open-dossier-section]').forEach(b=>b.addEventListener('click',()=>openDossierAt(b.dataset.openDossierSection)));
+  qa('[data-open-dossier-section]').forEach(b=>b.addEventListener('click',(e)=>{e.preventDefault();openDossierAt(b.dataset.openDossierSection);}));
 
+  qa('.qfr-premium-index a[href^="#"], .qfr-premium-links a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=a.getAttribute('href');
+    if(!id||id==='#')return;
+    const target=document.querySelector(id);
+    if(target){
+      if(!modal?.open){ modal?.showModal?modal.showModal():modal?.setAttribute('open',''); }
+      requestAnimationFrame(()=>target.scrollIntoView({behavior:'smooth',block:'start'}));
+    }
+  }));
   q('#qfrCloseDossier')?.addEventListener('click',()=>modal?.close());
   modal?.addEventListener('click',e=>{if(e.target===modal)modal.close()});
 
