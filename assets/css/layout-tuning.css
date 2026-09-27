@@ -150,3 +150,13 @@ body .v4-hero .hero-coop-more[hidden]{display:none!important}
   body .v4-hero .attraction-intro{position:relative;isolation:isolate;min-height:650px;padding-top:210px}
   body .v4-hero .attraction-intro:before{content:"";position:absolute;z-index:-1;left:-15px;right:-15px;top:185px;bottom:0;background:linear-gradient(180deg,transparent,#071625b0 22%,#071625ed 70%);pointer-events:none}
 }
+
+
+/* V8.1 — production miner guard */
+.site-header .tech-miner{display:none!important}
+.site-header #quqn-miner-widget{max-width:46px!important}
+.site-header #quqn-miner-widget img{max-width:32px!important;max-height:32px!important}
+@media(min-width:761px){
+  .site-header #quqn-miner-widget{max-width:42px!important}
+  .site-header #quqn-miner-widget img{width:29px!important;height:29px!important;max-width:29px!important;max-height:29px!important}
+}
