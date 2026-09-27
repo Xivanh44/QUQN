@@ -1,8 +1,26 @@
-# QUQN website — v3
+# QUQN website — V8 final
 
-Static, bilingual, GitHub-Pages-ready site for **QUQN — Small Coq. Big Dreams.**
+Static, multilingual, GitHub-Pages-ready site for **QUQN — Small Coq. Big Dreams.**
 
-## What changed in v3
+## V8 final — September 27, 2026
+
+This package is the complete GitHub Pages build for **quqn.eu**.
+
+- Current black / gold / cyan technical homepage preserved.
+- **QUQN Dossier** added as a compact homepage entry with a deeper premium reference view.
+- **Inscription Log** added with clickable proof / archive routes.
+- **The Coop** expanded with interactive community flow, vote preview, richer archive and creation-wall concept.
+- **QUQN Lab** includes working Meme Factory and local PFP Maker (download / Web Share where supported).
+- Language dropdown supports 13 languages: English, French, Chinese, Korean, Japanese, Portuguese-BR, Spanish, Arabic, Thai, Vietnamese, Turkish, Indonesian and Hindi.
+- Mobile rank grid uses three compact cards per row and the QUQN character crop is recentered.
+- Cloudflare Web Analytics remains enabled on the public homepage.
+
+### Deploy
+
+Upload the **contents of this package** to the root of the existing GitHub repository, replacing files with the same names. Keep the `assets/` and `worker/` folders in the repository root alongside `index.html`.
+
+
+## Earlier v3 foundation
 
 
 - Added a complete **New to crypto? Start here** onboarding path for friends/contacts who have never used Bitcoin, wallets or BRC-20.
@@ -15,7 +33,7 @@ Static, bilingual, GitHub-Pages-ready site for **QUQN — Small Coq. Big Dreams.
 - QUQN name used consistently everywhere.
 - Fair-mint facts are now central to the homepage: **no presale, no ICO, no fundraising, no creator mint fee, no personal data in exchange for tokens, no promised listing**.
 - The legal page now explains the relevance of MiCA Article 4(3)(a) and Article 4(4) without claiming a guaranteed exemption.
-- Homepage is English-first with French toggle.
+- Homepage is English-first with a 13-language dropdown.
 - 28 existing QUQN visuals are included in an optimized WebP gallery.
 - Six community ranks are configured: 1k / 10k / 50k / 100k / 500k / 1M.
 - Manager supports copy, stats, social links, hero selection, gallery visibility and secure image upload.
