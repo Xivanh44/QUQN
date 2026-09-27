@@ -866,6 +866,20 @@ blockquote p::after,.coq-tip p::after{content:" ”";color:#f0bd4d;font-weight:9
 .header-miner-static{overflow:hidden!important}
 .header-miner-static img{object-fit:contain!important;object-position:center!important}
 
+
+/* ===== V8.6 minimal: multilingual hero title only ===== */
+#heroTitle{line-height:.92!important;letter-spacing:-.055em!important}
+#heroTitle .hero-title-line{display:block;white-space:nowrap;line-height:.96}
+#heroTitle em.hero-title-line{padding-top:.06em}
+html[lang="zh"] #heroTitle,html[lang="ja"] #heroTitle,html[lang="ko"] #heroTitle{font-size:clamp(56px,7.3vw,112px)!important;letter-spacing:-.035em!important;line-height:1!important}
+html[lang="th"] #heroTitle,html[lang="vi"] #heroTitle,html[lang="tr"] #heroTitle,html[lang="id"] #heroTitle,html[lang="hi"] #heroTitle,html[lang="ar"] #heroTitle,html[lang="pt"] #heroTitle,html[lang="es"] #heroTitle{font-size:clamp(48px,6.6vw,102px)!important;letter-spacing:-.035em!important;line-height:1.02!important}
+html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-title-line,html[lang="tr"] #heroTitle .hero-title-line,html[lang="id"] #heroTitle .hero-title-line,html[lang="hi"] #heroTitle .hero-title-line,html[lang="ar"] #heroTitle .hero-title-line{line-height:1.08!important}
+@media(max-width:760px){
+  #heroTitle{font-size:clamp(50px,14vw,76px)!important;line-height:.96!important}
+  html[lang="th"] #heroTitle,html[lang="vi"] #heroTitle,html[lang="tr"] #heroTitle,html[lang="id"] #heroTitle,html[lang="hi"] #heroTitle,html[lang="ar"] #heroTitle,html[lang="pt"] #heroTitle,html[lang="es"] #heroTitle{font-size:clamp(38px,10.8vw,62px)!important}
+  html[lang="zh"] #heroTitle,html[lang="ja"] #heroTitle,html[lang="ko"] #heroTitle{font-size:clamp(42px,12vw,68px)!important}
+}
+
 </style>
 
 
@@ -929,7 +943,7 @@ blockquote p::after,.coq-tip p::after{content:" ”";color:#f0bd4d;font-weight:9
             <span>BRC-20</span>
             <span data-tech-i18n="fairMint">FAIR MINT</span>
           </div>
-          <h1 id="heroTitle">SMALL COQ.<br><em>BIG DREAMS.</em></h1>
+          <h1 id="heroTitle"><span class="hero-title-line">SMALL COQ.</span><em class="hero-title-line">BIG DREAMS.</em></h1>
           <p id="heroSubtitle" class="hero-subtitle">Meet QUQN — the tiny coq who represents every crypto dreamer.</p>
           <p class="tech-hero-note" data-tech-i18n="heroNote">A Bitcoin-native meme character built around a public BRC-20 fair mint.</p>
           <div class="tech-hero-actions">
@@ -1543,6 +1557,41 @@ blockquote p::after,.coq-tip p::after{content:" ”";color:#f0bd4d;font-weight:9
 
   render();
   setTimeout(render,900);
+})();
+</script>
+
+
+<script>
+/* V8.6: one authoritative hero title map for all 13 languages. */
+(() => {
+  const TITLES = {
+    en:['SMALL COQ.','BIG DREAMS.'],
+    fr:['PETIT COQ.','GRANDS RÊVES.'],
+    zh:['小小公鸡。','大大梦想。'],
+    ko:['작은 수탉.','큰 꿈.'],
+    ja:['小さな雄鶏。','大きな夢。'],
+    pt:['GALO PEQUENO.','GRANDES SONHOS.'],
+    es:['GALLO PEQUEÑO.','GRANDES SUEÑOS.'],
+    ar:['ديك صغير.','أحلام كبيرة.'],
+    th:['ไก่น้อย.','ฝันใหญ่.'],
+    vi:['GÀ TRỐNG NHỎ.','GIẤC MƠ LỚN.'],
+    tr:['KÜÇÜK HOROZ.','BÜYÜK HAYALLER.'],
+    id:['AYAM JAGO KECIL.','MIMPI BESAR.'],
+    hi:['छोटा मुर्गा.','बड़े सपने.']
+  };
+  let applying=false;
+  function lang(){return (document.documentElement.lang||'en').toLowerCase().split('-')[0]}
+  function apply(){
+    const el=document.getElementById('heroTitle'); if(!el||applying)return;
+    const pair=TITLES[lang()]||TITLES.en;
+    const wanted=`<span class="hero-title-line">${pair[0]}</span><em class="hero-title-line">${pair[1]}</em>`;
+    if(el.innerHTML===wanted)return;
+    applying=true; el.innerHTML=wanted; applying=false;
+  }
+  document.readyState==='loading'?document.addEventListener('DOMContentLoaded',apply):apply();
+  new MutationObserver(()=>setTimeout(apply,0)).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  const h=document.getElementById('heroTitle'); if(h)new MutationObserver(()=>setTimeout(apply,0)).observe(h,{childList:true,subtree:true,characterData:true});
+  document.addEventListener('click',e=>{if(e.target.closest('[data-lang-choice]'))setTimeout(apply,30)},true);
 })();
 </script>
 
