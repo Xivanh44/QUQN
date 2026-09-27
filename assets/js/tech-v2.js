@@ -146,4 +146,33 @@
   $('#pfpDownload')?.addEventListener('click',()=>{drawPfp().then(()=>{const a=document.createElement('a');a.download='QUQN-pfp.png';a.href=$('#pfpCanvas').toDataURL('image/png');a.click();});});
   $('#pfpShare')?.addEventListener('click',ev=>shareCanvas($('#pfpCanvas'),'QUQN-pfp.png',ev.currentTarget,'My QUQN PFP. Small Coq. Big Dreams. $QUQN #BRC20 #Bitcoin'));
   drawPfp();
+
+  // Coop Wall creator shortcuts: always give visible feedback and bring the
+  // selected tool into view. Plain hash links can look like they do nothing
+  // on wide screens because the three cards share the same vertical row.
+  $$('.wall-create-actions a[href^="#"]').forEach(link=>{
+    link.addEventListener('click',ev=>{
+      ev.preventDefault();
+      const selector=link.getAttribute('href');
+      const target=selector ? document.querySelector(selector) : null;
+      if(!target) return;
+
+      target.classList.remove('lab-card-active');
+      // Force restart of the highlight animation on repeated clicks.
+      void target.offsetWidth;
+      target.classList.add('lab-card-active');
+      target.scrollIntoView({behavior:'smooth',block:'center',inline:'nearest'});
+
+      try{ history.replaceState(null,'',selector); }catch(_){ }
+
+      window.setTimeout(()=>{
+        const focusTarget = selector==='#pfpMakerCard'
+          ? target.querySelector('#pfpUpload')
+          : target.querySelector('#memeTemplate, #memeTop, button, input, select');
+        focusTarget?.focus({preventScroll:true});
+      },480);
+
+      window.setTimeout(()=>target.classList.remove('lab-card-active'),2200);
+    });
+  });
 })();
