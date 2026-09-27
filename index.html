@@ -781,6 +781,47 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
 .wall-grid img{transform:scale(.90)!important;transform-origin:center center!important;object-position:50% 45%!important}
 #pfpCanvas{overflow:hidden!important}
 
+
+/* ===== V8.3 fixes ===== */
+.header-miner-static{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-left:1px solid rgba(255,255,255,.09);margin-left:8px;padding-left:8px;flex:0 0 52px}
+.header-miner-static img{display:block;width:42px;height:42px;object-fit:contain}
+@media(max-width:760px){.header-miner-static{width:46px;height:46px;flex-basis:46px;margin-left:6px;padding-left:6px}.header-miner-static img{width:36px;height:36px}}
+
+/* Better balance for dossier entry */
+.qfr-dossier-direct{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:20px}
+.qfr-dossier-direct>div{max-width:880px}
+@media(max-width:900px){.qfr-dossier-direct{grid-template-columns:1fr}}
+
+/* Make dossier controls definitely clickable */
+#qfrOpenDossier,.qfr-dossier-links button,.qfr-dossier-links a{pointer-events:auto!important;position:relative;z-index:6}
+.qfr-dossier-direct,.qfr-dossier-links{position:relative;z-index:6}
+
+/* Hero title FR accent safe */
+[lang="fr"] .tech-hero-copy h1{line-height:.90!important;letter-spacing:-.068em}
+[lang="fr"] .tech-hero-copy h1 em{display:block;padding-top:.06em}
+@media(max-width:650px){[lang="fr"] .tech-hero-copy h1{line-height:.92!important;font-size:clamp(54px,15vw,72px)!important}}
+
+/* Header and cards logo cleanup */
+.tech-city-bottom img,.tech-data-brand img,.qfr-premium-cover-art img{background:transparent!important;box-shadow:none!important}
+
+/* Mint route badge wrapping */
+.mint-route-head{flex-wrap:wrap;align-items:flex-start!important}
+.mint-route-head h4{flex:1 1 190px}
+.route-badge{margin-left:auto;white-space:nowrap}
+@media(max-width:980px){.route-badge{margin-left:0}}
+
+/* Quote styling: no giant stray opening quote */
+blockquote>b,.coq-tip>b{display:none!important}
+blockquote p::before,.coq-tip p::before{content:"“ ";color:#f0bd4d;font-weight:900}
+blockquote p::after,.coq-tip p::after{content:" ”";color:#f0bd4d;font-weight:900}
+
+/* PFP medallion should sit above the ring */
+#pfpCanvas{position:relative;z-index:1}
+
+/* Secret characters: center shadow art better */
+.secret-character-img{object-fit:contain!important;object-position:center bottom!important;padding:12px 18px 0;opacity:.95}
+.reference-character.unknown .reference-character-art{display:flex;align-items:flex-end;justify-content:center;background-position:center center}
+
 </style>
 
 
@@ -824,6 +865,7 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
 
   </div>
 </div>
+<div class="header-miner-static" aria-hidden="true"><img src="assets/media/QUQN_miner_sync.webp" alt=""></div>
 <div class="top-social-links" aria-label="QUQN official social links">
   <a class="top-social x-link" href="https://x.com/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN on X">𝕏</a>
   <a class="top-social telegram-link" href="https://t.me/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN Telegram">✈</a>
@@ -861,7 +903,7 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
           <div class="tech-city-vignette"></div>
           <div class="tech-city-topline"><span><i></i> QUQN NETWORK VIEW</span><strong>#127329518</strong></div>
           <div class="tech-city-bottom">
-            <img src="assets/logo.webp" alt="QUQN token">
+            <img src="assets/quqn-token.png" alt="QUQN token">
             <div><small data-tech-i18n="protocol">PROTOCOL</small><strong>BRC-20 / 4-BYTE</strong></div>
             <div><small data-tech-i18n="network">NETWORK</small><strong>BITCOIN</strong></div>
           </div>
@@ -870,7 +912,7 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
 
       <div class="shell tech-data-shell">
         <div class="tech-data-rail">
-          <div class="tech-data-brand"><img src="assets/logo.webp" alt=""><span><b>QUQN</b><small>BRC-20 · BITCOIN</small></span><i id="syncState">STATIC</i></div>
+          <div class="tech-data-brand"><img src="assets/quqn-token.png" alt=""><span><b>QUQN</b><small>BRC-20 · BITCOIN</small></span><i id="syncState">STATIC</i></div>
           <div class="tech-stat"><small data-t="minted">Minted</small><strong id="minted">90,000</strong></div>
           <div class="tech-stat"><small data-t="holders">Holders</small><strong id="holders">1</strong></div>
           <div class="tech-stat"><small data-t="max">Max supply</small><strong>21,000,000</strong></div>
@@ -909,15 +951,15 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
         <h2 id="qfrDossierTitle" class="qfr-i18n" data-qfr="dossierTitle">Everything about QUQN. One click deeper.</h2>
         <p class="qfr-i18n" data-qfr="dossierIntro">The homepage stays simple. The details live inside the dossier.</p>
       </div>
-      <button id="qfrOpenDossier" class="btn gold qfr-i18n" data-qfr="openDossier" type="button">OPEN DOSSIER ↗</button>
+      <button id="qfrOpenDossier" class="btn gold qfr-i18n" data-qfr="openDossier" type="button" onclick="window.qfrOpenDossier && window.qfrOpenDossier(); return false;">OPEN DOSSIER ↗</button>
     </div>
 
     <nav class="qfr-dossier-links" aria-label="QUQN dossier shortcuts">
-      <button type="button" data-open-dossier-section="idea"><span>01</span><strong class="qfr-i18n" data-qfr="dossierC1">THE IDEA</strong><em>→</em></button>
-      <button type="button" data-open-dossier-section="bitcoin"><span>02</span><strong class="qfr-i18n" data-qfr="dossierC2">BITCOIN / BRC-20</strong><em>→</em></button>
-      <button type="button" data-open-dossier-section="fair"><span>03</span><strong>FAIR MINT</strong><em>→</em></button>
-      <button type="button" data-open-dossier-section="token"><span>04</span><strong>TOKEN FACTS</strong><em>→</em></button>
-      <button type="button" data-open-dossier-section="universe"><span>05</span><strong class="qfr-i18n" data-qfr="dossierC3">THE UNIVERSE</strong><em>→</em></button>
+      <button type="button" data-open-dossier-section="idea" onclick="window.qfrOpenDossierSection && window.qfrOpenDossierSection('idea'); return false;"><span>01</span><strong class="qfr-i18n" data-qfr="dossierC1">THE IDEA</strong><em>→</em></button>
+      <button type="button" data-open-dossier-section="bitcoin" onclick="window.qfrOpenDossierSection && window.qfrOpenDossierSection('bitcoin'); return false;"><span>02</span><strong class="qfr-i18n" data-qfr="dossierC2">BITCOIN / BRC-20</strong><em>→</em></button>
+      <button type="button" data-open-dossier-section="fair" onclick="window.qfrOpenDossierSection && window.qfrOpenDossierSection('fair'); return false;"><span>03</span><strong>FAIR MINT</strong><em>→</em></button>
+      <button type="button" data-open-dossier-section="token" onclick="window.qfrOpenDossierSection && window.qfrOpenDossierSection('token'); return false;"><span>04</span><strong>TOKEN FACTS</strong><em>→</em></button>
+      <button type="button" data-open-dossier-section="universe" onclick="window.qfrOpenDossierSection && window.qfrOpenDossierSection('universe'); return false;"><span>05</span><strong class="qfr-i18n" data-qfr="dossierC3">THE UNIVERSE</strong><em>→</em></button>
       <a href="legal.html" target="_blank" rel="noopener"><span>06</span><strong>RISK & LEGAL</strong><em>↗</em></a>
     </nav>
   </div>
@@ -1149,7 +1191,7 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
     </div>
 
     <div class="qfr-premium-cover">
-      <div class="qfr-premium-cover-art"><img src="assets/logo.webp" alt="QUQN"></div>
+      <div class="qfr-premium-cover-art"><img src="assets/quqn-token.png" alt="QUQN"></div>
       <div class="qfr-premium-cover-copy">
         <small>OFFICIAL REFERENCE · FILE 001</small>
         <h2>QUQN,<br>WITHOUT THE NOISE.</h2>
@@ -1424,13 +1466,11 @@ radial-gradient(circle at 90% 15%,rgba(95,231,221,.055),transparent 25%)}
   }));
 
   const modal=q('#qfrDossierModal');
-  q('#qfrOpenDossier')?.addEventListener('click',(e)=>{e.preventDefault();modal?.showModal?modal.showModal():modal?.setAttribute('open','');});
+  window.qfrOpenDossier=()=>{ if(!modal) return; if(modal.showModal) modal.showModal(); else modal.setAttribute('open',''); };
+  window.qfrOpenDossierSection=(section)=>{ if(!modal) return; window.qfrOpenDossier(); requestAnimationFrame(()=>document.getElementById('qfr-dossier-'+section)?.scrollIntoView({behavior:'smooth',block:'start'})); };
+  q('#qfrOpenDossier')?.addEventListener('click',(e)=>{e.preventDefault();window.qfrOpenDossier();});
 
-  function openDossierAt(section){
-    if(!modal)return;
-    if(modal.showModal)modal.showModal(); else modal.setAttribute('open','');
-    requestAnimationFrame(()=>document.getElementById('qfr-dossier-'+section)?.scrollIntoView({block:'start'}));
-  }
+  function openDossierAt(section){ window.qfrOpenDossierSection(section); }
   qa('[data-open-dossier-section]').forEach(b=>b.addEventListener('click',(e)=>{e.preventDefault();openDossierAt(b.dataset.openDossierSection);}));
 
   qa('.qfr-premium-index a[href^="#"], .qfr-premium-links a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
