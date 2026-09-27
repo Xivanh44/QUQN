@@ -113,3 +113,50 @@ body.tech-v2:before{content:"";position:fixed;inset:0;pointer-events:none;z-inde
   .tech-game{padding:13px!important}
   .tech-game .hero-future-stage,.tech-game .future-result{width:100%!important}
 }
+
+/* === Review round 3: useful Coop Wall + compact billionaire test === */
+html{scroll-behavior:smooth}
+
+.lab-action-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.lab-action-row .lab-button{margin-top:0}
+.lab-button-share{border-color:rgba(115,233,225,.26);background:rgba(115,233,225,.055);color:#8feee8}
+.lab-button-share:hover{background:rgba(115,233,225,.10)}
+.lab-button.share-fallback{border-color:rgba(240,196,93,.5);color:#f3d27e;background:rgba(240,196,93,.12)}
+.wall-create-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.wall-create-actions .lab-button{margin-top:0}
+.wall-coming{display:block;margin-top:10px;text-align:center;font:800 7px/1.35 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;color:#58615d}
+
+/* The billionaire test becomes a compact playground card instead of a second hero. */
+.tech-playground-grid{grid-template-columns:minmax(230px,.72fr) minmax(0,1fr);gap:36px;align-items:start}
+.tech-playground-copy{padding-top:12px}
+.tech-game{max-width:620px!important;justify-self:end;padding:16px!important;border-radius:20px!important}
+.tech-game .hero-game-head{max-width:none!important;margin:0 0 12px!important}
+.tech-game .hero-game-head .kicker{font-size:8px!important;letter-spacing:.09em}
+.tech-game .hero-game-head h2{font-size:clamp(25px,2.35vw,34px)!important;line-height:1.02!important;margin:6px 0 7px!important}
+.tech-game .hero-game-head p{font-size:11px!important;line-height:1.45!important;margin:0 0 11px!important}
+.tech-game .game-button{min-height:42px!important;padding:10px 14px!important;font-size:11px!important}
+.tech-game .hero-future-card{display:grid!important;grid-template-columns:250px minmax(0,1fr)!important;align-items:stretch!important;max-width:none!important;margin:0!important;padding:9px!important;gap:0!important;border-radius:16px!important}
+.tech-game .hero-future-stage{width:250px!important;height:250px!important;aspect-ratio:auto!important;margin:0!important;border-radius:12px!important;overflow:hidden!important}
+.tech-game .hero-future-stage img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center center!important}
+.tech-game .future-result{width:auto!important;min-width:0!important;margin:0!important;padding:17px 16px 14px!important;display:flex!important;flex-direction:column!important;justify-content:center!important;text-align:left!important}
+.tech-game .future-result small{font-size:7px!important}
+.tech-game .future-result h3{font-size:22px!important;line-height:1.05!important;margin:7px 0!important}
+.tech-game .future-result p{font-size:10px!important;line-height:1.45!important;margin:9px 0!important}
+.tech-game .future-meta span{font-size:7px!important;padding:5px 8px!important}
+.tech-game .future-actions{display:flex!important;flex-wrap:wrap!important;gap:7px!important;margin-top:8px!important}
+.tech-game .future-actions button{font-size:8px!important;padding:7px 9px!important;min-height:30px!important}
+.tech-game .game-disclaimer{max-width:none!important;margin:9px 2px 0!important;font-size:8px!important;line-height:1.4!important}
+
+@media(max-width:1050px){
+  .tech-playground-grid{grid-template-columns:1fr;gap:22px}
+  .tech-playground-copy{padding-top:0;max-width:650px}
+  .tech-game{justify-self:start;max-width:650px!important}
+}
+@media(max-width:680px){
+  .lab-action-row,.wall-create-actions{grid-template-columns:1fr}
+  .tech-game{max-width:100%!important;padding:12px!important}
+  .tech-game .hero-game-head h2{font-size:26px!important}
+  .tech-game .hero-future-card{grid-template-columns:1fr!important}
+  .tech-game .hero-future-stage{width:100%!important;height:auto!important;aspect-ratio:1/1!important;max-width:360px!important;margin:0 auto!important}
+  .tech-game .future-result{padding:14px 8px 8px!important}
+}
