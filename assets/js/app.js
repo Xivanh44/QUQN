@@ -478,7 +478,7 @@ function spinFuture(){const pool=futurePool();if(!pool.length)return;const card=
 function setupGuide(){const modal=$('#guideModal');$$('[data-open-guide]').forEach(b=>b.addEventListener('click',()=>{if(modal?.showModal)modal.showModal();else modal?.setAttribute('open','')}));safe('#guideClose',e=>e.addEventListener('click',()=>modal?.close()));modal?.addEventListener('click',ev=>{if(ev.target===modal)modal.close()})}
 
 async function init(){
-  cfg=await fetch('assets/config.json',{cache:'no-store'}).then(r=>r.json());
+  cfg=window.__QUQN_CONFIG__?JSON.parse(JSON.stringify(window.__QUQN_CONFIG__)):await fetch('assets/config.json',{cache:'no-store'}).then(r=>r.json());
   // V6 hotfix: presentation copy only. Never rewrite apiBase or other config fields.
   if(cfg?.homeCopy?.en){
     cfg.homeCopy.en.heroSubtitle='Meet QUQN — the tiny coq who represents every crypto dreamer.';

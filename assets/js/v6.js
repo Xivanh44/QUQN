@@ -287,15 +287,6 @@
       bubble.textContent=line; bubble.classList.add("show");
       fig.classList.remove("v6-wiggle"); void fig.offsetWidth; fig.classList.add("v6-wiggle");
       clearTimeout(hideTimer); hideTimer=setTimeout(()=>bubble.classList.remove("show"),3600);
-
-      // Short character sound instead of browser text-to-speech.
-      // A tiny playback-rate variation keeps repeated clicks from feeling mechanical.
-      try{
-        const chirp=new Audio("assets/audio/quqn-coq-chirp.mp3");
-        chirp.volume=.52;
-        chirp.playbackRate=.96 + Math.random()*.10;
-        chirp.play().catch(()=>{});
-      }catch(_){}
     });
   }
 
