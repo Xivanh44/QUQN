@@ -1,110 +1,57 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QUQN Dossier</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css"><link rel="stylesheet" href="assets/css/tech-v2.css"><link rel="stylesheet" href="assets/css/layout-tuning.css">
-<style>
-  .dossier-page{background:#060708;color:#f5f1e8}
-  .dossier-hero{padding:96px 0 30px;border-bottom:1px solid rgba(224,171,61,.12);background:radial-gradient(circle at top right,rgba(224,171,61,.14),transparent 34%),linear-gradient(180deg,#080909 0%,#090b0d 100%)}
-  .dossier-hero h1{margin:8px 0 14px;font-size:clamp(42px,6.2vw,82px);line-height:.95;letter-spacing:-.05em}
-  .dossier-hero p{max-width:900px;color:#b8ae9d;font-size:18px;line-height:1.6;margin:0}
-  .dossier-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:24px}
-  .dossier-nav a{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:16px 18px;border:1px solid rgba(224,171,61,.16);border-radius:14px;text-decoration:none;background:rgba(255,255,255,.02);color:#efe6d5}
-  .dossier-nav a:hover{border-color:rgba(95,231,221,.26);background:rgba(95,231,221,.035)}
-  .dossier-nav b{color:#b88a31;font-size:.72rem}.dossier-nav strong{font-size:.9rem;letter-spacing:.04em}.dossier-nav em{font-style:normal;color:#6dd2cb}
-  .dossier-sections{padding:34px 0 80px}
-  .dossier-section{scroll-margin-top:90px;padding:26px;border:1px solid rgba(255,255,255,.07);border-radius:18px;background:rgba(255,255,255,.02);margin-bottom:14px}
-  .dossier-section small{display:block;color:#c29234;font:900 .64rem/1.2 Inter, sans-serif;letter-spacing:.13em;margin-bottom:10px}
-  .dossier-section h2{margin:0 0 12px;font-size:clamp(28px,3.5vw,44px);line-height:1.05}
-  .dossier-section p{margin:0 0 14px;color:#b9af9f;line-height:1.7}
-  .dossier-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
-  .dossier-facts span{display:block;padding:13px;border:1px solid rgba(224,171,61,.14);border-radius:12px;background:rgba(255,255,255,.018)}
-  .dossier-facts small{margin:0 0 5px;font-size:.58rem;color:#b89656}.dossier-facts strong{font-size:1rem;color:#f0c25e}
-  .dossier-cta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-  .dossier-back{display:inline-flex;align-items:center;gap:8px;color:#7ed7cf;text-decoration:none;font-weight:800}
-  .dossier-note{color:#8e8476;font-size:.92rem}
-  @media(max-width:900px){.dossier-nav{grid-template-columns:1fr 1fr}.dossier-facts{grid-template-columns:1fr 1fr}}
-  @media(max-width:650px){.dossier-nav,.dossier-facts{grid-template-columns:1fr}.dossier-hero{padding-top:82px}.dossier-hero p{font-size:16px}}
-</style>
-<body class="tech-v2 dossier-page">
-  <div class="noise" aria-hidden="true"></div>
-  <div id="announcement" class="announcement"></div>
-  <header class="site-header">
-    <nav class="nav shell">
-      <a class="brand" href="index.html#top"><img src="assets/quqn-token.png" alt="QUQN"><span>QUQN</span></a>
-      <div class="navlinks">
-        <a href="index.html#chapters">Story</a>
-        <a href="index.html#how">On-chain</a>
-        <a href="index.html#ranks">The Coop</a>
-        <a href="index.html#quqn-lab">QUQN Lab</a>
-      </div>
-      <div class="navtools"><a class="btn gold small" href="index.html#quqn-dossier">Back to site ↗</a></div>
-    </nav>
-  </header>
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#070706">
+  <title>QUQN Dossier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tech-v2.css?v=20260927-v85">
+  <style>
+    body{background:#070706;color:#f6f0e4}
+    .dossier-top{position:sticky;top:0;z-index:20;background:rgba(7,7,6,.96);border-bottom:1px solid rgba(244,198,96,.18);backdrop-filter:blur(16px)}
+    .dossier-top .shell{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .dossier-top .brand img{width:40px;height:40px;border-radius:50%;object-fit:contain}
+    .dossier-back{color:#f4c660;text-decoration:none;font-weight:800;font-size:.78rem}
+    .dossier-hero{padding:72px 0 34px;background:radial-gradient(circle at 85% 10%,rgba(225,168,52,.12),transparent 30%)}
+    .dossier-hero h1{margin:8px 0 14px;font-size:clamp(44px,7vw,88px);line-height:.93;letter-spacing:-.06em}
+    .dossier-hero>div>p{max-width:780px;color:#a99f90;font-size:1rem;line-height:1.65}
+    .dossier-index{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:24px}
+    .dossier-index a{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:15px 16px;border:1px solid rgba(224,171,61,.16);border-radius:12px;background:rgba(255,255,255,.018);text-decoration:none;color:#dfd5c4}
+    .dossier-index b{color:#b9872d;font-size:.65rem}.dossier-index em{font-style:normal;color:#68d1ca}
+    .dossier-body{padding:24px 0 80px}
+    .dossier-section{scroll-margin-top:92px;padding:26px;border:1px solid rgba(255,255,255,.07);border-radius:17px;background:rgba(255,255,255,.018);margin-bottom:12px}
+    .dossier-section>small{display:block;color:#c49741;font-weight:900;font-size:.62rem;letter-spacing:.12em}
+    .dossier-section h2{margin:6px 0 10px;font-size:clamp(28px,4vw,45px);line-height:1.04}
+    .dossier-section p{max-width:900px;margin:0 0 12px;color:#aaa091;line-height:1.7}
+    .facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:15px 0}
+    .facts span{padding:12px;border:1px solid rgba(224,171,61,.13);border-radius:10px;background:#0e0c09}
+    .facts small{display:block;color:#85765e;font-size:.58rem}.facts strong{display:block;color:#f0c45f;margin-top:3px}
+    .links{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.links a{font-size:.72rem;color:#79d5ce;text-decoration:none;font-weight:800}
+    .risk{padding:13px 15px;border-left:2px solid #d4a43d;background:rgba(224,171,61,.045);color:#8b8173;font-size:.72rem}
+    @media(max-width:760px){.dossier-index{grid-template-columns:1fr 1fr}.facts{grid-template-columns:1fr 1fr}.dossier-hero{padding-top:54px}}
+    @media(max-width:520px){.dossier-index,.facts{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="dossier-top"><div class="shell"><a class="brand" href="index.html#top"><img src="assets/quqn-token.png" alt="QUQN"><span>QUQN</span></a><a class="dossier-back" href="index.html#quqn-dossier">← RETOUR AU SITE</a></div></header>
   <main>
-<section class="dossier-hero"><div class="shell">
-  <span class="tech-kicker">THE QUQN DOSSIER</span>
-  <h1>Tout QUQN.<br>Version détaillée.</h1>
-  <p>Comme l’ouverture du dossier dans la preview te posait problème, j’ai transformé le dossier en vraie page dédiée. Les liens 1 à 5 pointent désormais ici directement, sans pop-up ni fenêtre spéciale.</p>
-  <nav class="dossier-nav" aria-label="QUQN dossier sections">
-    <a href="#qfr-dossier-idea"><b>01</b><strong>L’IDÉE</strong><em>→</em></a>
-    <a href="#qfr-dossier-bitcoin"><b>02</b><strong>BITCOIN / BRC-20</strong><em>→</em></a>
-    <a href="#qfr-dossier-fair"><b>03</b><strong>FAIR MINT</strong><em>→</em></a>
-    <a href="#qfr-dossier-token"><b>04</b><strong>TOKEN FACTS</strong><em>→</em></a>
-    <a href="#qfr-dossier-universe"><b>05</b><strong>L’UNIVERS</strong><em>→</em></a>
-    <a href="legal.html" target="_blank" rel="noopener"><b>06</b><strong>RISK & LEGAL</strong><em>↗</em></a>
-  </nav>
-</div></section><section class="dossier-sections"><div class="shell">
-  <article class="dossier-section" id="qfr-dossier-idea">
-    <small>01 · L’IDÉE</small>
-    <h2>Un petit coq, de très grands rêves.</h2>
-    <p>QUQN n’est pas un “token corporate”. C’est un personnage meme né sur Bitcoin, avec une identité simple : petit, ambitieux, drôle, parfois naïf, mais toujours convaincu qu’il peut aller beaucoup plus loin.</p>
-    <p>Le but du projet est de créer une identité, une histoire et une communauté reconnaissables, au lieu d’une simple page de mint sans personnalité.</p>
-    <a class="dossier-back" href="#top">↑ Retour en haut</a>
-  </article>
-
-  <article class="dossier-section" id="qfr-dossier-bitcoin">
-    <small>02 · BITCOIN / BRC-20</small>
-    <h2>Pourquoi sur Bitcoin ? Pourquoi en BRC-20 ?</h2>
-    <p>QUQN est déployé sur Bitcoin mainnet au format BRC-20 classique 4 caractères. Cela permet un fair mint public, lisible et vérifiable on-chain, dans l’écosystème Bitcoin.</p>
-    <p>Le site n’exécute pas le mint, ne connecte pas le wallet et ne garde pas les fonds. Il sert à expliquer, orienter et renvoyer vers les pages d’inscription ou de vérification.</p>
-    <div class="dossier-cta-row"><a class="btn outline" href="https://uniscan.cc/brc20/QUQN" target="_blank" rel="noopener">Voir QUQN sur UniScan ↗</a></div>
-    <a class="dossier-back" href="#top">↑ Retour en haut</a>
-  </article>
-
-  <article class="dossier-section" id="qfr-dossier-fair">
-    <small>03 · FAIR MINT</small>
-    <h2>Mêmes règles publiques pour tout le monde.</h2>
-    <p>Le principe retenu pour QUQN est un fair mint pur : pas de prévente, pas d’ICO, pas de vente primaire par le créateur, pas de promesse de rendement. Les participants mintent sous les mêmes règles publiques tant que l’offre maximum n’est pas atteinte.</p>
-    <p class="dossier-note">Important : les frais éventuels du réseau Bitcoin ou des services tiers ne vont pas au projet QUQN.</p>
-    <a class="dossier-back" href="#top">↑ Retour en haut</a>
-  </article>
-
-  <article class="dossier-section" id="qfr-dossier-token">
-    <small>04 · TOKEN FACTS</small>
-    <h2>Les informations essentielles du token.</h2>
-    <div class="dossier-facts">
-      <span><small>TICKER</small><strong>QUQN</strong></span>
-      <span><small>NETWORK</small><strong>Bitcoin</strong></span>
-      <span><small>FORMAT</small><strong>BRC-20 / 4-BYTE</strong></span>
-      <span><small>MAX SUPPLY</small><strong>21,000,000</strong></span>
-      <span><small>PER MINT</small><strong>1,000</strong></span>
-      <span><small>TYPE</small><strong>Fair mint</strong></span>
-      <span><small>CHECK</small><strong>UniScan</strong></span>
-      <span><small>PROJECT SITE</small><strong>quqn.eu</strong></span>
-    </div>
-    <a class="dossier-back" href="#top">↑ Retour en haut</a>
-  </article>
-
-  <article class="dossier-section" id="qfr-dossier-universe">
-    <small>05 · L’UNIVERS</small>
-    <h2>Un personnage central, puis un monde plus large.</h2>
-    <p>QUQN est le premier visage. NBRO et MRKO sont les deux autres personnages validés qui doivent rejoindre l’univers progressivement. L’idée est de construire une vraie petite mythologie communautaire, avec des codes visuels récurrents, un ton reconnaissable et des créations partageables.</p>
-    <p>Le site sert aussi cette vision : Dossier QUQN, Inscription Log, The Coop, outils de création et, plus tard, galerie communautaire plus vivante.</p>
-    <div class="dossier-cta-row"><a class="btn outline" href="index.html#quqn-lab">Ouvrir QUQN Lab ↗</a><a class="btn outline" href="index.html#ranks">Voir The Coop ↗</a></div>
-    <a class="dossier-back" href="#top">↑ Retour en haut</a>
-  </article>
-</div></section></main><footer class="footer"><div class="shell footer-grid"><div class="brand"><img src="assets/quqn-token.png" alt="QUQN"><span>QUQN</span></div><div><a href="index.html">Site principal</a><a href="legal.html">Risk & Legal</a><a href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a><a href="https://t.me/QUQNbtc" target="_blank" rel="noopener">Telegram</a></div><p>Built on Bitcoin culture. Not financial advice. No promised value.</p></div></footer>
-<script src="assets/js/quqn-audio.js" defer></script>
-<script src="assets/js/tech-v2.js" defer></script>
-<script src="assets/js/v8-i18n.js" defer></script>
-</body></html>
+    <section class="dossier-hero"><div class="shell"><span class="tech-kicker">LE DOSSIER QUQN</span><h1>Tout QUQN.<br>Sans répétition.</h1><p>La page principale reste rapide à lire. Cette page concentre les explications détaillées, avec des liens directs vers les preuves et les sections utiles.</p>
+      <nav class="dossier-index">
+        <a href="#idea"><b>01</b><strong>L’IDÉE</strong><em>↓</em></a><a href="#bitcoin"><b>02</b><strong>BITCOIN / BRC-20</strong><em>↓</em></a><a href="#fair"><b>03</b><strong>FAIR MINT</strong><em>↓</em></a><a href="#token"><b>04</b><strong>TOKEN FACTS</strong><em>↓</em></a><a href="#universe"><b>05</b><strong>L’UNIVERS</strong><em>↓</em></a><a href="legal.html" target="_blank" rel="noopener"><b>06</b><strong>RISK &amp; LEGAL</strong><em>↗</em></a>
+      </nav>
+    </div></section>
+    <div class="dossier-body"><div class="shell">
+      <section class="dossier-section" id="idea"><small>01 / L’IDÉE</small><h2>Small Coq. Big Dreams.</h2><p>QUQN est un personnage meme natif de Bitcoin : un petit coq avec une ambition complètement disproportionnée. L’univers sert à créer une identité, une histoire et une culture communautaire reconnaissables — pas une promesse de richesse.</p><div class="links"><a href="index.html#story">RENCONTRER QUQN →</a><a href="index.html#chapters">VOIR LES PERSONNAGES →</a></div></section>
+      <section class="dossier-section" id="bitcoin"><small>02 / BITCOIN / BRC-20</small><h2>Bitcoin est le réseau. BRC-20 est le format.</h2><p>QUQN est déployé sur Bitcoin mainnet sous la forme d’un ticker BRC-20 classique 4 caractères. Le site QUQN informe et oriente : il ne conserve pas de fonds, n’exécute pas lui-même le mint et ne demande pas la phrase de récupération du wallet.</p><div class="links"><a href="https://uniscan.cc/brc20/QUQN" target="_blank" rel="noopener">VÉRIFIER SUR UNISCAN ↗</a><a href="index.html#how">VOIR THE BASICS →</a></div></section>
+      <section class="dossier-section" id="fair"><small>03 / FAIR MINT</small><h2>Mêmes règles publiques.</h2><p>Le modèle retenu pour QUQN est un fair mint : pas de prévente, pas d’ICO, pas de vente primaire par le projet et pas de frais de mint créateur. Les frais éventuels du réseau Bitcoin ou des services tiers restent externes à QUQN.</p><div class="links"><a href="legal.html#mica">NOTE LÉGALE / MICA →</a><a href="index.html#how">GUIDE DE MINT →</a></div></section>
+      <section class="dossier-section" id="token"><small>04 / TOKEN FACTS</small><h2>L’empreinte publique.</h2><div class="facts"><span><small>TICKER</small><strong>QUQN</strong></span><span><small>NETWORK</small><strong>Bitcoin</strong></span><span><small>FORMAT</small><strong>BRC-20</strong></span><span><small>MAX SUPPLY</small><strong>21,000,000</strong></span><span><small>PER MINT</small><strong>1,000</strong></span><span><small>INSCRIPTION</small><strong>#127329518</strong></span></div><div class="links"><a href="https://uniscan.cc/brc20/QUQN" target="_blank" rel="noopener">OUVRIR UNISCAN ↗</a><a href="index.html#inscription-log">OUVRIR LE LOG →</a></div></section>
+      <section class="dossier-section" id="universe"><small>05 / L’UNIVERS</small><h2>QUQN est le premier chapitre.</h2><p>NBRO et MRKO sont les deux personnages destinés à rejoindre progressivement l’histoire. Le projet peut développer des scènes, des memes, des PFP, des votes créatifs et une archive communautaire sans transformer ces fonctions en droits financiers.</p><div class="links"><a href="index.html#chapters">VOIR LES CHAPITRES →</a><a href="index.html#quqn-lab">OUVRIR QUQN LAB →</a><a href="index.html#ranks">VOIR THE COOP →</a></div></section>
+      <p class="risk">QUQN est expérimental et spéculatif. Aucun prix, rendement, niveau de liquidité ou cotation future n’est promis.</p>
+    </div></div>
+  </main>
+</body>
+</html>
