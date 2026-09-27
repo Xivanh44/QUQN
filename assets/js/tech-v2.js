@@ -75,14 +75,14 @@
       const token=await loadImage('assets/logo.webp');
       ctx.save();
       ctx.beginPath();
-      ctx.arc(112,112,50,0,Math.PI*2);
+      ctx.arc(148,148,40,0,Math.PI*2);
       ctx.clip();
-      ctx.drawImage(token,62,62,100,100);
+      ctx.drawImage(token,108,108,80,80);
       ctx.restore();
       ctx.strokeStyle='#efb83f';
       ctx.lineWidth=5;
       ctx.beginPath();
-      ctx.arc(112,112,54,0,Math.PI*2);
+      ctx.arc(148,148,44,0,Math.PI*2);
       ctx.stroke();
     }catch{}
 
