@@ -1,15 +1,23 @@
-QUQN V8.1 — production corrections
-===================================
-Corrections:
-- duplicate/oversized desktop miner removed
-- clean transparent logo used in data rail and Dossier cover
-- PFP Maker restored to a round profile image; exported PNG has transparent corners
-- Coop Wall crops centered and normalized
-- public vote no longer displays simulated percentages or preview/demo counters
-- production wording replaces concept-preview wording
+QUQN — GitHub deployment package
+=================================
 
-GitHub deployment:
-1. Replace the repository contents with the contents of this folder.
-2. Keep index.html, CNAME, assets/, worker/, etc. at repository root.
-3. Commit changes.
-4. GitHub Pages / Cloudflare may need a short cache refresh.
+This folder is ready to replace the current repository contents.
+
+Keep at repository root:
+- index.html
+- legal.html
+- dossier.html (compatibility redirect only)
+- manager.html
+- CNAME
+- robots.txt
+- sitemap.xml
+- assets/
+- worker/
+
+Domain: quqn.eu
+
+Important:
+- dossier items 01–05 now open directly as modals on the homepage.
+- Risk & Legal remains a separate legal page.
+- Cloudflare Web Analytics is enabled.
+- No preview.html file is included in this deployment package.
