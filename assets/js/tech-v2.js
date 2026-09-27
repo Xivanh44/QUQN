@@ -29,7 +29,79 @@
   async function downloadCanvas(canvas,name){const blob=await canvasBlob(canvas);if(!blob)return;const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
   async function shareCanvas(canvas,name,text){const blob=await canvasBlob(canvas);if(!blob)return;const file=new File([blob],name,{type:'image/png'});try{if(navigator.share&&(!navigator.canShare||navigator.canShare({files:[file]}))){await navigator.share({files:[file],text,title:'QUQN'});return}}catch{}await downloadCanvas(canvas,name)}
   let pfpSource=null;
-  async function renderPfp(){const canvas=q('#pfpCanvas');if(!canvas)return;const ctx=canvas.getContext('2d');ctx.clearRect(0,0,720,720);ctx.fillStyle='#071018';ctx.fillRect(0,0,720,720);if(pfpSource)cover(ctx,pfpSource,0,0,720,720);else{try{const hero=await loadImage('assets/quqn-thinking.webp');cover(ctx,hero,0,0,720,720)}catch{}}const v=ctx.createRadialGradient(360,330,220,360,360,500);v.addColorStop(.4,'rgba(0,0,0,0)');v.addColorStop(1,'rgba(0,0,0,.48)');ctx.fillStyle=v;ctx.fillRect(0,0,720,720);ctx.strokeStyle='#efb83f';ctx.lineWidth=18;ctx.strokeRect(10,10,700,700);ctx.strokeStyle='rgba(95,231,221,.75)';ctx.lineWidth=3;ctx.strokeRect(31,31,658,658);try{const token=await loadImage('assets/quqn-token.png');ctx.save();ctx.beginPath();ctx.arc(90,90,52,0,Math.PI*2);ctx.clip();ctx.drawImage(token,38,38,104,104);ctx.restore();ctx.strokeStyle='#efb83f';ctx.lineWidth=5;ctx.beginPath();ctx.arc(90,90,55,0,Math.PI*2);ctx.stroke()}catch{}ctx.fillStyle='rgba(5,8,12,.82)';ctx.fillRect(35,630,650,52);ctx.fillStyle='#f4c660';ctx.font='900 26px Arial';ctx.textAlign='center';ctx.fillText('SMALL COQ. BIG DREAMS.',360,665)}
+  async function renderPfp(){
+    const canvas=q('#pfpCanvas');if(!canvas)return;
+    const ctx=canvas.getContext('2d');
+    ctx.clearRect(0,0,720,720);
+
+    /* Everything visual is clipped to a circle so the exported PNG has transparent corners. */
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(360,360,340,0,Math.PI*2);
+    ctx.clip();
+
+    ctx.fillStyle='#071018';
+    ctx.fillRect(0,0,720,720);
+
+    if(pfpSource){
+      cover(ctx,pfpSource,0,0,720,720);
+    }else{
+      try{
+        const hero=await loadImage('assets/quqn-thinking.webp');
+        cover(ctx,hero,0,0,720,720);
+      }catch{}
+    }
+
+    const v=ctx.createRadialGradient(360,330,210,360,360,500);
+    v.addColorStop(.38,'rgba(0,0,0,0)');
+    v.addColorStop(1,'rgba(0,0,0,.48)');
+    ctx.fillStyle=v;
+    ctx.fillRect(0,0,720,720);
+
+    /* Bottom caption remains inside the circular PFP. */
+    const g=ctx.createLinearGradient(0,520,0,700);
+    g.addColorStop(0,'rgba(5,8,12,0)');
+    g.addColorStop(1,'rgba(5,8,12,.82)');
+    ctx.fillStyle=g;
+    ctx.fillRect(0,500,720,220);
+
+    ctx.fillStyle='#f4c660';
+    ctx.font='900 24px Arial';
+    ctx.textAlign='center';
+    ctx.fillText('SMALL COQ. BIG DREAMS.',360,635);
+
+    /* Small QUQN medallion. */
+    try{
+      const token=await loadImage('assets/logo.webp');
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(112,112,50,0,Math.PI*2);
+      ctx.clip();
+      ctx.drawImage(token,62,62,100,100);
+      ctx.restore();
+      ctx.strokeStyle='#efb83f';
+      ctx.lineWidth=5;
+      ctx.beginPath();
+      ctx.arc(112,112,54,0,Math.PI*2);
+      ctx.stroke();
+    }catch{}
+
+    ctx.restore();
+
+    /* Circular double frame. */
+    ctx.strokeStyle='#efb83f';
+    ctx.lineWidth=18;
+    ctx.beginPath();
+    ctx.arc(360,360,345,0,Math.PI*2);
+    ctx.stroke();
+
+    ctx.strokeStyle='rgba(95,231,221,.78)';
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.arc(360,360,324,0,Math.PI*2);
+    ctx.stroke();
+  }
+
   function bind(){q('#memeTemplate')?.addEventListener('change',renderMeme);q('#memeTop')?.addEventListener('input',renderMeme);q('#memeBottom')?.addEventListener('input',renderMeme);q('#memePreset')?.addEventListener('change',e=>{const p=presets[e.target.value]||presets.custom;if(e.target.value!=='custom'){q('#memeTop').value=p[0];q('#memeBottom').value=p[1]}renderMeme()});q('#memeDownload')?.addEventListener('click',()=>downloadCanvas(q('#memeCanvas'),'quqn-meme.png'));q('#memeShare')?.addEventListener('click',()=>shareCanvas(q('#memeCanvas'),'quqn-meme.png','QUQN — Small Coq. Big Dreams.'));
     q('#pfpUpload')?.addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;const url=URL.createObjectURL(f),im=new Image();im.onload=()=>{pfpSource=im;renderPfp();setTimeout(()=>URL.revokeObjectURL(url),1500)};im.src=url});q('#pfpDownload')?.addEventListener('click',()=>downloadCanvas(q('#pfpCanvas'),'quqn-pfp.png'));q('#pfpShare')?.addEventListener('click',()=>shareCanvas(q('#pfpCanvas'),'quqn-pfp.png','My QUQN PFP'))}
   function init(){renderText();bind();renderMeme();renderPfp();new MutationObserver(()=>renderText()).observe(document.documentElement,{attributes:true,attributeFilter:['lang']})}
