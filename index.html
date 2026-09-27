@@ -1304,6 +1304,87 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
   white-space:nowrap!important;
 }
 
+
+/* ===== MOBILE HEADER: X + TELEGRAM VISIBLE ===== */
+@media(max-width:650px){
+  .site-header .top-social-links{
+    display:flex!important;
+    grid-column:5!important;
+    justify-self:end!important;
+    align-items:center!important;
+    gap:4px!important;
+  }
+  .site-header .top-social{
+    width:32px!important;
+    height:32px!important;
+    min-width:32px!important;
+    font-size:.88rem!important;
+    background:rgba(255,255,255,.025)!important;
+    color:#e7ba55!important;
+  }
+}
+@media(max-width:350px){
+  .site-header .top-social{
+    width:29px!important;
+    height:29px!important;
+    min-width:29px!important;
+    font-size:.82rem!important;
+  }
+  .site-header .top-social-links{gap:2px!important}
+}
+
+
+/* ===== FINAL MOBILE HEADER TUNING ===== */
+@media(max-width:650px){
+  .site-header .lang-btn{
+    min-width:92px!important;
+    width:92px!important;
+    height:36px!important;
+    min-height:36px!important;
+    padding:0 10px!important;
+    gap:7px!important;
+    border-radius:20px!important;
+  }
+  .site-header .lang-globe{
+    width:17px!important;
+    height:17px!important;
+  }
+  .site-header .lang-globe svg{
+    width:17px!important;
+    height:17px!important;
+  }
+  .site-header #langLabel{
+    font-size:.78rem!important;
+  }
+  .site-header .lang-caret{
+    font-size:.66rem!important;
+  }
+  .site-header .top-social{
+    width:31px!important;
+    height:31px!important;
+    min-width:31px!important;
+    font-size:.86rem!important;
+  }
+  .site-header .top-social-links{
+    gap:4px!important;
+  }
+}
+@media(max-width:370px){
+  .site-header .lang-btn{
+    min-width:86px!important;
+    width:86px!important;
+    height:34px!important;
+    min-height:34px!important;
+    padding:0 8px!important;
+  }
+  .site-header .top-social{
+    width:29px!important;
+    height:29px!important;
+    min-width:29px!important;
+    font-size:.80rem!important;
+  }
+}
+
 </style>
 
 
