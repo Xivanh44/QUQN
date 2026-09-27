@@ -1,21 +1,15 @@
-QUQN V8 FINAL — GITHUB DEPLOYMENT
-=================================
+QUQN V8.1 — production corrections
+===================================
+Corrections:
+- duplicate/oversized desktop miner removed
+- clean transparent logo used in data rail and Dossier cover
+- PFP Maker restored to a round profile image; exported PNG has transparent corners
+- Coop Wall crops centered and normalized
+- public vote no longer displays simulated percentages or preview/demo counters
+- production wording replaces concept-preview wording
 
-1. Open the existing QUQN GitHub repository.
-2. Upload/replace ALL files and folders from this package at repository root.
-3. Keep this structure:
-   index.html
-   legal.html
-   manager.html
-   CNAME
-   robots.txt
-   sitemap.xml
-   assets/
-   worker/
-4. Commit the changes to main.
-5. Wait for GitHub Pages deployment, then hard-refresh https://quqn.eu/.
-
-IMPORTANT
-- Do not upload the outer ZIP itself as the website.
-- Do not put these files inside an extra subfolder in the repository.
-- Existing Cloudflare Worker secrets are NOT contained in this package and do not need to be changed.
+GitHub deployment:
+1. Replace the repository contents with the contents of this folder.
+2. Keep index.html, CNAME, assets/, worker/, etc. at repository root.
+3. Commit changes.
+4. GitHub Pages / Cloudflare may need a short cache refresh.
