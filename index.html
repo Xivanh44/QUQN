@@ -930,6 +930,68 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
   transform:none!important;
 }
 
+
+/* ===== V8.6.4 — fixed hero-title area ===== */
+.tech-hero-copy{min-width:0!important}
+
+.hero-title-box{
+  width:min(700px,92%)!important;
+  max-width:700px!important;
+  height:290px!important;
+  min-width:0!important;
+  overflow:hidden!important;
+  flex:none!important;
+  margin-right:40px!important;
+}
+
+.hero-title-box #heroTitle{
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  line-height:.98!important;
+  letter-spacing:-.045em!important;
+}
+
+.hero-title-box #heroTitle .hero-title-line{
+  display:block!important;
+  width:max-content!important;
+  max-width:none!important;
+  white-space:nowrap!important;
+  line-height:1!important;
+}
+
+.hero-title-box #heroTitle em.hero-title-line{
+  padding-top:.06em!important;
+}
+
+@media (min-width:981px) and (max-width:1320px){
+  .hero-title-box{
+    width:min(610px,88%)!important;
+    max-width:610px!important;
+    height:250px!important;
+    margin-right:36px!important;
+  }
+}
+
+@media (min-width:651px) and (max-width:980px){
+  .hero-title-box{
+    width:100%!important;
+    max-width:680px!important;
+    height:218px!important;
+    margin-right:0!important;
+  }
+}
+
+@media (max-width:650px){
+  .hero-title-box{
+    width:100%!important;
+    max-width:100%!important;
+    height:180px!important;
+    margin-right:0!important;
+  }
+}
+
 </style>
 
 
@@ -1650,7 +1712,7 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
   <!-- End Cloudflare Web Analytics -->
 </body></htm
 <script>
-/* V8.6.2 — automatically fit every translated hero title inside one fixed area. */
+/* V8.6.4 — fit any translated title inside the same fixed box. */
 (() => {
   let raf = 0;
 
@@ -1661,17 +1723,22 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
       const title = document.getElementById('heroTitle');
       if(!box || !title) return;
 
-      const w = window.innerWidth;
-      let maxSize = w <= 650 ? 76 : (w <= 980 ? 88 : 112);
-      let minSize = w <= 650 ? 28 : 34;
+      const lines = [...title.querySelectorAll('.hero-title-line')];
+      if(!lines.length) return;
 
-      title.style.fontSize = maxSize + 'px';
+      const vw = window.innerWidth;
+      let size = vw <= 650 ? 76 : (vw <= 980 ? 88 : 112);
+      const min = vw <= 650 ? 26 : 30;
 
-      let size = maxSize;
-      while(
-        size > minSize &&
-        (title.scrollWidth > box.clientWidth + 1 || title.scrollHeight > box.clientHeight + 1)
-      ){
+      title.style.fontSize = size + 'px';
+
+      const fits = () => {
+        const widthOk = lines.every(line => line.scrollWidth <= box.clientWidth - 4);
+        const heightOk = title.scrollHeight <= box.clientHeight - 4;
+        return widthOk && heightOk;
+      };
+
+      while(size > min && !fits()){
         size -= 1;
         title.style.fontSize = size + 'px';
       }
@@ -1680,7 +1747,7 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
 
   if(document.readyState === 'loading'){
     document.addEventListener('DOMContentLoaded', fitHeroTitle);
-  }else{
+  } else {
     fitHeroTitle();
   }
 
@@ -1700,8 +1767,8 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
 
   document.addEventListener('click',e=>{
     if(e.target.closest('[data-lang-choice]')){
-      setTimeout(fitHeroTitle,30);
-      setTimeout(fitHeroTitle,160);
+      setTimeout(fitHeroTitle,40);
+      setTimeout(fitHeroTitle,180);
     }
   },true);
 
