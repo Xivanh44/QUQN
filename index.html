@@ -247,16 +247,25 @@
 
     <section id="quqn-lab" class="tech-lab section">
       <div class="shell">
-        <div class="tech-section-head">
-          <div><span class="tech-kicker">QUQN LAB / CREATE</span><h2 data-tech-i18n="labTitle">Turn the meme into something people can use.</h2></div>
-          <p data-tech-i18n="labIntro">Create a meme, build a QUQN-style profile picture, then bring it back to The Coop.</p>
+        <div class="tech-section-head creator-head">
+          <div><span class="tech-kicker">QUQN CREATOR LAB</span><h2 data-tech-i18n="labTitle">Create. Export. Share.</h2></div>
+          <p data-tech-i18n="labIntro">Two tools, one simple flow: make your QUQN content here, then download or share it.</p>
         </div>
 
-        <div class="tech-lab-grid">
+        <div class="creator-flow" aria-label="QUQN creator workflow">
+          <div class="creator-flow-step"><span>01</span><div><b data-tech-i18n="flowCreateTitle">CREATE</b><small data-tech-i18n="flowCreateText">Make a meme or a PFP</small></div></div>
+          <div class="creator-flow-arrow">→</div>
+          <div class="creator-flow-step"><span>02</span><div><b data-tech-i18n="flowExportTitle">EXPORT / SHARE</b><small data-tech-i18n="flowExportText">Download the PNG or share it</small></div></div>
+          <div class="creator-flow-arrow">→</div>
+          <div class="creator-flow-step is-future"><span>03</span><div><b data-tech-i18n="flowWallTitle">THE COOP WALL</b><small data-tech-i18n="flowWallText">Community submissions coming later</small></div></div>
+        </div>
+
+        <div class="tech-lab-tools">
           <article id="memeFactoryCard" class="lab-card lab-meme">
-            <div class="lab-card-head"><span>01</span><div><small>QUQN TOOL</small><h3 data-tech-i18n="memeFactory">Meme Factory</h3></div><b>CANVAS</b></div>
+            <div class="lab-card-head"><span>01</span><div><small>CREATE</small><h3 data-tech-i18n="memeFactory">Meme Factory</h3></div><b>CANVAS</b></div>
+            <p class="tool-explainer" data-tech-i18n="memeHelp">Choose a QUQN scene, add your text, then download the finished meme.</p>
             <canvas id="memeCanvas" width="720" height="720" aria-label="QUQN meme preview"></canvas>
-            <div class="lab-controls">
+            <div class="lab-controls meme-controls">
               <label><span data-tech-i18n="template">Template</span><select id="memeTemplate">
                 <option value="city">Night City</option>
                 <option value="lambo">Wen Lambo?</option>
@@ -271,7 +280,7 @@
                 <option value="nantes">Nantes</option>
                 <option value="himeji">Himeji</option>
               </select></label>
-              <label><span>Caption preset</span><select id="memePreset">
+              <label><span data-tech-i18n="captionPreset">Caption preset</span><select id="memePreset">
                 <option value="custom">Custom</option>
                 <option value="dreams">Small Coq / Big Dreams</option>
                 <option value="bitcoin">Born on Bitcoin</option>
@@ -284,38 +293,41 @@
               <label><span data-tech-i18n="bottomText">Bottom text</span><input id="memeBottom" value="BIG DREAMS."></label>
             </div>
             <div class="lab-action-row">
-              <button id="memeDownload" class="lab-button" type="button" data-tech-i18n="exportPng">EXPORT PNG ↗</button>
-              <button id="memeShare" class="lab-button lab-button-share" type="button" data-tech-i18n="shareImage">SHARE IMAGE ↗</button>
+              <button id="memeDownload" class="lab-button" type="button" data-tech-i18n="downloadMeme">DOWNLOAD MEME · PNG ↓</button>
+              <button id="memeShare" class="lab-button lab-button-share" type="button" data-tech-i18n="shareXClear">SHARE ON X ↗</button>
             </div>
+            <small class="action-help" data-tech-i18n="shareHelp">On mobile, sharing can send the image file directly. On desktop, the PNG may download first so you can attach it to X.</small>
           </article>
 
           <article id="pfpMakerCard" class="lab-card lab-pfp">
-            <div class="lab-card-head"><span>02</span><div><small>QUQN TOOL</small><h3 data-tech-i18n="pfpMaker">PFP Maker</h3></div><b>LOCAL</b></div>
+            <div class="lab-card-head"><span>02</span><div><small>CREATE</small><h3 data-tech-i18n="pfpMaker">PFP Maker</h3></div><b>LOCAL</b></div>
+            <p class="tool-explainer" data-tech-i18n="pfpHelp">Upload a photo. The QUQN frame is applied locally in your browser.</p>
             <div class="pfp-stage"><canvas id="pfpCanvas" width="720" height="720" aria-label="QUQN PFP preview"></canvas></div>
             <div class="pfp-note"><i>●</i><span data-tech-i18n="localOnly">Your image stays in your browser. Nothing is uploaded to QUQN.</span></div>
             <div class="lab-controls one-col"><label class="upload-label"><span data-tech-i18n="uploadPhoto">Upload a photo</span><input id="pfpUpload" type="file" accept="image/*"></label></div>
             <div class="lab-action-row">
-              <button id="pfpDownload" class="lab-button" type="button" data-tech-i18n="exportPfp">EXPORT PFP ↗</button>
-              <button id="pfpShare" class="lab-button lab-button-share" type="button" data-tech-i18n="shareImage">SHARE IMAGE ↗</button>
+              <button id="pfpDownload" class="lab-button" type="button" data-tech-i18n="downloadPfp">DOWNLOAD PFP · PNG ↓</button>
+              <button id="pfpShare" class="lab-button lab-button-share" type="button" data-tech-i18n="shareXClear">SHARE ON X ↗</button>
             </div>
-          </article>
-
-          <article class="lab-card lab-wall">
-            <div class="lab-card-head"><span>03</span><div><small>THE COOP</small><h3 data-tech-i18n="coopWall">Coop Wall</h3></div><b>PREVIEW</b></div>
-            <div class="wall-grid">
-              <img src="assets/gallery/destiny-31-nantes-coq.webp" alt="QUQN Nantes">
-              <img src="assets/gallery/destiny-33-himeji-shogun.webp" alt="QUQN Himeji">
-              <img src="assets/gallery/destiny-36-lambo-coq.webp" alt="QUQN Lambo">
-              <img src="assets/gallery/destiny-05-moon-base-billionaire.webp" alt="QUQN Moon Base">
-            </div>
-            <p data-tech-i18n="wallNote">Create a meme or a PFP above, export it, then share it. The Coop Wall will later showcase real community creations after moderation.</p>
-            <div class="wall-create-actions">
-              <a class="lab-button" href="#memeFactoryCard" data-tech-i18n="createMeme">CREATE A MEME ↗</a>
-              <a class="lab-button" href="#pfpMakerCard" data-tech-i18n="createPfp">CREATE A PFP ↗</a>
-            </div>
-            <small class="wall-coming" data-tech-i18n="wallComing">COMMUNITY SUBMISSIONS · COMING LATER</small>
+            <small class="action-help" data-tech-i18n="shareHelp">On mobile, sharing can send the image file directly. On desktop, the PNG may download first so you can attach it to X.</small>
           </article>
         </div>
+
+        <article class="coop-wall-preview">
+          <div class="coop-wall-copy">
+            <div class="lab-card-head wall-head"><span>03</span><div><small>COMMUNITY</small><h3 data-tech-i18n="coopWall">The Coop Wall</h3></div><b data-tech-i18n="comingSoon">COMING SOON</b></div>
+            <span class="wall-status" data-tech-i18n="wallInactive">NOT ACTIVE YET</span>
+            <h4 data-tech-i18n="wallTitle">Later: a gallery of real QUQN community creations.</h4>
+            <p data-tech-i18n="wallNoteClear">The images on the right are only official QUQN examples. When submissions are enabled, approved community memes and PFPs will appear here.</p>
+            <small class="wall-coming" data-tech-i18n="wallComing">COMMUNITY SUBMISSIONS · COMING LATER</small>
+          </div>
+          <div class="wall-grid wall-grid-wide">
+            <img src="assets/gallery/destiny-31-nantes-coq.webp" alt="Official QUQN example — Nantes">
+            <img src="assets/gallery/destiny-33-himeji-shogun.webp" alt="Official QUQN example — Himeji">
+            <img src="assets/gallery/destiny-36-lambo-coq.webp" alt="Official QUQN example — Lambo">
+            <img src="assets/gallery/destiny-05-moon-base-billionaire.webp" alt="Official QUQN example — Moon Base">
+          </div>
+        </article>
       </div>
     </section>
 
