@@ -16,13 +16,24 @@
     ar:{onchain:'على السلسلة',lab:'QUQN Lab',fairMint:'سك عادل',heroNote:'شخصية meme أصلية على Bitcoin مبنية حول سك BRC-20 عام وعادل.',mintCta:'سك QUQN ↗',exploreCta:'استكشاف ON-CHAIN ↗',protocol:'البروتوكول',network:'الشبكة',verifyFirst:'تحقق أولًا. ثم قم بالسك.',labTitle:'حوّل الـ meme إلى شيء يمكن للمجتمع استخدامه.',labIntro:'أنشئ meme وصورة PFP بأسلوب QUQN ثم أعدها إلى The Coop.',memeFactory:'مصنع Meme',pfpMaker:'صانع PFP',coopWall:'Coop Wall',template:'القالب',topText:'النص العلوي',bottomText:'النص السفلي',exportPng:'تصدير PNG ↗',localOnly:'صورتك تبقى داخل متصفحك ولا يتم رفعها إلى QUQN.',uploadPhoto:'رفع صورة',exportPfp:'تصدير PFP ↗',wallNote:'جدار مجتمعي مستقبلي لإبداعات QUQN الحقيقية. المعاينة تستخدم أعمال QUQN الرسمية فقط.',shareX:'أنشئ وشارك على X ↗',playgroundKicker:'QUQN PLAYGROUND / عبث كامل',playgroundTitle:'التقنية حقيقية. اختبار الملياردير ليس كذلك.',playgroundIntro:'احتفظنا بالجانب الغريب من QUQN، لكن نقلناه بعيدًا عن الواجهة الأولى.'}
   };
 
+  const extraStrings = {
+    en:{shareImage:'SHARE IMAGE ↗',createMeme:'CREATE A MEME ↗',createPfp:'CREATE A PFP ↗',wallComing:'COMMUNITY SUBMISSIONS · COMING LATER',wallNote:'Create a meme or a PFP above, export it, then share it. The Coop Wall will later showcase real community creations after moderation.',shareFallback:'IMAGE DOWNLOADED · ADD IT TO X'},
+    fr:{shareImage:'PARTAGER L’IMAGE ↗',createMeme:'CRÉER UN MEME ↗',createPfp:'CRÉER UN PFP ↗',wallComing:'ENVOIS COMMUNAUTAIRES · BIENTÔT',wallNote:'Crée un meme ou un PFP ci-dessus, exporte-le puis partage-le. Plus tard, The Coop Wall affichera de vraies créations de la communauté après modération.',shareFallback:'IMAGE TÉLÉCHARGÉE · AJOUTE-LA SUR X'},
+    zh:{shareImage:'分享图片 ↗',createMeme:'制作 MEME ↗',createPfp:'制作 PFP ↗',wallComing:'社区投稿 · 即将推出',wallNote:'先在上方制作 meme 或 PFP，导出后再分享。未来 The Coop Wall 将展示经过审核的真实社区作品。',shareFallback:'图片已下载 · 请在 X 中添加'},
+    ko:{shareImage:'이미지 공유 ↗',createMeme:'MEME 만들기 ↗',createPfp:'PFP 만들기 ↗',wallComing:'커뮤니티 제출 · 곧 제공',wallNote:'위에서 meme 또는 PFP를 만들고 내보낸 뒤 공유하세요. 이후 The Coop Wall에는 검토된 실제 커뮤니티 작품이 표시됩니다.',shareFallback:'이미지 다운로드됨 · X에 추가하세요'},
+    ja:{shareImage:'画像を共有 ↗',createMeme:'MEMEを作る ↗',createPfp:'PFPを作る ↗',wallComing:'コミュニティ投稿 · 近日公開',wallNote:'上で meme または PFP を作成し、書き出して共有してください。将来 The Coop Wall には審査済みの実際のコミュニティ作品を掲載します。',shareFallback:'画像を保存しました · Xで添付してください'},
+    pt:{shareImage:'COMPARTILHAR IMAGEM ↗',createMeme:'CRIAR UM MEME ↗',createPfp:'CRIAR UM PFP ↗',wallComing:'ENVIOS DA COMUNIDADE · EM BREVE',wallNote:'Crie um meme ou PFP acima, exporte e compartilhe. Depois, The Coop Wall exibirá criações reais da comunidade após moderação.',shareFallback:'IMAGEM BAIXADA · ANEXE NO X'},
+    es:{shareImage:'COMPARTIR IMAGEN ↗',createMeme:'CREAR UN MEME ↗',createPfp:'CREAR UN PFP ↗',wallComing:'ENVÍOS DE LA COMUNIDAD · PRÓXIMAMENTE',wallNote:'Crea un meme o PFP arriba, expórtalo y compártelo. Más adelante, The Coop Wall mostrará creaciones reales de la comunidad tras moderación.',shareFallback:'IMAGEN DESCARGADA · AÑÁDELA EN X'},
+    ar:{shareImage:'مشاركة الصورة ↗',createMeme:'إنشاء MEME ↗',createPfp:'إنشاء PFP ↗',wallComing:'مشاركات المجتمع · قريبًا',wallNote:'أنشئ meme أو PFP أعلاه، ثم صدّره وشاركه. لاحقًا سيعرض The Coop Wall إبداعات حقيقية من المجتمع بعد المراجعة.',shareFallback:'تم تنزيل الصورة · أرفقها على X'}
+  };
+
   function currentLang(){
     const l=(document.documentElement.lang||'en').toLowerCase();
     if(l.startsWith('zh')) return 'zh';
     return l.split('-')[0];
   }
   function applyTechLang(){
-    const dict=strings[currentLang()]||strings.en;
+    const langKey=currentLang(); const dict={...(strings[langKey]||strings.en),...(extraStrings[langKey]||extraStrings.en)};
     $$('[data-tech-i18n]').forEach(el=>{ const v=dict[el.dataset.techI18n]; if(v) el.textContent=v; });
   }
   new MutationObserver(applyTechLang).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
@@ -76,6 +87,42 @@
     drawMeme();
   });
   $('#memeDownload')?.addEventListener('click',()=>{drawMeme().then(()=>{const a=document.createElement('a');a.download='QUQN-meme.png';a.href=$('#memeCanvas').toDataURL('image/png');a.click();});});
+
+  function dataUrlToFile(dataUrl,filename){
+    const parts=dataUrl.split(',');
+    const mime=(parts[0].match(/data:([^;]+)/)||[])[1]||'image/png';
+    const bin=atob(parts[1]);
+    const bytes=new Uint8Array(bin.length);
+    for(let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i);
+    return new File([bytes],filename,{type:mime});
+  }
+  function flashShareFallback(button){
+    if(!button) return;
+    const langKey=currentLang();
+    const dict={...(strings[langKey]||strings.en),...(extraStrings[langKey]||extraStrings.en)};
+    const old=button.textContent;
+    button.textContent=dict.shareFallback||extraStrings.en.shareFallback;
+    button.classList.add('share-fallback');
+    setTimeout(()=>{button.textContent=old;button.classList.remove('share-fallback');applyTechLang();},3200);
+  }
+  async function shareCanvas(canvas,filename,button,text){
+    if(!canvas) return;
+    const dataUrl=canvas.toDataURL('image/png');
+    const file=dataUrlToFile(dataUrl,filename);
+    try{
+      if(navigator.share && (!navigator.canShare || navigator.canShare({files:[file]}))){
+        await navigator.share({title:'QUQN — Small Coq. Big Dreams.',text,files:[file]});
+        return;
+      }
+    }catch(err){
+      if(err?.name==='AbortError') return;
+    }
+    const a=document.createElement('a');a.download=filename;a.href=dataUrl;a.click();
+    const xText=encodeURIComponent(text+'\nhttps://quqn.eu');
+    window.open('https://x.com/intent/post?text='+xText,'_blank','noopener,noreferrer');
+    flashShareFallback(button);
+  }
+  $('#memeShare')?.addEventListener('click',ev=>shareCanvas($('#memeCanvas'),'QUQN-meme.png',ev.currentTarget,'Small Coq. Big Dreams. $QUQN #BRC20 #Bitcoin'));
   drawMeme();
 
   let userPhoto=null;
@@ -97,5 +144,6 @@
   }
   $('#pfpUpload')?.addEventListener('change',ev=>{const f=ev.target.files?.[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{userPhoto=im;drawPfp();};im.src=r.result;};r.readAsDataURL(f);});
   $('#pfpDownload')?.addEventListener('click',()=>{drawPfp().then(()=>{const a=document.createElement('a');a.download='QUQN-pfp.png';a.href=$('#pfpCanvas').toDataURL('image/png');a.click();});});
+  $('#pfpShare')?.addEventListener('click',ev=>shareCanvas($('#pfpCanvas'),'QUQN-pfp.png',ev.currentTarget,'My QUQN PFP. Small Coq. Big Dreams. $QUQN #BRC20 #Bitcoin'));
   drawPfp();
 })();
