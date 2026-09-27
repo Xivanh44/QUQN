@@ -39,14 +39,13 @@
   </script>
 
   <link rel="preload" href="assets/media/QUQN_miner_poster.webp" as="image" type="image/webp">
-  <link rel="preload" href="assets/audio/QUQN_bling_crypto_loop.mp3" as="audio" type="audio/mpeg">
-
-  <link rel="icon" href="assets/quqn-token.png" type="image/png">
+<link rel="icon" href="assets/quqn-token.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/v6.css">
   <link rel="stylesheet" href="assets/css/reference.css">
   <link rel="stylesheet" href="assets/css/uniform.css">
   <link rel="stylesheet" href="assets/css/layout-tuning.css?v=20260924-header-layout">
+  <link rel="stylesheet" href="assets/css/tech-v2.css?v=20260927-tech1">
 
   <style>
     .wallet-choice-links,.mint-route-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
@@ -117,7 +116,7 @@
 
   </style>
 </head>
-<body>
+<body class="tech-v2">
   <div class="noise" aria-hidden="true"></div>
   <div id="announcement" class="announcement"></div>
 
@@ -126,9 +125,9 @@
       <a class="brand" href="#top"><img src="assets/quqn-token.png" alt="QUQN"><span>QUQN</span></a>
       <div class="navlinks">
         <a href="#chapters" data-t="navStory">Story</a>
-        <a href="#mint-options" data-t="navMint">Mint</a>
-        <a href="#billionaire" data-t="navGame">Billionaire game</a>
+        <a href="#how" data-tech-i18n="onchain">On-chain</a>
         <a href="#ranks" data-t="navRanks">The Coop</a>
+        <a href="#quqn-lab" data-tech-i18n="lab">QUQN Lab</a>
         <button class="nav-guide" type="button" data-open-guide data-t="navGuide">How it works</button>
       </div>
       <div class="navtools">
@@ -153,93 +152,67 @@
   <a class="top-social x-link" href="https://x.com/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN on X">𝕏</a>
   <a class="top-social telegram-link" href="https://t.me/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN Telegram">✈</a>
 </div>
-<a id="topUniscan" class="btn gold small" target="_blank" rel="noopener" data-t="topUniscan">View on UniScan ↗</a></div>
+<a id="topUniscan" class="btn gold small" target="_blank" rel="noopener" data-t="topUniscan">View on UniScan ↗</a><div class="tech-miner" title="QUQN miner"><img src="assets/media/QUQN_miner_sync.webp" alt="QUQN mining"></div></div>
     </nav>
   </header>
 
   <main id="top">
-    <!-- Important numbers first: compact and visible without turning the homepage into documentation. -->
-    <section class="live-strip" aria-label="QUQN key figures">
-      <div class="shell live-strip-inner">
-        <div class="live-brand"><img src="assets/quqn-token.png" alt=""><span><b>QUQN</b><small>BRC-20 · BITCOIN</small></span><i id="syncState">STATIC</i></div>
-        <div class="live-stat"><small data-t="minted">Minted</small><strong id="minted">90,000</strong></div>
-        <div class="live-stat"><small data-t="holders">Holders</small><strong id="holders">1</strong></div>
-        <div class="live-stat"><small data-t="max">Max supply</small><strong>21,000,000</strong></div>
-        <div class="live-stat"><small data-t="perMint">Per mint</small><strong>1,000</strong></div>
-        <div class="live-progress"><div><small data-t="progress">Mint progress</small><strong id="progressPct">0.43%</strong></div><div class="meter"><i id="meterFill"></i></div></div>
-      </div>
-    </section>
 
-    <section class="hero v4-hero">
-      <div id="seasonHeroImage" class="hero-image"></div><div class="hero-overlay"></div>
-      <div class="shell hero-layout v4-hero-layout attraction-layout">
-        <div class="hero-copy attraction-intro">
-          <div class="eyebrow" data-t="heroEyebrow">🐓 BRC-20 · BITCOIN MAINNET · FAIR MINT</div>
+    <section class="tech-hero" aria-label="QUQN Bitcoin BRC-20 fair mint">
+      <div class="tech-grid-bg" aria-hidden="true"></div>
+      <div class="shell tech-hero-grid">
+        <div class="tech-hero-copy">
+          <div class="tech-protocol-line">
+            <span class="tech-live-pill"><i></i> BITCOIN MAINNET</span>
+            <span>BRC-20</span>
+            <span data-tech-i18n="fairMint">FAIR MINT</span>
+          </div>
           <h1 id="heroTitle">SMALL COQ.<br><em>BIG DREAMS.</em></h1>
           <p id="heroSubtitle" class="hero-subtitle">Meet QUQN — the tiny coq who represents every crypto dreamer.</p>
-          <div class="hero-actions">
-            <button class="btn gold" type="button" data-open-guide data-t="howBtn">HOW QUQN WORKS</button>
-            <a id="heroUniscan" class="btn outline" target="_blank" rel="noopener" data-t="viewBtn">VIEW QUQN ↗</a>
-            <a class="hero-social x" href="https://x.com/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN sur X"><span>𝕏</span><strong>QUQN</strong></a>
-            <a class="hero-social telegram" href="https://t.me/QUQNbtc" target="_blank" rel="noopener" aria-label="QUQN sur Telegram"><span>✈</span><strong>Telegram</strong></a>
+          <p class="tech-hero-note" data-tech-i18n="heroNote">A Bitcoin-native meme character built around a public BRC-20 fair mint.</p>
+          <div class="tech-hero-actions">
+            <a class="btn gold tech-primary" href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener" data-tech-i18n="mintCta">MINT QUQN ↗</a>
+            <a id="heroUniscan" class="btn outline tech-secondary" target="_blank" rel="noopener" data-tech-i18n="exploreCta">EXPLORE ON-CHAIN ↗</a>
+            <button class="tech-text-action" type="button" data-open-guide data-t="navGuide">How it works</button>
           </div>
-
-          <div id="mint-options" class="quick-mint" aria-label="QUQN mint options">
-            <div class="quick-mint-title">
-              <span data-t="quickMintKicker">READY TO MINT?</span>
-              <strong data-t="quickMintTitle">Choose your route</strong>
-            </div>
-            <div class="quick-mint-links">
-              <a class="quick-mint-card recommended" href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener">
-                <img src="assets/platforms/unisat-wallet.svg" alt="UniSat Wallet">
-                <span>
-                  <strong>UniSat Wallet</strong>
-                  <small data-t="quickUnisat">Recommended · BRC-20 mint</small>
-                </span>
-                <em data-t="quickOpen">OPEN ↗</em>
-              </a>
-              <a class="quick-mint-card" href="https://web3.okx.com/en/help/how-can-i-inscribe-brc20-tokens" target="_blank" rel="noopener">
-                <img src="assets/platforms/okx-wallet.svg" alt="OKX Wallet">
-                <span>
-                  <strong>OKX Wallet</strong>
-                  <small data-t="quickOkx">Alternative · Official mint guide</small>
-                </span>
-                <em data-t="quickOpen">OPEN ↗</em>
-              </a>
-            </div>
-            <small class="quick-mint-note" data-t="quickMintNote">Third-party services. Always verify ticker QUQN and Bitcoin before confirming.</small>
+          <div class="tech-trust-row">
+            <span data-t="noPresale">NO PRESALE</span><span data-t="noIco">NO ICO</span><span data-t="noFundraising">NO FUNDRAISING</span><span data-t="fairMint">FAIR MINT</span>
           </div>
-
-          <div class="micro-facts"><span data-t="noPresale">NO PRESALE</span><span data-t="noIco">NO ICO</span><span data-t="noFundraising">NO FUNDRAISING</span><span data-t="fairMint">FAIR MINT</span></div>
         </div>
 
-        <aside id="billionaire" class="hero-game" aria-label="QUQN billionaire roulette">
-          <div class="hero-game-head">
-            <span class="kicker" data-t="gameKicker">THE COMPLETELY SCIENTIFIC QUQN TEST</span>
-            <h2 data-t="gameTitle">What kind of billionaire will you be?</h2>
-            <p data-t="gameIntro">One click. Zero science. QUQN decides your imaginary billionaire future.</p>
-            <button id="spinFuture" class="btn gold game-button" type="button"><span data-t="gameButton">SPIN MY FUTURE</span> ↻</button>
+        <div class="tech-city-card">
+          <img src="assets/hero-night-city.webp" alt="QUQN overlooking a futuristic golden city">
+          <div class="tech-city-vignette"></div>
+          <div class="tech-city-topline"><span><i></i> QUQN NETWORK VIEW</span><strong>#127329518</strong></div>
+          <div class="tech-city-bottom">
+            <img src="assets/quqn-token.png" alt="QUQN token">
+            <div><small data-tech-i18n="protocol">PROTOCOL</small><strong>BRC-20 / 4-BYTE</strong></div>
+            <div><small data-tech-i18n="network">NETWORK</small><strong>BITCOIN</strong></div>
           </div>
-          <div id="futureCard" class="future-card hero-future-card" aria-live="polite">
-            <div class="future-stage hero-future-stage">
-              <img id="futureImage" src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN billionaire future">
-              <div id="spinFX" class="spin-fx" aria-hidden="true"><span>🪙</span><span>👑</span><span>🐓</span><span>💰</span></div>
-            </div>
-            <div class="future-result">
-              <small data-t="yourFuture">YOUR QUQN FUTURE</small>
-              <h3 id="futureTitle">Supercar Collector</h3>
-              <div class="future-meta"><span id="futureRarity" data-rarity="common">COMMON</span></div>
-              <p id="futurePunchline">The garage has become a liquidity problem.</p>
-              <div class="future-actions">
-                <button id="spinAgain" class="text-button" type="button" data-t="spinAgain">Try another destiny ↻</button>
-                <button id="shareFuture" type="button">SHARE DESTINY ↗</button>
-              </div>
-            </div>
-          </div>
-          <p class="game-disclaimer" data-t="gameDisclaimer">Just a random meme game. Not a prediction, promise or financial advice. Obviously.</p>
-        </aside>
+        </div>
+      </div>
+
+      <div class="shell tech-data-shell">
+        <div class="tech-data-rail">
+          <div class="tech-data-brand"><img src="assets/quqn-token.png" alt=""><span><b>QUQN</b><small>BRC-20 · BITCOIN</small></span><i id="syncState">STATIC</i></div>
+          <div class="tech-stat"><small data-t="minted">Minted</small><strong id="minted">90,000</strong></div>
+          <div class="tech-stat"><small data-t="holders">Holders</small><strong id="holders">1</strong></div>
+          <div class="tech-stat"><small data-t="max">Max supply</small><strong>21,000,000</strong></div>
+          <div class="tech-stat"><small data-t="perMint">Per mint</small><strong>1,000</strong></div>
+          <div class="tech-progress"><div><small data-t="progress">Mint progress</small><strong id="progressPct">0.43%</strong></div><div class="tech-meter"><i id="meterFill"></i></div></div>
+        </div>
       </div>
     </section>
+
+    <section id="mint-options" class="tech-mint-rail">
+      <div class="shell tech-mint-inner">
+        <div><small data-t="quickMintKicker">READY TO MINT?</small><strong data-tech-i18n="verifyFirst">VERIFY FIRST. MINT SECOND.</strong></div>
+        <a href="https://unisat.io/inscribe/brc20" target="_blank" rel="noopener"><img src="assets/platforms/unisat-wallet.svg" alt="UniSat"><span><b>UniSat</b><small data-t="quickUnisat">Recommended · BRC-20 mint</small></span><em>↗</em></a>
+        <a href="https://web3.okx.com/en/help/how-can-i-inscribe-brc20-tokens" target="_blank" rel="noopener"><img src="assets/platforms/okx-wallet.svg" alt="OKX"><span><b>OKX Wallet</b><small data-t="quickOkx">Alternative · Official mint guide</small></span><em>↗</em></a>
+        <p data-t="quickMintNote">Third-party services. Always verify ticker QUQN and Bitcoin before confirming.</p>
+      </div>
+    </section>
+
 
     <!-- The hero automatically changes with the Northern Hemisphere season. -->
     <section class="reference-explainer" id="how"><div class="shell">
@@ -253,8 +226,8 @@
   <div class="ref-section-heading"><span class="ref-eyebrow" data-ref="storyEyebrow">THE QUQN STORY</span><h2 data-ref="storyHeading">One little dream. A much bigger world.</h2><p data-ref="storyIntro">Meet the dreamer. The other two are still waiting in the shadows.</p></div>
   <div class="reference-character-grid">
     <article class="reference-character known"><div class="reference-character-art"><img src="assets/quqn-thinking.webp" alt="QUQN thinking about his future"><span class="character-badge" data-ref="quqnMood">THE DREAMER</span></div><div class="reference-character-copy"><small>01 · QUQN</small><h3>QUQN</h3><p data-ref="quqnBody">Small wallet. Impossible ambition. Some days he worries, some days he believes he can rule the world.</p><a href="#story" data-ref="meetQuqn">MEET QUQN ↓</a></div></article>
-    <article class="reference-character unknown"><div class="reference-character-art"><div class="secret-silhouette silhouette-one" aria-hidden="true"><i></i></div><span class="character-badge" data-ref="locked">COMING SOON</span></div><div class="reference-character-copy"><small>02 · ???</small><h3>???</h3><p data-ref="lockedBody">Another character will enter the story. Their identity remains a secret.</p><span class="locked-link">✦   CHAPTER LOCKED</span></div></article>
-    <article class="reference-character unknown"><div class="reference-character-art"><div class="secret-silhouette silhouette-two" aria-hidden="true"><i></i></div><span class="character-badge" data-ref="locked">COMING SOON</span></div><div class="reference-character-copy"><small>03 · ???</small><h3>???</h3><p data-ref="lockedBody">Another character will enter the story. Their identity remains a secret.</p><span class="locked-link">✦   CHAPTER LOCKED</span></div></article>
+    <article class="reference-character unknown"><div class="reference-character-art"><img class="secret-character-img secret-nbro" src="assets/secret-nbro.svg" alt="" aria-hidden="true"><span class="character-badge" data-ref="locked">COMING SOON</span></div><div class="reference-character-copy"><small>02 · ???</small><h3>???</h3><p data-ref="lockedBody">Another character will enter the story. Their identity remains a secret.</p><span class="locked-link">✦   CHAPTER LOCKED</span></div></article>
+    <article class="reference-character unknown"><div class="reference-character-art"><img class="secret-character-img secret-mrko" src="assets/secret-mrko.svg" alt="" aria-hidden="true"><span class="character-badge" data-ref="locked">COMING SOON</span></div><div class="reference-character-copy"><small>03 · ???</small><h3>???</h3><p data-ref="lockedBody">Another character will enter the story. Their identity remains a secret.</p><span class="locked-link">✦   CHAPTER LOCKED</span></div></article>
   </div>
 </div></section><section class="ticker"><div>21,000,000 DREAMS ✦ BORN ON BITCOIN ✦ SMALL COQ. BIG DREAMS. ✦ SMALL WALLET, MASSIVE CONFIDENCE ✦ ROOSTERS CAN'T FLY. QUQN DOESN'T CARE. ✦</div></section>
     <section id="story" class="section black">
@@ -271,6 +244,103 @@
     <section id="ranks" class="section black">
       <div class="shell"><div class="section-head"><span class="kicker" data-t="coopKicker">THE COOP</span><h2 data-t="coopTitle">How unreasonable are your dreams?</h2><p data-t="coopIntro">Community ranks are for fun. They currently create no financial rights or rewards.</p></div><div id="rankGrid" class="rank-grid"></div></div>
     </section>
+
+    <section id="quqn-lab" class="tech-lab section">
+      <div class="shell">
+        <div class="tech-section-head">
+          <div><span class="tech-kicker">QUQN LAB / CREATE</span><h2 data-tech-i18n="labTitle">Turn the meme into something people can use.</h2></div>
+          <p data-tech-i18n="labIntro">Create a meme, build a QUQN-style profile picture, then bring it back to The Coop.</p>
+        </div>
+
+        <div class="tech-lab-grid">
+          <article class="lab-card lab-meme">
+            <div class="lab-card-head"><span>01</span><div><small>QUQN TOOL</small><h3 data-tech-i18n="memeFactory">Meme Factory</h3></div><b>CANVAS</b></div>
+            <canvas id="memeCanvas" width="720" height="720" aria-label="QUQN meme preview"></canvas>
+            <div class="lab-controls">
+              <label><span data-tech-i18n="template">Template</span><select id="memeTemplate">
+                <option value="city">Night City</option>
+                <option value="lambo">Wen Lambo?</option>
+                <option value="moon">Moon Base</option>
+                <option value="casino">Casino Boss</option>
+                <option value="wallstreet">Wall Street</option>
+                <option value="broke">Still Broke</option>
+                <option value="diamond">Diamond Hands</option>
+                <option value="trader">3 A.M. Trader</option>
+                <option value="king">Crypto King</option>
+                <option value="jet">Private Jet</option>
+                <option value="nantes">Nantes</option>
+                <option value="himeji">Himeji</option>
+              </select></label>
+              <label><span>Caption preset</span><select id="memePreset">
+                <option value="custom">Custom</option>
+                <option value="dreams">Small Coq / Big Dreams</option>
+                <option value="bitcoin">Born on Bitcoin</option>
+                <option value="fair">Fair Mint / No VC</option>
+                <option value="broke">Still not rich / Still here</option>
+                <option value="coop">From the Coop / To the Moon</option>
+                <option value="early">I minted early / Now we wait</option>
+              </select></label>
+              <label><span data-tech-i18n="topText">Top text</span><input id="memeTop" value="SMALL COQ."></label>
+              <label><span data-tech-i18n="bottomText">Bottom text</span><input id="memeBottom" value="BIG DREAMS."></label>
+            </div>
+            <button id="memeDownload" class="lab-button" type="button" data-tech-i18n="exportPng">EXPORT PNG ↗</button>
+          </article>
+
+          <article class="lab-card lab-pfp">
+            <div class="lab-card-head"><span>02</span><div><small>QUQN TOOL</small><h3 data-tech-i18n="pfpMaker">PFP Maker</h3></div><b>LOCAL</b></div>
+            <div class="pfp-stage"><canvas id="pfpCanvas" width="720" height="720" aria-label="QUQN PFP preview"></canvas></div>
+            <div class="pfp-note"><i>●</i><span data-tech-i18n="localOnly">Your image stays in your browser. Nothing is uploaded to QUQN.</span></div>
+            <div class="lab-controls one-col"><label class="upload-label"><span data-tech-i18n="uploadPhoto">Upload a photo</span><input id="pfpUpload" type="file" accept="image/*"></label></div>
+            <button id="pfpDownload" class="lab-button" type="button" data-tech-i18n="exportPfp">EXPORT PFP ↗</button>
+          </article>
+
+          <article class="lab-card lab-wall">
+            <div class="lab-card-head"><span>03</span><div><small>THE COOP</small><h3 data-tech-i18n="coopWall">Coop Wall</h3></div><b>PREVIEW</b></div>
+            <div class="wall-grid">
+              <img src="assets/gallery/destiny-31-nantes-coq.webp" alt="QUQN Nantes">
+              <img src="assets/gallery/destiny-33-himeji-shogun.webp" alt="QUQN Himeji">
+              <img src="assets/gallery/destiny-36-lambo-coq.webp" alt="QUQN Lambo">
+              <img src="assets/gallery/destiny-05-moon-base-billionaire.webp" alt="QUQN Moon Base">
+            </div>
+            <p data-tech-i18n="wallNote">A future community wall for real QUQN creations. The preview uses official QUQN artwork — no fake community posts.</p>
+            <a class="lab-button" href="https://x.com/intent/post?text=Small%20Coq.%20Big%20Dreams.%20%24QUQN%20%23BRC20%20%23Bitcoin&url=https%3A%2F%2Fquqn.eu" target="_blank" rel="noopener" data-tech-i18n="shareX">CREATE & SHARE ON X ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="playground" class="tech-playground section black">
+      <div class="shell tech-playground-grid">
+        <div class="tech-playground-copy">
+          <span class="tech-kicker" data-tech-i18n="playgroundKicker">QUQN PLAYGROUND / PURE NONSENSE</span>
+          <h2 data-tech-i18n="playgroundTitle">The tech is real. The billionaire test is not.</h2>
+          <p data-tech-i18n="playgroundIntro">We kept the weird part of QUQN — just moved it away from the front door.</p>
+        </div>
+        <aside id="billionaire" class="hero-game tech-game" aria-label="QUQN billionaire roulette">
+          <div class="hero-game-head">
+            <span class="kicker" data-t="gameKicker">THE COMPLETELY SCIENTIFIC QUQN TEST</span>
+            <h2 data-t="gameTitle">What kind of billionaire will you be?</h2>
+            <p data-t="gameIntro">One click. Zero science. QUQN decides your imaginary billionaire future.</p>
+            <button id="spinFuture" class="btn gold game-button" type="button"><span data-t="gameButton">SPIN MY FUTURE</span> ↻</button>
+          </div>
+          <div id="futureCard" class="future-card hero-future-card" aria-live="polite">
+            <div class="future-stage hero-future-stage">
+              <img id="futureImage" src="assets/gallery/le-roi-coq-et-la-supercar-doree.webp" alt="QUQN billionaire future">
+              <div id="spinFX" class="spin-fx" aria-hidden="true"><span>🪙</span><span>👑</span><span>🐓</span><span>💰</span></div>
+            </div>
+            <div class="future-result">
+              <small data-t="yourFuture">YOUR QUQN FUTURE</small>
+              <h3 id="futureTitle">Supercar Collector</h3>
+              <div class="future-meta"><span id="futureRarity" data-rarity="common">COMMON</span></div>
+              <p id="futurePunchline">The garage has become a liquidity problem.</p>
+              <div class="future-actions"><button id="spinAgain" class="text-button" type="button" data-t="spinAgain">Try another destiny ↻</button><button id="shareFuture" type="button">SHARE DESTINY ↗</button></div>
+            </div>
+          </div>
+          <p class="game-disclaimer" data-t="gameDisclaimer">Just a random meme game. Not a prediction, promise or financial advice. Obviously.</p>
+        </aside>
+      </div>
+    </section>
+
 
     <section id="community" class="community"><div class="shell community-box"><div><span class="kicker dark">THE COOP</span><h2 data-t="communityTitle">A meme needs people, not promises.</h2><p data-t="communityBody">Follow QUQN on X for memes, Coop updates and on-chain milestones. Join the QUQN community on Telegram.</p></div><div id="socialButtons" class="social-buttons">
   <a class="btn dark" href="https://x.com/QUQNbtc" target="_blank" rel="noopener">𝕏 @QUQNbtc</a>
@@ -344,11 +414,11 @@
 
   <div id="lightbox" class="lightbox" aria-hidden="true"><button id="lightboxClose" aria-label="Close">×</button><img id="lightboxImg" alt=""><span id="lightboxTitle"></span></div>
   <script src="assets/js/app.js?v=20260917-social-top" defer></script>
-  <script src="assets/js/quqn-audio.js?v=20260924-header-layout" defer></script>
   <script src="assets/js/v6.js?v=20260924-coop-header" defer></script>
   <script src="assets/js/unisat-live.js" defer></script>
   <script src="assets/js/reference.js" defer></script>
   <script src="assets/js/roadmap.js" defer></script>
+  <script src="assets/js/tech-v2.js?v=20260927-tech1" defer></script>
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b35c66ba3ab247f2be2e243dfdebaa23"}'></script>
   <!-- End Cloudflare Web Analytics -->
