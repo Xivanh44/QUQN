@@ -354,8 +354,107 @@ const fmt=n=>Number(n).toLocaleString(lang==='fr'?'fr-FR':lang==='zh'?'zh-CN':la
 const safe=(sel,fn)=>{const el=$(sel); if(el)fn(el); return el};
 
 
+
+/* ===== V8.6.4 — Road to 21 Million translation correction ===== */
+const roadTranslationFix = {
+  en:{
+    roadKicker:'THE ROAD TO 21 MILLION',
+    roadTitle:'From the farm<br>to absurdly big dreams.',
+    roadBody:'This tracks minted supply, not price. Each real QUQN mint simply moves the little coq a little further along the road.',
+    roadLoading:'Loading current mint progress…'
+  },
+  fr:{
+    roadKicker:'LA ROUTE VERS 21 MILLIONS',
+    roadTitle:'De la ferme<br>aux rêves démesurés.',
+    roadBody:'Cette jauge suit l’offre déjà mintée, pas le prix. Chaque mint réel de QUQN fait simplement avancer un peu le petit coq.',
+    roadLoading:'Chargement de la progression du mint…'
+  },
+  zh:{
+    roadKicker:'通往 2100 万 QUQN',
+    roadTitle:'从农场出发，<br>奔向大得离谱的梦想。',
+    roadBody:'这里显示的是已铸造供应量的进度，不是价格目标。每一次真实的 QUQN 铸造，只会让这只小公鸡在路上再前进一步。',
+    roadLoading:'正在加载当前铸造进度…'
+  },
+  ko:{
+    roadKicker:'2,100만 QUQN을 향한 길',
+    roadTitle:'농장에서 시작해,<br>터무니없이 큰 꿈으로.',
+    roadBody:'이 막대는 민트된 공급량의 진행 상황을 보여줄 뿐 가격 목표가 아닙니다. 실제 QUQN이 민트될 때마다 작은 수탉이 길 위에서 조금씩 앞으로 나아갑니다.',
+    roadLoading:'현재 민트 진행 상황을 불러오는 중…'
+  },
+  ja:{
+    roadKicker:'2100万 QUQN への道',
+    roadTitle:'農場から、<br>とてつもなく大きな夢へ。',
+    roadBody:'これはミント済み供給量の進捗を示すもので、価格目標ではありません。QUQNが実際にミントされるたび、小さなコックが少しずつ先へ進みます。',
+    roadLoading:'現在のミント進捗を読み込み中…'
+  },
+  pt:{
+    roadKicker:'O CAMINHO ATÉ 21 MILHÕES',
+    roadTitle:'Da fazenda<br>a sonhos gigantes.',
+    roadBody:'Esta barra acompanha a oferta já mintada, não o preço. Cada mint real de QUQN apenas faz o pequeno galo avançar um pouco mais.',
+    roadLoading:'Carregando o progresso atual do mint…'
+  },
+  es:{
+    roadKicker:'EL CAMINO A 21 MILLONES',
+    roadTitle:'De la granja<br>a sueños descomunales.',
+    roadBody:'Esta barra sigue la oferta ya minteada, no el precio. Cada mint real de QUQN simplemente hace avanzar un poco más al pequeño gallo.',
+    roadLoading:'Cargando el progreso actual del mint…'
+  },
+  ar:{
+    roadKicker:'الطريق إلى 21 مليون QUQN',
+    roadTitle:'من المزرعة<br>إلى أحلام هائلة.',
+    roadBody:'يعرض هذا شريط تقدم الكمية التي تم سكها، وليس هدفًا للسعر. كل عملية سك حقيقية لـ QUQN تدفع الديك الصغير خطوة أخرى إلى الأمام.',
+    roadLoading:'جارٍ تحميل تقدم السك الحالي…'
+  },
+  th:{
+    roadKicker:'เส้นทางสู่ 21 ล้าน QUQN',
+    roadTitle:'จากฟาร์ม<br>สู่ความฝันที่ใหญ่เกินตัว',
+    roadBody:'แถบนี้แสดงความคืบหน้าของจำนวน QUQN ที่ Mint แล้ว ไม่ใช่เป้าหมายราคา ทุก Mint จริงจะพาเจ้าตัวเล็กเดินหน้าไปอีกนิด',
+    roadLoading:'กำลังโหลดความคืบหน้าการ Mint…'
+  },
+  vi:{
+    roadKicker:'HÀNH TRÌNH ĐẾN 21 TRIỆU QUQN',
+    roadTitle:'Từ nông trại<br>đến những giấc mơ khổng lồ.',
+    roadBody:'Thanh này theo dõi lượng QUQN đã được mint, không phải mục tiêu giá. Mỗi lần mint QUQN thực sự chỉ đưa chú gà trống nhỏ tiến thêm một chút.',
+    roadLoading:'Đang tải tiến độ mint hiện tại…'
+  },
+  tr:{
+    roadKicker:"21 MİLYON QUQN'A GİDEN YOL",
+    roadTitle:'Çiftlikten<br>devasa hayallere.',
+    roadBody:"Bu çubuk fiyatı değil, mint edilen arzın ilerlemesini gösterir. Her gerçek QUQN mint'i küçük horozu yolda biraz daha ileri taşır.",
+    roadLoading:'Mevcut mint ilerlemesi yükleniyor…'
+  },
+  id:{
+    roadKicker:'JALAN MENUJU 21 JUTA QUQN',
+    roadTitle:'Dari peternakan<br>menuju mimpi yang kelewat besar.',
+    roadBody:'Bar ini menunjukkan progres suplai yang sudah di-mint, bukan target harga. Setiap mint QUQN yang nyata hanya membuat si ayam kecil maju sedikit lagi.',
+    roadLoading:'Memuat progres mint saat ini…'
+  },
+  hi:{
+    roadKicker:'21 मिलियन QUQN की राह',
+    roadTitle:'फार्म से<br>बेहद बड़े सपनों तक।',
+    roadBody:'यह बार mint हो चुकी supply की प्रगति दिखाता है, price target नहीं। हर वास्तविक QUQN mint छोटे मुर्गे को रास्ते पर थोड़ा और आगे बढ़ाता है।',
+    roadLoading:'मौजूदा mint progress लोड हो रही है…'
+  }
+};
+
+Object.entries(roadTranslationFix).forEach(([code,copy])=>{
+  if(translations[code]) Object.assign(translations[code],copy);
+});
+
 const roadUi={
-  en:{roadMilestoneFarm:'THE FARM',roadMilestoneStart:'START',roadMinted:'minted'},fr:{roadMilestoneFarm:'LA FERME',roadMilestoneStart:'DÉPART',roadMinted:'mintés'},zh:{roadMilestoneFarm:'农场',roadMilestoneStart:'开始',roadMinted:'已铸造'},ko:{roadMilestoneFarm:'농장',roadMilestoneStart:'시작',roadMinted:'민트됨'},ja:{roadMilestoneFarm:'農場',roadMilestoneStart:'スタート',roadMinted:'ミント済み'},pt:{roadMilestoneFarm:'A FAZENDA',roadMilestoneStart:'INÍCIO',roadMinted:'mintados'},es:{roadMilestoneFarm:'LA GRANJA',roadMilestoneStart:'INICIO',roadMinted:'minteados'},ar:{roadMilestoneFarm:'المزرعة',roadMilestoneStart:'البداية',roadMinted:'تم سكها'},th:{roadMilestoneFarm:'ฟาร์ม',roadMilestoneStart:'เริ่ม',roadMinted:'Mint แล้ว'},vi:{roadMilestoneFarm:'TRANG TRẠI',roadMilestoneStart:'BẮT ĐẦU',roadMinted:'đã mint'},tr:{roadMilestoneFarm:'ÇİFTLİK',roadMilestoneStart:'BAŞLANGIÇ',roadMinted:'mint edildi'},id:{roadMilestoneFarm:'PETERNAKAN',roadMilestoneStart:'MULAI',roadMinted:'sudah di-mint'},hi:{roadMilestoneFarm:'फार्म',roadMilestoneStart:'शुरुआत',roadMinted:'minted'}
+  en:{roadMilestoneFarm:'THE FARM',roadMilestoneStart:'START',roadMinted:'minted'},
+  fr:{roadMilestoneFarm:'LA FERME',roadMilestoneStart:'DÉPART',roadMinted:'mintés'},
+  zh:{roadMilestoneFarm:'农场',roadMilestoneStart:'起点',roadMinted:'已铸造'},
+  ko:{roadMilestoneFarm:'농장',roadMilestoneStart:'출발',roadMinted:'민트됨'},
+  ja:{roadMilestoneFarm:'農場',roadMilestoneStart:'出発',roadMinted:'ミント済み'},
+  pt:{roadMilestoneFarm:'A FAZENDA',roadMilestoneStart:'INÍCIO',roadMinted:'mintados'},
+  es:{roadMilestoneFarm:'LA GRANJA',roadMilestoneStart:'INICIO',roadMinted:'minteados'},
+  ar:{roadMilestoneFarm:'المزرعة',roadMilestoneStart:'البداية',roadMinted:'تم سكها'},
+  th:{roadMilestoneFarm:'ฟาร์ม',roadMilestoneStart:'เริ่มต้น',roadMinted:'Mint แล้ว'},
+  vi:{roadMilestoneFarm:'NÔNG TRẠI',roadMilestoneStart:'BẮT ĐẦU',roadMinted:'đã mint'},
+  tr:{roadMilestoneFarm:'ÇİFTLİK',roadMilestoneStart:'BAŞLANGIÇ',roadMinted:'mint edildi'},
+  id:{roadMilestoneFarm:'PETERNAKAN',roadMilestoneStart:'MULAI',roadMinted:'sudah di-mint'},
+  hi:{roadMilestoneFarm:'फार्म',roadMilestoneStart:'शुरुआत',roadMinted:'mint हो चुके'}
 };
 window.quqnRoadText=(key)=>((roadUi[lang]||roadUi.en)[key]||(roadUi.en[key]||key));
 function currentSeason(){const m=new Date().getMonth()+1; if(m>=3&&m<=5)return 'spring'; if(m>=6&&m<=8)return 'summer'; if(m>=9&&m<=11)return 'autumn'; return 'winter'}
