@@ -160,3 +160,17 @@ html{scroll-behavior:smooth}
   .tech-game .hero-future-stage{width:100%!important;height:auto!important;aspect-ratio:1/1!important;max-width:360px!important;margin:0 auto!important}
   .tech-game .future-result{padding:14px 8px 8px!important}
 }
+
+
+/* === Coop Wall shortcut feedback === */
+.lab-card{scroll-margin-top:96px}
+.lab-card-active{
+  border-color:rgba(115,233,225,.58)!important;
+  box-shadow:0 0 0 1px rgba(115,233,225,.14),0 0 34px rgba(115,233,225,.13),0 24px 70px rgba(0,0,0,.32)!important;
+  animation:quqnToolPulse .7s ease-out 1;
+}
+@keyframes quqnToolPulse{
+  0%{transform:translateY(0);filter:brightness(1)}
+  45%{transform:translateY(-3px);filter:brightness(1.12)}
+  100%{transform:translateY(0);filter:brightness(1)}
+}
