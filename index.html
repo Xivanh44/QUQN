@@ -880,6 +880,56 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
   html[lang="zh"] #heroTitle,html[lang="ja"] #heroTitle,html[lang="ko"] #heroTitle{font-size:clamp(42px,12vw,68px)!important}
 }
 
+
+/* ===== V8.6.2 — fixed title zone, text auto-fits ===== */
+.hero-title-box{
+  width:100%;
+  max-width:100%;
+  height:290px;
+  min-width:0;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-start;
+  position:relative;
+}
+.hero-title-box #heroTitle{
+  width:100%!important;
+  max-width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  line-height:.96!important;
+  letter-spacing:-.05em!important;
+}
+.hero-title-box #heroTitle .hero-title-line{
+  display:block!important;
+  white-space:nowrap!important;
+  max-width:100%!important;
+  line-height:.99!important;
+}
+.hero-title-box #heroTitle em.hero-title-line{
+  padding-top:.05em!important;
+}
+@media (min-width:981px) and (max-width:1320px){
+  .hero-title-box{height:248px}
+}
+@media (min-width:651px) and (max-width:980px){
+  .hero-title-box{height:218px}
+}
+@media (max-width:650px){
+  .hero-title-box{height:180px}
+}
+
+/* Keep secret characters centered and fully contained in their cards. */
+.reference-character.unknown .secret-character-img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center bottom!important;
+  padding:10px 22px 0!important;
+  transform:none!important;
+}
+
 </style>
 
 
@@ -943,7 +993,7 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
             <span>BRC-20</span>
             <span data-tech-i18n="fairMint">FAIR MINT</span>
           </div>
-          <h1 id="heroTitle"><span class="hero-title-line">SMALL COQ.</span><em class="hero-title-line">BIG DREAMS.</em></h1>
+          <div class="hero-title-box"><h1 id="heroTitle"><span class="hero-title-line">SMALL COQ.</span><em class="hero-title-line">BIG DREAMS.</em></h1></div>
           <p id="heroSubtitle" class="hero-subtitle">Meet QUQN — the tiny coq who represents every crypto dreamer.</p>
           <p class="tech-hero-note" data-tech-i18n="heroNote">A Bitcoin-native meme character built around a public BRC-20 fair mint.</p>
           <div class="tech-hero-actions">
@@ -1470,7 +1520,7 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
     q('[data-vote-reset]',layer)?.addEventListener('click',()=>{
       localStorage.removeItem('qfrVote');
       renderCoop();
-    }));
+    });
 
     /* Archive = actual navigation layer, not decorative gallery. */
     q('[data-panel="archive"]',layer).innerHTML=`<div class="qfr-archive-head">
@@ -1598,4 +1648,65 @@ html[lang="th"] #heroTitle .hero-title-line,html[lang="vi"] #heroTitle .hero-tit
   <!-- Cloudflare Web Analytics -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "b35c66ba3ab247f2be2e243dfdebaa23"}'></script>
   <!-- End Cloudflare Web Analytics -->
-</body></html>
+</body></htm
+<script>
+/* V8.6.2 — automatically fit every translated hero title inside one fixed area. */
+(() => {
+  let raf = 0;
+
+  function fitHeroTitle(){
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(() => {
+      const box = document.querySelector('.hero-title-box');
+      const title = document.getElementById('heroTitle');
+      if(!box || !title) return;
+
+      const w = window.innerWidth;
+      let maxSize = w <= 650 ? 76 : (w <= 980 ? 88 : 112);
+      let minSize = w <= 650 ? 28 : 34;
+
+      title.style.fontSize = maxSize + 'px';
+
+      let size = maxSize;
+      while(
+        size > minSize &&
+        (title.scrollWidth > box.clientWidth + 1 || title.scrollHeight > box.clientHeight + 1)
+      ){
+        size -= 1;
+        title.style.fontSize = size + 'px';
+      }
+    });
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', fitHeroTitle);
+  }else{
+    fitHeroTitle();
+  }
+
+  new MutationObserver(fitHeroTitle).observe(document.documentElement,{
+    attributes:true,
+    attributeFilter:['lang']
+  });
+
+  const title = document.getElementById('heroTitle');
+  if(title){
+    new MutationObserver(fitHeroTitle).observe(title,{
+      childList:true,
+      subtree:true,
+      characterData:true
+    });
+  }
+
+  document.addEventListener('click',e=>{
+    if(e.target.closest('[data-lang-choice]')){
+      setTimeout(fitHeroTitle,30);
+      setTimeout(fitHeroTitle,160);
+    }
+  },true);
+
+  window.addEventListener('resize',fitHeroTitle,{passive:true});
+})();
+</script>
+
+l>
