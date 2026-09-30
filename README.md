@@ -2,8 +2,12 @@
 
 **QUQN is a fair-mint BRC-20 community project built on Bitcoin.**
 
-🌐 **Official website:** https://quqn.eu
+## 🔗 Official links
 
+- 🌐 Website: https://quqn.eu
+- 🔎 UniScan: https://uniscan.cc/brc20/QUQN
+- 𝕏 X / Twitter: https://x.com/QUQNbtc
+- ✈️ Telegram: https://t.me/QUQNbtc
 ---
 
 ## What is QUQN?
