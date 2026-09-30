@@ -1,167 +1,112 @@
-# QUQN website — V8 final
+# 🐓 QUQN — Small Coq. Big Dreams.
 
-Static, multilingual, GitHub-Pages-ready site for **QUQN — Small Coq. Big Dreams.**
+**QUQN is a fair-mint BRC-20 community project built on Bitcoin.**
 
-## V8 final — September 27, 2026
+🌐 **Official website:** https://quqn.eu
 
-This package is the complete GitHub Pages build for **quqn.eu**.
+---
 
-- Current black / gold / cyan technical homepage preserved.
-- **QUQN Dossier** added as a compact homepage entry with a deeper premium reference view.
-- **Inscription Log** added with clickable proof / archive routes.
-- **The Coop** expanded with interactive community flow, vote preview, richer archive and creation-wall concept.
-- **QUQN Lab** includes working Meme Factory and local PFP Maker (download / Web Share where supported).
-- Language dropdown supports 13 languages: English, French, Chinese, Korean, Japanese, Portuguese-BR, Spanish, Arabic, Thai, Vietnamese, Turkish, Indonesian and Hindi.
-- Mobile rank grid uses three compact cards per row and the QUQN character crop is recentered.
-- Cloudflare Web Analytics remains enabled on the public homepage.
+## What is QUQN?
 
-### Deploy
+QUQN started with a simple idea:
 
-Upload the **contents of this package** to the root of the existing GitHub repository, replacing files with the same names. Keep the `assets/` and `worker/` folders in the repository root alongside `index.html`.
+**Small Coq. Big Dreams.**
 
+A small character with big ambitions trying to find his place in a world that is not always fair.
 
-## Earlier v3 foundation
+But QUQN is not meant to remain alone.
 
+The project is growing into a universe of different characters, stories and personalities connected by the same desire to move forward, dream bigger and build something together.
 
-- Added a complete **New to crypto? Start here** onboarding path for friends/contacts who have never used Bitcoin, wallets or BRC-20.
-- Beginner guide covers: official wallet install, recovery-phrase security, adding BTC for fees, verifying the exact QUQN ticker, batch minting, confirmation and checking holdings.
-- Added a live mini-calculator: number of mints × 1,000 QUQN.
-- Added an anti-scam token fingerprint and a prominent recovery-phrase warning.
-- Added a mini glossary for Wallet / Recovery phrase / Mint / BRC-20 / Batch mint / Fees.
-- Hero now offers two routes: **I’m new — guide me** or **I know crypto — open QUQN**.
-- Manager can edit the beginner-guide introduction and QUQN’s beginner quote.
-- QUQN name used consistently everywhere.
-- Fair-mint facts are now central to the homepage: **no presale, no ICO, no fundraising, no creator mint fee, no personal data in exchange for tokens, no promised listing**.
-- The legal page now explains the relevance of MiCA Article 4(3)(a) and Article 4(4) without claiming a guaranteed exemption.
-- Homepage is English-first with a 13-language dropdown.
-- 28 existing QUQN visuals are included in an optimized WebP gallery.
-- Six community ranks are configured: 1k / 10k / 50k / 100k / 500k / 1M.
-- Manager supports copy, stats, social links, hero selection, gallery visibility and secure image upload.
-- Live stats can be pulled from UniSat through the Worker without exposing the UniSat API key.
+🐓 QUQN is the beginning.  
+NBRO and MRKO are already part of the story — and more will come.
 
-## Token facts configured
+---
 
-- Ticker: **QUQN**
-- Network: Bitcoin mainnet
-- Protocol: BRC-20
-- Max supply: 21,000,000
-- Mint limit: 1,000
-- Fallback minted: 90,000
-- Fallback holders: 1
-- Fallback transactions: 91
-- UniScan: https://uniscan.cc/brc20/QUQN
-- Deployment: 2026-09-07 17:37:46
-- Inscription number: #127329518
+## ₿ Built on Bitcoin
 
-## Publish on GitHub Pages
+QUQN uses the **BRC-20 standard** on Bitcoin.
 
-1. Create a public GitHub repository, e.g. `quqn`.
-2. Upload the **contents** of this folder to the repository root.
-3. GitHub → Repository **Settings → Pages**.
-4. Build and deployment → **Deploy from a branch** → `main` / root.
-5. The site works without a custom domain.
+BRC-20 allows fungible tokens to exist within the Bitcoin Ordinals ecosystem without requiring a separate blockchain.
 
-## Secure PIN manager
+### Token information
 
-A PIN stored only in browser JavaScript is not security. GitHub Pages is static, so `manager.html` uses a tiny Cloudflare Worker as the secure bridge.
+- **Ticker:** QUQN
+- **Network:** Bitcoin Mainnet
+- **Protocol:** BRC-20
+- **Maximum supply:** 21,000,000 QUQN
+- **Mint limit:** 1,000 QUQN
+- **Launch:** Fair mint
+- **Deployment:** September 7, 2026
 
-Daily workflow once configured:
+🔎 **UniScan:** https://uniscan.cc/brc20/QUQN
 
-1. Open `/manager.html`.
-2. Enter your 12-character PIN.
-3. Edit the site.
-4. Click **Save & publish**.
+---
 
-No GitHub login is needed for daily edits. The GitHub token and PIN remain Worker secrets.
+## 🤝 Fair Mint
 
-### Worker setup
+QUQN was designed around open participation.
 
-Deploy `worker/worker.js` as a Cloudflare Worker. Use `worker/wrangler.toml.example` as the variable template.
+There was:
 
-Variables:
+- No private sale
+- No ICO
+- No reserved allocation for insiders before the public mint
+- No promised exchange listing
 
-- `GITHUB_OWNER`
-- `GITHUB_REPO`
-- `GITHUB_BRANCH=main`
-- `ALLOWED_ORIGIN` = exact GitHub Pages origin, for example `https://username.github.io`
+The community can participate through the public BRC-20 minting process.
 
-Secrets:
+---
 
-- `ADMIN_PIN` — exactly 12 random characters. Do not commit it and do not send it in chat.
-- `SESSION_SECRET` — 32+ random characters.
-- `GITHUB_TOKEN` — fine-grained token restricted to the QUQN repository with **Contents: Read and write**.
-- `UNISAT_API_TOKEN` — UniSat Open API token.
+## 🌙 The QUQN Universe
 
-Then edit `assets/config.json` and set:
+QUQN is also the beginning of a narrative project.
 
-```json
-"apiBase": "https://YOUR-WORKER.workers.dev"
-```
+Each character will have a different personality, background and way of seeing the world.
 
-### Manager capabilities
+What begins as a naive search for money and success gradually becomes something bigger:
 
-- change fallback mint / holder / transaction figures;
-- enable or disable live UniSat sync;
-- update English/French announcement;
-- update hero and story copy;
-- add X and Telegram links;
-- change the hero visual;
-- show/hide gallery images;
-- upload a new image from a phone or computer (client-side resized to max 1600 px, converted to WebP, then securely committed to GitHub);
-- download `config.json` as a manual backup.
+**friendship, freedom, identity and shared dreams.**
 
-## Live QUQN stats
+The universe will evolve alongside the community.
 
-Public site → Worker `/api/token` → official UniSat Open API:
+---
 
-`GET https://open-api.unisat.io/v1/indexer/brc20/QUQN/info`
+## 🐓 Join the Coop
 
-The Worker returns public fields only. The UniSat API key never reaches the browser. If sync fails, the site automatically uses fallback values in `assets/config.json`.
+QUQN is still at the beginning.
 
-## Mint buttons
+You can participate in the project through **GitHub Discussions**:
 
-The site does **not** process a mint or connect a wallet. It links to:
+- 💬 QUQN Community
+- 💡 Ideas
+- 🌙 Lore & Characters
+- ₿ Bitcoin / BRC-20
+- 🗳️ Polls
+- 📣 Official announcements
 
-- QUQN on UniScan: `https://uniscan.cc/brc20/QUQN`
-- UniSat BRC-20 inscription interface: `https://unisat.io/inscribe/brc20`
+👉 Open the **Discussions** tab above to join the community.
 
-UniScan's QUQN page can be used to verify the ticker and access its Mint action. Never replace these links with a payment address controlled by the project if you intend to keep the current fair-mint model.
+---
 
-## Fair-mint / MiCA design constraint
+## 🛣️ The Road to 21 Million
 
-The website is written around the current factual model:
+The journey continues until the full **21,000,000 QUQN** supply is minted.
 
-- no presale;
-- no ICO;
-- no primary sale by QUQN;
-- no fundraising;
-- no fees/commission received by QUQN from prospective holders in exchange for tokens;
-- no personal data required by QUQN in exchange for tokens;
-- no announced intention by QUQN to seek admission to trading;
-- no promised market, liquidity or profit.
+Progress, community ranks, characters and project developments can be followed on:
 
-MiCA Article 4(3)(a) says Title II does not apply to an offer where the crypto-asset is offered for free, while defining situations in which an offer is *not* considered free. Article 4(4) limits exemptions where an intention to seek admission to trading is made known. **This repository does not claim or prove that a regulator has determined QUQN to be exempt.** If the mechanics change, review the legal text before promoting the change.
+🌐 **https://quqn.eu**
 
-Official references are linked inside `legal.html`.
+---
 
-## Before launch
+## 🛠️ Open Project
 
-Recommended next steps:
+This repository contains the public website and resources used by the QUQN project.
 
-1. Create official **X** and **Telegram** accounts.
-2. Add those URLs in Manager.
-3. Deploy the Cloudflare Worker and enable live stats.
-4. Test every external mint/verification link on mobile.
-5. Keep the factual fair-mint statements accurate over time.
-6. If you later add creator fees, paid allocations, rewards, NFTs, a requested exchange listing, wallet collection or personal-data collection, pause and reassess the legal/technical setup first.
+Ideas, feedback and community participation are welcome through GitHub Discussions.
 
+---
 
-## Beginner guide sources / assumptions
+### Small Coq. Big Dreams. 🐓₿
 
-The beginner workflow is based on UniSat's official current documentation. UniSat notes that its UI may change, so the site deliberately tells users to follow the on-screen interface and verify the exact ticker/amount before submitting. Official links are configured in `assets/config.json`:
-
-- Wallet download: `https://unisat.io/download`
-- Wallet setup: `https://docs.unisat.io/products/unisat-wallet/how-to-create-unisat-wallet`
-- BRC-20 inscription guide: `https://docs.unisat.io/products/unisat-inscribe/how-to-inscribe-on-unisat`
-
-The public QUQN website itself never asks for a recovery phrase, connects a wallet, receives a mint payment or handles BTC.
+**QUQN**
